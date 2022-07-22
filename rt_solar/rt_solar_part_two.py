@@ -32,7 +32,7 @@ def main():
     check_result('ab125cab$13cbb9991', 9991)
     check_result('ab125cab13cbb9992$', 9992)
     check_result('ab125cab13cbb99930$', 99930)
-    check_result('$ab125cab13cbb9994', 9994)
+    check_result('$ab125cab13cbb9994_', 9994)
     check_result('$', 0)
     check_result('1$2', 2)
     check_result('', 0)
