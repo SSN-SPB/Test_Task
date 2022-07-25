@@ -1,6 +1,7 @@
 This folder considers the different implementation of testing using python3, pytest, pydantic. <br/>
 Checked with pep8 and pycodestyle.<br/>
 <br/>
+<br/>
 1) Task one tests API for https://www.freeforexapi.com/api/live?pairs= with different pairs of currencies. Each pair is in the separate file<br/>
 rt_solar_part_one_task_three.py<br/>
 rt_solar_part_one_task_two.py<br/>
@@ -20,6 +21,6 @@ Run expamples:<br/>
 pytest -v -rPf rt_solar_part_one_task_one_fixture.py
 <br/>
 <br/>
-4) Part two: find the largest number in the string with special symbols like: grgr\$64523424234\#\54545aaa<br/>
+4) Part two: find the largest number in the string with special symbols like: grgr$64523424234#54545aaa<br/>
 rt_solar_part_two.py - without iteraction<br/>
 rt_solar_part_two_console_version.py - with iteraction in console<br/>
