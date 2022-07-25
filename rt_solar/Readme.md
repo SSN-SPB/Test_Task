@@ -21,6 +21,6 @@ Run expamples:<br/>
 pytest -v -rPf rt_solar_part_one_task_one_fixture.py
 <br/>
 <br/>
-4 Part two: find the largest number in the string with special symbols like: grgr$64523424234#54545aaa<br/>
+4 Part two: find the largest number in the string with special symbols like: grgr$64523424234#54545aaas<br/>
 rt_solar_part_two.py - without iteraction<br/>
 rt_solar_part_two_console_version.py - with iteraction in console<br/>
