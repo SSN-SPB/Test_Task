@@ -3,9 +3,9 @@ Checked with pep8 and pycodestyle.<br/>
 <br/>
 <br/>
 1 Task one tests API for https://www.freeforexapi.com/api/live?pairs= with different pairs of currencies. Each pair is in the separate file<br/>
-rt_solar_part_one_task_three.py<br/>
-rt_solar_part_one_task_two.py<br/>
 rt_solar_part_one_task_one.py<br/>
+rt_solar_part_one_task_two.py<br/>
+rt_solar_part_one_task_three.py<br/>
 Run expamples:<br/>
 As pytest: pytest -v rt_solar_part_one_task_one.py<br/>
 As python script: python rt_solar_part_one_task_one.py - pytest is ignored in this mode<br/>
