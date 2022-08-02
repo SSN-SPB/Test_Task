@@ -24,6 +24,3 @@ pytest -v -rPf pytest_api_rest_get_task_one_fixture.py
 pytest_api_rest_get_tasks_parameterized.py
 pytest -vrPf pytest_api_rest_get_tasks_parameterized.py
 <br/>
-4 Part two: find the largest number in the string with special symbols like: grgr$64523424234#54545aaas<br/>
-python_largest_two.py - without iteraction<br/>
-python_largest_console_version.py - with iteraction in console<br/>
