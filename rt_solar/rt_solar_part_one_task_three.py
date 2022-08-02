@@ -39,7 +39,6 @@ def test_code_is_1002():
 
 def main():
     retrieved_data = get_pair_data(ENDPOINT)
-    # print(retrieved_data)
     test_message_contains_error_text()
     test_supportedpairs_exists()
     test_code_is_1002()
