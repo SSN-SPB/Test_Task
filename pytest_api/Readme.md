@@ -19,3 +19,6 @@ pytest -v -rPf pytest_api_rest_get_task_one_fixture.py
 3 Parameterized pytest run example:</br>
 pytest_api_rest_get_tasks_parameterized.py</br>
 pytest -vrPf pytest_api_rest_get_tasks_parameterized.py</br>
+</br>
+4 The testing single API request example: </br>
+pytest -vrPf pytest_api_rest_get_task_one_singe_api.py</br>
