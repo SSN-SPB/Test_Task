@@ -2,6 +2,7 @@
 This folder considers the different implementation of testing using python3 and pytest. </br>
 Checked with pep8 and pycodestyle.</br>
 </br>
+Test location - see the ./test/ subdirectory
 </br>
 <h2>1 Task one</h2>
  tests API for https://www.freeforexapi.com/api/live?pairs= with different pairs of currencies. Each pair is in the separate file</br>
