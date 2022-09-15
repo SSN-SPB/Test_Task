@@ -38,3 +38,13 @@ Check Code For List Of Currency Pair
         Do Get Request    ${REST_API_ENDPOINT}    ${pair}
         Should Be Equal    '${output_get_request.status_code}'    '200'
     END
+
+Check Ruble Dollar Rate
+    [Documentation]    This test verifies that USD/RUB rate less 100
+    ...    (positive scenario)
+    ...    \n*Ref:*
+    ...    (JIRA_TICKET-13 Placeholder)
+    [Tags]    single_pair
+    [Teardown]    Log    The test ${TEST NAME} is completed
+    Do Get Request    ${REST_API_ENDPOINT}    ${API_PARAMETERS}
+    Should Be True    ${json_object_get_request['rates']['USDRUB']['rate']} < 100
