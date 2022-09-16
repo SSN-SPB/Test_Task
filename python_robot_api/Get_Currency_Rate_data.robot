@@ -48,3 +48,4 @@ Check Ruble Dollar Rate
     [Teardown]    Log    The test ${TEST NAME} is completed
     Do Get Request    ${REST_API_ENDPOINT}    ${API_PARAMETERS}
     Should Be True    ${json_object_get_request['rates']['USDRUB']['rate']} < 100
+    Should Contain  ${json_object_get_request['rates']}    USDRUB
