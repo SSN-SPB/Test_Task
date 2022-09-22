@@ -10,6 +10,7 @@ Resource         ./Currency_Pairs/Get_Currency_Pairs_Resource.resource
 *** Variables ***
 ${REST_API_ENDPOINT}    /api/live
 ${API_PARAMETERS}    pairs=USDRUB
+${RATE_EURUSD}    pairs=EURUSD
 @{LIST_OF_PAIRS}    pairs=USDRUB    pairs=EURUSD,USDRUB    pairs=EURUSD
 
 
@@ -48,3 +49,20 @@ Check Ruble Dollar Rate
     [Teardown]    Log    The test ${TEST NAME} is completed
     Do Get Request    ${REST_API_ENDPOINT}    ${API_PARAMETERS}
     Should Be True    ${json_object_get_request['rates']['USDRUB']['rate']} < 100
+    Should Contain  ${json_object_get_request['rates']}    USDRUB
+
+Check Ruble Euro Rate
+    [Documentation]    This test calculates EUR/RUB and verifies it less 70
+    ...    (positive scenario)
+    ...    \n*Ref:*
+    ...    (JIRA_TICKET-13 Placeholder)
+    [Tags]    calculated_value
+    [Teardown]    Log    The test ${TEST NAME} is completed
+    Do Get Request    ${REST_API_ENDPOINT}    ${RATE_EURUSD}
+    Set Test Variable    ${RATE_EURO_USD}    ${json_object_get_request['rates']['EURUSD']['rate']}
+    Do Get Request    ${REST_API_ENDPOINT}    ${API_PARAMETERS}
+    Set Test Variable    ${RATE_USD_RUB}    ${json_object_get_request['rates']['USDRUB']['rate']}
+    ${RATE_EURO_RUB} =     Evaluate    ${RATE_EURO_USD}*${RATE_USD_RUB}
+    Set Test Variable    ${RATE_EURO_RUB}    ${RATE_EURO_RUB}
+    Log Many    ${RATE_EURO_RUB}
+    Should Be True    ${RATE_EURO_RUB} < 70

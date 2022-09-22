@@ -24,5 +24,4 @@ Do Get Request
     ${response_code} =    Get Value From Json    ${output_req.json()}    code
     Set Test Variable    ${JSON_OBJECT_GET_REQUEST}    ${output_req.json()}
     Set Test Variable    ${OUTPUT_GET_REQUEST}    ${output_req}
-    # Duplicate - code 200 checking
     Set Test Variable    ${RECEIVED_CODE}    ${response_code}
