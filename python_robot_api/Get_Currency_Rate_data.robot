@@ -62,6 +62,7 @@ Check Ruble Euro Rate
     Set Test Variable    ${RATE_EURO_USD}    ${json_object_get_request['rates']['EURUSD']['rate']}
     Do Get Request    ${REST_API_ENDPOINT}    ${API_PARAMETERS}
     Set Test Variable    ${RATE_USD_RUB}    ${json_object_get_request['rates']['USDRUB']['rate']}
-    Set Test Variable    ${RATE_EURO_RUB}    ${RATE_EURO_USD}*${RATE_USD_RUB}
+    ${RATE_EURO_RUB} =     Evaluate    ${RATE_EURO_USD}*${RATE_USD_RUB}
+    Set Test Variable    ${RATE_EURO_RUB}    ${RATE_EURO_RUB}
     Log Many    ${RATE_EURO_RUB}
     Should Be True    ${RATE_EURO_RUB} < 100
