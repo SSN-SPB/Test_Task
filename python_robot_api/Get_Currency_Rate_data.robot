@@ -52,7 +52,7 @@ Check Ruble Dollar Rate
     Should Contain  ${json_object_get_request['rates']}    USDRUB
 
 Check Ruble Euro Rate
-    [Documentation]    This test calculates EUR/RUB and verifies it less 100
+    [Documentation]    This test calculates EUR/RUB and verifies it less 70
     ...    (positive scenario)
     ...    \n*Ref:*
     ...    (JIRA_TICKET-13 Placeholder)
@@ -65,4 +65,4 @@ Check Ruble Euro Rate
     ${RATE_EURO_RUB} =     Evaluate    ${RATE_EURO_USD}*${RATE_USD_RUB}
     Set Test Variable    ${RATE_EURO_RUB}    ${RATE_EURO_RUB}
     Log Many    ${RATE_EURO_RUB}
-    Should Be True    ${RATE_EURO_RUB} < 100
+    Should Be True    ${RATE_EURO_RUB} < 70
