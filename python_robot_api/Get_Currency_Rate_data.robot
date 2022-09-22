@@ -52,7 +52,7 @@ Check Ruble Dollar Rate
     Should Contain  ${json_object_get_request['rates']}    USDRUB
 
 Check Ruble Euro Rate
-    [Documentation]    This test calculate EUR/RUB and verifies it less 100
+    [Documentation]    This test calculates EUR/RUB and verifies it less 100
     ...    (positive scenario)
     ...    \n*Ref:*
     ...    (JIRA_TICKET-13 Placeholder)
