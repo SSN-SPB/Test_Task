@@ -30,9 +30,11 @@ File pytest_api_rest_get_singe_request_per_suite.py</br>
 Run:</br>
 pytest -vrPf pytest_api_rest_get_singe_request_per_suite.py</br>
 </br>
+<h2>5 Configuration</h2></br>
 </br>
-</br> <b>The default values are defined in /test/pytest.ini<b>
-</br> The running with the default option example is:
-</br> pytest test/pytest_api_rest_get_singe_request_per_suite.py
-</br></br> or directly: pytest (the directory and file mask are defined
-</br> in the pytest.ini
+<h3> The default values are defined in <b>/test/pytest.ini</b> </h3></br> 
+The running with the default option example is:</br> 
+pytest test/pytest_api_rest_get_singe_request_per_suite.py</br></br>  
+or directly:</br>  
+pytest </br> 
+Remark: the directory with test files and file mask are defined in the pytest.ini <br>
