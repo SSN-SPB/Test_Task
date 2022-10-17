@@ -31,10 +31,9 @@ Run:</br>
 pytest -vrPf pytest_api_rest_get_singe_request_per_suite.py</br>
 </br>
 <h2>5 Configuration</h2></br>
-</br>
-<h3> The default values are defined in <b>/test/pytest.ini</b> </h3></br> 
+<h3>5.1 The default values are defined within /test/pytest.ini</h3></br> 
 The running with the default option example is:</br> 
 pytest test/pytest_api_rest_get_singe_request_per_suite.py</br></br>  
-or directly:</br>  
-pytest </br> 
-Remark: the directory with test files and file mask are defined in the pytest.ini <br>
+Possible to run without option:</br>  
+<b>pytest</b> </br> 
+Remark: the directory with test files and file mask to select file tor run are defined in the pytest.ini <br>
