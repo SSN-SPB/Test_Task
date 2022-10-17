@@ -12,7 +12,7 @@ pytest_api_rest_get_task_two.py</br>
 pytest_api_rest_get_task_three.py</br>
 Run expamples:</br>
 As pytest: <b><i>pytest -v pytest_api_rest_get_task_one.py</b></i></br>
-As python script: <b><i>python pytest_api_rest_get_task_one.py - pytest is ignored in this mode</b></i></br>
+As python script: <b><i>python pytest_api_rest_get_task_one.py</b></i> - pytest is ignored in this mode</br>
 </br>
 </br>
 <h2>2 Example of fixture using within pytest</h2>
