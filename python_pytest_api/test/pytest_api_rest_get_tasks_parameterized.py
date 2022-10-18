@@ -19,8 +19,9 @@ def get_pair_data(endpoint):
     return requested_data
 
 
+@pytest.mark.check_response_code
 @pytest.mark.parametrize("pair_to_check, expected_code", RESPONSE_CODE_LIST)
-def test_code_is_200(pair_to_check, expected_code):
+def test_different_codes_parametrized_checking(pair_to_check, expected_code):
     tested_response = get_pair_data(ENV_URL + pair_to_check)
     checked_value = tested_response['code'] == expected_code
     print('The code = {} for pair {} is: {}'
