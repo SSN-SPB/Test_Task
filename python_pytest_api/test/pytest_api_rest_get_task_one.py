@@ -55,7 +55,7 @@ def test_code_unknown_pair_request(expected_code):
 def test_usrub_rate_less_100():
     tested_response = get_pair_data(ENDPOINT)
     checked_value = tested_response['rates']['USDRUB']['rate'] < 100
-    print('The rate < 100 is: {}'.format(checked_value))
+    print('The ruble rate < 100 is: {}'.format(checked_value))
     assert checked_value
 
 
