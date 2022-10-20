@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 import json
 import requests
+import pytest
 
 
 TESTED_PAIR = 'EURUSD,USDRUB'
+TESTED_PAIR_WITH_EMPTY_COMMA_INSIDE = 'EURUSD,,,USDRUB'
 ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
 ENDPOINT = ENV_URL + TESTED_PAIR
+ENDPOINT_WITH_EMPTY_COMMAS = ENV_URL + TESTED_PAIR_WITH_EMPTY_COMMA_INSIDE
 
 
 def get_pair_data(endpoint):
@@ -22,10 +25,22 @@ def test_code_is_200():
     assert checked_value
 
 
-def test_eurusd_exists():
+def test_euro_usd_rate_exists():
     tested_response = get_pair_data(ENDPOINT)
     checked_value = 'EURUSD' in tested_response['rates'].keys()
     print('The EURUSD exists in response is: {}'.format(checked_value))
+    assert checked_value
+
+
+@pytest.mark.check_different_version_of_pairs
+def test_internal_comma_doesnt_affect_response():
+    tested_response = get_pair_data(ENDPOINT)
+    tested_response2 = get_pair_data(ENDPOINT_WITH_EMPTY_COMMAS)
+    print('without commas: {}'.format(tested_response))
+    print('with commas: {}'.format(tested_response2))
+    checked_value = tested_response == tested_response2
+    print('The commas inside request do'
+          ' not affect response is: {}'.format(checked_value))
     assert checked_value
 
 
@@ -40,7 +55,7 @@ def main():
     retrieved_data = get_pair_data(ENDPOINT)
     print(retrieved_data)
     test_code_is_200()
-    test_eurusd_exists()
+    test_euro_usd_rate_exists()
     test_usdrub_exists()
 
 

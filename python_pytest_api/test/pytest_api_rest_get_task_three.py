@@ -3,7 +3,7 @@ import json
 import requests
 
 
-TESTED_PAIR = 'STABILNOST'
+TESTED_PAIR = 'NOT_EXISTING_PAIR'
 ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
 ENDPOINT = ENV_URL + TESTED_PAIR
 ERROR_MESSAGE = 'was not recognised or supported'
@@ -23,7 +23,7 @@ def test_message_contains_error_text():
     assert checked_value
 
 
-def test_supportedpairs_exists():
+def test_response_text_contains():
     tested_response = get_pair_data(ENDPOINT)
     checked_value = 'supportedPairs' in tested_response.keys()
     print('The supportedPairs exists in response is: {}'.format(checked_value))
@@ -40,7 +40,7 @@ def test_code_is_1002():
 def main():
     retrieved_data = get_pair_data(ENDPOINT)
     test_message_contains_error_text()
-    test_supportedpairs_exists()
+    test_response_text_contains()
     test_code_is_1002()
 
 
