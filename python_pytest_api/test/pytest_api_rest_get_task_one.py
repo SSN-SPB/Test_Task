@@ -2,11 +2,14 @@
 import json
 import requests
 import pytest
+from collections import Counter
 
 
 TESTED_PAIR = 'USDRUB'
+MULTI_PAIR = 'USDRUB,AUDUSD,EURGBP'
 ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
 ENDPOINT = ENV_URL + TESTED_PAIR
+MULTI_ENDPOINT = ENV_URL + MULTI_PAIR
 
 
 @pytest.fixture()
@@ -43,6 +46,21 @@ def test_code_is_200(expected_code):
     assert checked_value
 
 
+@pytest.mark.count_occurrences
+def test_count_occurrences_rates():
+    tested_response = get_pair_data(MULTI_ENDPOINT)
+    print('The multi response is: '.format(tested_response))
+    c = 0
+    for k, v in tested_response['rates'].items():
+        for k1, v1 in v.items():
+            if k1 == 'rate':
+                print('The pair {} has rate {} '.format(k, v1))
+                c = c + 1
+    checked_value = c == len(tested_response['rates'])
+    print('The occurrence rate checking is: {}'.format(checked_value))
+    assert checked_value
+
+
 @pytest.mark.check_response_code
 def test_code_unknown_pair_request(expected_code):
     tested_response = get_pair_data(ENV_URL + 'bad_endpoint_string')
@@ -52,7 +70,7 @@ def test_code_unknown_pair_request(expected_code):
     assert checked_value
 
 
-def test_usrub_rate_less_100():
+def test_usd_rub_rate_less_100():
     tested_response = get_pair_data(ENDPOINT)
     checked_value = tested_response['rates']['USDRUB']['rate'] < 100
     print('The ruble rate < 100 is: {}'.format(checked_value))
