@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 import json
 import requests
-
+from resource_dir import resourse_data
 
 class TestClass:
 
     TESTED_PAIR = 'USDRUB'
-    ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
+    # ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
+    ENV_URL = resourse_data.BASE_URL
     ENDPOINT = ENV_URL + TESTED_PAIR
 
 
