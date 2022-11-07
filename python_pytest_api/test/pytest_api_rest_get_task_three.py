@@ -19,7 +19,7 @@ def get_pair_data(endpoint):
 def test_message_contains_error_text():
     tested_response = get_pair_data(ENDPOINT)
     checked_value = ERROR_MESSAGE in tested_response['message']
-    print('The message contains error message is: {}'.format(checked_value))
+    print('This message contains error message is: {}'.format(checked_value))
     assert checked_value
 
 
