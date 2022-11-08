@@ -2,10 +2,10 @@
 import json
 import requests
 import pytest
-
+from resource_dir import resourse_data
 
 TESTED_PAIR = 'USDRUB'
-ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
+ENV_URL = resourse_data.BASE_URL
 ENDPOINT = ENV_URL + TESTED_PAIR
 
 

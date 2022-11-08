@@ -2,9 +2,12 @@
 import json
 import requests
 import pytest
+from resource_dir import resourse_data
 
 
-ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
+ENV_URL = resourse_data.BASE_URL
+
+
 RESPONSE_CODE_LIST = [
     ("USDRUB", 200),
     ("EURUSD,USDRUB", 200),

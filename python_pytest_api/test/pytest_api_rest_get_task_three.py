@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 import json
 import requests
+from resource_dir import resourse_data
 
 
 TESTED_PAIR = 'NOT_EXISTING_PAIR'
-ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
+ENV_URL = resourse_data.BASE_URL
 ENDPOINT = ENV_URL + TESTED_PAIR
 ERROR_MESSAGE = 'was not recognised or supported'
 
