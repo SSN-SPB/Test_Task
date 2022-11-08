@@ -2,12 +2,12 @@
 import json
 import requests
 import pytest
-from collections import Counter
+from resource_dir import resourse_data
 
 
 TESTED_PAIR = 'USDRUB'
 MULTI_PAIR = 'USDRUB,AUDUSD,EURGBP'
-ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
+ENV_URL = resourse_data.BASE_URL
 ENDPOINT = ENV_URL + TESTED_PAIR
 MULTI_ENDPOINT = ENV_URL + MULTI_PAIR
 

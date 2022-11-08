@@ -2,11 +2,11 @@
 import json
 import requests
 import pytest
-
+from resource_dir import resourse_data
 
 TESTED_PAIR = 'EURUSD,USDRUB'
 TESTED_PAIR_WITH_EMPTY_COMMA_INSIDE = 'EURUSD,,,USDRUB'
-ENV_URL = 'https://www.freeforexapi.com/api/live?pairs='
+ENV_URL = resourse_data.BASE_URL
 ENDPOINT = ENV_URL + TESTED_PAIR
 ENDPOINT_WITH_EMPTY_COMMAS = ENV_URL + TESTED_PAIR_WITH_EMPTY_COMMA_INSIDE
 
