@@ -61,15 +61,6 @@ def test_count_occurrences_rates():
     assert checked_value
 
 
-@pytest.mark.check_response_code
-def test_code_unknown_pair_request(expected_code):
-    tested_response = get_pair_data(ENV_URL + 'bad_endpoint_string')
-    checked_value = tested_response['code'] == expected_code['NotKnownPair']
-    print('The bad code = {} is: {}'.format(expected_code['NotKnownPair'],
-                                            checked_value))
-    assert checked_value
-
-
 def test_usd_rub_rate_less_100():
     tested_response = get_pair_data(ENDPOINT)
     checked_value = tested_response['rates']['USDRUB']['rate'] < 100
