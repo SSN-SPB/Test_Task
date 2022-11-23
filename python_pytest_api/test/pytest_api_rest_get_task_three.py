@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-import json
-import requests
 from resource_dir import resourse_data
 from resource_dir.requests import get_pair_data
 
@@ -9,13 +7,6 @@ TESTED_PAIR = 'NOT_EXISTING_PAIR'
 ENV_URL = resourse_data.BASE_URL
 ENDPOINT = ENV_URL + TESTED_PAIR
 ERROR_MESSAGE = 'was not recognised or supported'
-
-
-# def get_pair_data(endpoint):
-#     get_request = requests.get(endpoint,
-#                                headers={'Content-Type': 'application/json'})
-#     requested_data = json.loads(get_request.text)
-#     return requested_data
 
 
 def test_message_contains_error_text():
@@ -40,7 +31,6 @@ def test_code_is_1002():
 
 
 def main():
-    retrieved_data = get_pair_data(ENDPOINT)
     test_message_contains_error_text()
     test_response_text_contains()
     test_code_is_1002()
