@@ -39,9 +39,13 @@ def test_negative_no_pair(expected_code):
 def test_code_unknown_pair_request(expected_code):
     tested_response = get_pair_data(ENV_URL + 'bad_endpoint_string')
     checked_value = tested_response['code'] == expected_code['NotKnownPair']
+    checked_value_supported = tested_response['supportedPairs'][0] == "AUDUSD"
     print('The bad code = {} is: {}'.format(expected_code['NotKnownPair'],
                                             checked_value))
+    first_pair = tested_response['supportedPairs'][0]
+    print('The first supported pair is: {}'.format(first_pair))
     assert checked_value
+    assert checked_value_supported
 
 
 def test_usd_rub_rate_less_100():
@@ -54,10 +58,7 @@ def test_usd_rub_rate_less_100():
 def main():
     retrieved_data = get_pair_data(ENDPOINT)
     print(retrieved_data)
-    test_code_exists()
-    test_rates_exists()
-    test_code_is_200()
-    test_usrub_rate_less_100()
+    test_usd_rub_rate_less_100()
 
 
 if __name__ == '__main__':
