@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-import json
-import requests
 import pytest
 from resource_dir import resourse_data
-
+from resource_dir.requests import get_pair_data
 
 TESTED_PAIR = 'USDRUB'
 MULTI_PAIR = 'USDRUB,AUDUSD,EURGBP'
@@ -15,13 +13,6 @@ MULTI_ENDPOINT = ENV_URL + MULTI_PAIR
 @pytest.fixture()
 def expected_code():
     return {'OK': 200, 'NotKnownPair': 1002}
-
-
-def get_pair_data(endpoint):
-    get_request = requests.get(endpoint,
-                               headers={'Content-Type': 'application/json'})
-    requested_data = json.loads(get_request.text)
-    return requested_data
 
 
 @pytest.mark.check_negative

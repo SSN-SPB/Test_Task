@@ -2,6 +2,7 @@
 import json
 import requests
 from resource_dir import resourse_data
+from resource_dir.requests import get_pair_data
 
 
 class TestClass:
@@ -11,11 +12,11 @@ class TestClass:
     ENDPOINT = ENV_URL + TESTED_PAIR
 
 
-def get_pair_data(endpoint):
-    get_request = requests.get(endpoint,
-                               headers={'Content-Type': 'application/json'})
-    requested_data = json.loads(get_request.text)
-    return requested_data
+# def get_pair_data(endpoint):
+#     get_request = requests.get(endpoint,
+#                                headers={'Content-Type': 'application/json'})
+#     requested_data = json.loads(get_request.text)
+#     return requested_data
 
 
 tested_response = get_pair_data(TestClass.ENDPOINT)

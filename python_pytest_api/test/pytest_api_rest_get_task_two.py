@@ -3,6 +3,7 @@ import json
 import requests
 import pytest
 from resource_dir import resourse_data
+from resource_dir.requests import get_pair_data
 
 TESTED_PAIR = 'EURUSD,USDRUB'
 TESTED_PAIR_WITH_EMPTY_COMMA_INSIDE = 'EURUSD,,,USDRUB'
@@ -11,11 +12,11 @@ ENDPOINT = ENV_URL + TESTED_PAIR
 ENDPOINT_WITH_EMPTY_COMMAS = ENV_URL + TESTED_PAIR_WITH_EMPTY_COMMA_INSIDE
 
 
-def get_pair_data(endpoint):
-    get_request = requests.get(endpoint,
-                               headers={'Content-Type': 'application/json'})
-    requested_data = json.loads(get_request.text)
-    return requested_data
+# def get_pair_data(endpoint):
+#     get_request = requests.get(endpoint,
+#                                headers={'Content-Type': 'application/json'})
+#     requested_data = json.loads(get_request.text)
+#     return requested_data
 
 
 def test_code_is_200():
