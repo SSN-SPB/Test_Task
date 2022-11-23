@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-import json
-import requests
 import pytest
 from resource_dir import resourse_data
+from resource_dir.requests import get_pair_data
 
 
 TESTED_PAIR = 'USDRUB'
@@ -15,13 +14,6 @@ MULTI_ENDPOINT = ENV_URL + MULTI_PAIR
 @pytest.fixture()
 def expected_code():
     return {'OK': 200, 'NotKnownPair': 1002}
-
-
-def get_pair_data(endpoint):
-    get_request = requests.get(endpoint,
-                               headers={'Content-Type': 'application/json'})
-    requested_data = json.loads(get_request.text)
-    return requested_data
 
 
 def test_code_exists():
@@ -74,7 +66,6 @@ def main():
     test_code_exists()
     test_rates_exists()
     test_code_is_200()
-    test_usrub_rate_less_100()
 
 
 if __name__ == '__main__':

@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-import json
-import requests
 import pytest
 from resource_dir import resourse_data
+from resource_dir.requests import get_pair_data
 
 TESTED_PAIR = 'USDRUB'
 ENV_URL = resourse_data.BASE_URL
@@ -21,13 +20,6 @@ def introduction():
     print('Start pytest')
     yield
     print('Test is finished')
-
-
-def get_pair_data(endpoint):
-    get_request = requests.get(endpoint,
-                               headers={'Content-Type': 'application/json'})
-    requested_data = json.loads(get_request.text)
-    return requested_data
 
 
 @pytest.mark.usefixtures('introduction', 'setup')
