@@ -44,13 +44,3 @@ def test_usd_rub_rate_less_100():
     checked_value = tested_response['rates']['USDRUB']['rate'] < 100
     print('The ruble rate < 100 is: {}'.format(checked_value))
     assert checked_value
-
-
-def main():
-    retrieved_data = get_pair_data(ENDPOINT)
-    print(retrieved_data)
-    test_usd_rub_rate_less_100()
-
-
-if __name__ == '__main__':
-    main()

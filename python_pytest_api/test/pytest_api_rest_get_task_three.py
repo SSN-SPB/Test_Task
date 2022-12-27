@@ -28,13 +28,3 @@ def test_code_is_1002():
     checked_value = tested_response['code'] == 1002
     print('The code = 1002 is: {}'.format(checked_value))
     assert checked_value
-
-
-def main():
-    test_message_contains_error_text()
-    test_response_text_contains()
-    test_code_is_1002()
-
-
-if __name__ == '__main__':
-    main()
