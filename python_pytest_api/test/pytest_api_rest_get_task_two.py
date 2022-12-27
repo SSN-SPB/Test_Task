@@ -41,15 +41,3 @@ def test_usdrub_exists():
     checked_value = 'USDRUB' in tested_response['rates'].keys()
     print('The USDRUB exists in response is: {}'.format(checked_value))
     assert checked_value
-
-
-def main():
-    retrieved_data = get_pair_data(ENDPOINT)
-    print(retrieved_data)
-    test_code_is_200()
-    test_euro_usd_rate_exists()
-    test_usdrub_exists()
-
-
-if __name__ == '__main__':
-    main()
