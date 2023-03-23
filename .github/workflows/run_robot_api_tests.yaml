@@ -17,8 +17,10 @@ jobs:
       - run: python -m pip install robotframework
       - run: echo "python -m robot --version"
       - run: python -m pip install robotframework-requests
-      - run: python -m robot ../../python_robot_api/Get_Currency_Rate_data.robot
+      - name: Run robot API tests
+      - run: python -m robot /home/runner/work/Test_Task/Test_Task/python_robot_api/Get_Currency_Rate_data.robot
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+          ls ${{ github.workspace }}/python_robot_api
       - run: echo "🍏 This job's status is ${{ job.status }}."
