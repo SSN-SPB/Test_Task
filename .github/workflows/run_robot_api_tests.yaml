@@ -7,7 +7,7 @@ jobs:
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "robot ../../python_robot_api/Get_Currency_Rate_data.robot"
-      - run: ls ../../
+      - run: pwd
       - run: ls ./
       - run: python --version
       - run: python -m pip install robotframework
