@@ -9,9 +9,9 @@ jobs:
       - run: echo "robot ./python_robot_api/Get_Currency_Rate_data.robot"
       - run: python --version
       - run: python -m pip install robotframework
-      - run: robot --version
+      - run: python -m robot --version
       - run: python -m pip robotframework-requests
-      - run: robot ./python_robot_api/Get_Currency_Rate_data.robot
+      - run: python -m robot ./python_robot_api/Get_Currency_Rate_data.robot
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
