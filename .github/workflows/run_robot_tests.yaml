@@ -1,5 +1,5 @@
-name: Run Robot API tests
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Run Robot API tests New Run
+run-name: ${{ github.actor }} is testing launching Robot tests on Github
 on: [push]
 jobs:
   Robot-API-tests:
