@@ -17,8 +17,8 @@ ${EXPECTED_RATE_VALUE_EURRUB}    83
 
 *** Test Cases ***
 Check Code For Single Currency Pair
-    [Documentation]    This test verifies response code 200 for the singe valid pair
-    ...    (positive scenario)
+    [Documentation]    This test verifies response code 200
+    ...    for the singe valid pair (positive scenario)
     ...    \n*Ref:*
     ...    (JIRA_TICKET-11 Placeholder)
     [Tags]    single_pair
