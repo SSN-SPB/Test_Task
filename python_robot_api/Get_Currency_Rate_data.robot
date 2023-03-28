@@ -11,7 +11,7 @@ Resource         ./Currency_Pairs/Get_Currency_Pairs_Resource.resource
 ${REST_API_ENDPOINT}    /api/live
 ${API_PARAMETERS}    pairs=USDRUB
 ${RATE_EURUSD}    pairs=EURUSD
-${EXPECTED_RATE_VALUE_EURRUB}    83
+${EXPECTED_RATE_VALUE_EURRUB}    84
 @{LIST_OF_PAIRS}    pairs=USDRUB    pairs=EURUSD,USDRUB    pairs=EURUSD
 
 
