@@ -17,5 +17,7 @@ jobs:
       - run: ls -la /home/runner/work/Test_Task/Test_Task
       - run: echo "show files from variable"
       - run: ls ${{ github.workspace }}
+      - run: cd ${{ github.workspace }}/python_robot_api
+      - run: pwd
       - run: ls -la /home/runner/work/Test_Task/Test_Task/python_robot_api/
       - run: python -m robot /home/runner/work/Test_Task/Test_Task/python_robot_api/Get_Currency_Rate_data.robot
