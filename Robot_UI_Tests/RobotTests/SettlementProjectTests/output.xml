@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.11.1 on win32)" generated="20230321 17:35:51.730" rpa="false" schemaversion="3">
+<suite id="s1" name="SettlementCommonTests" source="C:\SergeiSmirnov\DiskD\Projects\EPMGDB\epmgdby\Robot_UI_Tests\RobotTests\SettlementProjectTests\SettlementCommonTests.robot">
+<kw name="Remove Files" library="OperatingSystem" type="SETUP">
+<arg>*.png</arg>
+<doc>Uses `Remove File` to remove multiple files one-by-one.</doc>
+<msg timestamp="20230321 17:35:51.888" level="INFO" html="true">File '&lt;a href="file://C:\SergeiSmirnov\DiskD\Projects\EPMGDB\epmgdby\Robot_UI_Tests\RobotTests\SettlementProjectTests\*.png"&gt;C:\SergeiSmirnov\DiskD\Projects\EPMGDB\epmgdby\Robot_UI_Tests\RobotTests\SettlementProjectTests\*.png&lt;/a&gt;' does not exist.</msg>
+<status status="PASS" starttime="20230321 17:35:51.887" endtime="20230321 17:35:51.888"/>
+</kw>
+<test id="s1-t1" name="Check Availability HealthCare" line="15">
+<kw name="OPEN HEALTHCARE SITE" library="HealthcarePageElements">
+<arg>${BROWSER}</arg>
+<doc>This step opens healthcare site with require browser
+(positive scenario)</doc>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${HEALTHCARE_SITE}</arg>
+<arg>${selected_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230321 17:35:51.890" level="INFO">Opening browser 'Chrome' to base url 'https://montenegrohealthcare.azureedge.net/'.</msg>
+<status status="PASS" starttime="20230321 17:35:51.889" endtime="20230321 17:35:55.191"/>
+</kw>
+<status status="PASS" starttime="20230321 17:35:51.889" endtime="20230321 17:35:55.191"/>
+</kw>
+<kw name="CHECK ELEMENTS ON HEALTHCARE ROOT PAGE" library="HealthcarePageElements">
+<doc>This step verifies elements on the healthcare root pate
+(positive scenario)</doc>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<arg>${HEALTHCARE_ROOT_TEXT_HEADER_HEALTHCARE}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230321 17:35:55.192" endtime="20230321 17:35:55.206"/>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<arg>${HEALTHCARE_ROOT_TEXT_CARD_FIND_DOCTOR}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230321 17:35:55.206" endtime="20230321 17:35:55.216"/>
+</kw>
+<kw name="Wait Until Page Contains" library="Selenium2Library">
+<arg>${HEALTHCARE_ROOT_TEXT_CARD_REFER_DOCTOR}</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" starttime="20230321 17:35:55.216" endtime="20230321 17:35:55.230"/>
+</kw>
+<status status="PASS" starttime="20230321 17:35:55.192" endtime="20230321 17:35:55.230"/>
+</kw>
+<kw name="Close All Browsers" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230321 17:35:55.231" endtime="20230321 17:36:01.424"/>
+</kw>
+<doc>This test verifies abiltiy to open site HealthCare
+(positive scenario)
+
+*Ref:*
+(JIRA_TICKET-11 Placeholder)</doc>
+<tag>healthcare</tag>
+<tag>sanity</tag>
+<status status="PASS" starttime="20230321 17:35:51.888" endtime="20230321 17:36:01.425"/>
+</test>
+<test id="s1-t2" name="Check Availability SocialMap" line="25">
+<kw name="CHECK SITE AVAILABILITY" library="CommonResourceFile">
+<arg>${SOCIAL_MAP_SITE}</arg>
+<arg>${BROWSER}</arg>
+<doc>This step verifies abiltiy to open required site
+(positive scenario)</doc>
+<kw name="Open Browser" library="Selenium2Library">
+<arg>${site_url}</arg>
+<arg>${selected_browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230321 17:36:01.432" level="INFO">Opening browser 'Chrome' to base url 'https://ecsa004054e1.epam.com:8001/'.</msg>
+<status status="PASS" starttime="20230321 17:36:01.431" endtime="20230321 17:36:05.026"/>
+</kw>
+<status status="PASS" starttime="20230321 17:36:01.430" endtime="20230321 17:36:05.026"/>
+</kw>
+<kw name="Close All Browsers" library="Selenium2Library" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20230321 17:36:05.026" endtime="20230321 17:36:11.250"/>
+</kw>
+<doc>This test verifies abiltiy to open site SocialMap
+(positive scenario)
+
+*Ref:*
+(JIRA_TICKET-11 Placeholder)</doc>
+<tag>sanity</tag>
+<tag>socialmap</tag>
+<status status="PASS" starttime="20230321 17:36:01.429" endtime="20230321 17:36:11.251"/>
+</test>
+<doc>Basic UI tests</doc>
+<status status="PASS" starttime="20230321 17:35:51.732" endtime="20230321 17:36:11.255"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">healthcare</stat>
+<stat pass="2" fail="0" skip="0">sanity</stat>
+<stat pass="1" fail="0" skip="0">socialmap</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="SettlementCommonTests">SettlementCommonTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
