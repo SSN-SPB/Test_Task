@@ -36,3 +36,4 @@ jobs:
       - run: pwd
       - run: ls -la /home/runner/work/Test_Task/Test_Task/python_robot_api/
       - run: python -m robot /home/runner/work/Test_Task/Test_Task/python_robot_api/Get_Currency_Rate_data.robot
+      - run: python -m robot /home/runner/work/Test_Task/Test_Task/Robot_UI_Tests/RobotTests/HealthcarePageTests/
