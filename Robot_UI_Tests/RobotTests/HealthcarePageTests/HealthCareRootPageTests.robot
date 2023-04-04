@@ -8,8 +8,8 @@ Resource         ../../Common_Resources/PageElements/HealthcarePageElements/Heal
 
 
 *** Variables ***
-# ${BROWSER}             Chrome
-${BROWSER}             Firefox
+${BROWSER}             Chrome
+
 
 
 *** Test Cases ***

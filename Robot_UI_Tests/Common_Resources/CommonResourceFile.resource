@@ -10,7 +10,6 @@ ${REALTY_DEV_SITE}        http://10.253.218.125/
 ${REALTY_STAGING_SITE}    http://10.253.219.161/
 ${REALTY_PROD_SITE}       http://10.253.222.1/
 # passwords and logons
-${REALTY_DEVELOPER_ACCESS_TOKEN}    ergdhhrttTHHd54yghdijf2frhergh854SFG56gd
 
 
 *** Keywords ***
