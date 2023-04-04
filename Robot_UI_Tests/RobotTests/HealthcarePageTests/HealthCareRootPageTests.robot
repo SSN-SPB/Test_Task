@@ -11,6 +11,7 @@ Resource         ../../Common_Resources/PageElements/HealthcarePageElements/Heal
 ${BROWSER}             Chrome
 
 
+
 *** Test Cases ***
 Open Find Doctor Subpage
     [Documentation]    This test verifies abiltiy to open site HealthCare
