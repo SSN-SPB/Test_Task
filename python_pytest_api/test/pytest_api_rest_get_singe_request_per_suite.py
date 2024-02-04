@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from resource_dir import resourse_data
 from resource_dir.requests import get_pair_data
+import logging
 
 
 class TestClass:
@@ -15,7 +16,7 @@ tested_response = get_pair_data(TestClass.ENDPOINT)
 
 def test_code_exists():
     checked_value = 'code' in tested_response.keys()
-    print('The {} exists in response is: {}'.format('code', checked_value))
+    logging.warning('The {} exists in response is: {}'.format('code', checked_value))
     assert checked_value
 
 
