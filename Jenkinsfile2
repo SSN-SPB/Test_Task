@@ -10,8 +10,8 @@ pipeline {
     stage('Test') {
     steps {
       script {
-         echo 'Checking Python Linux version...'
-         sh 'python3 --version || python --version'
+         echo 'Checking Python Windows version...'
+         bat 'python --version'
     }
   }
 }
