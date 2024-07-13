@@ -9,15 +9,11 @@ pipeline {
     }
     stage('Test') {
     steps {
-echo 'Checking Python version...'
-                    if (isUnix()) {
-                       echo 'Checking Python Linux version...'
-                        sh 'python3 --version || python --version'
-                    } else {
-                        echo 'Checking Python Windows version...'
-                        bat 'python --version'
-                    }
-    }
+      scirpt {
+         echo 'Checking Python Linux version...'
+         sh 'python3 --version || python --version'
     }
   }
+}
+}
 }
