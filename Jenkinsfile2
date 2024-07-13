@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Test') {
     steps {
-      scirpt {
+      script {
          echo 'Checking Python Linux version...'
          sh 'python3 --version || python --version'
     }
