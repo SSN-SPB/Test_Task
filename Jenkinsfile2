@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent { docker {image 'python:3.5.1'}}
   stages {
     stage('Build') {
       steps {
@@ -11,7 +11,7 @@ pipeline {
     steps {
       script {
          echo 'Checking Python Windows version...'
-         bat 'python --version'
+         sh 'python --version'
     }
   }
 }
