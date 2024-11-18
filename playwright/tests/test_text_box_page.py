@@ -1,5 +1,5 @@
 import pytest
-from starting_page import StartingPage
+from page_objects.text_box_page import TextBoxPage
 from playwright.sync_api import sync_playwright
 
 # Define a pytest fixture to set up Playwright and browser instance
@@ -20,8 +20,8 @@ def page(browser):
 
 # Test case using the StartingPage object
 def test_login(page):
-    login_page = StartingPage(page)
-    login_page.navigate("https://demoqa.com")
+    text_box_page = TextBoxPage(page)
+    text_box_page.navigate("https://demoqa.com/text-box")
 
     # Assertion example - page check
-    assert login_page.check_loading_initial_page()
+    assert text_box_page.check_loading_page()
