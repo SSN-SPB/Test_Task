@@ -6,7 +6,6 @@ import os
 DB_HOST = "sql7.freesqldatabase.com"
 DB_NAME = "sql7763341"
 DB_USER = "sql7763341"
-# DB_PASS = "TyF16vPCeR"
 DB_PASS = os.environ.get("freedb_user_password")
 PORT = "3306"
 
