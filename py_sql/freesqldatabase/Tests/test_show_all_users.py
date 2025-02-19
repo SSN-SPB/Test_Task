@@ -1,8 +1,8 @@
 # pip install mysql-connector-python
 # import mysql.connector
 import logging
-from ..ServiceModules import sql_querries as query
-from ..ServiceModules import connectors
+from py_sql.freesqldatabase.ServiceModules import sql_querries as query
+from py_sql.freesqldatabase.ServiceModules import connectors
 logger = logging.getLogger(__name__)
 
 
