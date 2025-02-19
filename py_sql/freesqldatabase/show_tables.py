@@ -4,7 +4,7 @@ import os
 from ServiceModules import sql_querries as querry
 from ServiceModules import connectors
 
-# Replace these with your database credentials
+# Connectin credentials
 DB_HOST = "sql7.freesqldatabase.com"
 DB_NAME = "sql7763341"
 DB_USER = "sql7763341"
@@ -25,9 +25,8 @@ try:
 
     cursor = conn.cursor()
 
-    # Create a table
-    # show_table_query = "SHOW TABLES;"
-    show_table_query = querry.retrieve_data["retrieve_data"]
+    # Get the list of tables
+    show_table_query = querry.retrieve_table_data["show_tables"]
 
     cursor.execute(show_table_query)
     tables = cursor.fetchall()
@@ -35,11 +34,7 @@ try:
     for table in tables:
         print(table[0])
 
-    # Close connection
-    # cursor.close()
-    # conn.close()
     connectors.close_connectors(conn, cursor)
-    print("Connection closed.")
 
 except mysql.connector.Error as err:
     print(f"Error: {err}")
