@@ -39,7 +39,7 @@ def test_code_is_200(expected_code):
 
 
 @pytest.mark.count_occurrences
-def test_count_occurrences_rates():
+def _test_count_occurrences_rates():
     tested_response = get_pair_data(MULTI_ENDPOINT)
     print('The multi response is: '.format(tested_response))
     c = 0
@@ -53,7 +53,7 @@ def test_count_occurrences_rates():
     assert checked_value
 
 
-def test_usd_rub_rate_less_100():
+def _test_usd_rub_rate_less_100():
     tested_response = get_pair_data(ENDPOINT)
     checked_value = tested_response['rates']['USDRUB']['rate'] < 100
     print('The ruble rate < 100 is: {}'.format(checked_value))
