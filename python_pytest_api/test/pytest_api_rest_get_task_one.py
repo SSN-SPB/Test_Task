@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import pytest
+import allure
 from resource_dir import resourse_data
 from resource_dir.requests import get_pair_data
 
@@ -15,7 +16,7 @@ MULTI_ENDPOINT = ENV_URL + MULTI_PAIR
 def expected_code():
     return {'OK': 200, 'NotKnownPair': 1002}
 
-
+@allure.step("Example test with allur logging")
 def test_code_exists():
     tested_response = get_pair_data(ENDPOINT)
     checked_value = 'code' in tested_response.keys()
