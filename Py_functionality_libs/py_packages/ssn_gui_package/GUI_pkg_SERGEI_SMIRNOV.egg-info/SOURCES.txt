@@ -1,0 +1,6 @@
+README.md
+setup.py
+GUI_pkg_SERGEI_SMIRNOV.egg-info/PKG-INFO
+GUI_pkg_SERGEI_SMIRNOV.egg-info/SOURCES.txt
+GUI_pkg_SERGEI_SMIRNOV.egg-info/dependency_links.txt
+GUI_pkg_SERGEI_SMIRNOV.egg-info/top_level.txt

@@ -1,0 +1,23 @@
+https://stackoverflow.com/questions/2472552/python-way-to-clone-a-git-repository
+
+1)
+
+import sys
+import os
+
+path  = "/path/to/store/your/cloned/project" 
+clone = "git clone gitolite@<server_ip>:/your/project/name.git" 
+
+os.system("sshpass -p your_password ssh user_name@your_localhost")
+os.chdir(path) # Specifying the path where the cloned project needs to be copied
+os.system(clone)
+
+2)
+from git import Repo
+
+Repo.clone_from(git_url, repo_dir)
+
+
+3)
+import git
+git.Git("/your/directory/to/clone").clone("git://gitorious.org/git-python/mainline.git")

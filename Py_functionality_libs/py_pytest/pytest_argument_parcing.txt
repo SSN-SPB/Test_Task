@@ -1,0 +1,29 @@
+conftest.py
+import pytest
+
+def pytest_addoption(parser):
+    parser.addoption("--env", action="store", default="DEV", help="Specify environment: DEV or UAT")
+
+@pytest.fixture
+def env(request):
+    return request.config.getoption("--env")
+
+
+test_example.py
+
+import pytest
+
+@pytest.fixture
+def setup_data(env):
+    if env == "DEV":
+        return "Development Data"
+    elif env == "UAT":
+        return "UAT Data"
+    else:
+        pytest.fail(f"Unknown environment: {env}")
+
+def test_env_dependent(setup_data):
+    assert setup_data in ["Development Data", "UAT Data"]
+
+Run
+pytest test_example.py --env=DEV

@@ -1,0 +1,1 @@
+pytest -v -rPf .\py_string_slice_pytest.py

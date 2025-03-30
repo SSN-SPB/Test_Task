@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.10.4 on win32)" generated="20220624 19:52:52.338" rpa="false" schemaversion="3">
+<suite id="s1" name="User Registration" source="C:\DataDisk\Current\PythonCodes\Py_functionality_libs\selenium_webdriver\selenium_idbs\User_Registration.robot">
+<test id="s1-t1" name="01 - Login" line="14">
+<kw name="Open Browser">
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<msg timestamp="20220624 19:52:52.366" level="FAIL">No keyword with name 'Open Browser' found.</msg>
+<status status="FAIL" starttime="20220624 19:52:52.366" endtime="20220624 19:52:52.366"/>
+</kw>
+<kw name="Wait">
+<arg>10 s</arg>
+<status status="NOT RUN" starttime="20220624 19:52:52.367" endtime="20220624 19:52:52.368"/>
+</kw>
+<doc>*Description*
+
+Verifies that the internal colleague user can be added to the User's table via 'Add user' button.
+
+
+- *Given:* A user with valid permisions who is already logged in (or has a valid prior session, i.e. has logged into the Admin Portal in the current browser before)
+- *When:* the user navigates to user management and clicks on Add New User Button
+- *Then:* the user is able to add Full name, User ID, Email address, Department, Collaborator, Select IDP, User groups, User roles and Save the details successfully.</doc>
+<tag>all</tag>
+<tag>open_browser</tag>
+<tag>USER REGISTRATION</tag>
+<status status="FAIL" starttime="20220624 19:52:52.364" endtime="20220624 19:52:52.368">No keyword with name 'Open Browser' found.</status>
+</test>
+<kw name="Close All Browsers" type="TEARDOWN">
+<msg timestamp="20220624 19:52:52.371" level="FAIL">No keyword with name 'Close All Browsers' found.</msg>
+<status status="FAIL" starttime="20220624 19:52:52.371" endtime="20220624 19:52:52.371">No keyword with name 'Close All Browsers' found.</status>
+</kw>
+<doc>Test Suite verifies login to User Management in Admin Portal.</doc>
+<status status="FAIL" starttime="20220624 19:52:52.340" endtime="20220624 19:52:52.371">Suite teardown failed:
+No keyword with name 'Close All Browsers' found.</status>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">all</stat>
+<stat pass="0" fail="1" skip="0">open_browser</stat>
+<stat pass="0" fail="1" skip="0">USER REGISTRATION</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="User Registration">User Registration</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220624 19:52:52.359" level="ERROR">Error in file 'C:\DataDisk\Current\PythonCodes\Py_functionality_libs\selenium_webdriver\selenium_idbs\User_Registration.robot' on line 5: Importing library 'Selenium2Library' failed: ModuleNotFoundError: No module named 'Selenium2Library'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\Scripts\robot.exe
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\python310.zip
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\DLLs
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib\site-packages
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib\site-packages\win32
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib\site-packages\win32\lib
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib\site-packages\Pythonwin</msg>
+<msg timestamp="20220624 19:52:52.362" level="ERROR">Error in file 'C:\DataDisk\Current\PythonCodes\Py_functionality_libs\selenium_webdriver\selenium_idbs\User_Registration.robot' on line 6: Importing library 'SeleniumLibrary' failed: ModuleNotFoundError: No module named 'SeleniumLibrary'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\Scripts\robot.exe
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\python310.zip
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\DLLs
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib\site-packages
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib\site-packages\win32
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib\site-packages\win32\lib
+  C:\Users\Sergei_Smirnov\AppData\Local\Programs\Python\Python310\lib\site-packages\Pythonwin</msg>
+</errors>
+</robot>
