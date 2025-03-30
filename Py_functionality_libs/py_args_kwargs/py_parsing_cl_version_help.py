@@ -2,7 +2,8 @@
 # command line for demo -v --h --help -help -h --version -version --v
 import sys
 
-VERSION = "The current version is 1.0.0"
+VERSION = "The current version is 1.0.0."
+
 HELP_INSTRACTION = "Intruction for user"
 
 
