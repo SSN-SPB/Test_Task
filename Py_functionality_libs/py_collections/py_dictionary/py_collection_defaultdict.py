@@ -18,7 +18,13 @@ grouped_items = defaultdict(list)
 print(dict(grouped_items))
 
 # Sample data: list of tuples (category, item)
-items = [('fruit', 'apple'), ('fruit', 'banana'), ('vegetable', 'carrot'), ('fruit', 'orange'), ('vegetable', 'spinach')]
+items = [
+    ("fruit", "apple"),
+    ("fruit", "banana"),
+    ("vegetable", "carrot"),
+    ("fruit", "orange"),
+    ("vegetable", "spinach"),
+]
 
 # Group items by category
 for category, item in items:
