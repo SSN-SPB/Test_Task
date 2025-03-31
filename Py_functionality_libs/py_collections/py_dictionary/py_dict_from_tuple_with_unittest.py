@@ -9,7 +9,7 @@ roll_string = ("ab", "bc")
 class DictTest(ut.TestCase):
     def test_dictionary_from_tuple(self):
         result_dict = make_dictionary_from_tuple(roll_string)
-        self.assertEqual({'a': 'b', 'b': 'c'}, result_dict)
+        self.assertEqual({"a": "b", "b": "c"}, result_dict)
 
 
 def make_dictionary_from_tuple(test_tuple):
