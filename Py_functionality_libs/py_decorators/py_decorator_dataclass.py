@@ -22,8 +22,7 @@ def print_car():
     car.increase_speed(17)
     print(car.speed)
 
-    set_of_values = {"brand": "Hundai", "model": "Gets",
-                     "produced": 199, "speed": 112}
+    set_of_values = {"brand": "Hundai", "model": "Gets", "produced": 199, "speed": 112}
     car2 = Car(**set_of_values)
     print(car2.speed)
 
