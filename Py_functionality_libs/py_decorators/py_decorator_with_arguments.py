@@ -12,7 +12,7 @@ def repeat(times):
 
 @repeat(3)
 def say_hello():
-    print("Hello!")
+    print("Hello Decorator")
 
 
 say_hello()
