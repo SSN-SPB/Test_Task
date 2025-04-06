@@ -5,18 +5,18 @@ from jira import JIRA
 import os
 import sys
 
-target_of_file = 'Jira treating'
+target_of_file = "Jira treating"
 
-jira_options = {'server': 'https://wirecard-sg.atlassian.net/jira'}
-USER = os.getenv('LOGON_VARIABLE_PROJECT_JIRA_LOGON')
-PASSWORD = os.getenv('LOGON_VARIABLE_PROJECT_JIRA_PASSWORD')
+jira_options = {"server": "https://wirecard-sg.atlassian.net/jira"}
+USER = os.getenv("LOGON_VARIABLE_PROJECT_JIRA_LOGON")
+PASSWORD = os.getenv("LOGON_VARIABLE_PROJECT_JIRA_PASSWORD")
 
 
 def main():
     logon = USER
-    print('The target of file: {}'.format(target_of_file))
-    print('logon: {}'.format(logon))
-    print('Password: {}'.format(PASSWORD))
+    print("The target of file: {}".format(target_of_file))
+    print("logon: {}".format(logon))
+    print("Password: {}".format(PASSWORD))
     ## jira = JIRA(options = jira_options, basic_auth=(USER, PASSWORD))
     ## failied with
     ## WARNING:root:Got recoverable error from
@@ -25,6 +25,5 @@ def main():
     ## need to be investigated
 
 
-
-
-if __name__ == '__main__': main()
+if __name__ == "__main__":
+    main()

@@ -7,10 +7,10 @@ import os
 
 # suppress all warnings
 import warnings
+
 warnings.filterwarnings("ignore")
 
-target_of_file = 'Jira treating'
-
+target_of_file = "Jira treating"
 
 
 def main():
@@ -23,19 +23,19 @@ def main():
     # # PASSWORD = os.getenv('LOGON_JIRA_NI_PASSWORD')
     # # print('used logon: {}'.format(USER))
     # # print('used password: {}'.format(PASSWORD))
-    jira_optionsEPAM = {'server': 'https://jira.epam.com/jira' , 'verify':False}
-    jiraEPAM = JIRA(options = jira_optionsEPAM, basic_auth=('x', 'y'))
-    if (jiraEPAM):
-        print('Logon to Jira is successful')
+    jira_optionsEPAM = {"server": "https://jira.epam.com/jira", "verify": False}
+    jiraEPAM = JIRA(options=jira_optionsEPAM, basic_auth=("x", "y"))
+    if jiraEPAM:
+        print("Logon to Jira is successful")
     else:
-        print('Logon to Jira is successful')
+        print("Logon to Jira is successful")
     query_duedate_past = """key in (MAF-4781, MAF-4785, MAF-4768)"""
-    issue = jiraEPAM.issue('TIMA-37')
-    print(issue) # repsonse: MAF-4768
-    print(issue.fields.project.key) # 'MAF'
-    print(issue.fields.issuetype.name) # 'User Story'
-    print(issue.fields.reporter.displayName) # 'Pavel Pokrovskii'
+    issue = jiraEPAM.issue("TIMA-37")
+    print(issue)  # repsonse: MAF-4768
+    print(issue.fields.project.key)  # 'MAF'
+    print(issue.fields.issuetype.name)  # 'User Story'
+    print(issue.fields.reporter.displayName)  # 'Pavel Pokrovskii'
 
 
-
-if __name__ == '__main__': main()
+if __name__ == "__main__":
+    main()
