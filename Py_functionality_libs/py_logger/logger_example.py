@@ -3,16 +3,19 @@
 import logging
 
 logger = logging.getLogger(__name__)
+# to see in pytest log: pytest -v --log-cli-level=INFO
 
 
 logging.basicConfig(
     # Set minimal level of logging
     # All level are available starting with DEBUG
-    # level=logging.DEBUG,  # Set  log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    # available levels (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    # level=logging.DEBUG,  # Set log level DEBUG
     # Available ERROR, CRITICAL starting with ERROR
-    level=logging.ERROR,  # Set the log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    level=logging.ERROR,  # Set the log level ERROR
     # Set required format if not default:
-    # format='%(asctime)s - %(levelname)s - %(message)s',  # Define the log format
+    # Define the log format
+    # format='%(asctime)s - %(levelname)s - %(message)s',
     # datefmt='%Y-%m-%d %H:%M:%S'  # Define the date format
 )
 
