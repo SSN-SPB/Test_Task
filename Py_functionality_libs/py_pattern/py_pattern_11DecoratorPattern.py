@@ -1,13 +1,13 @@
 def bold_decorator(func):
     def wrapper(*args, **kwargs):
         print(f"🔵 Starting '{func.__name__}'...")
-        result = func(*args, **kwargs)
+        func(*args, **kwargs)
         print(f"✅ Completed '{func.__name__}'.")
-        return result
+        # return result
     return wrapper
 
 @bold_decorator
-def greet():
-    return "Hello, World!"
+def greet2():
+    print("Hello, World!")
 
-print(greet())
+print(greet2())
