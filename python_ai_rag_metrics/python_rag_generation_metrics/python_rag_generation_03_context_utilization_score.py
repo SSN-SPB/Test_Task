@@ -1,5 +1,6 @@
 # Generation metrics
 # Context Utilization
+# It measures how well the model used the context it was given
 # good / satisfied /bad
 # > 0.7/ 0.4-0.7	/ < 0.4
 
