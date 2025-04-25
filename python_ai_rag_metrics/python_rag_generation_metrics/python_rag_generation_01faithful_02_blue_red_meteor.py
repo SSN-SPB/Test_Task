@@ -1,10 +1,12 @@
-from sentence_transformers import SentenceTransformer, util  # for faithful
-from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction # for blue
+import nltk
+from nltk.translate.bleu_score import (SmoothingFunction,  # for blue
+                                       sentence_bleu)
 from nltk.translate.meteor_score import meteor_score  # for meteor
 from rouge_score import rouge_scorer  # for rouge
-import nltk
+from sentence_transformers import SentenceTransformer, util  # for faithful
+
 # Load a pre-trained embedding model
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer("all-MiniLM-L6-v2")
 
 # Simulated retrieved context from a RAG system
 # retrieved_context = """
@@ -32,8 +34,8 @@ Paris is a city.
 # METEOR	> 0.6 / < 0.3
 
 # Break both into sentences
-retrieved_sentences = retrieved_context.strip().split('.')
-generated_sentences = generated_answer.strip().split('.')
+retrieved_sentences = retrieved_context.strip().split(".")
+generated_sentences = generated_answer.strip().split(".")
 
 # Compute faithfulness: for each sentence in the answer, check if it’s similar to something in the context
 threshold = 0.7  # Cosine similarity threshold to count a sentence as "grounded"
@@ -46,7 +48,8 @@ for gen_sentence in generated_sentences:
 
     max_similarity = max(
         util.cos_sim(gen_embedding, model.encode(sent, convert_to_tensor=True)).item()
-        for sent in retrieved_sentences if sent.strip()
+        for sent in retrieved_sentences
+        if sent.strip()
     )
 
     if max_similarity > threshold:
@@ -70,7 +73,7 @@ bleu = sentence_bleu(reference_tokens, generated_tokens, smoothing_function=smoo
 print(f"🔷 BLEU Score: {bleu:.2f}")
 
 # ROUGE Score
-scorer = rouge_scorer.RougeScorer(['rouge1', 'rougeL'], use_stemmer=True)
+scorer = rouge_scorer.RougeScorer(["rouge1", "rougeL"], use_stemmer=True)
 rouge = scorer.score(reference_answer, generated_answer)
 print(f"🔴 ROUGE-1 (Precision, Recall, F1): {rouge['rouge1']}")
 print(f"🔴 ROUGE-L (Longest Match): {rouge['rougeL']}")
