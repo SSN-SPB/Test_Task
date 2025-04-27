@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Read the existing Excel file
 df = pd.read_excel("..\py_panda_columns_treating\py_columns_init.xlsx", engine="openpyxl")
-print(df.info())  # Check data types and missing values
+print(df.info)  # Check data types and missing values
 print(df.describe())
 
 # missing_data = df.isnull().sum()
@@ -20,9 +20,11 @@ print(df.describe())
 # plt.title('Scatter plot of column1 vs column2')
 # plt.show()
 empty_cells = df.isna()
+df_info = df.info
 
 # Loop to show addresses
 for row_idx, col_name in zip(*empty_cells.to_numpy().nonzero()):
     print(f"Empty cell at Row {row_idx}, Column '{df.columns[col_name]}'")
 
-print(df['Day1'])
+# print(df['Day1'])
+print(df_info)
