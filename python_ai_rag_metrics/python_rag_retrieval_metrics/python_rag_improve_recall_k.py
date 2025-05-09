@@ -10,6 +10,7 @@ documents = [
     "Canberra is the capital of Australia.",
     "Ottawa is the capital of Canada.",
     "Tokyo is the capital of Japan."
+    "Moscow is the capital of Russia.."
 ]
 
 query = "What is the capital of Germany?"
