@@ -5,9 +5,9 @@ def bubble_sort_early_stop(arr_stop):
     for i in range(n):
         swapped = False
         count1 += 1
-        for j in range(0, n-1-i):
-            if arr_stop[j] > arr_stop[j+1]:
-                arr_stop[j], arr_stop[j+1] = arr_stop[j+1], arr_stop[j]
+        for j in range(0, n - 1 - i):
+            if arr_stop[j] > arr_stop[j + 1]:
+                arr_stop[j], arr_stop[j + 1] = arr_stop[j + 1], arr_stop[j]
                 swapped = True
             count2 += 1
 
@@ -27,5 +27,5 @@ def main2():
     print(bubble_sort_early_stop(arr_stop2))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main2()
