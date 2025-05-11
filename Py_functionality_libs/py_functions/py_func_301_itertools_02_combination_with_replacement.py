@@ -7,7 +7,7 @@ import random
 def creating_random_length_list():
     """creating list of random length with randomly sorted values"""
     created_list = list(range(3, random.randint(7, 33)))
-    return list(set(created_list[0:: random.randint(2, 7)]))
+    return list(set(created_list[0 :: random.randint(2, 7)]))
 
 
 def check_itertools_accumulate(tested_list):
