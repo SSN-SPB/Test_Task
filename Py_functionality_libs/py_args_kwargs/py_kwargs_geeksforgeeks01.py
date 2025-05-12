@@ -10,7 +10,7 @@ def my_fun_kwargs(**kwargs):
 
 
 def main():
-    my_fun(**kwargs)
+    my_fun(1, 2, 3, 7, 9, 17, 27)
 
 
 if __name__ == "__main__":
