@@ -1,4 +1,8 @@
 import pytest
+import allure
+# pytest --alluredir=allure-results
+# allure generate allure-results --clean -o allure-report
+# tests\allure-report> python -m http.server 8000
 from page_objects.text_box_page import TextBoxPage
 from playwright.sync_api import sync_playwright
 
@@ -18,6 +22,8 @@ def page(browser):
     return page
 
 
+@allure.feature('Login')
+@allure.story('Valid login')
 # Test case using the StartingPage object
 def test_login(page):
     text_box_page = TextBoxPage(page)
