@@ -1,5 +1,6 @@
 import pytest
 import allure
+import time
 # pytest --alluredir=allure-results
 # allure generate allure-results --clean -o allure-report
 # tests\allure-report> python -m http.server 8000
@@ -22,12 +23,29 @@ def page(browser):
     return page
 
 
-@allure.feature('Login')
-@allure.story('Valid login')
-# Test case using the StartingPage object
+@allure.epic("UI")
+@allure.description(
+    """
+    Test suit checks different scenarios at Admin > Request configuration > Request forms
+    for  Custom Form
+    """
+)
+@allure.title("Check demoda/text-box folder")
 def test_login(page):
     text_box_page = TextBoxPage(page)
     text_box_page.navigate("https://demoqa.com/text-box")
 
     # Assertion example - page check
     assert text_box_page.check_loading_page()
+
+
+@allure.title("Check input name")
+def test_fill_name(page):
+    text_box_page = TextBoxPage(page)
+    text_box_page.navigate("https://demoqa.com/text-box")
+    text_box_page.fill_name()
+    text_box_page.submit_input()
+    time.sleep(7)
+
+    # Assertion example - page check
+    assert text_box_page.filled_name_value("test_name")
