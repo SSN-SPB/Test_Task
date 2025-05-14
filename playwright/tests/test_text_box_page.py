@@ -23,6 +23,7 @@ def page(browser):
     yield page
     context.close()
 
+
 @allure.epic("UI")
 @allure.description(
     """
@@ -45,6 +46,7 @@ def test_fill_name(page):
     text_box_page.navigate("https://demoqa.com/text-box")
     text_box_page.fill_name()
     text_box_page.submit_input()
+
 
     # Assertion example - page check
     assert text_box_page.filled_name_value("test_name")
