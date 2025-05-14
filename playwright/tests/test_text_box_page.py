@@ -8,7 +8,7 @@ from page_objects.text_box_page import TextBoxPage
 from playwright.sync_api import sync_playwright
 
 # Define a pytest fixture to set up Playwright and browser instance
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def browser():
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(headless=False)
@@ -20,7 +20,8 @@ def browser():
 def page(browser):
     context = browser.new_context()
     page = context.new_page()
-    return page
+    yield page
+    context.close()
 
 
 @allure.epic("UI")
@@ -45,7 +46,7 @@ def test_fill_name(page):
     text_box_page.navigate("https://demoqa.com/text-box")
     text_box_page.fill_name()
     text_box_page.submit_input()
-    time.sleep(7)
+
 
     # Assertion example - page check
     assert text_box_page.filled_name_value("test_name")
