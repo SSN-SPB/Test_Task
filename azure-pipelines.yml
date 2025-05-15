@@ -18,5 +18,9 @@ steps:
     displayName: 'Install dependencies'
 
   - script: |
+      playwright install
+    displayName: 'Install playwright'
+
+  - script: |
       pytest playwright/tests/  # path to your test folder
     displayName: 'Run tests with pytest'
