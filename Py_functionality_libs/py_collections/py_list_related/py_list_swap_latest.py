@@ -1,6 +1,9 @@
 def swapList(newList):
     size = len(newList)
-    newList[0], newList[size - 1] = newList[size - 1], newList[0],
+    newList[0], newList[size - 1] = (
+        newList[size - 1],
+        newList[0],
+    )
     return newList
 
 
@@ -10,7 +13,8 @@ print(swapList(newList))
 
 
 def main():
-    swapList(newList)
+    new_swapped_list = swapList(newList)
+    print(new_swapped_list)
 
 
 if __name__ == "__main__":
