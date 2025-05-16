@@ -25,4 +25,4 @@ steps:
       sudo apt-get update
       sudo apt-get install -y xvfb
       xvfb-run pytest playwright/tests/  # path to your test folder
-    displayName: 'Run pytest tests with xvfb-run headless mode'
+    displayName: 'Run tests with pytest'
