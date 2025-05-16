@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    environment {
+        PYTHON = "C:\\Users\\SergeiSmirnov6\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/SSN-SPB/Test_Task.git', branch: 'main'
+            }
+        }
+
+        stage('Set up Environment') {
+            steps {
+                bat """
+                %PYTHON% -m venv .venv_jenkins
+                .venv_jenkins\\Scripts\\activate.bat
+                pip install -r playwright/tests/requirements.txt
+                """
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                bat """
+                cd playwright\tests
+                pytest --alluredir=..\..\allure-results
+                """
+            }
+        }
+    }
+}
