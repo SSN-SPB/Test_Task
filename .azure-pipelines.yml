@@ -18,5 +18,11 @@ steps:
     displayName: 'Install dependencies'
 
   - script: |
-      pytest playwright/tests/  # path to your test folder
-    displayName: 'Run tests with pytest'
+      playwright install
+    displayName: 'Install playwright'
+
+  - script: |
+      sudo apt-get update
+      sudo apt-get install -y xvfb
+      xvfb-run pytest playwright/tests/  # path to your test folder
+    displayName: 'Run pytest tests with xvfb-run headless mode'
