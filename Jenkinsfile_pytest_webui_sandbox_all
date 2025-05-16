@@ -22,11 +22,11 @@ pipeline {
             }
         }
 
-        stage('Run Tests') {
+        stage('Run Tests.') {
             steps {
                 bat """
                 cd playwright\tests
-                pytest --alluredir=..\..\allure-results
+                pytest
                 """
             }
         }
