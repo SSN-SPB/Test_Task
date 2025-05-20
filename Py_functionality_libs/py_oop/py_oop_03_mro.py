@@ -1,4 +1,5 @@
-"""Suite demonstrates inheritance in oop Python"""
+"""Suite demonstrates mro in oop Python"""
+
 
 class BaseClass:
     """__ph__"""
@@ -7,13 +8,13 @@ class BaseClass:
         print(self)
         print("make setup base")
 
+
 class SecondBaseClass:
     """__ph__"""
 
     def setup(self):
         print(self)
         print("make second setup base")
-
 
 
 class LoginTest(BaseClass):
