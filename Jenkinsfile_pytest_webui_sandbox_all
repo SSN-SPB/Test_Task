@@ -17,7 +17,7 @@ pipeline {
                 bat """
                 %PYTHON% -m venv .venv_jenkins
                 .venv_jenkins\\Scripts\\activate.bat
-                pip install -r playwright/tests/requirements.txt
+                pip install -r playwright\\tests\\requirements.txt
                 """
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Run Tests.') {
             steps {
                 bat """
-                cd playwright\tests
+                cd playwright\\tests
                 pytest
                 """
             }
