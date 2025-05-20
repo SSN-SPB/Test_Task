@@ -5,13 +5,13 @@
 
 def main():
     list1 = [0, 1]
-    list2 = ['y1', 'y2']
+    list2 = ["y1", "y2"]
     list1 += list2
-    print(list1)      # [0, 1, 'y2', 'y1']
+    print(list1)  # [0, 1, 'y2', 'y1']
     list1 = []
-    list2 = 'abcd'
+    list2 = "abcd"
     list1 += list2
-    print(list1)      # ['a', 'b', 'c', 'd']
+    print(list1)  # ['a', 'b', 'c', 'd']
 
 
 if __name__ == "__main__":

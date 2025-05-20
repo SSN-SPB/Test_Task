@@ -1,5 +1,5 @@
-names = {'John', 'Alexey', 'Alima'}
-names2 = {'John', 'Alexey', 'Alima', 777777}
+names = {"John", "Alexey", "Alima"}
+names2 = {"John", "Alexey", "Alima", 777777}
 
 
 def main():

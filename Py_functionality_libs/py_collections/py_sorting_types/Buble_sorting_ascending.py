@@ -9,4 +9,4 @@ def bubble_sort_ascending(my_list):
     print(my_list)
 
 
-print("Sorted list in DESC order:" , bubble_sort_ascending(test_list))
+print("Sorted list in DESC order:", bubble_sort_ascending(test_list))

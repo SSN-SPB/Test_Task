@@ -14,6 +14,7 @@
 #  -6  -5  -4  -3  -2  -1
 import copy
 import unittest
+
 list2 = [30, 21, -2, 31, "4", 5, 6, 19]
 
 
@@ -32,8 +33,8 @@ def remove_every_third_from_list(initial_list):
 def main():
     print(list2)
     updated_list = remove_every_third_from_list(list2)
-    print(list2)      # [0, 1]
-    print(updated_list)      # [30, -2, 31, 5, 6]
+    print(list2)  # [0, 1]
+    print(updated_list)  # [30, -2, 31, 5, 6]
 
 
 if __name__ == "__main__":

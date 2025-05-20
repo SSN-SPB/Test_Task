@@ -7,26 +7,26 @@
 
 def main():
     list = [0, 1]
-    list.append('x')
-    print(list)      # [0, 1, 'x']
+    list.append("x")
+    print(list)  # [0, 1, 'x']
     try:
-        list.append('y', 'y')
+        list.append("y", "y")
     except TypeError:
-        print('only one element can be appended to list')
-    print(list)      # [0, 1, 'x']
+        print("only one element can be appended to list")
+    print(list)  # [0, 1, 'x']
     try:
-        list.append('y', 'y')
-        list.extend({'y3', 'y4'})
+        list.append("y", "y")
+        list.extend({"y3", "y4"})
     except TypeError:
-        print('only one element can be appended to list')
-    print(list)      # [0, 1, 'x']
-    list.extend({'y1', 'y2'})
-    print(list)      # [0, 1, 'x', 'y2', 'y1']
-    list.insert(-1, 'w2')
-    print(list)      # [0, 1, 'x', 'y2', 'w2', 'y1']
+        print("only one element can be appended to list")
+    print(list)  # [0, 1, 'x']
+    list.extend({"y1", "y2"})
+    print(list)  # [0, 1, 'x', 'y2', 'y1']
+    list.insert(-1, "w2")
+    print(list)  # [0, 1, 'x', 'y2', 'w2', 'y1']
     # slice
-    list[:2] = 'n' * 5
-    print(list)      # ['n', 'n', 'n', 'n', 'n', 'x', 'y1', 'w2', 'y2']
+    list[:2] = "n" * 5
+    print(list)  # ['n', 'n', 'n', 'n', 'n', 'x', 'y1', 'w2', 'y2']
 
 
 if __name__ == "__main__":

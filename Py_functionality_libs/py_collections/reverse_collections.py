@@ -3,13 +3,14 @@
 
 
 def main():
-    xs = ('Ivan', 'Petrov', 'June', 12, 1947)
-    print('reversed cortege is object{}'.format(reversed(xs)))
-    print('reversed cortege moved to list {}'.format(list(reversed(xs))))
-    print('cortege to reversed cortege {}'.format(tuple(reversed(xs))))
-    print('slice does the same but consumes more memory '.center(79, '/'))
-    print('cortege to reversed cortege {}'.format(xs[::-1]))
-    print('cortege to reversed cortege {}'.format(xs[::-2]))
+    xs = ("Ivan", "Petrov", "June", 12, 1947)
+    print("reversed cortege is object{}".format(reversed(xs)))
+    print("reversed cortege moved to list {}".format(list(reversed(xs))))
+    print("cortege to reversed cortege {}".format(tuple(reversed(xs))))
+    print("slice does the same but consumes more memory ".center(79, "/"))
+    print("cortege to reversed cortege {}".format(xs[::-1]))
+    print("cortege to reversed cortege {}".format(xs[::-2]))
+
 
 # reversed cortege is object<reversed object at 0x060FA670>
 # reversed cortege moved to list [1947, 12, 'June', 'Petrov', 'Ivan']

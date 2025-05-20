@@ -5,7 +5,7 @@
 
 
 def main():
-    values = ('a1', 'b2', 'c3')
+    values = ("a1", "b2", "c3")
     dict_v = dict(values)
     print(dict_v)
 
