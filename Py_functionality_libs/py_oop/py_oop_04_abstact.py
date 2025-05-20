@@ -2,13 +2,15 @@
 
 from abc import abstractmethod
 
-class Stop():
+
+class Stop:
     @abstractmethod
     def stop(self):
         print("Implement an abstract method")
 
     def __init__(self):
         print("Stop constructor")
+
 
 class TestRun(Stop):
     """__ph__"""
@@ -19,6 +21,7 @@ class TestRun(Stop):
     def stop(self):
         print("stop from test run")
 
+
 def main():
     test_run = TestRun()
     # TypeError: Can't instantiate abstract class
@@ -28,4 +31,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

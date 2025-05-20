@@ -8,6 +8,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 class TestSuite:
     """Suite demonstrates oop Python"""
+
     test_counter = 0
 
     def __init__(self, name):
@@ -21,7 +22,7 @@ class TestSuite:
         self.result = result
 
     def is_attribute_available(self):
-        if hasattr(self, 'result'):
+        if hasattr(self, "result"):
             return True
         else:
             return False
@@ -50,4 +51,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
