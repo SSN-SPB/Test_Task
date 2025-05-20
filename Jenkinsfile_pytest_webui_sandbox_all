@@ -15,8 +15,8 @@ pipeline {
         stage('Set up Environment') {
             steps {
                 bat """
-                %PYTHON% -m venv .venv_jenkins
-                .venv_jenkins\\Scripts\\activate.bat
+                %PYTHON% -m venv .venv_jenkins2
+                .venv_jenkins2\\Scripts\\activate.bat
                 pip install -r playwright\\tests\\requirements.txt
                 """
             }
@@ -26,7 +26,7 @@ pipeline {
             steps {
                 bat """
                 cd playwright\\tests
-                pytest
+                pytest -v --alluredir=..\\..\\allure-results
                 """
             }
         }
