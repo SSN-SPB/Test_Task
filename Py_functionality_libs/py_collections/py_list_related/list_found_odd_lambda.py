@@ -25,8 +25,8 @@ def cloning_list(tested_list):
 
 
 def main():
-    checking_result([1, 3], found_even_in_list(list1), "checking odd in list")
-    checking_result([2, 4], found_even_in_list(list2), "checking even in list")
+    checking_result([1, 3], cloning_list(list1), "checking odd in list")
+    checking_result([2, 4], cloning_list(list2), "checking even in list")
 
 
 if __name__ == "__main__":

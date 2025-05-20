@@ -7,12 +7,13 @@
 
 def main():
     list = [0, 1]
-    list2 = ['a', 'b']
-    list3 = ['с', 'в']
+    list2 = ["a", "b"]
+    list3 = ["с", "в"]
     list.append(list2)
-    print(list)      # [0, 1, ['a', 'b']]
+    print(list)  # [0, 1, ['a', 'b']]
     list.extend(list3)
-    print(list)      # [0, 1, ['a', 'b'], 'с', 'в']
+    print(list)  # [0, 1, ['a', 'b'], 'с', 'в']
+
 
 if __name__ == "__main__":
     main()

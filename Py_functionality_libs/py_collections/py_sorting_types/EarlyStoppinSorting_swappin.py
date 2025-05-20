@@ -4,10 +4,10 @@ def bubble_sort_early_stop(arr_stop):
     for i in range(n):
         count1 += 1
         swapped = False
-        for j in range(0, n-1-i):
+        for j in range(0, n - 1 - i):
             count2 += 1
-            if arr_stop[j] > arr_stop[j+1]:
-                arr_stop[j], arr_stop[j+1] = arr_stop[j+1], arr_stop[j]
+            if arr_stop[j] > arr_stop[j + 1]:
+                arr_stop[j], arr_stop[j + 1] = arr_stop[j + 1], arr_stop[j]
                 swapped = True
         if not swapped:
             break

@@ -6,11 +6,11 @@ from collections import OrderedDict
 
 
 def main():
-    d = OrderedDict(xk='xv', ykey='yv')
-    print('{}'.format(d))        # OrderedDict([('xk', 'xv'), ('ykey', 'yv')])
-    print('{}'.format(list(d)))  # ['xk', 'ykey']
-    print(d.setdefault('zkey', 'zv'))  # zv
-    print('{}'.format(list(d)))  # ['xk', 'ykey', 'zkey']
+    d = OrderedDict(xk="xv", ykey="yv")
+    print("{}".format(d))  # OrderedDict([('xk', 'xv'), ('ykey', 'yv')])
+    print("{}".format(list(d)))  # ['xk', 'ykey']
+    print(d.setdefault("zkey", "zv"))  # zv
+    print("{}".format(list(d)))  # ['xk', 'ykey', 'zkey']
 
 
 if __name__ == "__main__":

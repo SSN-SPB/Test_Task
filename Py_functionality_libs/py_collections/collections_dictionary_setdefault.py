@@ -5,10 +5,10 @@
 
 
 def main():
-    d = dict(xkey='xval', ykey='yval')
-    print('d: {}'.format(d))             # d: {'xkey': 'xval', 'ykey': 'yval'}
-    print(d.setdefault('zkey', 'zval'))  # zval
-    print(d.setdefault('xkey', 'xxx'))   # xval
+    d = dict(xkey="xval", ykey="yval")
+    print("d: {}".format(d))  # d: {'xkey': 'xval', 'ykey': 'yval'}
+    print(d.setdefault("zkey", "zval"))  # zval
+    print(d.setdefault("xkey", "xxx"))  # xval
 
 
 if __name__ == "__main__":

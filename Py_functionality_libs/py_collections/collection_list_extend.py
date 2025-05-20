@@ -4,7 +4,7 @@ import unittest
 
 list_a = ["a", "a1", "a2"]
 list_b = ["b", "b1", "b2"]
-expected_list = ['a', 'a1', 'a2', 'b', 'b1', 'b2']
+expected_list = ["a", "a1", "a2", "b", "b1", "b2"]
 
 
 class MyTestCase(unittest.TestCase):
