@@ -1,0 +1,62 @@
+Project demonstrates functionality of docker compose by launching flask web application with Redis and REST API.
+
+Description:
+
+    Main components of application are Flask server and Redis (data structure store). Flask server handles REST
+    requests.
+
+Requirements:
+    
+    Python
+        Version: 3.*
+        Packages:
+            - Flask
+            - redis
+            - pyyaml
+        Note: requirements.txt could be found in a root dir of the project
+    
+    Redis
+        General info: Redis is an open source (BSD licensed), in-memory data 
+                    structure store, used as a database, cache and message broker
+        Links: 
+            Main site: https://redis.io/
+            Commands documentation: https://redis.io/commands
+
+    Application checking:
+    
+        1. Install docker (e.i. RHEL):
+            # yum install -y docker
+        2. Install "docker compose" e.g. ref - https://docs.docker.com/compose/install/
+        3. Within CLI open the project directory
+        4. Ensure that there is no running container is displayed by command:
+            # docker ps (use 'sudo docker' if needed)
+        5. Close required container if required
+        6. Compose and build container by command:Run the application in the container:
+            # sudo docker compose down -v
+        7. Start application by command
+            # sudo docker compose up --build
+        8. Check application:
+            8.1 http://127.0.0.1:8000/home - displays "Hello World!"
+            8.2 http://127.0.0.1:8000/redis - displays "This webpage has been viewed x time(s)" - x is increases
+                after each refreshing the page
+            8.3 http://127.0.0.1:8000 - displays
+                {
+                  "message": "Hello from the REST API!"
+                }
+
+            8.4 # curl http://127.0.0.1:8000
+                {
+                  "message": "Hello from the REST API!"
+                }
+            8.5 # curl http://127.0.0.1:8000/home
+                Hello, World!
+            8.6 # curl http://127.0.0.1:8000/view
+                What a view!
+            8.7 # curl -X POST http://127.0.0.1:8000/data   -H "Content-Type: application/json"   -d '{"name": "Jack", "age": 39}'
+                {
+                  "received": true,
+                  "you_sent": {
+                    "age": 39,
+                    "name": "Jack"
+                  }
+                }
