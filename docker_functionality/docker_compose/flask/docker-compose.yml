@@ -1,0 +1,38 @@
+services:
+  redis:
+    image: redislabs/redismod
+    ports:
+      - '6379:6379'
+  web:
+    build:
+      context: .
+      target: builder
+    # flask requires SIGINT to stop gracefully
+    # (default stop signal from Compose is SIGTERM)
+    stop_signal: SIGINT
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+  rest-api:
+    build: .
+    container_name: rest-api
+    ports:
+      - "5000:5000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  curl-post:
+    image: curlimages/curl:latest
+    depends_on:
+      rest-api:
+        condition: service_healthy
+    entrypoint: >
+      sh -c "curl -X POST http://rest-api:5000/data
+             -H 'Content-Type: application/json'
+             -d '{\"name\": \"Tom\", \"age\": 33}'"
