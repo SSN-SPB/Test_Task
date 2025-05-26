@@ -12,7 +12,7 @@ ENTRYPOINT ["python3"]
 CMD ["flask_app.py"]
 
 FROM builder as dev-envs
-
+# for Ubuntu
 # RUN <<EOF
 # apk update
 # apk add git bash
