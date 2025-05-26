@@ -13,15 +13,6 @@ CMD ["flask_app.py"]
 
 FROM builder as dev-envs
 
-# RUN <<EOF
-# apk update
-# apk add git bash
-# EOF
-#
-# RUN <<EOF
-# addgroup -S docker
-# adduser -S --shell /bin/bash --ingroup docker vscode
-# EOF
 
 # another version for Debian
 RUN apk update && apk add --no-cache git bash
