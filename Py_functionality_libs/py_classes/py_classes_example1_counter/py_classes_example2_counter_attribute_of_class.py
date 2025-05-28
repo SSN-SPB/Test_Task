@@ -7,6 +7,7 @@
 # self - instance of class
 # 6:10
 
+
 class Counter:
     # all_found_values - an attribute of class
     all_found_values = []
@@ -26,15 +27,15 @@ class Counter:
 def main():
     c = Counter(15)
     c.get()
-    print('Initial value: {}'.format(c.get()))
+    print("Initial value: {}".format(c.get()))
     c.increase_value()
     c.get()
     y = c.get()
-    print('The assigned y is: {}'.format(y))
+    print("The assigned y is: {}".format(y))
     # working with an attribute of class
-    c.all_found_values.append(2)            # [2]
+    c.all_found_values.append(2)  # [2]
     print(c.all_found_values)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

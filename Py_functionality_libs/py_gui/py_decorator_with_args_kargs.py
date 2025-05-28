@@ -3,15 +3,16 @@
 
 
 def basic_decorator(func):
-    print('function {} starts'.format(func.__name__))
+    print("function {} starts".format(func.__name__))
 
     def function_treating(*args, **kwargs):
-        print('Starting function {}'.format(func.__name__))
+        print("Starting function {}".format(func.__name__))
         result = func(*args, **kwargs)
-        print('Result is {}'.format(result))
-        print('Completing function {}'.format(func.__name__))
-        return(result)
-    print('function {} completed'.format(func.__name__))
+        print("Result is {}".format(result))
+        print("Completing function {}".format(func.__name__))
+        return result
+
+    print("function {} completed".format(func.__name__))
     return function_treating
 
 
@@ -29,5 +30,5 @@ def main():
     decorator_result(1, 2, c=3, d=5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

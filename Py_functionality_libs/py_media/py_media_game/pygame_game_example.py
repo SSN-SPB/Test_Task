@@ -2,6 +2,7 @@
 
 # Import and initialize the pygame library
 import pygame
+
 pygame.init()
 
 # Set up the drawing window
@@ -21,7 +22,7 @@ while running:
 
     # Draw a solid blue circle in the center
     pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
-    pygame.draw.line(screen, (5, 0, 155), (150, 150), (270, 270) )
+    pygame.draw.line(screen, (5, 0, 155), (150, 150), (270, 270))
 
     # Flip the display
     pygame.display.flip()

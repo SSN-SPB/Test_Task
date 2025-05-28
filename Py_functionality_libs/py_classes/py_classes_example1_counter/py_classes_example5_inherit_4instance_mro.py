@@ -4,6 +4,7 @@
 # parent classes
 # __mro__ Main Resolution Order - order of treating class hierarchy
 
+
 class Person:
     def __init__(self, fname, lname):
         self.firstname = fname
@@ -47,10 +48,10 @@ def main2():
     # (<class '__main__.Driver'>, <class '__main__.Person'>, <class 'object'>)
     print(Person.__mro__)
     print(Driver_Taxi.__mro__)
-    y = Driver_Taxi("John", "Doe", 'Ford', 'Focus', 'Yandex')
+    y = Driver_Taxi("John", "Doe", "Ford", "Focus", "Yandex")
     y.print_car()
     y.print_car_park()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main2()

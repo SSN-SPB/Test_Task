@@ -7,9 +7,9 @@ import os
 def main_mysql():
     mydb = mysql.connector.connect(
         host="localhost",
-        user=os.environ.get('MYSQL_TEST_USER'),
-        password=os.environ.get('MYSQL_TEST_USER_PASS')
-        )
+        user=os.environ.get("MYSQL_TEST_USER"),
+        password=os.environ.get("MYSQL_TEST_USER_PASS"),
+    )
 
     print(mydb)
     # print(type(mydb))
@@ -22,5 +22,5 @@ def main_mysql():
         print(x)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main_mysql()

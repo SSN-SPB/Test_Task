@@ -11,5 +11,5 @@ def main():
     # os.path.dirname(sys.executable)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

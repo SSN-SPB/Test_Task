@@ -31,6 +31,7 @@ class Dog(Animal):
 
 class Bird(Animal):
     """Bird abstract of Animals"""
+
     def make_sound(self):
         """Bird chirps"""
         return "Chirp"

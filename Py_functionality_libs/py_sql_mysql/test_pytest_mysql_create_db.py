@@ -6,9 +6,9 @@ import os
 def get_list_of_schemes(hostname="localhost", print_result=0):
     mydb = mysql.connector.connect(
         host=hostname,
-        user=os.environ.get('MYSQL_ADMIN'),
-        password=os.environ.get('MYSQL_ADMIN_PASSWORD')
-        )
+        user=os.environ.get("MYSQL_ADMIN"),
+        password=os.environ.get("MYSQL_ADMIN_PASSWORD"),
+    )
 
     cursor = mydb.cursor()
     cursor.execute("SHOW DATABASES")
@@ -23,14 +23,14 @@ def get_list_of_schemes(hostname="localhost", print_result=0):
     return final_list
 
 
-def perform_sql_select(sql_query, print_result=0,
-                       schema='test_schema',
-                       hostname="localhost"):
+def perform_sql_select(
+    sql_query, print_result=0, schema="test_schema", hostname="localhost"
+):
     mydb = mysql.connector.connect(
         host=hostname,
-        user=os.environ.get('MYSQL_TEST_USER'),
-        password=os.environ.get('MYSQL_TEST_USER_PASS')
-        )
+        user=os.environ.get("MYSQL_TEST_USER"),
+        password=os.environ.get("MYSQL_TEST_USER_PASS"),
+    )
     if print_result:
         print(mydb)
     cursor = mydb.cursor()
@@ -46,15 +46,14 @@ def perform_sql_select(sql_query, print_result=0,
     return final_list
 
 
-def make_action_with_db(tested_schema,
-                        action_with_db="create",
-                        hostname="localhost",
-                        print_result=0):
+def make_action_with_db(
+    tested_schema, action_with_db="create", hostname="localhost", print_result=0
+):
     mydb = mysql.connector.connect(
         host=hostname,
-        user=os.environ.get('MYSQL_ADMIN'),
-        password=os.environ.get('MYSQL_ADMIN_PASSWORD')
-        )
+        user=os.environ.get("MYSQL_ADMIN"),
+        password=os.environ.get("MYSQL_ADMIN_PASSWORD"),
+    )
     cursor = mydb.cursor()
     sql_string = action_with_db + " database " + tested_schema
     if print_result:
@@ -66,16 +65,16 @@ def make_action_with_db(tested_schema,
 def check_if_schema_exists(tested_schema, hostname="localhost"):
     mydb = mysql.connector.connect(
         host=hostname,
-        user=os.environ.get('MYSQL_ADMIN'),
-        password=os.environ.get('MYSQL_ADMIN_PASSWORD')
-        )
+        user=os.environ.get("MYSQL_ADMIN"),
+        password=os.environ.get("MYSQL_ADMIN_PASSWORD"),
+    )
 
     cursor = mydb.cursor()
     cursor.execute("SHOW DATABASES")
     action_result = cursor.fetchall()
     for x in action_result:
         if tested_schema == x[0]:
-            print('schema is found')
+            print("schema is found")
             return True
     return False
 
@@ -99,5 +98,5 @@ def test_check_schema_creating_mysql():
     print(restored_list_of_db)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_check_schema_creating_mysql()

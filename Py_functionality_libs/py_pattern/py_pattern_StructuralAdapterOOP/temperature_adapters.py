@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
 
+
 # Abstract base class for adapters
 class TemperatureAdapter(ABC):
     @abstractmethod
     def get_temperature(self):
         pass
+
 
 # Fahrenheit to Celsius Adapter
 class FahrenheitToCelsiusAdapter(TemperatureAdapter):

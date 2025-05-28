@@ -1,12 +1,13 @@
 import pytest
 
+
 def checking_result(expected, received, text="Check maximal val"):
     print(text)
-    print('expected: {}'.format(expected))
-    print('received: {}'.format(received))
+    print("expected: {}".format(expected))
+    print("received: {}".format(received))
     try:
         assert expected == received
-        print('Checking has passed')
+        print("Checking has passed")
     except AssertionError as ae:
         print("checking has failed. \n__doc__: {}".format(ae.__doc__))
         print("__context__: {}".format(ae.__context__))
@@ -26,7 +27,6 @@ def calculate_sum_of_range(maximal_in_range):
 def main():
     print(calculate_sum_of_range(10))
     checking_result(55, calculate_sum_of_range(10), text="Check sum of range")
-
 
 
 def test_sum_of_array():

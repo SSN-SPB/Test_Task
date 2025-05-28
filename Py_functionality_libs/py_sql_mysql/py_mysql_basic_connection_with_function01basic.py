@@ -7,9 +7,9 @@ import os
 def perform_sql_select(sql_querry):
     mydb = mysql.connector.connect(
         host="localhost",
-        user=os.environ.get('MYSQL_TEST_USER'),
-        password=os.environ.get('MYSQL_TEST_USER_PASS')
-        )
+        user=os.environ.get("MYSQL_TEST_USER"),
+        password=os.environ.get("MYSQL_TEST_USER_PASS"),
+    )
 
     print(mydb)
     cursor = mydb.cursor()
@@ -25,5 +25,5 @@ def main_mysql():
     perform_sql_select("show tables")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main_mysql()

@@ -19,10 +19,9 @@ def get_list_of_schemes(hostname="localhost", print_result=0):
     return final_list
 
 
-def make_action_with_db(tested_schema,
-                        action_with_db="create",
-                        hostname="localhost",
-                        print_result=0):
+def make_action_with_db(
+    tested_schema, action_with_db="create", hostname="localhost", print_result=0
+):
     mydb = connection.make_connector(hostname)
     cursor = mydb.cursor()
     sql_string = action_with_db + " database " + tested_schema
@@ -39,12 +38,12 @@ def check_if_schema_exists(tested_schema, hostname="localhost"):
     action_result = cursor.fetchall()
     for x in action_result:
         if tested_schema == x[0]:
-            print('schema is found')
+            print("schema is found")
             return True
     return False
 
 
-@pytest.fixture(scope='class', autouse=False)
+@pytest.fixture(scope="class", autouse=False)
 def setup():
     check_if_schema_exists("auto")
     print("The initial list of databases")
@@ -61,39 +60,35 @@ def setup():
 
 @pytest.fixture()
 def introduction():
-    print('Start pytest')
+    print("Start pytest")
     yield
     print("restoring the initial list of databases")
-    make_action_with_db("auto",
-                        action_with_db="drop",
-                        hostname="localhost")
+    make_action_with_db("auto", action_with_db="drop", hostname="localhost")
     restored_list_of_schemas = get_list_of_schemes()
     assert "auto" not in restored_list_of_schemas
     print(restored_list_of_schemas)
-    print('Test is finished')
+    print("Test is finished")
 
 
-@pytest.mark.usefixtures('introduction', 'setup')
+@pytest.mark.usefixtures("introduction", "setup")
 def test_check_table_creating_mysql():
-    query.perform_sql_select("show tables",
-                             print_result=1,
-                             schema='auto',
-                             hostname="localhost")
-    create_table_sql_query = "CREATE TABLE cars ("\
-                             " id INT AUTO_INCREMENT,"\
-                             " make VARCHAR(100) NOT NULL,"\
-                             " model VARCHAR(100) NOT NULL,"\
-                             " PRIMARY KEY (id))"
-    query.perform_sql_select(create_table_sql_query,
-                             print_result=1,
-                             schema='auto')
-    query.perform_sql_select("show tables",
-                             print_result=1,
-                             schema='auto',
-                             hostname="localhost")
+    query.perform_sql_select(
+        "show tables", print_result=1, schema="auto", hostname="localhost"
+    )
+    create_table_sql_query = (
+        "CREATE TABLE cars ("
+        " id INT AUTO_INCREMENT,"
+        " make VARCHAR(100) NOT NULL,"
+        " model VARCHAR(100) NOT NULL,"
+        " PRIMARY KEY (id))"
+    )
+    query.perform_sql_select(create_table_sql_query, print_result=1, schema="auto")
+    query.perform_sql_select(
+        "show tables", print_result=1, schema="auto", hostname="localhost"
+    )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     check_if_schema_exists("auto")
     print("The initial list of databases")
     get_list_of_schemes(print_result=1)
@@ -107,10 +102,8 @@ if __name__ == '__main__':
     assert "auto" in updated_list
     test_check_table_creating_mysql()
     print("restoring the initial list of databases")
-    make_action_with_db("auto",
-                        action_with_db="drop",
-                        hostname="localhost")
+    make_action_with_db("auto", action_with_db="drop", hostname="localhost")
     restored_list_of_db = get_list_of_schemes()
     assert "auto" not in restored_list_of_db
     print(restored_list_of_db)
-    print('Test is finished')
+    print("Test is finished")

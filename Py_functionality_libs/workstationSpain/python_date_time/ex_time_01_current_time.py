@@ -7,8 +7,8 @@ from datetime import datetime
 def print_current_time():
     """Exercise 1: Get currnt tim"""
     now = datetime.now()
-    print('Current DateTime:', now)
-    print('Type:', type(now))
+    print("Current DateTime:", now)
+    print("Type:", type(now))
 
 
 def main():

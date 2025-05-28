@@ -1,10 +1,12 @@
 from abc import ABC, abstractmethod
 
+
 # Define the base interface
 class FileSystemComponent(ABC):
     @abstractmethod
     def show_details(self):
         pass
+
 
 # File class (Leaf)
 class File(FileSystemComponent):
@@ -14,6 +16,7 @@ class File(FileSystemComponent):
 
     def show_details(self):
         print(f"📄 File: {self.name} ({self.size} KB)")
+
 
 # Folder class (No Composite Behavior)
 class Folder(FileSystemComponent):
@@ -31,6 +34,7 @@ class Folder(FileSystemComponent):
         print(f"📁 Folder: {self.name}")
         for file in self.files:
             file.show_details()
+
 
 # Creating files
 file1 = File("Resume.pdf", 120)

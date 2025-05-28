@@ -3,8 +3,8 @@
 
 
 def main():
-    person = ['Ivan', 'Petrov', 'June', 12, 1947]
-    person2 = ['Fiodor', 'Petrov', 'June', 12, 1947]
+    person = ["Ivan", "Petrov", "June", 12, 1947]
+    person2 = ["Fiodor", "Petrov", "June", 12, 1947]
     LAST_NAME, MONTH = slice(None, 1), slice(2, None)
     print(person[LAST_NAME])
     print(person2[LAST_NAME])

@@ -1,13 +1,10 @@
-
-
-
 def checking_result(expected, received, text="Check maximal val"):
     print(text)
-    print('expected: {}'.format(expected))
-    print('received: {}'.format(received))
+    print("expected: {}".format(expected))
+    print("received: {}".format(received))
     try:
         assert expected == received
-        print('Checking has passed')
+        print("Checking has passed")
     except AssertionError as ae:
         print("checking has failed. \n__doc__: {}".format(ae.__doc__))
         print("__context__: {}".format(ae.__context__))
@@ -23,9 +20,10 @@ def list_all_negatives_in_list(tested_array):
             print("The list includes non-digits {}".format(x))
     return tested_list
 
+
 def main():
     x = 1
-    printed_string = ''
+    printed_string = ""
     while x <= 5:
         printed_string = printed_string + " " + str(x)
         x += 1

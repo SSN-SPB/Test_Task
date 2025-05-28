@@ -6,6 +6,7 @@ import useful
 
 # https://compscicenter.ru/courses/python/2015-autumn/classes/1556/ 0 - 14
 
+
 def main():
     # print(dir(sys))
     useful.print_boo()
@@ -18,4 +19,5 @@ def main():
         print(useful)
 
 
-if __name__ == '__main__': main()
+if __name__ == "__main__":
+    main()

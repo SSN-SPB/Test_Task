@@ -15,11 +15,11 @@ import datetime
 
 def main():
     ts = time.time()
-    st = datetime.datetime.fromtimestamp(ts).strftime('%Y_%m_%d_%H_%M_%S_%f')
+    st = datetime.datetime.fromtimestamp(ts).strftime("%Y_%m_%d_%H_%M_%S_%f")
     print(st)
-    st = datetime.datetime.fromtimestamp(ts).strftime('%y.%m.%d.')
+    st = datetime.datetime.fromtimestamp(ts).strftime("%y.%m.%d.")
     print(st)
 
 
-
-if __name__ == '__main__': main()
+if __name__ == "__main__":
+    main()

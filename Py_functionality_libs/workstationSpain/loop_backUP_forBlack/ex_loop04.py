@@ -1,5 +1,6 @@
 # import pytest
 
+
 def checking_result(expected, received, text="Check maximal val"):
     print(text)
     print("expected: {}".format(expected))

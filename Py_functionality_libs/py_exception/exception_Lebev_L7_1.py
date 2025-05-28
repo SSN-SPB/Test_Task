@@ -5,10 +5,10 @@
 
 def main():
     list = [0, 1]
-    list.append('x')
-    print(list)      # [0, 1, 'x']
+    list.append("x")
+    print(list)  # [0, 1, 'x']
     try:
-        list.append('y', 'z')
+        list.append("y", "z")
     except (ValueError, ArithmeticError):
         pass
     except Exception as e:

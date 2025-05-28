@@ -2,13 +2,16 @@ class Device:
     def turn_on(self):
         pass
 
+
 class TV(Device):
     def turn_on(self):
         return "TV turned on"
 
+
 class Radio(Device):
     def turn_on(self):
         return "Radio turned on"
+
 
 class Remote:
     def __init__(self, device):
@@ -17,10 +20,11 @@ class Remote:
     def press_power(self):
         return self.device.turn_on()
 
+
 tv_remote = Remote(TV())
 radio_remote = Remote(Radio())
 
-print(tv_remote.press_power())   # Output: TV turned on
+print(tv_remote.press_power())  # Output: TV turned on
 print(radio_remote.press_power())  # Output: Radio turned on
 
 

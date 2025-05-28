@@ -1,10 +1,11 @@
 # https://pynative.com/python-if-else-and-for-loop-exercise-with-solutions/#h-exercise-1-print-first-10-natural-numbers-using-while-loop
 
+
 def print_stars(n):
     c = 0
-    test_str = ''
+    test_str = ""
     while c < n:
-        test_str = test_str + ' ' + '*'
+        test_str = test_str + " " + "*"
         c += 1
     return test_str
 

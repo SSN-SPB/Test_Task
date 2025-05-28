@@ -1,10 +1,9 @@
 from mysql_service_resources import mysql_connectors as connection
 
 
-def perform_sql_select(sql_query,
-                       print_result=0,
-                       schema='test_schema',
-                       hostname="localhost"):
+def perform_sql_select(
+    sql_query, print_result=0, schema="test_schema", hostname="localhost"
+):
     mydb = connection.make_connector(hostname)
     if print_result:
         print("The requested query is: '{}'".format(sql_query))

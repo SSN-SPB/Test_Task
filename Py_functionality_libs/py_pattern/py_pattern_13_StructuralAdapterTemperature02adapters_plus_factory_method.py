@@ -3,10 +3,12 @@ class FahrenheitThermometer:
     def get_temperature(self):
         return 98.6  # Temperature in Fahrenheit
 
+
 # Target interface: All adapters implement this
 class TemperatureAdapter:
     def get_temperature(self):
         raise NotImplementedError
+
 
 # Adapter 1: Fahrenheit to Celsius
 class FahrenheitToCelsiusAdapter(TemperatureAdapter):
@@ -18,6 +20,7 @@ class FahrenheitToCelsiusAdapter(TemperatureAdapter):
         celsius = (fahrenheit - 32) * 5.0 / 9.0
         return f"{celsius:.2f}°C"
 
+
 # Adapter 2: Fahrenheit to Kelvin
 class FahrenheitToKelvinAdapter(TemperatureAdapter):
     def __init__(self, fahrenheit_thermometer):
@@ -27,6 +30,7 @@ class FahrenheitToKelvinAdapter(TemperatureAdapter):
         fahrenheit = self.fahrenheit_thermometer.get_temperature()
         kelvin = (fahrenheit - 32) * 5.0 / 9.0 + 273.15
         return f"{kelvin:.2f}K"
+
 
 # 🚀 Factory: Creates the correct adapter based on the desired unit
 class TemperatureAdapterFactory:
@@ -38,6 +42,7 @@ class TemperatureAdapterFactory:
             return FahrenheitToKelvinAdapter(fahrenheit_thermometer)
         else:
             raise ValueError(f"Unsupported temperature unit: {unit}")
+
 
 # Client code
 fahrenheit_thermometer = FahrenheitThermometer()

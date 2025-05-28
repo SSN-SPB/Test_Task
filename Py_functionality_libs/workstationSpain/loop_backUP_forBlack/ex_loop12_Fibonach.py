@@ -1,5 +1,6 @@
 # https://pynative.com/python-if-else-and-for-loop-exercise-with-solutions/#h-exercise-1-print-first-10-natural-numbers-using-while-loop
 
+
 def main():
     test_list = [0, 1]
     test_str = ""
@@ -8,6 +9,7 @@ def main():
     for x in test_list:
         test_str = test_str + " " + str(x)
     print(test_str)
+
 
 if __name__ == "__main__":
     main()

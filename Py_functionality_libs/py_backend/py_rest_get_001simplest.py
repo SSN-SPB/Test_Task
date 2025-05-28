@@ -11,12 +11,12 @@ def main():
     try:
         print(r.json())
     except Exception as e:
-        print('No JSON found. See message: {}'.format(e))
+        print("No JSON found. See message: {}".format(e))
     print(r.headers)
-    print(r.headers['Date'])
+    print(r.headers["Date"])
     for x, y in r.headers.items():
-        print('{} is: {}'.format(x, y))
+        print("{} is: {}".format(x, y))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

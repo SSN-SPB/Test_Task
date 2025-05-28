@@ -17,14 +17,14 @@ def main():
     new_file_name = open("course2_training_file1.txt", "r+")
     print(dir(new_file_name))
     for x in dir(new_file_name):
-        function_list = str(x) + '()'
+        function_list = str(x) + "()"
         print(function_list)
 
     print(new_file_name.tell())
     print(new_file_name.fileno())
     print(new_file_name.detach())
-    print(*range(4))              # 0 1 2 3
-    print(*range(4), sep='_')   # 0_1_2_3
+    print(*range(4))  # 0 1 2 3
+    print(*range(4), sep="_")  # 0_1_2_3
     # print(new_file_name.seek(0), file = sys.stderr)
     # print('new_file_name.seek(0)', file = sys.stdout)
     # output = open("sys.stdout", "r+")

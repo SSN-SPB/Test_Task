@@ -7,7 +7,7 @@ def main():
         # Create a list of columns
         for j in range(0, size):
             if j <= i:
-                print('*', end='')
+                print("*", end="")
         print()
 
 

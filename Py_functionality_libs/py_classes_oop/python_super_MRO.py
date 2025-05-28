@@ -20,10 +20,12 @@ class W(Z, Y):
         print("Calling from W")
         super().call()
 
+
 class W1(Z):
     def call(self):
         print("Calling from W1")
         super().call()
+
 
 w = W()
 w1 = W1()

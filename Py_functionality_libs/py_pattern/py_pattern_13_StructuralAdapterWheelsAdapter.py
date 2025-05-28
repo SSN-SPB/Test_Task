@@ -3,6 +3,7 @@
 # human - Truck
 # car - Car
 
+
 class MotorCycle:
     """Class for MotorCycle"""
 

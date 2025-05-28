@@ -6,13 +6,14 @@
 
 
 class Counter:
-    """ The class counts,increases and revealse some values """
-    __slots__ = ['value1', 'value2', 'value3']
+    """The class counts,increases and revealse some values"""
+
+    __slots__ = ["value1", "value2", "value3"]
 
     def __init__(self, counter_value=0):
         self.value1 = 15
         self.value2 = counter_value
-        self.value3 = 'hello'
+        self.value3 = "hello"
 
     def get_value1(self):
         # print(self.value)
@@ -30,21 +31,22 @@ class Counter:
 def main2():
     c = Counter(19)
     try:
-        print('c.__dict__ displays all '
-              'attributes of exemplar: {}'.format(c.__dict__))
+        print(
+            "c.__dict__ displays all " "attributes of exemplar: {}".format(c.__dict__)
+        )
     except AttributeError as ae:
-        print('__dict__ is not found')
-        print('ae is {}'.format(ae))
-    print('print 1st line with doc {}'.format(c.__doc__))
-    print('The list of attr: {}'.format(Counter.__dict__))
-    print('The value1 is: {}'.format(c.get_value1()))
-    print('The value2 is: {}'.format(c.get_value2()))
+        print("__dict__ is not found")
+        print("ae is {}".format(ae))
+    print("print 1st line with doc {}".format(c.__doc__))
+    print("The list of attr: {}".format(Counter.__dict__))
+    print("The value1 is: {}".format(c.get_value1()))
+    print("The value2 is: {}".format(c.get_value2()))
     try:
-        print('The value3 is: {}'.format(c.get_value3()))
+        print("The value3 is: {}".format(c.get_value3()))
     except AttributeError as ae2:
-        print('ae2 is {}'.format(ae2))
-    print('The default value3 is: {}'.format(c.value3))
+        print("ae2 is {}".format(ae2))
+    print("The default value3 is: {}".format(c.value3))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main2()

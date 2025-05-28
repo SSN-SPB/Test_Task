@@ -14,7 +14,7 @@ def gnr(iterator, seen=None):
     z = 1
     for i in iterator:
         if i not in seen:
-            print('z is: {}'.format(z))
+            print("z is: {}".format(z))
             seen.add(i)
             print(seen)
             z += 1
@@ -35,5 +35,5 @@ def main():
         # print(si.__dict__)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

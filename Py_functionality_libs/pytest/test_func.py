@@ -1,6 +1,7 @@
 # run by
 # python -m pytest -v test_func.py
 
+
 def test_calc_addition():
     """Verify the output of `calc_addition` function"""
     output = 2 + 4

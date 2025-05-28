@@ -4,13 +4,13 @@
 
 
 def main():
-    header_name = 'Hello world'
-    header_name2 = 'Hello world2'
-    print('{!s}'.format(header_name2))
-    print('{!r}'.format(header_name2))
-    print('{!r} - {!s}'.format(header_name2, header_name))
-    print('{1!r} - {0!s}'.format(header_name2, header_name))
+    header_name = "Hello world"
+    header_name2 = "Hello world2"
+    print("{!s}".format(header_name2))
+    print("{!r}".format(header_name2))
+    print("{!r} - {!s}".format(header_name2, header_name))
+    print("{1!r} - {0!s}".format(header_name2, header_name))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

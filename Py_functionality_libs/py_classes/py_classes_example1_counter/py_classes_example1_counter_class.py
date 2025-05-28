@@ -5,6 +5,7 @@
 # 1st method is constructor __init__(self, ...)
 # self - instance of class
 
+
 class Counter:
     def __init__(self, counter_value=0):
         self.value2 = counter_value
@@ -21,12 +22,12 @@ class Counter:
 def main():
     c = Counter(15)
     c.get()
-    print('Initial value: {}'.format(c.get()))
+    print("Initial value: {}".format(c.get()))
     c.increase_value()
     c.get()
     y = c.get()
-    print('The assigned y is: {}'.format(y))
+    print("The assigned y is: {}".format(y))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

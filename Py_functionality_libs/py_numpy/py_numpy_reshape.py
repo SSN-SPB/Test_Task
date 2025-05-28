@@ -19,7 +19,6 @@ def get_second_element():
     return b[1]
 
 
-
 def main():
     a = np.array(["x", 1, True, "y", 2, False])
     print(a)

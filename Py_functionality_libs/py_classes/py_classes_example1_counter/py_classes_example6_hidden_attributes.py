@@ -19,16 +19,16 @@ class Counter:
 def main():
     c = Counter(15)
     # working with an attribute of class
-    c.all_found_values.append(2)                      # [2]
+    c.all_found_values.append(2)  # [2]
     print(c.all_found_values)
     x = Counter._all_reserved_values
-    x.append('z')
-    print(x)                                          # [z]
-    print(c._all_reserved_values)                     # [z]
+    x.append("z")
+    print(x)  # [z]
+    print(c._all_reserved_values)  # [z]
     Counter._Counter__all_active_values.append(-1)
     # The special call of double hidden attributes of class
-    print(Counter._Counter__all_active_values)        # [-1]
+    print(Counter._Counter__all_active_values)  # [-1]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

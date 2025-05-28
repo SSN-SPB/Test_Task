@@ -18,6 +18,5 @@ def main():
     assert result_list == ["name2", "name1"]
 
 
-
 if __name__ == "__main__":
     main()

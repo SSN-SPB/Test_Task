@@ -3,5 +3,6 @@ def main():
     initial_list = [5, 4, 3, 2, 1]
     print(initial_list[::-1])
 
+
 if __name__ == "__main__":
     main()

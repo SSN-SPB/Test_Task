@@ -19,7 +19,7 @@ def main():
     while True:
         input_value = input("Enter a number to square (or 'exit' to quit): ")
 
-        if input_value.lower() == 'exit':
+        if input_value.lower() == "exit":
             print("Exiting the program.")
             break
 
