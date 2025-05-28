@@ -1,11 +1,11 @@
 import re
+
 # Define if a string contains the required characters.
 # E.g. if '7865serS3' includes '583' - True; '973' - False
 
-regex_one = '[583]'
-regex_two = '[97]'
+regex_one = "[583]"
+regex_two = "[97]"
 string_one = "7865serS3"
-
 
 
 # def find_in_string(regex_string, test_string):
@@ -24,5 +24,5 @@ def main():
     re.search("7865serS3", pattern)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

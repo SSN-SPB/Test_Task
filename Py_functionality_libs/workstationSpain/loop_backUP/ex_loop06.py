@@ -5,11 +5,11 @@ numbers = [12, 75, 150, 180, 145, 525, 50]
 
 def checking_result(expected, received, text="Check maximal val"):
     print(text)
-    print('expected: {}'.format(expected))
-    print('received: {}'.format(received))
+    print("expected: {}".format(expected))
+    print("received: {}".format(received))
     try:
         assert expected == received
-        print('Checking has passed')
+        print("Checking has passed")
     except AssertionError as ae:
         print("checking has failed. \n__doc__: {}".format(ae.__doc__))
         print("__context__: {}".format(ae.__context__))
@@ -40,7 +40,7 @@ def main():
 
 def test_sum_of_array():
     assert list_checking(numbers) == [75, 150, 145]
- 
+
 
 if __name__ == "__main__":
     main()

@@ -1,14 +1,13 @@
 import pytest
 
 
-
 def checking_result(expected, received, text="Check maximal val"):
     print(text)
-    print('expected: {}'.format(expected))
-    print('received: {}'.format(received))
+    print("expected: {}".format(expected))
+    print("received: {}".format(received))
     try:
         assert expected == received
-        print('Checking has passed')
+        print("Checking has passed")
     except AssertionError as ae:
         print("checking has failed. \n__doc__: {}".format(ae.__doc__))
         print("__context__: {}".format(ae.__context__))

@@ -12,7 +12,10 @@ class CharacterFlyweight:
         return cls._flyweights[key]
 
     def render(self, position):
-        print(f"Rendering '{self.char}' at {position} with font={self.font}, size={self.size}, color={self.color}")
+        print(
+            f"Rendering '{self.char}' at {position} with font={self.font}, size={self.size}, color={self.color}"
+        )
+
 
 class Character:
     def __init__(self, char, font, size, color):
@@ -22,7 +25,9 @@ class Character:
         self.color = color
 
     def render(self, position):
-        print(f"Rendering '{self.char}' at {position} with font={self.font}, size={self.size}, color={self.color}")
+        print(
+            f"Rendering '{self.char}' at {position} with font={self.font}, size={self.size}, color={self.color}"
+        )
 
 
 # Client code
@@ -61,6 +66,3 @@ if __name__ == "__main__":
         character = Character(char, "Times New Roman", 14, "blue")
         character.render((i, 1))
         chars.append(character)
-
-
-

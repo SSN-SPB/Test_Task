@@ -12,10 +12,9 @@ class Solution:
                     for q in range(w + 1, len(nums)):
                         if nums[x] + nums[y] + nums[w] + nums[q] == target:
                             if len(set([x, y, w, q])) == 4:
-                                interim_list = sorted([nums[x],
-                                                       nums[y],
-                                                       nums[w],
-                                                       nums[q]])
+                                interim_list = sorted(
+                                    [nums[x], nums[y], nums[w], nums[q]]
+                                )
                                 if interim_list not in final_list:
                                     final_list.append(interim_list)
         return final_list

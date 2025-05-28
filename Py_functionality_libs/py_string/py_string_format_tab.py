@@ -4,12 +4,12 @@
 
 
 def main():
-    name1 = 'Владимир'
-    name2 = 'Илья'
+    name1 = "Владимир"
+    name2 = "Илья"
 
-    print(f'{name1:10}: тимлид')
-    print(f'{name2:10}: фулстэк-разработчик')
+    print(f"{name1:10}: тимлид")
+    print(f"{name2:10}: фулстэк-разработчик")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

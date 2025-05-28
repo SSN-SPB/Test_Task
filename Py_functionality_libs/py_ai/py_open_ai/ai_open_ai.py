@@ -12,7 +12,7 @@ class GenerativeAI:
         response = openai.ChatCompletion.create(
             model=self.model,
             messages=[{"role": "user", "content": prompt}],
-            max_tokens=max_tokens
+            max_tokens=max_tokens,
         )
         end_time = time.time()
 

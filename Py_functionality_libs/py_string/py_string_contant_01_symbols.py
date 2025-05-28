@@ -12,6 +12,5 @@ def main():
     print(string.printable)
 
 
-
 if __name__ == "__main__":
     main()

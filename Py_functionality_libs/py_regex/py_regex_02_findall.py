@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 import re
-allPatterns = {"uppercase": "[A-Z]",
-               "lowercase": "[a-z]",
-               "numerical_characters": "[0-9]",
-               "special_characters": "[, .!?]"
-               }
+
+allPatterns = {
+    "uppercase": "[A-Z]",
+    "lowercase": "[a-z]",
+    "numerical_characters": "[0-9]",
+    "special_characters": "[, .!?]",
+}
 stringTest = "ThisIsGeeksforGeeks !, 123"
 
 # uppercase_characters = re.findall(patternAz, string)
@@ -17,10 +19,12 @@ stringTest = "ThisIsGeeksforGeeks !, 123"
 def check_string(pat, str, descr):
     if re.findall(pat, str):
         print("The {} characters are {}".format(descr, re.findall(pat, str)))
-        print("Totally q-ty of: {}"
-              " characters is {}".format(descr, len(re.findall(pat, str))))
+        print(
+            "Totally q-ty of: {}"
+            " characters is {}".format(descr, len(re.findall(pat, str)))
+        )
     else:
-        print('not found')
+        print("not found")
 
 
 def main():
@@ -28,5 +32,5 @@ def main():
         check_string(pattern, stringTest, descr)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

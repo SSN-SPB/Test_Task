@@ -16,7 +16,7 @@ def get_database():
     client = MongoClient(CONNECTION_STRING)
 
     # Create the database for our example
-    print(client['channels'])
+    print(client["channels"])
     return client
 
 
@@ -32,7 +32,6 @@ def main():
     # print(mydoc)
     for y in mydoc.find():
         print(y)
-
 
 
 # This is added so that many files can reuse the function get_database()

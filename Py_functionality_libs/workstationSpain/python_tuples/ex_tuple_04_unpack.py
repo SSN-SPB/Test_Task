@@ -5,7 +5,6 @@ tuple1 = (11, 20, 30, 40)
 list1 = [11, 12, 13, 14]
 
 
-
 def main():
     # unpack tuple into 4 variables
     a, b, c, d = tuple1

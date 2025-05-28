@@ -5,8 +5,8 @@ import subprocess
 
 
 def main():
-    subprocess.run(["notepad", 'filename'])
+    subprocess.run(["notepad", "filename"])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

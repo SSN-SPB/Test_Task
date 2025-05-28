@@ -5,10 +5,12 @@ class FahrenheitThermometer:
     def get_temperature(self):
         return 98.6  # Temperature in Fahrenheit
 
+
 # Target interface (expected by the client)
 class CelsiusThermometer:
     def get_temperature(self):
         raise NotImplementedError
+
 
 # Adapter class to convert Fahrenheit to Celsius
 class TemperatureAdapter(CelsiusThermometer):
@@ -18,6 +20,7 @@ class TemperatureAdapter(CelsiusThermometer):
     def get_temperature(self):
         fahrenheit = self.fahrenheit_thermometer.get_temperature()
         return (fahrenheit - 32) * 5.0 / 9.0  # Convert to Celsius
+
 
 # Client code
 fahrenheit_thermometer = FahrenheitThermometer()

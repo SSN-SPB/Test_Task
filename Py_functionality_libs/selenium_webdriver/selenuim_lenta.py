@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
 from selenium import webdriver
+
 # from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ChromeOptions
+
 # import selenium exception
 from selenium.common.exceptions import *
 import time
 
 
-weblink = 'https://lenta.com'
+weblink = "https://lenta.com"
 # Locators
-XPATH_HEAD_LOGO = '//a[@class=\"header_logo\"]'
+XPATH_HEAD_LOGO = '//a[@class="header_logo"]'
 
 
 def main():
     # Option to start Chrome maximized
     options = ChromeOptions()
-    options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--start-maximized')
+    options.add_argument("--ignore-certificate-errors")
+    options.add_argument("--start-maximized")
     # Starting driver with Chrome
     driver = webdriver.Chrome(options=options)
     # define weblink
@@ -25,32 +27,32 @@ def main():
 
     # Check locators
     # not existing element
-    not_existing_element = ''
+    not_existing_element = ""
     try:
-        not_existing_element = driver.find_element_by_name('j_username')
+        not_existing_element = driver.find_element_by_name("j_username")
 
     except NoSuchElementException as nse:
-        print('No element {} is found'.format(not_existing_element))
+        print("No element {} is found".format(not_existing_element))
         print(nse)
-    print('The expected elements:')
+    print("The expected elements:")
     try:
         lenta_logo = driver.find_element_by_xpath(XPATH_HEAD_LOGO)
-        print('The expected elements {} is found'.format(lenta_logo))
+        print("The expected elements {} is found".format(lenta_logo))
         usd_rate_block = driver.find_element_by_css_selector(USD_RATE_BLOCK)
-        print('The expected elements {} is found'.format(usd_rate_block))
+        print("The expected elements {} is found".format(usd_rate_block))
         usd_rate_texts = driver.find_element_by_xpath(XPATH_USD_RATE_TEXT)
-        print('The expected elements {} are found'.format(usd_rate_texts))
+        print("The expected elements {} are found".format(usd_rate_texts))
         for x in list(usd_rate_texts):
-            print('Current USD rate is: ' + x.text)
-        print('The expected elements are found')
+            print("Current USD rate is: " + x.text)
+        print("The expected elements are found")
     except NoSuchElementException as nse:
-        print('The expected elements are not found as well')
+        print("The expected elements are not found as well")
         print(nse)
     except Exception as e:
-        print('Something is wrong' + e.args[0])
+        print("Something is wrong" + e.args[0])
     time.sleep(3)
     driver.close()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

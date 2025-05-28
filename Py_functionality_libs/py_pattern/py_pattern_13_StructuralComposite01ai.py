@@ -3,9 +3,11 @@ class Component:
     def operation(self):
         pass
 
+
 class Leaf(Component):
     def operation(self):
         return "Leaf"
+
 
 class Composite(Component):
     def __init__(self):
@@ -16,6 +18,7 @@ class Composite(Component):
 
     def operation(self):
         return " + ".join([child.operation() for child in self.children])
+
 
 leaf1 = Leaf()
 leaf2 = Leaf()

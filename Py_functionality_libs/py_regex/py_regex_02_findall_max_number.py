@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import re
+
 testedRegexNumber = "\d+"
 stringTest = "This335IsGeeksforGeeks !, 123"
-
 
 
 def check_string(str):
@@ -15,5 +15,5 @@ def main():
     print(check_string(stringTest))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

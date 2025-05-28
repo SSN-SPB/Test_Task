@@ -9,12 +9,9 @@ def main():
     c_variable = False
     d_variable = True
 
-    if a_variable \
-            and b_variable \
-            and d_variable \
-            and c_variable is False:
+    if a_variable and b_variable and d_variable and c_variable is False:
         print("Like for more!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

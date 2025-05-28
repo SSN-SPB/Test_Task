@@ -11,12 +11,12 @@ tuple2 = (3, 5, 11)
 
 
 def sample_map(colection1, collection2):
-    print(list(map(lambda x, y : x - y, colection1, collection2)))
+    print(list(map(lambda x, y: x - y, colection1, collection2)))
 
 
 def main2():
     sample_map(list1, tuple2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main2()

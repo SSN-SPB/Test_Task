@@ -14,7 +14,8 @@ class Circle:
 
     @property
     def area(self):
-        return 3.14159 * (self._radius ** 2)
+        return 3.14159 * (self._radius**2)
+
 
 def main():
     circle = Circle(5)
@@ -24,6 +25,7 @@ def main():
 
     # circle.area = 100  # ❌ This will raise an AttributeError
     # circle.radius = -3 # ❌ Raises ValueError: Radius cannot be negative
+
 
 if __name__ == "__main__":
     main()

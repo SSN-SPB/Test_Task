@@ -1,13 +1,16 @@
 import pytest
 
 
-from mysql_service_resources import check_if_schema_exists, get_list_of_schemes, \
-    make_action_with_db
+from mysql_service_resources import (
+    check_if_schema_exists,
+    get_list_of_schemes,
+    make_action_with_db,
+)
 
-NEW_DATABASE = 'auto'
+NEW_DATABASE = "auto"
 
 
-@pytest.fixture(scope='class', autouse=False)
+@pytest.fixture(scope="class", autouse=False)
 def setup():
     check_if_schema_exists("auto")
     print("Checking the initial list of databases:")
@@ -25,13 +28,11 @@ def setup():
 
 @pytest.fixture()
 def introduction():
-    print('Start pytest')
+    print("Start pytest")
     yield
     print("restoring the initial list of databases")
-    make_action_with_db("auto",
-                        action_with_db="drop",
-                        hostname="localhost")
+    make_action_with_db("auto", action_with_db="drop", hostname="localhost")
     restored_list_of_schemas = get_list_of_schemes()
     assert "auto" not in restored_list_of_schemas
     print(restored_list_of_schemas)
-    print('Test is finished')
+    print("Test is finished")

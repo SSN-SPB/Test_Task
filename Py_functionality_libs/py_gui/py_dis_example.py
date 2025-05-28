@@ -4,7 +4,7 @@
 import dis
 
 
-tested_list = ['a', 'b', 'c']
+tested_list = ["a", "b", "c"]
 
 
 def iterate_list(list):

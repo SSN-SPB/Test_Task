@@ -10,15 +10,14 @@ class Solution:
         list_keys = ["(", "[", "{"]
         list_values = [")", "]", "}"]
         # test_dict = {"(": ")", "[": "]", "{": "}"}
-        for x in range(0, int(len(final_list)/2)):
+        for x in range(0, int(len(final_list) / 2)):
             # print(len(final_list) / 2)
             print(x)
             print("print x element {}".format(final_list[x]))
-            print("print -x element {}".format(final_list[-x-1]))
-        print("final list 1/2: {}".format(final_list[:-x - 1]))
-        for y in final_list[:-x - 1]:
+            print("print -x element {}".format(final_list[-x - 1]))
+        print("final list 1/2: {}".format(final_list[: -x - 1]))
+        for y in final_list[: -x - 1]:
             print(y)
-
 
         print(final_list)
 

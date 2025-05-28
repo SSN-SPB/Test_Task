@@ -12,18 +12,19 @@ import matplotlib.pyplot as plt
 
 print(pd.__version__)
 
+
 def main():
     # skiprows - number of rows in csv file that should be skipped for DataFrame
-    oo = pd.read_csv('./csv_data/Olympics2.csv', skiprows=4)
+    oo = pd.read_csv("./csv_data/Olympics2.csv", skiprows=4)
     print(oo.head())
     print(oo.index)
-    ath = oo.set_index('Athlete')
+    ath = oo.set_index("Athlete")
     print(ath.head())
-    ath.sort_index(inplace = True)
+    ath.sort_index(inplace=True)
     print(ath.head())
-    ath.sort_index(inplace = True,ascending = False)
+    ath.sort_index(inplace=True, ascending=False)
     print(ath.head())
 
 
-    
-if __name__ == '__main__': main()
+if __name__ == "__main__":
+    main()

@@ -1,15 +1,17 @@
 """If you're just enforcing method implementation, @abstractmethod is enough,
- but if you're dealing with nested structures
- where both individual and group objects should be treated the same way,
- Composite Pattern is the better approach."""
+but if you're dealing with nested structures
+where both individual and group objects should be treated the same way,
+Composite Pattern is the better approach."""
 
 from abc import ABC, abstractmethod
+
 
 # Step 1: Define the common interface for Files and Folders
 class FileSystemComponent(ABC):
     @abstractmethod
     def show_details(self, indent=0):
         pass
+
 
 # Step 2: Define the Leaf class (File)
 class File(FileSystemComponent):
@@ -19,6 +21,7 @@ class File(FileSystemComponent):
 
     def show_details(self, indent=0):
         print(" " * indent + f"📄 File: {self.name} ({self.size} KB)")
+
 
 # Step 3: Define the Composite class (Folder)
 class Folder(FileSystemComponent):
@@ -36,6 +39,7 @@ class Folder(FileSystemComponent):
         print(" " * indent + f"📁 Folder: {self.name}")
         for child in self.children:
             child.show_details(indent + 4)
+
 
 # Step 4: Create a File System Structure
 root = Folder("Root")

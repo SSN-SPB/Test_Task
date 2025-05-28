@@ -5,6 +5,7 @@
 # itereable has no __next__
 # Iterable is an object, which one can iterate over.
 
+
 def main():
     # list of cities
     cities = ["Berlin", "Vienna", "Zurich"]
@@ -12,21 +13,20 @@ def main():
     # initialize the object
     iterator_obj = iter(cities)
     for x in iterator_obj:
-        print(f'from iterable {x}')
+        print(f"from iterable {x}")
     for x in iterator_obj:
-        print(f'from iterable {x}')
+        print(f"from iterable {x}")
 
     try:
         print(next(iterator_obj))
     except StopIteration as si:
-        print('No more iterator')
+        print("No more iterator")
     #
     for x in iterator_obj:
         print(x)
     for x in cities:
-        print(f'from city {x}')
+        print(f"from city {x}")
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

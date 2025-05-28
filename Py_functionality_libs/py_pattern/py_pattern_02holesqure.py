@@ -7,9 +7,9 @@ def main():
         # Create a list of columns
         for j in range(0, size):
             if i == 0 or i == size - 1 or j == 0 or j == size - 1:
-                print('*', end='')
+                print("*", end="")
             else:
-                print(' ', end='')
+                print(" ", end="")
         print()
 
 

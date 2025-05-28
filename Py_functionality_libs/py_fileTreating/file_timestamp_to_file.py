@@ -15,12 +15,11 @@ import datetime
 
 def main():
     ts = time.time()
-    st = datetime.datetime.fromtimestamp(ts).strftime('%Y_%m_%d_%H_%M_%S_%f')
-    timestamp_file = open ("timestamp_file.txt", "w+")
+    st = datetime.datetime.fromtimestamp(ts).strftime("%Y_%m_%d_%H_%M_%S_%f")
+    timestamp_file = open("timestamp_file.txt", "w+")
     timestamp_file.write(st)
     timestamp_file.close()
 
 
-
-
-if __name__ == '__main__': main()
+if __name__ == "__main__":
+    main()

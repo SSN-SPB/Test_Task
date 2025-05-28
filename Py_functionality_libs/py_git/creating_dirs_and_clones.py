@@ -18,17 +18,27 @@ def git_clone(rep_to_clone):
 
 def main():
     # open existing file with timestamp
-    timestamp_file = open('timestamp_file.txt', 'r')
+    timestamp_file = open("timestamp_file.txt", "r")
     timestamp = timestamp_file.readlines()[0]
     # print(timestamp)
-    makedir(timestamp, postfix='_jdn',
-            repsitory_to_clone='https://github.com/jdi-testing/jdn.git')
-    makedir(timestamp, postfix='_jdi_light',
-            repsitory_to_clone='https://github.com/jdi-examples/jdn-with-jdi-light.git')
+    makedir(
+        timestamp,
+        postfix="_jdn",
+        repsitory_to_clone="https://github.com/jdi-testing/jdn.git",
+    )
+    makedir(
+        timestamp,
+        postfix="_jdi_light",
+        repsitory_to_clone="https://github.com/jdi-examples/jdn-with-jdi-light.git",
+    )
 
 
-def makedir(ts, prefix='clone_', postfix='temp'
-            , repsitory_to_clone='https://github.com/jdi-testing/jdn.git'):
+def makedir(
+    ts,
+    prefix="clone_",
+    postfix="temp",
+    repsitory_to_clone="https://github.com/jdi-testing/jdn.git",
+):
     name_of_dir = prefix + str(ts) + postfix
     os.mkdir(name_of_dir)
     os.chdir(name_of_dir)
@@ -37,4 +47,5 @@ def makedir(ts, prefix='clone_', postfix='temp'
     git_clone(repsitory_to_clone)
 
 
-if __name__ == '__main__': main()
+if __name__ == "__main__":
+    main()

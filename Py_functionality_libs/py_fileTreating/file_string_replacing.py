@@ -3,12 +3,13 @@
 #
 import os
 
+
 def cleaning_files():
-    result = 'File to remove is not found'
+    result = "File to remove is not found"
     for x in os.listdir(os.getcwd()):
         # print(x)
         if x == "file_to_modify.txt":
-            result = 'File to remove is found'
+            result = "File to remove is found"
             os.remove(x)
     print(result)
 

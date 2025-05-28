@@ -22,7 +22,7 @@ class seq_iter:
         return res
 
 
-tested_list = ['a', 'b', 'c']
+tested_list = ["a", "b", "c"]
 
 
 def iterate_list(list):

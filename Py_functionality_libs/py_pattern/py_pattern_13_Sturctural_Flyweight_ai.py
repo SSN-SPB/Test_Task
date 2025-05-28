@@ -1,5 +1,7 @@
-'''Uses shared objects to minimize memory usage.'''
+"""Uses shared objects to minimize memory usage."""
+
 # https://python-patterns.guide/gang-of-four/flyweight/
+
 
 class Flyweight:
     _instances = {}
@@ -15,6 +17,7 @@ def main():
     obj1 = Flyweight("shared")
     obj2 = Flyweight("shared")
     print(obj1 is obj2)  # Output: True (same instance)
+
 
 if __name__ == "__main__":
     main()

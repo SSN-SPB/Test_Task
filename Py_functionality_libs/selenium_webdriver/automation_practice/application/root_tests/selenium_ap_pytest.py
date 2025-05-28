@@ -2,6 +2,7 @@
 from selenium import webdriver
 from selenium.webdriver import ChromeOptions
 from selenium.webdriver.common.by import By
+
 # from selenium.webdriver.common.keys import Keys # input interaction
 from application.Resources.selenium_test_ap_locators import ApLocators
 import pytest
@@ -15,7 +16,7 @@ def get_driver():
     # Option to start Chrome maximized
     options = ChromeOptions()
     # options.add_argument('--ignore-certificate-errors')
-    options.add_argument('--start-maximized')
+    options.add_argument("--start-maximized")
     # Starting driver with Chrome option
     driver = webdriver.Chrome(options=options)
     return driver
@@ -45,7 +46,7 @@ def test_site_tab_checking_elements():
     elements_tab = driver.find_element(By.CSS_SELECTOR, "div.card-body h5")
     element_text = elements_tab.text
     driver.close()
-    assert element_text == 'Elements'
+    assert element_text == "Elements"
 
 
 @pytest.mark.main_elements_checking
@@ -64,7 +65,7 @@ def test_navigate_to_elements():
         checked_value = True
     driver.close()
     assert checked_value
-    assert element_logo_text == 'Elements'
+    assert element_logo_text == "Elements"
 
 
 @pytest.mark.main_elements_checking
@@ -73,12 +74,12 @@ def test_check_tiles_text():
     driver = open_web_page()
     tiles = driver.find_elements(By.CSS_SELECTOR, "div.card-body h5")
     expected_text_list = [
-        'Elements',
-        'Forms',
-        'Alerts, Frame & Windows',
-        'Widgets',
-        'Interactions',
-        'Book Store Application'
+        "Elements",
+        "Forms",
+        "Alerts, Frame & Windows",
+        "Widgets",
+        "Interactions",
+        "Book Store Application",
     ]
     for i in range(0, len(expected_text_list)):
         print(expected_text_list[i])
@@ -98,5 +99,5 @@ def test_check_subpage_url():
     print(driver.current_url)
     navigated_page_url = driver.current_url
     driver.close()
-    assert element_logo_text == 'Elements'
+    assert element_logo_text == "Elements"
     assert navigated_page_url == weblink_elements

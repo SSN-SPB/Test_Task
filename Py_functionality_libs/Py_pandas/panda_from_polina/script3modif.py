@@ -17,26 +17,26 @@ wh = pd.read_csv("2019.csv")
 set(political_countries["name"]) - set(wh["Country or region"])
 set(wh["Country or region"]) - set(political_countries["name"])
 # Correct the difference
-wh.loc[
-    wh["Country or region"] == "United States", "Country or region"
-] = "United States of America"
-wh.loc[
-    wh["Country or region"] == "Trinidad & Tobago", "Country or region"
-] = "Trinidad and Tobago"
-wh.loc[
-    wh["Country or region"] == "Tanzania", "Country or region"
-] = "United Republic of Tanzania"
+wh.loc[wh["Country or region"] == "United States", "Country or region"] = (
+    "United States of America"
+)
+wh.loc[wh["Country or region"] == "Trinidad & Tobago", "Country or region"] = (
+    "Trinidad and Tobago"
+)
+wh.loc[wh["Country or region"] == "Tanzania", "Country or region"] = (
+    "United Republic of Tanzania"
+)
 wh.loc[wh["Country or region"] == "Serbia", "Country or region"] = "Republic of Serbia"
-wh.loc[
-    wh["Country or region"] == "Palestinian Territories", "Country or region"
-] = "West Bank"
+wh.loc[wh["Country or region"] == "Palestinian Territories", "Country or region"] = (
+    "West Bank"
+)
 wh.loc[wh["Country or region"] == "North Macedonia", "Country or region"] = "Macedonia"
-wh.loc[
-    wh["Country or region"] == "Congo (Brazzaville)", "Country or region"
-] = "Republic of the Congo"
-wh.loc[
-    wh["Country or region"] == "Congo (Kinshasa)", "Country or region"
-] = "Democratic Republic of the Congo"
+wh.loc[wh["Country or region"] == "Congo (Brazzaville)", "Country or region"] = (
+    "Republic of the Congo"
+)
+wh.loc[wh["Country or region"] == "Congo (Kinshasa)", "Country or region"] = (
+    "Democratic Republic of the Congo"
+)
 # Visualize the World Map
 folium.Choropleth(
     geo_data="world-countries.json",

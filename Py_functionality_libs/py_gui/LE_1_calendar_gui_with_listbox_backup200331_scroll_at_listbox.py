@@ -18,12 +18,12 @@ input_text_left_border = 300
 listbox_height_selected = 4
 
 # Defining the text contants
-input_instruction_year = 'Enter year in 4 digits format, please.'
-input_instruction_month = 'Enter month in 2 digits format, please.'
-incorrect_input_message = 'The input is not correct. The calendar displaying is stopped'
-press_buttom_text = 'Press To view calendar'
-name_for_button = '<Button-1>'
-wrong_value_message = 'Some input data is wrong. Check it and try to reenter, please'
+input_instruction_year = "Enter year in 4 digits format, please."
+input_instruction_month = "Enter month in 2 digits format, please."
+incorrect_input_message = "The input is not correct. The calendar displaying is stopped"
+press_buttom_text = "Press To view calendar"
+name_for_button = "<Button-1>"
+wrong_value_message = "Some input data is wrong. Check it and try to reenter, please"
 
 
 def get_calendar_value(event):
@@ -58,32 +58,79 @@ step_row = 50
 # PopUp2 Creating
 pop_up2 = library_gui_block.main_popup(gui_title, 800, 600)
 # PopUp2 lables adding
-lab_year = library_gui_block.popup_label(pop_up2, "Defined year to see: ", label_font='Arial 12', place_x=10,
-                                         place_y=first_row_y + step_row * 2)
-lab_calendar = library_gui_block.popup_label(pop_up2, "Calendar: ", label_font='Arial 12', place_x=10,
-                                             place_y=first_row_y + step_row * 5)
-lab_service = library_gui_block.popup_label(pop_up2, "Service info: ", label_font='Arial 12', place_x=10,
-                                            place_y=first_row_y + step_row * 9)
-lab_month_list = library_gui_block.popup_label(pop_up2, "Select the month number: ", label_font='Arial 12', place_x=10,
-                                               place_y=first_row_y + step_row * 0)
+lab_year = library_gui_block.popup_label(
+    pop_up2,
+    "Defined year to see: ",
+    label_font="Arial 12",
+    place_x=10,
+    place_y=first_row_y + step_row * 2,
+)
+lab_calendar = library_gui_block.popup_label(
+    pop_up2,
+    "Calendar: ",
+    label_font="Arial 12",
+    place_x=10,
+    place_y=first_row_y + step_row * 5,
+)
+lab_service = library_gui_block.popup_label(
+    pop_up2,
+    "Service info: ",
+    label_font="Arial 12",
+    place_x=10,
+    place_y=first_row_y + step_row * 9,
+)
+lab_month_list = library_gui_block.popup_label(
+    pop_up2,
+    "Select the month number: ",
+    label_font="Arial 12",
+    place_x=10,
+    place_y=first_row_y + step_row * 0,
+)
 
 # PopUp2 input text for year and month adding
-year_text = library_gui_block.popup_input_text('year_text', pop_up2, 'Arial 12', 20, 3,
-                                               place_y=first_row_y + step_row * 2, place_x=input_text_left_border)
-wrong_input_text = library_gui_block.popup_input_text('wrong_text_message', pop_up2, 'Arial 12', 60, 3,
-                                                      place_y=first_row_y + step_row * 10, place_x=10)
+year_text = library_gui_block.popup_input_text(
+    "year_text",
+    pop_up2,
+    "Arial 12",
+    20,
+    3,
+    place_y=first_row_y + step_row * 2,
+    place_x=input_text_left_border,
+)
+wrong_input_text = library_gui_block.popup_input_text(
+    "wrong_text_message",
+    pop_up2,
+    "Arial 12",
+    60,
+    3,
+    place_y=first_row_y + step_row * 10,
+    place_x=10,
+)
 # months_list_creating
 months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
-list_input = library_gui_block.popup_input_text_list(pop_up2, months, place_x=input_text_left_border,
-                                                     place_y=first_row_y + step_row * 0,
-                                                     listbox_height=listbox_height_selected)
+list_input = library_gui_block.popup_input_text_list(
+    pop_up2,
+    months,
+    place_x=input_text_left_border,
+    place_y=first_row_y + step_row * 0,
+    listbox_height=listbox_height_selected,
+)
 # output multitext box adding
-calendar_text = library_gui_block.popup_input_multiline_text(pop_up2, 7, place_y=first_row_y + step_row * 6,
-                                                             width_of_multitext=60, place_x=10)
+calendar_text = library_gui_block.popup_input_multiline_text(
+    pop_up2, 7, place_y=first_row_y + step_row * 6, width_of_multitext=60, place_x=10
+)
 
 # PopUp2 button adding
-see_calendar_button = library_gui_block.popup_button(pop_up2, press_buttom_text, name_for_button, get_calendar_value,
-                                                     '20', 'Arial 12', place_y=first_row_y + step_row * 4, place_x='10')
+see_calendar_button = library_gui_block.popup_button(
+    pop_up2,
+    press_buttom_text,
+    name_for_button,
+    get_calendar_value,
+    "20",
+    "Arial 12",
+    place_y=first_row_y + step_row * 4,
+    place_x="10",
+)
 
 pop_up2.mainloop()
 

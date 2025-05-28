@@ -3,7 +3,7 @@ def main():
     b = a
     b.append(3)
     print(a)
-    
+
 
 if __name__ == "__main__":
     main()

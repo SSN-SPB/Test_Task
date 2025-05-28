@@ -3,10 +3,10 @@
 
 
 def main():
-    print('Ord function - return number of simbols in UNICODE'.center(80, '/'))
-    s = 'str1_' 'str2_'
+    print("Ord function - return number of simbols in UNICODE".center(80, "/"))
+    s = "str1_" "str2_"
     print(list(map(ord, s)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

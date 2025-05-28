@@ -3,15 +3,16 @@
 
 
 def main():
-    print('split funtion'.center(79, '/'))
-    s = 'foo.x1.x2.x3.mp4'
-    print('init: {}'.format(s))
-    print(s.split())        # ['foo.x1.x2.x3.mp4'] 
-    print(s.split('.'))     # ['foo', 'x1', 'x2', 'x3', 'mp4']
-    print(s.split('.', 1))  # ['foo', 'x1.x2.x3.mp4']
-    print(s.split('.', -1)) # ['foo', 'x1', 'x2', 'x3', 'mp4']
-    print('split starting from right'.center(79, '/'))
-    print(s.rsplit('.', 1)) # ['foo.x1.x2.x3', 'mp4']
+    print("split funtion".center(79, "/"))
+    s = "foo.x1.x2.x3.mp4"
+    print("init: {}".format(s))
+    print(s.split())  # ['foo.x1.x2.x3.mp4']
+    print(s.split("."))  # ['foo', 'x1', 'x2', 'x3', 'mp4']
+    print(s.split(".", 1))  # ['foo', 'x1.x2.x3.mp4']
+    print(s.split(".", -1))  # ['foo', 'x1', 'x2', 'x3', 'mp4']
+    print("split starting from right".center(79, "/"))
+    print(s.rsplit(".", 1))  # ['foo.x1.x2.x3', 'mp4']
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

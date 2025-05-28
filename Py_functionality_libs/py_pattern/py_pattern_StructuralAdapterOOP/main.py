@@ -1,6 +1,7 @@
 from thermometer import FahrenheitThermometer
 from temperature_factory import TemperatureAdapterFactory
 
+
 def main():
     fahrenheit_thermometer = FahrenheitThermometer()
 
@@ -12,6 +13,7 @@ def main():
         print(f"Temperature in {unit.capitalize()}: {adapter.get_temperature()}")
     except ValueError as e:
         print(e)
+
 
 if __name__ == "__main__":
     main()

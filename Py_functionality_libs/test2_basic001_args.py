@@ -1,8 +1,9 @@
 # https://pynative.com/basic-python-quiz-for-beginners/
 
-def multiplier (num1=7, num2=4):
-  res = num1 * num2
-  print(res)
+
+def multiplier(num1=7, num2=4):
+    res = num1 * num2
+    print(res)
 
 
 def main():
