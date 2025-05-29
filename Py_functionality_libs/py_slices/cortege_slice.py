@@ -7,11 +7,12 @@ def main():
     person2 = ["Fiodor", "Petrov", "June", 12, 1947]
     print("type of (42,) is {}".format(type(person)))
     name, birthday = person[:2], person[2:]
-    LAST_NAME, MONTH = slice(None, 1), slice(2, None)
+    last_name, month = slice(None, 1), slice(2, None)
     print("name is {},\nbirthday is {}".format(name, birthday))
     print("types name: {},\nbirthday: {}".format(type(name), type(birthday)))
-    print(person[LAST_NAME])
-    print(person2[LAST_NAME])
+    print(person[last_name])
+    print(person[month])
+    print(person2[last_name])
 
 
 if __name__ == "__main__":
