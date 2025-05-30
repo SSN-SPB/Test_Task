@@ -2,7 +2,7 @@ https://jasmine.github.io/
 Jasmine Documentation
 
 
-powershell (or CL) as admin<br>
+powershell as admin<br>
 1<br>
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
@@ -36,7 +36,6 @@ Expected: <br>
 ..<br>
 3 spec, 0 failures <br>
 <br>
-
 <h2> Web UI test </h2>
 
 loginUISpec.js (not working yet)
