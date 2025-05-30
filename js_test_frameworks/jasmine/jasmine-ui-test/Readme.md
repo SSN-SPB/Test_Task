@@ -36,7 +36,6 @@ Expected: <br>
 ..<br>
 3 spec, 0 failures <br>
 <br>
-
 <h2> Web UI test </h2>
 
 loginUISpec.js (not working yet)
