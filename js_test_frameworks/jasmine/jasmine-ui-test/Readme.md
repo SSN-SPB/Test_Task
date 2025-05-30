@@ -2,7 +2,7 @@ https://jasmine.github.io/
 Jasmine Documentation
 
 
-powershell as admin<br>
+powershell (or CL) as admin<br>
 1<br>
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
@@ -36,3 +36,19 @@ Expected: <br>
 ..<br>
 3 spec, 0 failures <br>
 <br>
+
+<h2> Web UI test </h2>
+
+loginUISpec.js (not working yet)
+
+<h3> Need to be installed additionally </h3>
+<br> npm init -y
+<br> npm install jasmine selenium-webdriver chromedriver
+<br> npx jasmine init
+
+npm install chromedriver@136
+
+<br> if needed reinstall:
+<br> rm -rf node_modules package-lock.json
+<br> npm install
+<br> npx jasmine init

@@ -1,0 +1,17 @@
+{
+  "name": "jasmine-ui-test",
+  "version": "1.0.0",
+  "description": "https://jasmine.github.io/\r Jasmine Documentation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^136.0.3",
+    "jasmine": "^5.7.1",
+    "selenium-webdriver": "^4.33.0"
+  }
+}
