@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 
-import os
-import time
 import datetime
+import time
 
 # %d - Day of the month as a zero-padded decimal number.
 # %m - Month as a zero-padded decimal number.

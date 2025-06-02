@@ -18,14 +18,16 @@ def main():
         new_file_name.write("This is line: " + str(i) + "\r")
     new_file_name.close()
 
-    print("Read from file {}".format("course2_training_file1.txt").center(80, "/"))
+    print("Read from file {}".format("course2_train1.txt").center(80, "/"))
     # r - reading from file
-    new_file_read = open("course2_training_file1.txt", "r+")
+    new_file_read = open("course2_train1.txt", "r+")
     fl = new_file_read.readlines()
     for x in fl:
         print(x + "\n")
     try:
-        xfile_read = open("course2_training_file1.txt", "x")
+        xfile_read = open("course2_train1.txt", "x")
+        test = str(xfile_read)
+        print(test)
     except Exception as e:
         # print(e.args)
         # print(dir(e))
@@ -41,7 +43,7 @@ def main():
                     )
                 )
             except Exception as e:
-                print("not found attribute: {}".format(str(x)))
+                print(f"not found attribute: {str(x)}  {e}")
     print("open file function: {}".format("tell()").center(80, "/"))
     print("tell - where you are in file")
     print(new_file_read.tell())

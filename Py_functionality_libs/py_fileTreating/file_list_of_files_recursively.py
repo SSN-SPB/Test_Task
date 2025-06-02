@@ -5,7 +5,7 @@ import os
 
 
 def get_list_of_file(name_of_dir):
-    list_of_files = os.listdir(name_of_dir)
+    # list_of_files = os.listdir(name_of_dir)
     print("Check dir: {}".format(name_of_dir))
     #    print(list_of_files)
     #    for i in list_of_files:
