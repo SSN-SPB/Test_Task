@@ -1,8 +1,3 @@
-# https://www.linkedin.com/learning/learning-python-2/reading-and-writing-files?u=2113185
-# File writing
-import sys
-
-
 def main():
     print("Hello File")
     # creating new file; "w+" the access level to work with new file

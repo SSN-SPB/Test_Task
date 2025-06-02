@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
+import datetime
 import os
 import time
-import datetime
 
 
 def main():
