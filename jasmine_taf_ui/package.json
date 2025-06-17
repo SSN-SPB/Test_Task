@@ -1,0 +1,19 @@
+{
+  "name": "jasmine_taf_ui",
+  "version": "1.0.0",
+  "main": "protractor.conf.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jasmine": "^5.8.0",
+    "protractor": "^7.0.0"
+  }
+}
