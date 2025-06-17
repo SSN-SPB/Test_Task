@@ -44,7 +44,6 @@ Wrote to C:\Users\SergeiSmirnov6\Desktop\training_git\private_git\Test_Task\jasm
 <h2>Install Protractor globally to run tests:</h2>
 <br>npm install -g protractor
 <br>webdriver-manager update
-
-To update chrome driver:  
-Clean remove existing chromedriver from  
-C:\Users\..\AppData\Roaming\npm\node_modules\protractor\node_modules\webdriver-manager\selenium
+  
+To run test:  
+jasmine_taf_ui> npx protractor protractor.conf.js  
