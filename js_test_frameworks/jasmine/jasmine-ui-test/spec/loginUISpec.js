@@ -1,15 +1,17 @@
 console.log("✅ Loaded spec WebUI2!");
 const { Builder, By, until } = require('selenium-webdriver');
 const chrome = require('selenium-webdriver/chrome');
-const path = require('chromedriver').path; // Get actual path to chromedriver
+// const path = require('chromedriver').path; // Get actual path to chromedriver
 
 describe('SauceDemo Login Test', () => {
   let driver;
 
   beforeAll(async (done) => {
     try {
-      const service = new chrome.ServiceBuilder(path).build();
-      chrome.setDefaultService(service);
+      // const service = new chrome.ServiceBuilder(path).build();
+      // chrome.setDefaultService(service);
+
+      driver = await new Builder().forBrowser('chrome').build();
 
       driver = await new Builder().forBrowser('chrome').build();
       await driver.get('https://www.saucedemo.com/');
