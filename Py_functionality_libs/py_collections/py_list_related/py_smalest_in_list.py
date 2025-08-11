@@ -1,5 +1,3 @@
-from operator import *
-
 test_list = [10, 1, -7, 11]
 
 
