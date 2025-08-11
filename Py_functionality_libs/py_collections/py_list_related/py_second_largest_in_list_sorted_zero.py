@@ -1,5 +1,3 @@
-from operator import *
-
 test_list2 = [10, 121, -7, 11]
 n = 4
 
@@ -26,7 +24,7 @@ def main():
         assert -7 == n_largest_in_list(test_list2, n)
         print("Checking has passed")
     except AssertionError as ae:
-        print("Assert has failed")
+        print("Assert has failed" + ae.args)
 
 
 if __name__ == "__main__":
