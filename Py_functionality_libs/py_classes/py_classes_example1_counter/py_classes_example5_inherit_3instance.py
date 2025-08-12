@@ -34,7 +34,6 @@ def main2():
     x = Person("John", "Doe")
     x.printname()
     driver = Driver("Ivan", "Petrov", "Ford", "Focus")
-    driver2 = Driver(x.get_name(), x.get_lastname(), "FW", "Polo")
 
     print(isinstance(x, Person))  # True
     print(isinstance(x, Driver))  # False

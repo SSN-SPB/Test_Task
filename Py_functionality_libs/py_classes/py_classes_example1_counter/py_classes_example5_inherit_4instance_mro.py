@@ -51,6 +51,7 @@ def main2():
     y = Driver_Taxi("John", "Doe", "Ford", "Focus", "Yandex")
     y.print_car()
     y.print_car_park()
+    print(x)
 
 
 if __name__ == "__main__":
