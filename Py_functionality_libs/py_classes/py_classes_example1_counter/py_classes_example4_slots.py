@@ -31,9 +31,7 @@ class Counter:
 def main2():
     c = Counter(19)
     try:
-        print(
-            "c.__dict__ displays all " "attributes of exemplar: {}".format(c.__dict__)
-        )
+        print("c.__dict__ displays all " "attributes {}".format(c.__dict__))
     except AttributeError as ae:
         print("__dict__ is not found")
         print("ae is {}".format(ae))

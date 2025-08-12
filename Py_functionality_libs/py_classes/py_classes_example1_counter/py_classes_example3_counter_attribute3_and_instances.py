@@ -34,11 +34,10 @@ def print_arguments(customer_dict):
 
 def main2():
     c = Counter(15)
-    zz = Counter(125)
     print("the dir of exemplar is {}".format(dir(c)))
     print("the dir of class is {}".format(dir(Counter)))
     # c.get()
-    print("c.__dict__ displays all " "attributes of exemplar: {}".format(c.__dict__))
+    print("c.__dict__ displays all " "attributes: {}".format(c.__dict__))
     print("Initial value: {}".format(c.get()))
     c.increase_value()
     print("New spead of c is: {}".format(c.get()))
