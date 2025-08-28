@@ -16,6 +16,5 @@ def main():
     print(vars(Counter("Ivan")))
 
 
-
 if __name__ == "__main__":
     main()
