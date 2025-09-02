@@ -6,13 +6,13 @@
 
 
 def main():
-    list = [0, 1]
+    list0 = [0, 1]
     list2 = ["a", "b"]
     list3 = ["с", "в"]
-    list.append(list2)
-    print(list)  # [0, 1, ['a', 'b']]
-    list.extend(list3)
-    print(list)  # [0, 1, ['a', 'b'], 'с', 'в']
+    list0.extend(list2)
+    assert list0 == [0, 1, "a", "b"]
+    list0.append(list3)
+    assert list0 == [0, 1, "a", "b", ["с", "в"]]
 
 
 if __name__ == "__main__":
