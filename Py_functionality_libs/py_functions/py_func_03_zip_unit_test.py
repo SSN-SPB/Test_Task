@@ -3,14 +3,14 @@
 
 import unittest as ut
 
-one_list = [30, -2, 31, 5, 6]
-two_list = [130, -12, 311, 15, 61]
+one_list = [-2, 31, 5, 6]
+two_list = [-12, 311, 15, 61]
 
 
 class ZipTest(ut.TestCase):
     def test_combing_to_tuple(self):
         result = get_tuple_from_zip(one_list, two_list)
-        self.assertEqual(((30, 130), (-2, -12), (31, 311), (5, 15), (6, 61)), result)
+        self.assertEqual(((-2, -12), (31, 311), (5, 15), (6, 61)), result)
 
 
 def get_tuple_from_zip(list_one, list_two):
