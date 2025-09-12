@@ -21,7 +21,8 @@ class Counter:
 def main():
     s = Counter()
     print(vars(s))
-    assert vars(s) == {'count': 7}
+    assert vars(s) == {"count": 7}
+
 
 if __name__ == "__main__":
     main()
