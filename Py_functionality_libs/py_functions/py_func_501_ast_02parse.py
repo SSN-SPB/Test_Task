@@ -3,7 +3,7 @@ import ast
 source_code = "a + b * 2"
 
 # Parse the code into an AST
-tree = ast.parse(source_code, mode='eval')
+tree = ast.parse(source_code, mode="eval")
 
 
 def main():
