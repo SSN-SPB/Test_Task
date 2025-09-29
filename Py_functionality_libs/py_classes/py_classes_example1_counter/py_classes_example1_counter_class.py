@@ -4,9 +4,12 @@
 # method - function of class
 # 1st method is constructor __init__(self, ...)
 # self - instance of class
+# __slots__ - assign all available attributes and therefore save the memory
 
 
 class Counter:
+    __slots__ = ["value2"]
+
     def __init__(self, counter_value=0):
         self.value2 = counter_value
 
