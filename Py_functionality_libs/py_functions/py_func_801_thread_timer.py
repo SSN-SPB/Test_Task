@@ -4,7 +4,11 @@ import datetime
 
 
 def timer_print():
+    completion_time = time.time()
+    ct = datetime.datetime.fromtimestamp(completion_time).strftime("%Y_%m_%d_%H_%M_%S_%f")
     print("Hello")
+    print("Completion time (raw):", completion_time)
+    print("Completion time (formatted):", ct)
 
 
 def main():
@@ -13,12 +17,9 @@ def main():
     st = datetime.datetime.fromtimestamp(start_time).strftime("%Y_%m_%d_%H_%M_%S_%f")
 
     timer.start()
-    end_time = time.time()
-    et = datetime.datetime.fromtimestamp(end_time).strftime("%Y_%m_%d_%H_%M_%S_%f")
     print(start_time)
     print(st)
-    print(end_time)
-    print(et)
+
 
 
 if __name__ == "__main__":
