@@ -35,3 +35,5 @@ def reserved_function():
     FOO = os.getenv("FOO")  # None
     BAR = os.environ.get("BAR")  # None
     BAZ = os.environ["BAZ"]  # KeyError: key does not exist.
+
+    print(USER, PASSWORD, FOO, BAR, BAZ)
