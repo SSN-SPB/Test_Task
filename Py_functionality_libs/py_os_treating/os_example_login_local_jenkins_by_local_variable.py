@@ -2,7 +2,6 @@
 
 
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ChromeOptions
 
 # import selenium exception
@@ -17,7 +16,7 @@ import argparse
 
 # get user credentials from local environment variables
 USER = os.getenv("LOCAL_JENKINS_LOGON")
-PASSWORD = os.getenv("LOCAL_JENKINS_PASSWORD")
+PASS = os.getenv("LOCAL_JENKINS_PASSWORD")
 
 
 def main():
@@ -30,7 +29,7 @@ def main():
     print(args)
     print(args.get("logon"))
     # login_to_site()
-    login_to_site(username=USER, url=args.get("website"), userpassword=PASSWORD)
+    login_to_site(username=USER, url=args.get("website"), userpassword=PASS)
 
 
 def login_to_site(
@@ -63,39 +62,34 @@ def login_to_site(
         print("Element is found")
     else:
         print("Element is not found")
-    time.sleep(3)
     try:
         elem.click()
-    except ElementNotInteractableException as enie:
+    except ElementNotInteractableException:
         print(
             "The element is not clickable"
             " More detail see \n{}"
             " \na bit more details: \n{}"
             "".format(sys.exc_info()[0], sys.exc_info()[1])
         )
-    except Except as e:
-        print(
-            "The Unkown error:"
-            " More detail see \n{}"
-            " \na bit more details: \n{}"
-            "".format(sys.exc_info()[0], sys.exc_info()[1])
-        )
+    # except Except:
+    #     print(
+    #         "The Unkown error:"
+    #         " More detail see \n{}"
+    #         " \na bit more details: \n{}"
+    #         "".format(sys.exc_info()[0], sys.exc_info()[1])
+    #     )
 
     # Performing login
     name_field.clear()
     name_field.send_keys(username)
-    time.sleep(3)
     password_field.click()
     password_field.send_keys(userpassword)
-    time.sleep(3)
     login_button.click()
-    time.sleep(3)
     logout_button = driver.find_element_by_css_selector(logout_button_id)
     if logout_button:
         print("Login is successful")
     else:
         print("Login is failed")
-    time.sleep(3)
 
 
 if __name__ == "__main__":
