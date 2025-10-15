@@ -20,12 +20,12 @@ def main():
 
     print("Read from file {}".format("course2_train1.txt").center(80, "/"))
     # r - reading from file
-    new_file_read = open("course2_train1.txt", "r+")
+    new_file_read = open("Folder with spaces in name/course2_train1.txt", "r+")
     fl = new_file_read.readlines()
     for x in fl:
         print(x + "\n")
     try:
-        xfile_read = open("course2_train1.txt", "x")
+        xfile_read = open("Folder with spaces in name/course2_train1.txt", "x")
         test = str(xfile_read)
         print(test)
     except Exception as e:
