@@ -13,7 +13,6 @@ def named_tuple_example():
     assert point.y == 20
 
 
-
 def main2():
     named_tuple_example()
 
