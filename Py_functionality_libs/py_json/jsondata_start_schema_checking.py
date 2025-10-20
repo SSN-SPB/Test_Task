@@ -2,6 +2,7 @@
 import requests
 import json
 from jsonschema import validate, ValidationError
+import sys
 
 
 xcal_reports_kpi_schema = {
@@ -128,6 +129,7 @@ geo_schema={
 }
 
 def main():
+    sys._debugmallocstats()
     # define a variable to hold the source URL
     # In this case we'll use the free data feed from the USGS
     # This feed lists all earthquakes for the last day larger than Mag 2.5
