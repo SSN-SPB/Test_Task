@@ -161,6 +161,39 @@ geo_schema_simple = {
   "additionalProperties": True
 }
 
+geo_schema_simple2 = {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Simplified USGS Feed Snippet",
+  "type": "object",
+  "required": ["type", "metadata"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "const": "FeatureCollection"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["generated", "url", "title", "status", "api", "count"],
+      # "properties": {
+      #   "generated": {
+      #     "type": "integer",
+      #     "pattern": "^[0-9]{13}$"
+      #   },
+      #   "url": {
+      #     "type": "string",
+      #     "pattern": "^https://earthquake\\.usgs\\.gov/.*"
+      #   },
+      #   "title": { "type": "string" },
+      #   "status": { "type": "integer", "const": 200 },
+      #   "api": { "type": "string", "const": "1.14.1" },
+      #   "count": { "type": "integer" }
+      # },
+      "additionalProperties": True
+    }
+  },
+  "additionalProperties": True
+}
+
 def main():
     sys._debugmallocstats()
     # define a variable to hold the source URL
@@ -191,7 +224,16 @@ def main():
 
     try:
         validate(instance=requested_data, schema=geo_schema_simple)
-        print("Response matches schema")
+        print("Response matches schema simple")
+        assert True
+    except ValidationError as e:
+        print(f"Schema validation failed: {e.message}")
+        assert False
+    assert get_request.status_code == 200
+
+    try:
+        validate(instance=requested_data, schema=geo_schema_simple2)
+        print("Response matches schema simple2")
         assert True
     except ValidationError as e:
         print(f"Schema validation failed: {e.message}")
