@@ -10,6 +10,5 @@ def main2():
     print(dict_test)
 
 
-
 if __name__ == "__main__":
     main2()
