@@ -2,18 +2,28 @@ import typer
 
 app = typer.Typer()
 
+
 @app.command()
 def hello(name: str):
-    # Приветствие пользователя
+    # Welcome the User
     print(f"Hello {name}")
 
+
 @app.command()
-def goodbye(name: str, formal: bool = False):
-    # Прощание с пользователем
+def goodbye(
+    last_name: str,
+    formal: bool = False,
+    excited: bool = typer.Option(False, help="Add excitement!"),
+):
+    # Goodbye to User
     if formal:
-        print(f"Goodbye Ms./Mr. {name}. Have a good day.")
+        message = f"Goodbye Ms./Mr. {last_name}. Have a good day"
     else:
-        print(f"Bye {name}!")
+        message = f"Bye {last_name}"
+    if excited:
+        message += "!!!"
+    print(message)
 
 
-if __name__ == "__main__": app()
+if __name__ == "__main__":
+    app()
