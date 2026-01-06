@@ -1,5 +1,6 @@
 # from pages.google_page import GooglePage
 import pytest
+import os
 
 # from pytest_playwrigt_ui_basic.page_objects_google.base_page import GooglePage
 from pytest_playwrigt_ui_basic.page_objects.base_page import StartingPage
@@ -39,3 +40,13 @@ def test_google_page(page):
 
     assert "Restart" in page_content.get_restart_button_text()
     assert page_content.search_box_visible()
+
+
+def test_compare_screenshot(page):
+    page_content = StartingPage(page)
+    page_content.goto()
+    screenshots_dir = "screenshots"
+
+    reference_image = os.path.join(screenshots_dir, "reference.png")
+    actual_image = os.path.join(screenshots_dir, "actual.png")
+    page_content.make_screen_shot(actual_image)

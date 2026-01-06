@@ -17,3 +17,6 @@ class StartingPage:
 
     def search_box_visible(self):
         return self.page.is_visible(self.field_next)
+
+    def make_screen_shot(self, actual_image):
+        self.page.screenshot(path=actual_image, full_page=True)
