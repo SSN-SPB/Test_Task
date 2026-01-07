@@ -1,6 +1,12 @@
 # from pages.google_page import GooglePage
 import pytest
 import os
+from PIL import Image, ImageChops
+
+import logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
 
 # from pytest_playwrigt_ui_basic.page_objects_google.base_page import GooglePage
 from pytest_playwrigt_ui_basic.page_objects.base_page import StartingPage
@@ -46,7 +52,20 @@ def test_compare_screenshot(page):
     page_content = StartingPage(page)
     page_content.goto()
     screenshots_dir = "screenshots"
-
-    reference_image = os.path.join(screenshots_dir, "reference.png")
     actual_image = os.path.join(screenshots_dir, "actual.png")
+    # make actual screenshot
     page_content.make_screen_shot(actual_image)
+
+    # apply mask above actual screenshot
+    base = Image.open(".\\screenshots\\actual.png").convert("RGBA")
+    overlay = Image.open(".\\screenshots\\mask_image.png").convert("RGBA")
+
+    # save actual image with applied mask
+    result = Image.alpha_composite(base, overlay)
+    result.save(".\\screenshots\\tested_image.png")
+
+    reference_image = Image.open(".\\screenshots\\reference.png").convert("RGB")
+    test_image = Image.open(".\\screenshots\\tested_image.png").convert("RGB")
+    diff = ImageChops.difference(test_image, reference_image)
+    logger.info(f"The difference between two images is: {diff.getbbox()}")
+    assert not diff.getbbox()
