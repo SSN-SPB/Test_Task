@@ -8,6 +8,10 @@ def main():
     y1 = x1 * 2
     print(x1, y1)
     plt.plot(x1, y1)
+    plt.xlabel("x1")
+    plt.ylabel("multiplied twice")
+    plt.title("Matplot Exampe")
+    plt.grid("Grid enabled")
     plt.show()
 
 
