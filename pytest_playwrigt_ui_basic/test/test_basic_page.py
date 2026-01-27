@@ -1,16 +1,13 @@
-# from pages.google_page import GooglePage
 import pytest
 import os
-from PIL import Image, ImageChops
-
 import logging
+from PIL import Image, ImageChops
+from pytest_playwrigt_ui_basic.page_objects.base_page import StartingPage
+from playwright.sync_api import sync_playwright, expect
+
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
-
-# from pytest_playwrigt_ui_basic.page_objects_google.base_page import GooglePage
-from pytest_playwrigt_ui_basic.page_objects.base_page import StartingPage
-from playwright.sync_api import sync_playwright, expect
 
 
 # Define a pytest fixture to set up Playwright and browser instance
@@ -51,21 +48,21 @@ def test_google_page(page):
 def test_compare_screenshot(page):
     page_content = StartingPage(page)
     page_content.goto()
-    screenshots_dir = "screenshots"
-    actual_image = os.path.join(screenshots_dir, "actual.png")
+    dir_for_screens = "screenshots"
+    actual_image = os.path.join(dir_for_screens, "actual.png")
     # make actual screenshot
     page_content.make_screen_shot(actual_image)
 
     # apply mask above actual screenshot
-    base = Image.open(f".\\{screenshots_dir}\\actual.png").convert("RGBA")
-    overlay = Image.open(f".\\{screenshots_dir}\\mask_image.png").convert("RGBA")
+    base = Image.open(f".\\{dir_for_screens}\\actual.png").convert("RGBA")
+    overlay = Image.open(f".\\{dir_for_screens}\\mask_image.png").convert("RGBA")
 
     # save actual image with applied mask
     result = Image.alpha_composite(base, overlay)
-    result.save(f".\\{screenshots_dir}\\tested_image.png")
+    result.save(f".\\{dir_for_screens}\\tested_image.png")
 
-    reference_image = Image.open(f".\\{screenshots_dir}\\reference.png").convert("RGB")
-    test_image = Image.open(f".\\{screenshots_dir}\\tested_image.png").convert("RGB")
+    reference_image = Image.open(f".\\{dir_for_screens}\\reference.png").convert("RGB")
+    test_image = Image.open(f".\\{dir_for_screens}\\tested_image.png").convert("RGB")
     diff = ImageChops.difference(test_image, reference_image)
     logger.info(f"The difference between two images is: {diff.getbbox()}")
     assert not diff.getbbox()
