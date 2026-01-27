@@ -28,3 +28,16 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# version 2 2026-Jan-27
+#     def twoSum(self, nums, target):
+#         """
+#         :type nums: List[int]
+#         :type target: int
+#         :rtype: List[int]
+#         """
+#         for x in nums:
+#             for y in range(nums.index(x)+1,len(nums)):
+#                 if x + nums[y] == target:
+#                     return [nums.index(x), y]
