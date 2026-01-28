@@ -4,10 +4,11 @@ import logging
 from PIL import Image, ImageChops
 from pytest_playwrigt_ui_basic.page_objects.base_page import StartingPage
 from playwright.sync_api import sync_playwright, expect
-
+import time
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.INFO)
 
 
 # Define a pytest fixture to set up Playwright and browser instance
@@ -54,15 +55,27 @@ def test_compare_screenshot(page):
     page_content.make_screen_shot(actual_image)
 
     # apply mask above actual screenshot
-    base = Image.open(f".\\{dir_for_screens}\\actual.png").convert("RGBA")
-    overlay = Image.open(f".\\{dir_for_screens}\\mask_image.png").convert("RGBA")
+    base = Image.open(f".\\test\\{dir_for_screens}\\actual.png").convert("RGBA")
+    overlay = Image.open(f".\\test\\{dir_for_screens}\\mask_image.png").convert("RGBA")
 
     # save actual image with applied mask
     result = Image.alpha_composite(base, overlay)
-    result.save(f".\\{dir_for_screens}\\tested_image.png")
+    result.save(f".\\test\\{dir_for_screens}\\tested_image.png")
 
-    reference_image = Image.open(f".\\{dir_for_screens}\\reference.png").convert("RGB")
-    test_image = Image.open(f".\\{dir_for_screens}\\tested_image.png").convert("RGB")
+    reference_image = Image.open(f".\\test\\{dir_for_screens}\\reference.png").convert("RGB")
+    test_image = Image.open(f".\\test\\{dir_for_screens}\\tested_image.png").convert("RGB")
     diff = ImageChops.difference(test_image, reference_image)
     logger.info(f"The difference between two images is: {diff.getbbox()}")
     assert not diff.getbbox()
+
+
+    # if diff.getbbox():
+    #     logger.info(
+    #         "Detected difference between base and incoming snapshot. Proceeding with next comparison."
+    #     )
+    #     time.sleep(1)
+    #     current_time = datetime.now()
+    #     pass
+    # else:
+    #     logger.info("Snapshots matched.")
+    #     return True
