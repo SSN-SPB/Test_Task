@@ -55,15 +55,15 @@ def test_compare_screenshot(page):
     page_content.make_screen_shot(actual_image)
 
     # apply mask above actual screenshot
-    base = Image.open(f".\\test\\{dir_for_screens}\\actual.png").convert("RGBA")
-    overlay = Image.open(f".\\test\\{dir_for_screens}\\mask_image.png").convert("RGBA")
+    base = Image.open(f".\\{dir_for_screens}\\actual.png").convert("RGBA")
+    overlay = Image.open(f".\\{dir_for_screens}\\mask_image.png").convert("RGBA")
 
     # save actual image with applied mask
     result = Image.alpha_composite(base, overlay)
-    result.save(f".\\test\\{dir_for_screens}\\tested_image.png")
+    result.save(f".\\{dir_for_screens}\\tested_image.png")
 
-    reference_image = Image.open(f".\\test\\{dir_for_screens}\\reference.png").convert("RGB")
-    test_image = Image.open(f".\\test\\{dir_for_screens}\\tested_image.png").convert("RGB")
+    reference_image = Image.open(f".\\{dir_for_screens}\\reference.png").convert("RGB")
+    test_image = Image.open(f".\\{dir_for_screens}\\tested_image.png").convert("RGB")
     diff = ImageChops.difference(test_image, reference_image)
     logger.info(f"The difference between two images is: {diff.getbbox()}")
     assert not diff.getbbox()
