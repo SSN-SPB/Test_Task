@@ -66,16 +66,22 @@ def test_compare_screenshot(page):
     test_image = Image.open(f".\\{dir_for_screens}\\tested_image.png").convert("RGB")
     diff = ImageChops.difference(test_image, reference_image)
     logger.info(f"The difference between two images is: {diff.getbbox()}")
-    assert not diff.getbbox()
+    # assert not diff.getbbox()
 
 
-    # if diff.getbbox():
-    #     logger.info(
-    #         "Detected difference between base and incoming snapshot. Proceeding with next comparison."
-    #     )
+    if diff.getbbox():
+        logger.info(
+            "Detected difference between base and incoming snapshot. Proceeding with next comparison."
+        )
+        diff = diff.convert("L")  # grayscale
+        diff = diff.point(lambda x: 255 if x > 0 else 0)
+
+        diff.save(f".\\{dir_for_screens}\\found_differences.png")
     #     time.sleep(1)
     #     current_time = datetime.now()
     #     pass
     # else:
     #     logger.info("Snapshots matched.")
     #     return True
+
+    assert not diff.getbbox()
