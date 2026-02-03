@@ -14,6 +14,7 @@ class BaseClass:
         return a + b + c
 
     # imitate overloading using *args and **kwargs
+    # Compile-time overloading
     @staticmethod
     def calculate_sum(*args, **kwargs):
         total_sum = 0
