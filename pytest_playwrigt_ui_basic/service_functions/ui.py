@@ -3,6 +3,7 @@ import pytest
 
 # from typing import Generator
 from playwright.sync_api import Page, sync_playwright
+
 # from utilities.imagecomp import ImageComp
 
 
