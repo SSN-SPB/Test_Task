@@ -9,8 +9,9 @@ pip install --index-url https://test.pypi.org/simple/ substring_package
 
 ## Usage example
 ```python
-from substring_package import substring_by_index
+from substring_package import substring_by_index, substring_by_index_start_stop
 print(substring_by_index("a1b2c3d4e5", 3))
+print(substring_by_index_start_stop("a1b2c3d4e5", 3, 7))
 ```
 
 ## Package creating
@@ -28,14 +29,17 @@ python -m build
 ```
 This command creates
 dist/
-├── coolmath-0.1.0.tar.gz
-└── coolmath-0.1.0-py3-none-any.whl
+├── substring-package-0.1.x.tar.gz
+└── substring-package-0.1.x-py3-none-any.whl
 
 3 Upload to TestPyPI
 ```
 twine upload --repository testpypi dist/*
 ```
-It should be avaialble at: https://test.pypi.org/project/substring-package/0.1.0/
+It should be avaialble at: 
+https://test.pypi.org/project/substring-package/0.1.0/
+https://test.pypi.org/project/substring-package/0.1.1/
+https://test.pypi.org/project/substring-package/0.1.2/
 
 
 ## creating Local installation
