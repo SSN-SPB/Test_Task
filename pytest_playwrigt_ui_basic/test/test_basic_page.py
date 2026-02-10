@@ -60,15 +60,19 @@ def test_compare_screenshot(page):
     result = Image.alpha_composite(base, mask)
     result.save(f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask.png")
 
+    # define the reference and tested images
     reference_image = Image.open(
         f".\\{snapshots}\\reference_snapshots\\reference.png"
     ).convert("RGB")
     test_image = Image.open(
         f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask.png"
     ).convert("RGB")
+
+    # Getting the differences between reference and tested images
     diff = ImageChops.difference(test_image, reference_image)
     logger.info(f"The found difference between two images is: {diff.getbbox()}")
 
+    # Creating the image with difference (if any)
     if diff.getbbox():
         logger.info("Detected difference between test and reference snapshots.")
         diff = diff.convert("L")  # grayscale
