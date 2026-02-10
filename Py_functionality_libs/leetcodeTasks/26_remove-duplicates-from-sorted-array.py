@@ -5,7 +5,8 @@ tested_nums = [1, 1, 2]
 
 
 class Solution(object):
-    def removeDuplicates(self, nums):
+    @staticmethod
+    def removeDuplicates(nums):
         """
         :type nums: List[int]
         :rtype: int
