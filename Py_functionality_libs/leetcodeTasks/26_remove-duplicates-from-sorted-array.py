@@ -1,11 +1,12 @@
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
 # version 2 2026-Feb-9 Unclear Requirements
-tested_nums = [0,0,1,1,1,2,2,3,3,4]
-tested_nums = [1,1,2]
+tested_nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+tested_nums = [1, 1, 2]
 
 
 class Solution(object):
-    def removeDuplicates(self, nums):
+    @staticmethod
+    def removeDuplicates(nums):
         """
         :type nums: List[int]
         :rtype: int
