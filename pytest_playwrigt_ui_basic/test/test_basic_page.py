@@ -48,20 +48,20 @@ def test_compare_screenshot(page):
     page_content = StartingPage(page)
     page_content.goto()
     dir_for_screens = "screenshots"
-    actual_image = os.path.join(f".\\{dir_for_screens}", "actual.png")
+    actual_image = os.path.join(f".\\{dir_for_screens}\\current_test_snapshots", "actual.png")
     # make actual screenshot
     page_content.make_screen_shot(actual_image)
 
     # apply mask above actual screenshot
-    base = Image.open(f".\\{dir_for_screens}\\actual.png").convert("RGBA")
-    overlay = Image.open(f".\\{dir_for_screens}\\mask_image.png").convert("RGBA")
+    base = Image.open(f".\\{dir_for_screens}\\current_test_snapshots\\actual.png").convert("RGBA")
+    overlay = Image.open(f".\\{dir_for_screens}\\mask_snapshots\\mask_image.png").convert("RGBA")
 
     # save actual image with applied mask
     result = Image.alpha_composite(base, overlay)
-    result.save(f".\\{dir_for_screens}\\tested_image.png")
+    result.save(f".\\{dir_for_screens}\\current_test_snapshots\\tested_image.png")
 
-    reference_image = Image.open(f".\\{dir_for_screens}\\reference.png").convert("RGB")
-    test_image = Image.open(f".\\{dir_for_screens}\\tested_image.png").convert("RGB")
+    reference_image = Image.open(f".\\{dir_for_screens}\\reference_snapshots\\reference.png").convert("RGB")
+    test_image = Image.open(f".\\{dir_for_screens}\\current_test_snapshots\\tested_image.png").convert("RGB")
     diff = ImageChops.difference(test_image, reference_image)
     logger.info(f"The difference between two images is: {diff.getbbox()}")
 
@@ -72,6 +72,6 @@ def test_compare_screenshot(page):
         diff = diff.convert("L")  # grayscale
         diff = diff.point(lambda x: 255 if x > 0 else 0)
 
-        diff.save(f".\\{dir_for_screens}\\found_differences.png")
+        diff.save(f".\\{dir_for_screens}\\differences_snapshots\\found_differences.png")
 
     assert not diff.getbbox()
