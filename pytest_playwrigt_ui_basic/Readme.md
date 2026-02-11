@@ -51,7 +51,7 @@ diff = diff.point(lambda x: 255 if x > 0 else 0) - define content of found_diffe
 <li>Line <i>page_content.make_screen_shot(actual_image)</i> is commented</li>
 <li><b>actual.png == actual_corrupted_for_test.png</b></li>
 <li>Tests fails</li>
-- found_differences.png and tested_image.png contains text - "Not constant test"
+- found_differences.png and tested_image.png contains text - "unexpected text"
 
 ### Scenario 5 corrupted Fixed
 <li><b>mask_image.png == mask_image_corrected.png</b></li>
