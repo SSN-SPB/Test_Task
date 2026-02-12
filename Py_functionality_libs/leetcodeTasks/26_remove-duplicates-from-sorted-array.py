@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/
-# version 2 2026-Feb-11 Works well but Output Limit Exceeded - 78 / 362 testcases passed
+# version 2 2026-Feb-12 passed
 # tested_nums = [0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4]
 # tested_nums = [0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4]
 tested_nums = [1, 1, 2]
