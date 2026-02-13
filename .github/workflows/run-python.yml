@@ -31,7 +31,7 @@ jobs:
 
       - name: Run Python script
         run: |
-          python ./py_functions/py_func_06_lambda_02_lambda_filter_02parameter.py
+          python ./Py_functionality_libs/py_functions/py_func_06_lambda_02_lambda_filter_02parameter.py
 
       - name: Complete test run
         run: |
