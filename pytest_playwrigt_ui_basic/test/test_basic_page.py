@@ -79,7 +79,7 @@ def test_demo_compare_screenshot(page):
     # result = Image.alpha_composite(base, mask)
     # result.save(f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask_demo.png")
     #
-    # define the reference and tested images
+    # # define the reference and tested images
     # reference_image = Image.open(
     #     f".\\{snapshots}\\reference_snapshots\\reference_demo.png"
     # ).convert("RGB")
