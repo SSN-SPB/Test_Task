@@ -25,6 +25,14 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Run Python script
+      - name: Inform about commit
         run: |
           python commit_script_run.py
+
+      - name: Run Python script
+        run: |
+          python ./py_functions/py_func_06_lambda_02_lambda_filter_02parameter.py
+
+      - name: Complete test run
+        run: |
+          python simple_script_run.py
