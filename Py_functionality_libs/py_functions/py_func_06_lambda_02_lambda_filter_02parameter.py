@@ -1,4 +1,4 @@
-tested_list = list(range(0, 10))
+tested_list = list(range(0, 11))
 
 
 def lambda_one_more_other(y):
