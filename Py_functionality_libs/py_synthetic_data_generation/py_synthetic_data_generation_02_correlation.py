@@ -30,7 +30,9 @@ data = {
     "age": np.random.normal(loc=AGE_MEAN, scale=AGE_STD, size=N_SAMPLES).astype(int),
     "income": base_income.astype(int),
     "purchase_amount": purchase_amount.round(2),
-    "is_subscriber": np.random.choice([0, 1], size=N_SAMPLES, p=[1 - SUBSCRIBER_RATIO, SUBSCRIBER_RATIO]),
+    "is_subscriber": np.random.choice(
+        [0, 1], size=N_SAMPLES, p=[1 - SUBSCRIBER_RATIO, SUBSCRIBER_RATIO]
+    ),
 }
 
 df = pd.DataFrame(data)
