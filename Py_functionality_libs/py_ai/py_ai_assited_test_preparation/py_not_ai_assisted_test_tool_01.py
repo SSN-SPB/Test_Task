@@ -8,11 +8,13 @@ from collections import Counter
 # nltk.download('stopwords')
 # nltk.download("all")
 
+
 def extract_keywords(text, top_n=5):
     words = word_tokenize(text.lower())
-    stop_words = set(stopwords.words('english'))
+    stop_words = set(stopwords.words("english"))
     keywords = [w for w in words if w.isalpha() and w not in stop_words]
     return [w for w, _ in Counter(keywords).most_common(top_n)]
+
 
 def generate_questions(text):
     sentences = sent_tokenize(text)
@@ -26,6 +28,7 @@ def generate_questions(text):
                     questions.append(f"How does {kw} operate?")
                 break
     return questions
+
 
 notes = """
 Neural networks are computational models inspired by the human brain.
@@ -41,4 +44,3 @@ comments = """ Python is a versatile programming language that is widely used in
 
 for q in generate_questions(comments):
     print(q)
-
