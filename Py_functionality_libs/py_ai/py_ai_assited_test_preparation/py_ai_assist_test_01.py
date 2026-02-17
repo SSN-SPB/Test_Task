@@ -22,7 +22,8 @@ def generate_questions(text):
         for s in sentences:
             if kw in s.lower():
                 questions.append(f"What is {kw}?")
-                questions.append(f"How {kw} is working?")
+                if not kw.endswith("ing"):
+                    questions.append(f"How does {kw} operate?")
                 break
     return questions
 
