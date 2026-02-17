@@ -12,11 +12,9 @@ def main():
     print(next(plus_three))
     print(next(plus_three))
     print(next(plus_three))
-    print(next(plus_three))
-    print(next(plus_three))
-    print(next(plus_three))
-    # while next(plus_three):
-    #     print(next(plus_three))
+    # Iterate through the generator until it is exhausted
+    for value in plus_three:
+        print(f"The next is found: {value}")
 
 
 if __name__ == "__main__":
