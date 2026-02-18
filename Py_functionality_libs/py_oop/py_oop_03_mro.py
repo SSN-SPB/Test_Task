@@ -31,6 +31,7 @@ class LoginTest(BaseClass):
         print("make setup login and override the base class")
 
 
+# class BuyTest(SecondBaseClass, BaseClass):
 class BuyTest(BaseClass, SecondBaseClass):
 
     def run(self):
@@ -46,6 +47,7 @@ def main():
     print(BuyTest.mro())
     buy_test = BuyTest()
     buy_test.setup()
+    buy_test.run()
 
 
 if __name__ == "__main__":

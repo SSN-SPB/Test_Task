@@ -1,5 +1,10 @@
 """Suite demonstrates polymorphism overloading in oop Python"""
 
+# Polymorphism is a fundamental concept in object-oriented programming (OOP) that allows objects of different classes to be treated as objects of a common superclass. It enables a single interface to represent different underlying data types or classes. In Python, polymorphism can be achieved through method overloading and operator overloading.
+# Method overloading allows a class to have multiple methods with the same name but different parameters. However,
+# Python does not support method overloading in the traditional sense as seen in languages like Java or C++.
+# Instead, you can achieve similar functionality using default arguments or variable-length arguments (*args and **kwargs).
+
 
 class BaseClass:
     """__ph__"""
