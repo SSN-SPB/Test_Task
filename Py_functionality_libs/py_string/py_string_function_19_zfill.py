@@ -4,7 +4,9 @@ tested_list = ["42", "7", "1234", "0", "-5"]
 
 def main():
     for s in tested_list:
-        print(f"Original: '{s}' | zfill(5): '{s.zfill(5)}' | zfill(3): '{s.zfill(3)}' | zfill(2): '{s.zfill(2)}'")
+        print(
+            f"Original: '{s}' | zfill(5): '{s.zfill(5)}' | zfill(3): '{s.zfill(3)}' | zfill(2): '{s.zfill(2)}'"
+        )
     tested_list[0].zfill(7) == "0000042"
     tested_list[4].zfill(3) == "-05"
 
