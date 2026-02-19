@@ -11,7 +11,7 @@ class TestBaseClass(unittest.TestCase):
         obj.setup()
 
         mock_print.assert_any_call(f"from BaseClass setup {obj}")
-        mock_print.assert_any_call("make setup base")
+        mock_print.assert_any_call("make setup base2")
 
 
 class TestLoginTest(unittest.TestCase):
@@ -51,7 +51,7 @@ class TestBuyTest(unittest.TestCase):
         bt.setup()
 
         mock_print.assert_any_call(f"from BaseClass setup {bt}")
-        mock_print.assert_any_call("make setup base")
+        mock_print.assert_any_call("make setup base2")
 
     @patch("builtins.print")
     def test_buy_test_run(self, mock_print):

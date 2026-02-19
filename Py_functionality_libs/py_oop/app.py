@@ -6,7 +6,7 @@ class BaseClass:
 
     def setup(self):
         print(f"from BaseClass setup {self}")
-        print("make setup base")
+        print("make setup base2")
 
 
 class LoginTest(BaseClass):
