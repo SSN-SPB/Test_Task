@@ -3,6 +3,7 @@
 list_of_numbers = [2, 3, 2, 3, 5, 3]
 list_of_numbers2 = [2, 3, 2, 3, 5, 3]
 
+
 def main():
     result = 0
     c = 0
@@ -19,7 +20,11 @@ def main():
     #         # list_of_numbers2.pop(w)
     #     w += 1
     print(f"Enumerated list2: {list(enumerate(list_of_numbers2))}")
-    list_of_numbers3 = [value for index, value in enumerate(list_of_numbers2) if list_of_numbers2.index(value) == index]
+    list_of_numbers3 = [
+        value
+        for index, value in enumerate(list_of_numbers2)
+        if list_of_numbers2.index(value) == index
+    ]
     # not working because of index change after removing element from list
     # w = 0
     # for y in list_of_numbers2:
@@ -32,6 +37,7 @@ def main():
     print(f"Updated elements 2 is: {list_of_numbers2}")
     print(f"Updated elements 3 is: {list_of_numbers3}")
     print(f"Total number of unique elements 2 is: {len(list_of_numbers3)}")
+
 
 if __name__ == "__main__":
     main()
