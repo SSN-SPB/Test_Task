@@ -68,7 +68,7 @@ def test_demo_compare_screenshot(page):
         "RGB"
     )
     reference_image = Image.open(
-        f".\\{snapshots}\\test_snapshots\\actual_demo1.png"
+        f".\\{snapshots}\\test_snapshots\\actual_demo.png"
     ).convert("RGB")
 
     # # apply mask above actual screenshot
