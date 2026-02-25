@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/divide-two-integers/
-# version 2026-Feb-24 it works locally but not on leetcode -  2nd case failed
+# version 2026-Feb-25 passed
 import math
 
 
@@ -10,12 +10,23 @@ class Solution(object):
         :type divisor: int
         :rtype: int
         """
-        # < -2 ** 31
         if divisor != 0:
-            if dividend/divisor < 0:
-                return math.ceil(dividend/divisor)
+            sign = (
+                -1
+                if (dividend >= 0 and divisor < 0) or (dividend < 0 and divisor >= 0)
+                else 1
+            )
+            if dividend / divisor < 0:
+                return min(
+                    max(int(math.ceil(abs(dividend) / abs(divisor))) * sign, -(2**31)),
+                    2**31 - 1,
+                )
             else:
-                return math.floor(dividend / divisor)
+                return min(
+                    max(int(math.floor(abs(dividend) / abs(divisor))) * sign, -(2**31)),
+                    2**31 - 1,
+                )
+
 
 def main():
     c = Solution()
