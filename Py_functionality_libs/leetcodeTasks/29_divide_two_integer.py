@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/divide-two-integers/
 # version 2026-Feb-25 passed
-import math
 
 
 class Solution(object):
