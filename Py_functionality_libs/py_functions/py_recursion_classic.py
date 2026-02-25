@@ -3,7 +3,7 @@ def recursion_sum_plus_n(n, number):
         return 100
     else:
         print("new iteration")
-        print(f"n - {n}, result - {number + recursion_sum_plus_n(n-1, number)}")
+        print(f"n-{n}, result: {number + recursion_sum_plus_n(n-1, number)}")
         return number + recursion_sum_plus_n(n - 1, number)
 
 

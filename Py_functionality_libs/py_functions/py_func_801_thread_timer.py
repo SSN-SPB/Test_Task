@@ -2,6 +2,8 @@ import threading
 import time
 import datetime
 
+time_string = "%Y_%m_%d_%H_%M_%S_%f"
+
 
 def timer_print():
     completion_time = time.time()
@@ -16,7 +18,7 @@ def timer_print():
 def main():
     timer = threading.Timer(7, timer_print)
     start_time = time.time()
-    st = datetime.datetime.fromtimestamp(start_time).strftime("%Y_%m_%d_%H_%M_%S_%f")
+    st = datetime.datetime.fromtimestamp(start_time).strftime(time_string)
 
     timer.start()
     print(start_time)
