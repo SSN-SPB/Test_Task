@@ -1,6 +1,4 @@
-
 tested_list = list(range(0, 11))
-
 
 
 def lambda_one_more_other(y):
@@ -13,7 +11,6 @@ def main():
     print(list(filter(more_then_3, tested_list)))
 
     assert list(filter(more_then_3, tested_list)) == [4, 5, 6, 7, 8, 9, 10]
-
 
 
 if __name__ == "__main__":

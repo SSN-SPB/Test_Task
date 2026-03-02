@@ -1,8 +1,12 @@
 """Suit for demo of itertools"""
 
+# itertools.compress() - creates an iterator that filters elements
+# from data returning only those that have a corresponding element
+# in the selectors that evaluates to True.
+# Stops when either the data or selectors iterables has been exhausted.
+
 from itertools import compress
 
-# creating list of random length with randomly sorted values
 test_list = ["A", "B", "C", "D", "E", "F", "J"]
 compress_mask = [
     1,
@@ -24,7 +28,7 @@ compress_mask = [
 
 def check_itertools_compress(tested_list, mask_list):
     """Function removes elements from list based on mask"""
-    print(tested_list)
+    print(f"tested list: {tested_list}")
 
     return list(compress(tested_list, mask_list))
 
