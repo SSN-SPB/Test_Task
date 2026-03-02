@@ -1,1 +1,1 @@
-from .substring_functions import substring_by_index
+from .substring_functions import substring_by_index, substring_by_index_start_stop

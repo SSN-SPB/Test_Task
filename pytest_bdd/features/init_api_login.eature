@@ -1,0 +1,7 @@
+Feature: API Login
+
+  Scenario: Successful login with valid credentials
+    Given the API is available
+    When I send login request with valid credentials
+    Then the response status code should be 200
+    And the response should contain an access token

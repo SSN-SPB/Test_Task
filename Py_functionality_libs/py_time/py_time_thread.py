@@ -1,5 +1,6 @@
 import time
 
+
 def cycle_print(value):
     for i in range(value):
         print(f"It is {i}")
