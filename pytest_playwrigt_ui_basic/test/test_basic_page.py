@@ -4,9 +4,9 @@ from PIL import Image, ImageChops
 from pytest_playwrigt_ui_basic.page_objects.base_page import StartingPage
 from pytest_playwrigt_ui_basic.service_functions.ui import page, browser
 
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
+
 
 
 def test_google_page(page):
