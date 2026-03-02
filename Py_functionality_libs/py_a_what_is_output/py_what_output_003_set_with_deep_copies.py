@@ -11,6 +11,7 @@ var_c = (
 )
 var_set = {var_b, "a7"}
 
+
 def main():
     print(type(var_set))
     print(var_set)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import re
 
-testedRegexNumber = "\d+"
+testedRegexNumber = "\\d+"
 stringTest = "This335IsGeeksforGeeks !, 123"
 
 

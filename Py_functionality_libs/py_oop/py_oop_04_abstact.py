@@ -18,8 +18,8 @@ class TestRun(Stop):
     def stop2(self):
         print("stop2 from test run")
 
-    def stop(self):
-        print("stop from test run")
+    # def stop(self):
+    #     print("stop from test run")
 
 
 def main():
