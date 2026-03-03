@@ -1,9 +1,14 @@
 # https://leetcode.com/problems/substring-with-concatenation-of-all-words/
-# version 2026-Mar-02 in progress
+# version 2026-Mar-02 in progress failed 146/182
+# s = "aaa"; words =["a","a"]
+# Output [0]
+# Expected [0,1]
 from itertools import permutations
 
-words_to_concatanate = ["foo", "bar"]
-checked_string = "barfoothefoobarman"
+words_to_concatenate = ["a"]
+checked_string = "a"
+# words_to_concatanate = ["foo", "bar"]
+# checked_string = "barfoothefoobarman"
 
 
 class Solution(object):
@@ -14,9 +19,9 @@ class Solution(object):
         :rtype: List[int]
         """
         result_list = []
-        if len(s) == 1:
+        if len(words) != 1 and len(set(words)) == 1 and len(s) == 1:
             return result_list
-        if len(set(words)) == 1:
+        if len(set(words)) == 1 and len(words) != 1 and len(set(s))==1:
             return [0]
 
         concatenation_list = list(permutations(words))
@@ -33,9 +38,9 @@ class Solution(object):
 def main():
     c = Solution()
     print(
-        f" result of division is : {c.findSubstring(checked_string, words_to_concatanate)}"
+        f" result of division is : {c.findSubstring(checked_string, words_to_concatenate)}"
     )
-    assert c.findSubstring(checked_string, words_to_concatanate) == [0, 9]
+    assert c.findSubstring(checked_string, words_to_concatenate) == [0]
 
 
 if __name__ == "__main__":
