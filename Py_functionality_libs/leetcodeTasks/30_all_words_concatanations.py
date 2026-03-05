@@ -21,7 +21,7 @@ class Solution(object):
         result_list = []
         if len(words) != 1 and len(set(words)) == 1 and len(s) == 1:
             return result_list
-        if len(set(words)) == 1 and len(words) != 1 and len(set(s))==1:
+        if len(set(words)) == 1 and len(words) != 1 and len(set(s)) == 1:
             return [0]
 
         concatenation_list = list(permutations(words))
@@ -37,9 +37,7 @@ class Solution(object):
 
 def main():
     c = Solution()
-    print(
-        f" result of division is : {c.findSubstring(checked_string, words_to_concatenate)}"
-    )
+    print(f" result : {c.findSubstring(checked_string, words_to_concatenate)}")
     assert c.findSubstring(checked_string, words_to_concatenate) == [0]
 
 
