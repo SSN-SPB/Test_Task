@@ -18,12 +18,11 @@ nlist = 100
 quantizer = faiss.IndexFlatL2(d)
 index = faiss.IndexIVFFlat(quantizer, d, nlist)
 
-# train and add database vectors
 index.train(xb)
 index.add(xb)
 
-# number of clusters to search
 index.nprobe = 10
+
 
 # -------------------------------
 # Simulate IVF Metrics for the DATABASE
@@ -40,10 +39,11 @@ def simulate_ivf_metrics(n_cycles):
         metrics_list.append(metrics)
     return metrics_list
 
+
 db_metrics = simulate_ivf_metrics(nb)
 
 # -------------------------------
-# FAIS IVF Index & Quality Gateway Functions
+# FAIS IVF Index & Quality Gateway
 # -------------------------------
 weights = {
     "fertilization_rate": 0.3,
@@ -58,8 +58,10 @@ quality_gateway_thresholds = {
     "lab_contamination": 0.05
 }
 
+
 def calculate_fais_index(metrics):
     return sum(metrics[k] * w for k, w in weights.items())
+
 
 def check_quality_gateway(metrics):
     for k, threshold in quality_gateway_thresholds.items():
@@ -71,26 +73,40 @@ def check_quality_gateway(metrics):
                 return False
     return True
 
+
 # -------------------------------
-# Search and Report IVF Metrics for Neighbors
+# Search and Aggregate Metrics
 # -------------------------------
 D, I = index.search(xq, 5)  # top-5 nearest neighbors
 
 for q_idx, neighbors in enumerate(I):
     print(f"\nQuery {q_idx + 1}:")
-    for rank, db_idx in enumerate(neighbors):
+
+    # Aggregate IVF metrics across neighbors
+    agg_metrics = {"fertilization_rate": 0, "blastocyst_rate": 0,
+                   "clinical_pregnancy_rate": 0, "lab_contamination": 0}
+    for db_idx in neighbors:
         metrics = db_metrics[db_idx]
-        fais_index = calculate_fais_index(metrics)
-        gateway_passed = check_quality_gateway(metrics)
-        print(f" Neighbor {rank+1} (db_idx={db_idx}):")
-        print(f"   FAIS IVF Index: {fais_index:.2f}")
-        print(f"   Quality Gateway Passed: {gateway_passed}")
-        if not gateway_passed:
-            suggestions = []
-            for k, threshold in quality_gateway_thresholds.items():
-                if k == "lab_contamination" and metrics[k] > threshold:
-                    suggestions.append(f"Reduce lab contamination ({metrics[k]:.2f} > {threshold})")
-                elif k != "lab_contamination" and metrics[k] < threshold:
-                    suggestions.append(f"Improve {k.replace('_',' ')} ({metrics[k]:.2f} < {threshold})")
-            if suggestions:
-                print(f"   Improvement Suggestions: {', '.join(suggestions)}")
+        for k in agg_metrics.keys():
+            agg_metrics[k] += metrics[k]
+
+    # Compute average
+    for k in agg_metrics.keys():
+        agg_metrics[k] /= len(neighbors)
+
+    # Compute FAIS IVF Index and Quality Gateway
+    agg_fais_index = calculate_fais_index(agg_metrics)
+    gateway_passed = check_quality_gateway(agg_metrics)
+
+    print(f"  Aggregated FAIS IVF Index (avg of neighbors): {agg_fais_index:.2f}")
+    print(f"  Quality Gateway Passed: {gateway_passed}")
+
+    if not gateway_passed:
+        suggestions = []
+        for k, threshold in quality_gateway_thresholds.items():
+            if k == "lab_contamination" and agg_metrics[k] > threshold:
+                suggestions.append(f"Reduce lab contamination ({agg_metrics[k]:.2f} > {threshold})")
+            elif k != "lab_contamination" and agg_metrics[k] < threshold:
+                suggestions.append(f"Improve {k.replace('_', ' ')} ({agg_metrics[k]:.2f} < {threshold})")
+        if suggestions:
+            print(f"  Improvement Suggestions: {', '.join(suggestions)}")
