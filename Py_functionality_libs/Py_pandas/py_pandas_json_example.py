@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
-# Copyright 2020 Sergei Smirnov
+# This code demonstrates how to read a JSON file into
+# a pandas DataFrame and display its contents.
+# It uses the `pd.read_json()` function to load the data and then
+# prints the first few rows, the entire DataFrame, and its type.
 
 
 import pandas as pd
-
-# read scv file to dataframe
 
 
 print(pd.__version__)
 
 
 def main():
-    # oo = pd.read_csv('../csv_data2/Olympics2.csv', skiprows=4)
-    oo = pd.read_json("C:\\Users\\Sergei_Smirnov\\Downloads\\jdiLightTemplate.json")
-    ## print(oo.head())
+    json = "simple_for_pandas.json"
+    oo = pd.read_json("%s" % json)
+    print(oo.head())
     print(oo)
     print(type(oo))
 

@@ -1,0 +1,7 @@
+{
+  "name": "John",
+  "age": 25,
+  "isStudent": true,
+  "skills": ["HTML", "CSS", "JavaScript"],
+  "address": {"city": "Malaga","country": "Spain"}
+}
