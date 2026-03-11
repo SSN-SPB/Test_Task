@@ -22,6 +22,11 @@ documents = [
 # ----------------------------
 # 3. Create embeddings
 # ----------------------------
+# That loads another pretrained embedding model:
+#
+# all-MiniLM-L6-v2
+#
+# Used to convert text → vectors.
 embed_model = SentenceTransformer("all-MiniLM-L6-v2")
 
 doc_embeddings = embed_model.encode(documents).astype("float32")
@@ -40,6 +45,8 @@ index.add(doc_embeddings)
 question = "What is FAISS?"
 
 query_vector = embed_model.encode([question]).astype("float32")
+print(query_vector.shape)
+print(f"query_vector: {query_vector}")
 
 # retrieve top 2 documents
 D, I = index.search(query_vector, k=2)
