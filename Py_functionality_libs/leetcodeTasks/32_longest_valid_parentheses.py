@@ -2,7 +2,10 @@
 # version 2026-Mar-10
 
 
-tested_string = "(()())"
+tested_string = ["(()", 2]
+# tested_string = ["(()())", 4]
+# tested_string = [")()())", 4]
+# tested_string = [")(",0]
 
 class Solution(object):
     def longestValidParentheses(self, s):
@@ -13,16 +16,29 @@ class Solution(object):
         direct = "("
         reversed = ")"
         result = 0
-        for x in range(0, int(len(s)/2)):
-            if tested_string[x] == direct and tested_string[len(s) - 1 - x] == reversed:
+        tested_length = len(s)
+        if tested_length == 1:
+            return result
+        for x in range(0, tested_length):
+            print(s[x])
+            if s[x] == direct and s[x + 1] == reversed:
                 result += 1
-        return result
+                x += 2
+                continue
+            if s[x] == reversed:
+                tested_length -= 2
+                break
+            if s[x] == direct and s[len(s) - 1 - x] == reversed:
+                result += 1
+                tested_length -= 2
+                break
+        return result * 2
 
 
 def main():
     c = Solution()
-    print(f" result : {c.longestValidParentheses(tested_string)}")
-    assert c.longestValidParentheses(tested_string) == 3
+    print(f" result : {c.longestValidParentheses(tested_string[0])}")
+    assert c.longestValidParentheses(tested_string) == tested_string[1]
 
 
 if __name__ == "__main__":
