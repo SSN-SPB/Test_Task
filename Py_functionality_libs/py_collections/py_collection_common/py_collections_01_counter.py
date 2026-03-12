@@ -11,8 +11,9 @@ import collections
 
 def main():
     list_result = ["d", "с", "b", "в", "a", "b", 0, 1]
+    expected_dict = {"d": 1, "с": 1, "в": 1, "a": 1, "b": 2, 0: 1, 1: 1}
     number_of_elements = collections.Counter(list_result)
-    assert number_of_elements == {"d": 1, "с": 1, "в": 1, "a": 1, "b": 2, 0: 1, 1: 1}
+    assert number_of_elements == expected_dict
 
 
 if __name__ == "__main__":
