@@ -16,11 +16,11 @@ def enumerate_list(tested_list):
 
 
 def main():
-    for i, e in enumerate(test_list):
-        print("index: {}, element: {}".format(i, e))
-        test_dict[i] = e
-    print(test_dict)
     enumerate_list(test_list)
+    for i, e in enumerate(test_list):
+        print("Adding to dictionary index: {}, element: {}".format(i, e))
+        test_dict[i] = e
+    print(f"Modified dictionary: {test_dict}")
 
 
 if __name__ == "__main__":
