@@ -1,6 +1,5 @@
 from pyspark.sql import SparkSession
 import os
-
 # PySpark is library for working with big data using Apache Spark.
 # It provides an interface for programming Spark with Python.
 # PySpark allows you to leverage the power of Spark's distributed computing capabilities while writing code in Python.
