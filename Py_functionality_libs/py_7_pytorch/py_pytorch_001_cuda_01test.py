@@ -3,6 +3,7 @@ import torch
 
 def main():
     s = torch.rand(2, 2)
+    print("PyTorch Tensor:")
     print(f"Tensor: {s}")
     print("Using CPU:", torch.cuda.is_available())
 
