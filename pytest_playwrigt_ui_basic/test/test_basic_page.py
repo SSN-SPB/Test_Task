@@ -17,10 +17,12 @@ def test_google_page(page):
     assert page_content.search_box_visible()
 
 
+
 def test_compare_screenshot(page):
     page_content = StartingPage(page)
     page_content.goto()
     snapshots = "screenshots"
+    # define the path for actual screenshot
     actual_image = os.path.join(f".\\{snapshots}\\test_snapshots", "actual.png")
     # make actual screenshot
     page_content.make_screen_shot(actual_image)
@@ -49,6 +51,7 @@ def test_compare_screenshot(page):
     if diff.getbbox():
         logger.info("Detected difference between test and reference snapshots.")
         diff = diff.convert("L")  # grayscale
+        # diff with decreased threshold
         diff = diff.point(lambda x: 255 if x > 0 else 0)
 
         diff.save(f".\\{snapshots}\\differences_snapshots\\found_differences.png")
