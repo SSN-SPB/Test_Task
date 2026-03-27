@@ -3,7 +3,7 @@
 1. **Clone the repository:**
    ```bash
    git clone <repository-url>
-   cd /TAF_test/JS/cypress/cypress_demo01_saucedemo
+   cd /TAF_test/JS/cypress/cypress_demo02_schulte_tables
    ```
 
 2. **Install dependencies:**
@@ -13,7 +13,7 @@
     npm -v
     npx -v
     npx cypress -v
-    ```
+   ```
 2.2 If not - then run the following command to install the required dependencies:
     ```bash
     npx install cypress --save-dev
@@ -22,9 +22,7 @@
 ## Running Tests
 
 1. **Open Cypress Test Runner:**
-
    Within the project directory, run the following command to open the Cypress Test Runner:
-
    ```bash
    npx cypress open
    ```
