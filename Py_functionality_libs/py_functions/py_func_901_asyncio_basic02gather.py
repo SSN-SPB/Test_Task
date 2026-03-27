@@ -10,12 +10,12 @@ async def async_task(task_id, delay):
 
 
 async def main():
-    name7 = async_task("name7", 7)
-    name5 = async_task("name5", 5)
-    name4 = async_task("name4", 4)
-    await name7
-    await name5
-    await name4
+    tasks = [
+        async_task("Id3", 3),
+        async_task("Id1", 1),
+        async_task("Id2", 2),
+    ]
+    await asyncio.gather(*tasks)
 
 
 if __name__ == "__main__":
