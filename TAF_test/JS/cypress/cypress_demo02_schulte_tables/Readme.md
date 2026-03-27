@@ -3,7 +3,7 @@
 1. **Clone the repository:**
    ```bash
    git clone <repository-url>
-   cd /TAF_test/JS/cypress/cypress_demo01_saucedemo
+   cd /TAF_test/JS/cypress/cypress_demo02_schulte_tables
    ```
 
 2. **Install dependencies:**
