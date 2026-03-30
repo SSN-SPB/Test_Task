@@ -23,7 +23,7 @@ jobs:
           node-version: 18
 
       - name: switch to test directory
-        run: cd./TAF_test/JS/cypress/cypress_demo02_schulte_tables/
+        run: cd ./TAF_test/JS/cypress/cypress_demo02_schulte_tables/
 
       - name: Install dependencies
         run: npm ci
