@@ -10,7 +10,7 @@ on:
       - completed
 
 jobs:
-  cypress-run:
+  cypress-run-five-only:
     runs-on: ubuntu-latest
     defaults:
       run:
