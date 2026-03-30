@@ -12,6 +12,9 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./TAF_test/JS/cypress/cypress_demo02_schulte_tables/
 
     steps:
       - name: Checkout repo
@@ -21,9 +24,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-
-      - name: switch to test directory
-        run: cd ./TAF_test/JS/cypress/cypress_demo02_schulte_tables/
 
       - name: check current directory content
         run: ls
