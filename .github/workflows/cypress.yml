@@ -25,6 +25,12 @@ jobs:
       - name: switch to test directory
         run: cd ./TAF_test/JS/cypress/cypress_demo02_schulte_tables/
 
+      - name: check current directory content
+        run: ls
+
+      - name: check current directory
+        run: pwd
+
       - name: Install dependencies
         run: npm ci
 
