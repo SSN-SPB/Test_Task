@@ -2,7 +2,7 @@ name: Cypress Tests All
 
 on:
   push:
-    branches: [taf_cypress]
+    branches: [main, taf_cypress]
   pull_request:
   workflow_run:
     workflows: ["Cypress Tests Five"]
