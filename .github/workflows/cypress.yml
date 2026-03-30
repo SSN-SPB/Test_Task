@@ -2,7 +2,7 @@ name: Cypress Tests All
 
 on:
   push:
-    branches: [main, taf_cypress]
+    branches: [taf_cypress]
   pull_request:
   workflow_run:
     workflows: ["Cypress Tests Five"]
@@ -24,6 +24,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+
+      - name: check current directory content
+        run: ls
 
       - name: Run Cypress tests
         run: npx cypress run
