@@ -1,11 +1,11 @@
-name: Cypress Tests All
+name: Cypress Tests Five
 
 on:
   push:
     branches: [main, taf_cypress]
   pull_request:
   workflow_run:
-    workflows: ["Cypress Tests Five"]
+    workflows: ["Run Python Script"]
     types:
       - completed
 
@@ -25,5 +25,14 @@ jobs:
         with:
           node-version: 18
 
+      - name: check current directory content
+        run: ls
+
+      - name: check current directory
+        run: pwd
+
+      - name: Install dependencies
+        run: npm ci
+
       - name: Run Cypress tests
-        run: npx cypress run
+        run: npx cypress run --spec "cypress/e2e/five*.js"
