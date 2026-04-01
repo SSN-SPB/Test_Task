@@ -1,4 +1,9 @@
-# Create xlsx file in python
+# pandera is a library for data validation and testing in Python.
+# It provides a way to define schemas for pandas DataFrames
+# and validate the data against those schemas.
+# In this example, we will define a schema for a DataFrame and
+# validate a dataset against it, printing both the first error
+# and all errors encountered during validation.
 import pandas as pd
 import pandera.pandas as pa
 from pandera import Column, DataFrameSchema

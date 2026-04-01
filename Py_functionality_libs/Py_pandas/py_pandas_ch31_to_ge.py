@@ -1,4 +1,8 @@
-# Create xlsx file in python
+# great expectations is a powerful library for data validation and profiling.
+# It allows you to define expectations about your data
+# and then validate whether your data meets those expectations.
+# In this example, we will create a minimal dataset and use great_expectations
+# to validate the data.
 import pandas as pd
 from great_expectations.dataset import PandasDataset
 
