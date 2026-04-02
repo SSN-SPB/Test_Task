@@ -54,3 +54,32 @@ BEGIN
       SELECT IFNULL((SELECT DISTINCT E.SALARY AS SecondHighestSalary FROM EMPLOYEE AS E ORDER BY E.SALARY DESC LIMIT 1 OFFSET calc_ofset), NULL) AS SecondHighestSalary
   );
 END
+
+
+--178 https://leetcode.com/problems/rank-scores/
+# Write a SQL query to rank the scores of the students,
+# where the highest score gets the rank 1.
+# If there are ties, assign them the same rank and skip the next ranks.
+# Table: Scores
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | score       | int     |
+# +-------------+---------+
+# id is the primary key for this table.
+
+# row numbers
+-- SELECT ROW_NUMBER() OVER() FROM SCORES
+# row numbers with exact name
+-- SELECT ROW_NUMBER() OVER() AS 'rank' FROM (SELECT ROW_NUMBER() OVER() FROM SCORES) AS SCR
+# only distinct values ordered by value desc
+-- Select Distinct Score as score_distinct FROM SCORES ORDER BY score_distinct DESC
+# only distinct values ordered by value desc with rank
+-- SELECT score_distinct as score, ROW_NUMBER() OVER() AS 'rank' FROM (Select Distinct Score as score_distinct FROM SCORES ORDER BY score_distinct DESC) as scr
+
+SELECT SC.score, VALID_RANK.rank FROM Scores as SC
+LEFT JOIN   (
+    SELECT score_distinct as score, ROW_NUMBER() OVER() AS 'rank'
+        FROM (Select Distinct Score as score_distinct FROM SCORES ORDER BY score_distinct DESC) as scr
+            ) AS VALID_RANK ON SC.score = VALID_RANK.score ORDER BY SC.score DESC
