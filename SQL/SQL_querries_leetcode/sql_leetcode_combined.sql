@@ -106,3 +106,21 @@ LEFT JOIN
     )
 AS MN ON MN.ID = EM.MANAGERID
 WHERE EM.SALARY > MN.SALARY
+
+# PASSED 4-Apr-2026
+
+-- 182 https://leetcode.com/problems/duplicate-emails/
+# Write a SQL query to find all duplicate emails in a table named Person.
+# Table: Person
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | email       | varchar |
+# +-------------+---------+
+# id is the primary key for this table.
+
+SELECT COUNTED.EMAIL AS EMAIL
+FROM
+(SELECT P.EMAIL, COUNT(P.EMAIL) AS TOTAL FROM PERSON AS P GROUP BY P.EMAIL) AS COUNTED
+WHERE COUNTED.TOTAL > 1
