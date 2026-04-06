@@ -124,3 +124,28 @@ SELECT COUNTED.EMAIL AS EMAIL
 FROM
 (SELECT P.EMAIL, COUNT(P.EMAIL) AS TOTAL FROM PERSON AS P GROUP BY P.EMAIL) AS COUNTED
 WHERE COUNTED.TOTAL > 1
+
+# PASSED 5-Apr-2026
+
+-- 183 https://leetcode.com/problems/customers-who-never-order/
+# Write a SQL query to find all customers who never order anything.
+# Table: Customers
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | name        | varchar |
+# +-------------+---------+
+# id is the primary key for this table.
+# Table: Orders
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | customerId  | int     |
+# +-------------+---------+
+# id is the primary key for this table.
+SELECT CU.NAME AS CUSTOMERS
+FROM CUSTOMERS AS CU LEFT
+JOIN ORDERS AS OD ON CU.ID = OD.CUSTOMERID
+WHERE OD.CUSTOMERID IS NULL
