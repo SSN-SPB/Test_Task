@@ -149,3 +149,32 @@ SELECT CU.NAME AS CUSTOMERS
 FROM CUSTOMERS AS CU LEFT
 JOIN ORDERS AS OD ON CU.ID = OD.CUSTOMERID
 WHERE OD.CUSTOMERID IS NULL
+
+--184 https://leetcode.com/problems/department-highest-salary/
+# Write a SQL query to find the highest salary of each department.
+# Table: Employee
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | name        | varchar |
+# | salary      | int     |
+# | departmentId | int     |
+# +-------------+---------+
+# id is the primary key for this table.
+# Table: Department
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | name        | varchar |
+# +-------------+---------+
+# id is the primary key for this table.
+SELECT D.NAME AS Department, FD.Employee, FD.SALARY FROM
+    (
+    SELECT E.DEPARTMENTID, E.NAME AS Employee, E.SALARY as Salary FROM EMPLOYEE AS E LEFT JOIN
+        (
+        SELECT MAX(EM.SALARY) AS 'SALARY', EM.DEPARTMENTID FROM EMPLOYEE AS EM GROUP BY EM.DEPARTMENTID
+        ) AS HS ON HS.DEPARTMENTID = E.DEPARTMENTID
+        WHERE E.SALARY = HS.SALARY
+    ) AS FD LEFT JOIN DEPARTMENT AS D ON D.ID = FD.DEPARTMENTID
