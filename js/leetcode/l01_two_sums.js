@@ -1,9 +1,19 @@
-x = sumAll(1, 123, 500, 115, 44, 88);
-console.log("Hello, world! and the sum is " + x);
-function sumAll() {
-  let sum = 0;
-  for (let i = 0; i < arguments.length; i++) {
-    sum += arguments[i];
-  }
-  return sum;
-}
+const numbers_array = [3,2,4];
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    const map = new Map();
+    for (let i = 0; i < nums.length; i++) {
+      for (let j = i + 1; j < nums.length; j++) {
+        if (nums[i] + nums[j] === target) { 
+          return [i, j];
+        }
+      }
+    }
+    
+};
+const target = 6;
+console.log(twoSum(numbers_array, target));
