@@ -1,14 +1,17 @@
 import random
 
 random_values = [random.randint(1, 100) for _ in range(10)]
+
+
 def creating_file_with_random_values(initial_list):
     print("Creating file with random values...")
     print(initial_list)
     with open("output.txt", "w") as file:
         for value in initial_list:
-            file.write(f"Random value for {initial_list.index(value)} is {value}\n")
+            file.write(f"Value for {initial_list.index(value)} is {value}\n")
 
     print("File created with random values.")
+
 
 # Write to a file
 def main():
