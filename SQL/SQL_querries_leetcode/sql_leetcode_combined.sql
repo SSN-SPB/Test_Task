@@ -178,3 +178,18 @@ SELECT D.NAME AS Department, FD.Employee, FD.SALARY FROM
         ) AS HS ON HS.DEPARTMENTID = E.DEPARTMENTID
         WHERE E.SALARY = HS.SALARY
     ) AS FD LEFT JOIN DEPARTMENT AS D ON D.ID = FD.DEPARTMENTID
+
+--196 https://leetcode.com/problems/delete-duplicate-emails/ PASSED 8-Apr-2026
+# Write a SQL query to delete all duplicate email entries in a table named Person, keeping only the entry with the smallest id.
+# Table: Person
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | id          | int     |
+# | email       | varchar |
+# +-------------+---------+
+# id is the primary key for this table.
+
+DELETE P1 FROM PERSON AS P1
+JOIN PERSON AS P2
+ON P1.ID > P2.ID AND P1.EMAIL = P2.EMAIL
