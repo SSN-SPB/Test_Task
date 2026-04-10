@@ -3,7 +3,7 @@
 
 
 tested_string = "PAYPALISHIRING"
-num_rows = 4
+num_rows = 3
 expected_output = "PINALSIGYAHRPI"
 
 class Solution(object):
@@ -26,6 +26,7 @@ class Solution(object):
             h, v = 0, 0
             calculated_index = t_index%numRows
             print(f"{y} - {t_index} - {calculated_index}")
+            combined_list[h][v] = y
 
         return combined_list
 
