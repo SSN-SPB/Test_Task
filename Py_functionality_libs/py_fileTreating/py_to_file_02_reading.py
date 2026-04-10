@@ -14,5 +14,6 @@ def main():
     for line in new_file_name:
         print(line.strip())
 
+
 if __name__ == "__main__":
     main()
