@@ -22,10 +22,9 @@ class Solution(object):
         for y in s:
             c += 1
             t_index = c
-            counter = num_rows
-            h, v = 0, 0
-            calculated_index = t_index%numRows
-            print(f"{y} - {t_index} - {calculated_index}")
+            v = int(t_index/numRows)
+            h = int(t_index/number_of_columns)
+            print(f"{y} - {t_index} - {h}/{v}")
             combined_list[h][v] = y
 
         return combined_list
