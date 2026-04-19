@@ -193,3 +193,49 @@ SELECT D.NAME AS Department, FD.Employee, FD.SALARY FROM
 DELETE P1 FROM PERSON AS P1
 JOIN PERSON AS P2
 ON P1.ID > P2.ID AND P1.EMAIL = P2.EMAIL
+
+--197 https://leetcode.com/problems/rising-temperature/description/ passed 19-Apr-2026
+# Write a SQL query to find all dates' Ids with higher temperatures compared to the previous day.
+# Table: Weather
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | Id          | int     |
+# | RecordDate  | date    |
+# | Temperature  | int     |
+# +-------------+---------+
+# Id is the primary key for this table.
+# Write your MySQL query statement below
+-- SELECT W1.ID AS Id, W1.RECORDDATE, W2.RECORDDATE AS R2, W1.TEMPERATURE, W2.TEMPERATURE AS T2 FROM WEATHER W1
+--     LEFT JOIN WEATHER W2 ON W1.RECORDDATE = W2.RECORDDATE+1
+--     WHERE W1.TEMPERATURE > W2.TEMPERATURE
+
+SELECT W1.ID AS Id FROM WEATHER W1
+    LEFT JOIN WEATHER W2 ON W1.RECORDDATE = W2.RECORDDATE + 1
+    WHERE W1.TEMPERATURE > W2.TEMPERATURE
+
+failed for
+| id | recordDate | temperature |
+| -- | ---------- | ----------- |
+| 1  | 2015-01-31 | 10          |
+| 2  | 2015-02-01 | 25          |
+| 3  | 2015-02-03 | 20          |
+| 4  | 2015-02-04 | 30          |
+expected output
+| id |
+| -- |
+| 2  |
+| 4  |
+
+Output
+| Id |
+| -- |
+| 4  |
+
+Worked version:
+
+SELECT W1.ID AS Id FROM WEATHER W1
+    JOIN WEATHER W2
+    ON W1.RECORDDATE = DATE_ADD(W2.RecordDate, INTERVAL 1 DAY) -- better performance
+    -- ON DATEDIFF(W1.RecordDate, W2.RecordDate) = 1
+    WHERE W1.TEMPERATURE > W2.TEMPERATURE
