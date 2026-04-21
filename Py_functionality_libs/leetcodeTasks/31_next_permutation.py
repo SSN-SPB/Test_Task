@@ -1,5 +1,16 @@
 # https://leetcode.com/problems/next-permutation/
 # version 2026-Mar-05 passes locally but fails on leetcode
+# permutations is:
+# permutations is not the intended solution,
+# but it is a solution that works for small lists.
+# The intended solution is to find the rightmost pair of indices (i, j)
+# such that nums[i] < nums[j], and then swap nums[i]
+# with the smallest element
+# to the right of i that is greater than nums[i],
+# and finally reverse the subarray to the right of i.
+# This approach has a time complexity of O(n)
+# and does not require generating all permutations.
+
 from itertools import permutations
 
 
