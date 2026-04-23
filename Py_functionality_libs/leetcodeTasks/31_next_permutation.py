@@ -13,7 +13,6 @@
 
 from itertools import permutations
 
-
 # input_list = [1,1,5]
 # input_list = [3,2,1]
 input_list = [1, 2, 3]
