@@ -257,4 +257,19 @@ FROM ACTIVITY A
 GROUP BY A.PLAYER_ID
 
 
+-- 584 https://leetcode.com/problems/find-customer-referee/description/ 1-MAY-2026 PASS
+--table: Customer
+--
+--+-------------+---------+
+--| Column Name | Type    |
+--+-------------+---------+
+--| id          | int     |
+--| name        | varchar |
+--| referee_id  | int     |
+--+-------------+---------+
+--In SQL, id is the primary key column for this table.
+--Each row of this table indicates the id of a customer, their name, and the id of the customer who referred them.
+SELECT C.NAME FROM CUSTOMER C WHERE C.REFEREE_ID IS NULL OR C.REFEREE_ID != 2
+
+
 
