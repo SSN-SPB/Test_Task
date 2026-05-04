@@ -239,3 +239,37 @@ SELECT W1.ID AS Id FROM WEATHER W1
     ON W1.RECORDDATE = DATE_ADD(W2.RecordDate, INTERVAL 1 DAY) -- better performance
     -- ON DATEDIFF(W1.RecordDate, W2.RecordDate) = 1
     WHERE W1.TEMPERATURE > W2.TEMPERATURE
+
+-- 511 https://leetcode.com/problems/game-play-analysis-i/description/ passed 25-Apr-2026
+-- Write a solution to find the first login date for each player.
+-- Table: Activity
+-- +-------------+---------+
+-- | Column Name  | Type    |
+-- +-------------+---------+
+-- | player_id    | int     |
+-- | device_id    | int     |
+-- | event_date   | date    |
+-- | game_played  | varchar |
+-- +-------------+---------+
+
+SELECT A.PLAYER_ID, MIN(A.EVENT_DATE) AS FIRST_LOGIN
+FROM ACTIVITY A
+GROUP BY A.PLAYER_ID
+
+
+-- 584 https://leetcode.com/problems/find-customer-referee/description/ 1-MAY-2026 PASS
+--table: Customer
+--
+--+-------------+---------+
+--| Column Name | Type    |
+--+-------------+---------+
+--| id          | int     |
+--| name        | varchar |
+--| referee_id  | int     |
+--+-------------+---------+
+--In SQL, id is the primary key column for this table.
+--Each row of this table indicates the id of a customer, their name, and the id of the customer who referred them.
+SELECT C.NAME FROM CUSTOMER C WHERE C.REFEREE_ID IS NULL OR C.REFEREE_ID != 2
+
+
+
