@@ -1,10 +1,10 @@
-# The @classmethod decorator in Python is used to define a method
-# that belongs to the class rather than an instance of the class.
-# Class methods take the class itself as the first argument,
-# conventionally named 'cls',
-# and can access and modify class state that applies across all instances of the class.
-# They are often used for factory methods that create instances of the class
-# or for methods that operate on class-level data.
+# The @dataclass decorator in Python is used to
+# automatically generate special methods for classes,
+# such as __init__, __repr__, __eq__,
+# and others, based on the class attributes.
+# This simplifies the process of creating classes
+# that are primarily used to store data,
+# as it reduces boilerplate code and enhances readability.
 
 import logging
 from dataclasses import dataclass

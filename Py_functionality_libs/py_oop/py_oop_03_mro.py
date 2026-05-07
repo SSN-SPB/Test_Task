@@ -1,4 +1,9 @@
 """Suite demonstrates mro in oop Python"""
+# MRO (Method Resolution Order) is a mechanism in Python
+# that determines the order in which base classes
+# are searched when looking for a method or attribute in a class hierarchy.
+# It is particularly important in the context of multiple inheritance, where a class can inherit
+
 
 
 class BaseClass:
@@ -44,7 +49,7 @@ class BuyTest(BaseClass, SecondBaseClass):
 
 
 def main():
-    print(BuyTest.mro())
+    print(f"MRO: of class BuyTest(BaseClass, SecondBaseClass) {BuyTest.mro()}")
     buy_test = BuyTest()
     buy_test.setup()
     buy_test.run()
