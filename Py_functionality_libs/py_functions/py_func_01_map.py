@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 # https://www.geeksforgeeks.org/python-map-function/
+# The map() function executes a specified function for each item in an iterable.
+# The item is sent to the function as a parameter.
 
 numbers1 = [1, 2, 3, 1, 11]
 numbers2 = (4, 5, 6, 99)
