@@ -304,4 +304,20 @@ SELECT E.NAME, B.BONUS
     FROM EMPLOYEE E LEFT JOIN BONUS B ON E.EMPID = B.EMPID
         WHERE B.BONUS < 1000 OR B.BONUS IS NULL
 
+-- 585 https://leetcode.com/problems/investments-in-2016/description/ in progress 9-MAY-2026
+# Write your MySQL query statement below
+-- SELECT SUM(S.TIV_2026) FROM
+--     (
+    -- find not unique sum of investments
+            -- SELECT I1.TIV_2015 FROM
+            --     (
+            --     SELECT I.PID, I.TIV_2015, COUNT(I.TIV_2015) AS T5 FROM INSURANCE I  GROUP BY I.TIV_2015
+            --     ) AS I1 WHERE I1.T5 > 1
+-- find not unique latitude and longitude
+SELECT i.lat, i.lon, COUNT(*) AS cnt
+FROM INSURANCE I
+GROUP BY i.lat, i.lon
+HAVING COUNT(*) > 1
+-- ) AS S
+
 
