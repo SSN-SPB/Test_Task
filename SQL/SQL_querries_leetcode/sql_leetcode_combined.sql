@@ -271,5 +271,53 @@ GROUP BY A.PLAYER_ID
 --Each row of this table indicates the id of a customer, their name, and the id of the customer who referred them.
 SELECT C.NAME FROM CUSTOMER C WHERE C.REFEREE_ID IS NULL OR C.REFEREE_ID != 2
 
+--577 https://leetcode.com/problems/employee-bonus/description/ passed 9-MAY-2026
+-- Table: Employee
+-- +-------------+---------+
+-- | Column Name  | Type    |
+-- +-------------+---------+
+-- | id          | int     |
+-- | name        | varchar |
+-- | salary      | int     |
+-- | departmentId | int     |
+-- +-------------+---------+
+-- id is the primary key for this table.
+--Table: Bonus
+--
+--+-------------+------+
+--| Column Name | Type |
+--+-------------+------+
+--| empId       | int  |
+--| bonus       | int  |
+--+-------------+------+
+--empId is the column of unique values for this table.
+--empId is a foreign key (reference column) to empId from the Employee table.
+--Each row of this table contains the id of an employee and their respective bonus.
+--
+--Write a solution to report the name and bonus amount of each employee who satisfies either of the following:
+--
+--The employee has a bonus less than 1000.
+--The employee did not get any bonus.
+--Return the result table in any order.
+
+SELECT E.NAME, B.BONUS
+    FROM EMPLOYEE E LEFT JOIN BONUS B ON E.EMPID = B.EMPID
+        WHERE B.BONUS < 1000 OR B.BONUS IS NULL
+
+-- 585 https://leetcode.com/problems/investments-in-2016/description/ in progress 9-MAY-2026
+# Write your MySQL query statement below
+-- SELECT SUM(S.TIV_2026) FROM
+--     (
+    -- find not unique sum of investments
+            -- SELECT I1.TIV_2015 FROM
+            --     (
+            --     SELECT I.PID, I.TIV_2015, COUNT(I.TIV_2015) AS T5 FROM INSURANCE I  GROUP BY I.TIV_2015
+            --     ) AS I1 WHERE I1.T5 > 1
+-- find not unique latitude and longitude
+SELECT i.lat, i.lon, COUNT(*) AS cnt
+FROM INSURANCE I
+GROUP BY i.lat, i.lon
+HAVING COUNT(*) > 1
+-- ) AS S
 
 
