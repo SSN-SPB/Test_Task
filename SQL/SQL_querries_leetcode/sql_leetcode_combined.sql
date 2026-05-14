@@ -313,11 +313,14 @@ SELECT E.NAME, B.BONUS
             --     (
             --     SELECT I.PID, I.TIV_2015, COUNT(I.TIV_2015) AS T5 FROM INSURANCE I  GROUP BY I.TIV_2015
             --     ) AS I1 WHERE I1.T5 > 1
--- find not unique latitude and longitude
-SELECT i.lat, i.lon, COUNT(*) AS cnt
-FROM INSURANCE I
-GROUP BY i.lat, i.lon
-HAVING COUNT(*) > 1
+-- find unique COMBINATIN latitude and longitude
+SELECT I1.PID FROM INSURANCE I1 RIGHT JOIN
+    (
+        SELECT I.LAT, I.LON, COUNT(*) AS CNN
+        FROM INSURANCE I
+            GROUP BY I.LAT, I.LON
+            HAVING CNN >1
+    ) I2 ON I1.LAT=I2.LAT AND I1.LON=I2.LON
 -- ) AS S
 
 -- 595 https://leetcode.com/problems/big-countries/description/ passed 14-MAY-2026
