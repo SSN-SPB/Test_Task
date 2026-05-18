@@ -25,7 +25,7 @@ LANGFUSE_SECRET_KEY=sk-lf-...
 python .\langfuse_copilot_example.py
 for running
 python .\langfuse_copilot_example3_opus4_6real_model.py
-   need to install llama3 by command
+   need to install models by command
 # Install Ollama: https://ollama.com
 # Then pull the model:
 ollama pull llama3
