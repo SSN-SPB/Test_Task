@@ -304,24 +304,32 @@ SELECT E.NAME, B.BONUS
     FROM EMPLOYEE E LEFT JOIN BONUS B ON E.EMPID = B.EMPID
         WHERE B.BONUS < 1000 OR B.BONUS IS NULL
 
--- 585 https://leetcode.com/problems/investments-in-2016/description/ in progress 9-MAY-2026
+-- 585 https://leetcode.com/problems/investments-in-2016/description/ PASSED 17-MAY-2026
 # Write your MySQL query statement below
--- SELECT SUM(S.TIV_2026) FROM
---     (
-    -- find not unique sum of investments
-            -- SELECT I1.TIV_2015 FROM
-            --     (
-            --     SELECT I.PID, I.TIV_2015, COUNT(I.TIV_2015) AS T5 FROM INSURANCE I  GROUP BY I.TIV_2015
-            --     ) AS I1 WHERE I1.T5 > 1
--- find unique COMBINATIN latitude and longitude
-SELECT I1.PID FROM INSURANCE I1 RIGHT JOIN
+SELECT ROUND(SUM(S.TIV_2016), 2) AS tiv_2016 FROM
     (
-        SELECT I.LAT, I.LON, COUNT(*) AS CNN
-        FROM INSURANCE I
-            GROUP BY I.LAT, I.LON
-            HAVING CNN >1
-    ) I2 ON I1.LAT=I2.LAT AND I1.LON=I2.LON
--- ) AS S
+    SELECT I2.PID, I2.TIV_2016 FROM INSURANCE I2 WHERE
+        I2.TIV_2015 IN
+        (
+        SELECT I1.TIV_2015 FROM
+            (
+            SELECT I.PID, I.TIV_2015, COUNT(I.TIV_2015) AS T5
+            FROM INSURANCE I  GROUP BY I.TIV_2015
+            ) AS I1 WHERE I1.T5 > 1
+        )
+
+        AND I2.PID NOT IN
+        (
+        -- find not unique location (repeated latitude & longitude)
+        SELECT I4.PID FROM INSURANCE I4 RIGHT JOIN
+            (
+            SELECT i.lat, i.lon, COUNT(*) AS cnt
+            FROM INSURANCE I
+            GROUP BY i.lat, i.lon
+            HAVING COUNT(*) > 1
+            ) L1 ON I4.LAT = L1.LAT AND I4.LON = L1.LON
+        )
+    ) AS S
 
 -- 595 https://leetcode.com/problems/big-countries/description/ passed 14-MAY-2026
 --A country is big if:
