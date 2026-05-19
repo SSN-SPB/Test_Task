@@ -17,6 +17,7 @@ def enumerate_list(tested_list):
 
 def main():
     enumerate_list(test_list)
+    # Creating a dictionary from the list using enumerate
     for i, e in enumerate(test_list):
         print("Adding to dictionary index: {}, element: {}".format(i, e))
         test_dict[i] = e
