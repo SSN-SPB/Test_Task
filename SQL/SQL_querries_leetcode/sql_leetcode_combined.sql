@@ -353,3 +353,21 @@ SELECT ROUND(SUM(S.TIV_2016), 2) AS tiv_2016 FROM
 SELECT W.NAME, W.POPULATION, W.AREA FROM WORLD W WHERE W.AREA >= 3000000 OR W.POPULATION >= 25000000
 
 
+# 602 https://leetcode.com/problems/friend-requests-ii-who-has-the-most-friends/description/ passed 20-MAY-2026
+# Write a SQL query to find the name of the person who has the most friends.
+# Table: RequestAccepted
++----------------+---------+
+| Column Name    | Type    |
++----------------+---------+
+| requester_id   | int     |
+| accepter_id    | int     |
+| accept_date    | date    |
++----------------+---------+
+# (requester_id, accepter_id) is the primary key (combination of columns with unique values) for this table.
+SELECT RA1.ID AS id, SUM(RA1.NUM) as num FROM
+(SELECT RA.requester_id AS ID, COUNT(*) AS NUM FROM RequestAccepted RA GROUP BY RA.requester_id
+UNION All
+SELECT RA.accepter_id AS ID, COUNT(*) AS NUM FROM RequestAccepted RA GROUP BY RA.accepter_id) RA1
+GROUP BY RA1.ID ORDER BY num desc LIMIT 1
+
+

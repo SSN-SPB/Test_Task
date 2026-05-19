@@ -1,6 +1,7 @@
 """Suite demonstrates polymorphism overriding in oop Python"""
 
-# Runtime Polymorthism
+# Runtime Polymorthism is
+#
 # Polymorphism overriding is a feature in object-oriented programming
 # where a subclass provides a specific implementation of a
 # method that is already defined in its superclass.

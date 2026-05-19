@@ -1,4 +1,8 @@
-# super() - calls the parent constructor
+# super() is a built-in function in Python that allows
+# you to call methods from a parent class.
+# It is commonly used in inheritance to access
+# and extend the functionality of the parent class.
+
 
 class Animal:
     def __init__(self, name):
