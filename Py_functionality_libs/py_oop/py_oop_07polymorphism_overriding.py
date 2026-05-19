@@ -5,7 +5,8 @@
 # where a subclass provides a specific implementation of a
 # method that is already defined in its superclass.
 # The method in the subclass overrides the method in the superclass,
-# allowing for dynamic method resolution at runtime. This means that when a method is called on an object,
+# allowing for dynamic method resolution at runtime.
+# This means that when a method is called on an object,
 # the version of the method that is executed is determined by the actual type of the object,
 # rather than the type of the reference variable.
 
@@ -59,7 +60,9 @@ def main():
     sq_test.setup()
     print(f" The area of Figure{fg_test.__class__.__name__} is {fg_test.count_area()}")
     print(f" The area of Square {sq_test.__class__.__name__} is {sq_test.count_area()}")
-    print(f" The area of Triangle {tr_test.__class__.__name__} is {tr_test.count_area()}")
+    print(
+        f" The area of Triangle {tr_test.__class__.__name__} is {tr_test.count_area()}"
+    )
     print(f" The area of {sq_test.__class__.__name__} is {sq_test.count_area(5, 6)}")
 
 

@@ -1,4 +1,5 @@
 """Suite demonstrates abstract methods in oop Python"""
+
 # Abstract methods are defined in an abstract base
 # class and must be implemented by any subclass
 # that inherits from the abstract base class.
