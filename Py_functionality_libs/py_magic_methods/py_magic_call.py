@@ -1,8 +1,11 @@
 # __call__ is a special method in Python that allows an instance
 # of a class to be called as if it were a function.
 # When you define the __call__ method in a class,
-# you can create instances of that class and call them directly,
-# passing arguments to the __call__ method.
+# you can create instances of that class and call them directly
+# as if they were functions, passing arguments to the __call__ method.
+# This can be useful for creating callable objects, implementing function-like behavior in classes,
+# or even creating decorators.
+
 
 
 class Divider:
