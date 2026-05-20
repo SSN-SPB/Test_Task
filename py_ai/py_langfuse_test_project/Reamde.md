@@ -27,7 +27,7 @@ for running
 python .\langfuse_copilot_example3_opus4_6real_model.py
    need to install models by command
 # Install Ollama: https://ollama.com
-# Then pull the model:
+# Then pull the models:
 ollama pull llama3
 ollama pull mistral
 ```
