@@ -304,20 +304,71 @@ SELECT E.NAME, B.BONUS
     FROM EMPLOYEE E LEFT JOIN BONUS B ON E.EMPID = B.EMPID
         WHERE B.BONUS < 1000 OR B.BONUS IS NULL
 
--- 585 https://leetcode.com/problems/investments-in-2016/description/ in progress 9-MAY-2026
+-- 585 https://leetcode.com/problems/investments-in-2016/description/ PASSED 17-MAY-2026
 # Write your MySQL query statement below
--- SELECT SUM(S.TIV_2026) FROM
---     (
-    -- find not unique sum of investments
-            -- SELECT I1.TIV_2015 FROM
-            --     (
-            --     SELECT I.PID, I.TIV_2015, COUNT(I.TIV_2015) AS T5 FROM INSURANCE I  GROUP BY I.TIV_2015
-            --     ) AS I1 WHERE I1.T5 > 1
--- find not unique latitude and longitude
-SELECT i.lat, i.lon, COUNT(*) AS cnt
-FROM INSURANCE I
-GROUP BY i.lat, i.lon
-HAVING COUNT(*) > 1
--- ) AS S
+SELECT ROUND(SUM(S.TIV_2016), 2) AS tiv_2016 FROM
+    (
+    SELECT I2.PID, I2.TIV_2016 FROM INSURANCE I2 WHERE
+        I2.TIV_2015 IN
+        (
+        SELECT I1.TIV_2015 FROM
+            (
+            SELECT I.PID, I.TIV_2015, COUNT(I.TIV_2015) AS T5
+            FROM INSURANCE I  GROUP BY I.TIV_2015
+            ) AS I1 WHERE I1.T5 > 1
+        )
+
+        AND I2.PID NOT IN
+        (
+        -- find not unique location (repeated latitude & longitude)
+        SELECT I4.PID FROM INSURANCE I4 RIGHT JOIN
+            (
+            SELECT i.lat, i.lon, COUNT(*) AS cnt
+            FROM INSURANCE I
+            GROUP BY i.lat, i.lon
+            HAVING COUNT(*) > 1
+            ) L1 ON I4.LAT = L1.LAT AND I4.LON = L1.LON
+        )
+    ) AS S
+
+-- 595 https://leetcode.com/problems/big-countries/description/ passed 14-MAY-2026
+--A country is big if:
+--
+--it has an area of at least three million (i.e., 3000000 km2), or
+--it has a population of at least twenty-five million (i.e., 25000000).
+--Write a solution to find the name, population, and area of the big countries.
+--
+--Return the result table in any order.
+
+# Table: World
+# +-------------+---------+
+# | Column Name  | Type    |
+# +-------------+---------+
+# | name        | varchar |
+# | continent   | varchar |
+# | area        | int     |
+# | population  | int     |
+# | gdp         | int     |
+# +-------------+---------+
+SELECT W.NAME, W.POPULATION, W.AREA FROM WORLD W WHERE W.AREA >= 3000000 OR W.POPULATION >= 25000000
+
+
+# 602 https://leetcode.com/problems/friend-requests-ii-who-has-the-most-friends/description/ passed 20-MAY-2026
+# Write a SQL query to find the name of the person who has the most friends.
+# Table: RequestAccepted
++----------------+---------+
+| Column Name    | Type    |
++----------------+---------+
+| requester_id   | int     |
+| accepter_id    | int     |
+| accept_date    | date    |
++----------------+---------+
+# (requester_id, accepter_id) is the primary key (combination of columns with unique values) for this table.
+SELECT RA1.ID AS id, SUM(RA1.NUM) as num FROM
+(SELECT RA.requester_id AS ID, COUNT(*) AS NUM FROM RequestAccepted RA GROUP BY RA.requester_id
+UNION All
+SELECT RA.accepter_id AS ID, COUNT(*) AS NUM FROM RequestAccepted RA GROUP BY RA.accepter_id) RA1
+GROUP BY RA1.ID ORDER BY num desc LIMIT 1
+
 
 

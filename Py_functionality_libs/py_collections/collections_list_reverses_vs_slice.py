@@ -15,7 +15,12 @@ def main():
     reversed_list2 = list(reversed_list2)
     print("reversed list with slice {}".format(reversed_list))
     print("reversed list with reversed() {}".format(reversed_list2))
-    assert reversed_list == reversed_list2
+    print(dir(list1[::-1]))  # doesn't have the __next__ method, which means it's a list
+    print(dir(reversed(list1)))  # has the __next__ method, which means it's an iterator
+    print(
+        dir(reversed_list2)
+    )  # doesn't have the __next__ method, which means it's a list
+    assert reversed_list != reversed_list2
 
 
 if __name__ == "__main__":
