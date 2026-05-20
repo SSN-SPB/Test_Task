@@ -1,9 +1,10 @@
 # Target: Python AI MCP with Pytest
 
-| Section | Details |
-|---------|---------|
+| Section     | Details |
+|-------------|---------|
 | **Purpose** | Learning exercise for MCP mechanics (server setup, SSE transport, client connection) |
-| **Note** | In production, MCP is used when an AI agent needs to dynamically discover and invoke tools — not for predetermined function calls with fixed inputs |
+| **Note**    | In production, MCP is used when an AI agent needs to dynamically discover and invoke tools — not for predetermined function calls with fixed inputs |
+| **Idea**    | Pytest → MCP Client → MCP Server → Tools (APIs, DB, logic) |
 
 ## Where MCP Actually Adds Value
 
@@ -25,11 +26,12 @@ python mcp_server.py <br>
 or (better)
 ## Run MCP Server and Tests
 
-| Terminal | Task | Command |
-|----------|------|---------|
-| 1 | Start MCP server in separate terminal | `uvicorn mcp_server:app --host 0.0.0.0 --port 8000` |
-| 1 | Check server status | `http://localhost:8000/sse` |
-| 2 | Run tests | `pytest -v tests/test_api.py` |
+| Terminal | Task                                  | Command                                             |
+|----------|---------------------------------------|-----------------------------------------------------|
+| 1        | Start MCP server in separate terminal | `uvicorn mcp_server:app --host 0.0.0.0 --port 8000` |
+| 1a       | Start MCP server via docker           | docker build -t mcp-server . <br> docker run -p 8000:8000 mcp-server                  |
+| 2        | Check server status                   | `http://localhost:8000/sse`                         |
+| 3        | Run tests                             | `pytest -v tests/test_api.py`                       |
 
 ## Stop the Server
 
