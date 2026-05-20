@@ -1,11 +1,18 @@
 # Target: Python AI MCP with Pytest
-'''<br>
-This example is useful as a learning exercise for MCP mechanics<br>
-(server setup, SSE transport, client connection). <br>
-But in production, you'd only reach for MCP <br>
-when an AI agent needs to dynamically discover and invoke tools <br>
-— not when tests call predetermined functions with fixed inputs.<br>
-'''<br>
+
+| Section | Details |
+|---------|---------|
+| **Purpose** | Learning exercise for MCP mechanics (server setup, SSE transport, client connection) |
+| **Note** | In production, MCP is used when an AI agent needs to dynamically discover and invoke tools — not for predetermined function calls with fixed inputs |
+
+## Where MCP Actually Adds Value
+
+| Scenario | Why MCP Helps |
+|----------|---------------|
+| AI agent selects tools dynamically | LLM discovers available tools at runtime via protocol |
+| Multiple consumers share tools | One MCP server serves IDE extensions, chatbots, test harnesses |
+| Tool composition across systems | Standardized protocol replaces custom integrations |
+| Remote/distributed tool execution | Tools run on a different machine/service |
 
 
 # Installation libraries
@@ -15,19 +22,29 @@ pip install pytest-asyncio <br>
 # Run
 ## run mcp_server integrated terminal
 python mcp_server.py <br>
-or (better) — run with uvicorn: <br>
-uvicorn mcp_server:app --host 0.0.0.0 --port 8000<br>
-<br>
-### if need - to kill existing first
-Option 1 — Ctrl+C in the terminal where uvicorn is running.<br>
-<br>
-Option 2 — Find and kill by port: <br>
-netstat -ano | findstr :8000<br>
-taskkill /PID <PID> /F <br>
-<br>
-Option 3 — Kill by process name:<br>
-taskkill /IM uvicorn.exe /F <br>
-<br>
-## run tests in another terminal from project root directory
-pytest -v .\tests\test_mcp.py<br>
+or (better)
+## Run MCP Server and Tests
+
+| Terminal | Task | Command |
+|----------|------|---------|
+| 1 | Start MCP server in separate terminal | `uvicorn mcp_server:app --host 0.0.0.0 --port 8000` |
+| 1 | Check server status | `http://localhost:8000/sse` |
+| 2 | Run tests | `pytest -v tests/test_api.py` |
+
+## Stop the Server
+
+| Option | Command |
+|--------|---------|
+| Option 1 | Press `Ctrl+C` in the terminal |
+| Option 2 (by port) | `netstat -ano \| findstr :8009` then `taskkill /PID <PID> /F` |
+| Option 3 (by process) | `taskkill /IM python.exe /F` |
+
+## Project Structure
+
+| File | Purpose |
+|------|---------|
+| `mcp_server.py` | MCP server with registered tools and custom HTTP endpoint |
+| `tests/test_api.py` | Pytest tests for MCP tools |
+| `requirements.txt` | Project dependencies |
+| `pyproject.toml` | Project configuration and build settings |
 
