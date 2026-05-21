@@ -370,5 +370,15 @@ UNION All
 SELECT RA.accepter_id AS ID, COUNT(*) AS NUM FROM RequestAccepted RA GROUP BY RA.accepter_id) RA1
 GROUP BY RA1.ID ORDER BY num desc LIMIT 1
 
+610 https://leetcode.com/problems/triangle-judgement/description/ passed 21-MAY-2026
+# Write a SQL query to determine if three given sides can form a triangle.
+# Table: Triangle
+--+-------------+------+
+--| Column Name | Type |
+--+-------------+------+
+--| x           | int  |
+--| y           | int  |
+--| z           | int  |
+--+-------------+------+
 
-
+SELECT x, y, z, IF(X + Y > Z AND X + Z > Y AND Y + Z > X, "Yes", "No") as triangle from Triangle
