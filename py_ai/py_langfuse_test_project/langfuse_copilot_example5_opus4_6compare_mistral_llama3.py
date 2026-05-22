@@ -21,7 +21,7 @@ models = [
 # Test questions with expected keywords
 test_cases = [
     {
-        "question": "What is Langfuse used for?",
+        "question": "What is Langfuse software?",
         "expected_keywords": ["trace", "monitor", "llm", "observability"],
     },
     {
