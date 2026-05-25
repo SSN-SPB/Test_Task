@@ -398,3 +398,35 @@ SALARY
 +-------------+----------+
 
 UPDATE SALARY SET sex = IF(sex = "m", "f", "m")
+
+626https://leetcode.com/problems/exchange-seats/description/ in progress 25/5/2026
+
+Table: Seat
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| student     | varchar |
++-------------+---------+
+id is the primary key (unique value) column for this table.
+Each row of this table indicates the name and the ID of a student.
+The ID sequence always starts from 1 and increments continuously.
+
+
+Write a solution to swap the seat id of every two consecutive students. If the number of students is odd, the id of the last student is not swapped.
+
+Return the result table ordered by id in ascending order.
+-- interim solution
+SELECT S5.ID AS id, S5.SEAT as student FROM
+(
+SELECT S_FUL.ID, IF(S_FUL.ID%2 != 0, S1.STUDENT, S2.STUDENT ) AS SEAT FROM
+Seat S_FUL INNER JOIN (SELECT S1.ID, S1.STUDENT FROM SEAT S1 WHERE S1.ID%2 = 0) S1 ON S_FUL.ID = S1.ID - 1
+INNER JOIN (SELECT S2.ID, S2.STUDENT FROM SEAT S2 WHERE S2.ID%2 != 0) S2 ON S_FUL.ID = S2.ID
+UNION
+SELECT S_FUL1.ID, IF(S_FUL1.ID%2 = 0, S3.STUDENT, S4.STUDENT ) AS SEAT FROM
+Seat S_FUL1 INNER JOIN (SELECT S3.ID, S3.STUDENT FROM SEAT S3 WHERE S3.ID%2 != 0) S3 ON S_FUL1.ID = S3.ID + 1
+LEFT JOIN (SELECT S4.ID, S4.STUDENT FROM SEAT S4 WHERE S4.ID%2 != 0) S4 ON S_FUL1.ID = S4.ID
+) S5 ORDER BY S5.ID
+
+I
