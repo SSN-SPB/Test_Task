@@ -10,6 +10,7 @@ system_prompt = """
 You are a patient math tutor. Don't just give the answer to a student's question, but guide them step by step.
 """
 
+
 def generate_response(question):
     message = client.messages.create(
         system=system_prompt,

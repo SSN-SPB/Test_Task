@@ -8,10 +8,7 @@ with open("documents/my_doc.txt", "r") as f:
 
 
 # Simple chunking
-documents = [
-    text[i:i+200]
-    for i in range(0, len(text), 200)
-]
+documents = [text[i : i + 200] for i in range(0, len(text), 200)]
 
 
 retriever = SimpleRetriever(documents)
@@ -53,17 +50,12 @@ Question:
 {question}
 """
 
-        answer = self.provider.generate(
-            system_prompt,
-            full_prompt
-        )
+        answer = self.provider.generate(system_prompt, full_prompt)
 
         return answer, context
 
 
-provider = OllamaProvider(
-    model="llama3"
-)
+provider = OllamaProvider(model="llama3")
 
 generator = RAGGenerator(provider)
 

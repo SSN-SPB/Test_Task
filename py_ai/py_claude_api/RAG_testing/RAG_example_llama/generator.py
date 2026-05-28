@@ -4,6 +4,7 @@ system_prompt = """
 You are a patient math tutor. Don't just give the answer, guide step by step.
 """
 
+
 class MathTutorGenerator:
     def __init__(self, provider):
         self.provider = provider

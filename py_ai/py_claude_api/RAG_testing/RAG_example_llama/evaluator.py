@@ -48,7 +48,7 @@ Return ONLY valid JSON:
             {"role": "user", "content": eval_prompt},
         ],
         "stream": False,
-        "format": "json"
+        "format": "json",
     }
 
     response = requests.post(OLLAMA_URL, json=payload)
@@ -58,7 +58,4 @@ Return ONLY valid JSON:
     try:
         return json.loads(result_text)
     except Exception:
-        return {
-            "error": "Failed to parse JSON",
-            "raw_output": result_text
-        }
+        return {"error": "Failed to parse JSON", "raw_output": result_text}

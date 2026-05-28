@@ -7,12 +7,7 @@ OLLAMA_URL = "http://localhost:11434/api/chat"
 EVAL_MODEL = "llama3"
 
 
-def evaluate_response(
-    question,
-    answer,
-    context,
-    ground_truth
-):
+def evaluate_response(question, answer, context, ground_truth):
 
     eval_prompt = f"""
 You are an expert evaluator for RAG systems.
@@ -58,23 +53,14 @@ Return ONLY JSON:
     payload = {
         "model": EVAL_MODEL,
         "messages": [
-            {
-                "role": "system",
-                "content": "You are a strict evaluator."
-            },
-            {
-                "role": "user",
-                "content": eval_prompt
-            },
+            {"role": "system", "content": "You are a strict evaluator."},
+            {"role": "user", "content": eval_prompt},
         ],
         "stream": False,
-        "format": "json"
+        "format": "json",
     }
 
-    response = requests.post(
-        OLLAMA_URL,
-        json=payload
-    )
+    response = requests.post(OLLAMA_URL, json=payload)
 
     result = response.json()
 
@@ -82,13 +68,8 @@ Return ONLY JSON:
     print(result)
 
     try:
-        return json.loads(
-            result["message"]["content"]
-        )
+        return json.loads(result["message"]["content"])
 
     except Exception:
 
-        return {
-            "error": "Failed to parse JSON",
-            "raw_output": result
-        }
+        return {"error": "Failed to parse JSON", "raw_output": result}

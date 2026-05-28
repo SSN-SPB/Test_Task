@@ -19,12 +19,7 @@ def run(question):
     print("\nMODEL ANSWER:")
     print(answer)
 
-    evaluation = evaluate_response(
-        question,
-        answer,
-        context,
-        ground_truth=None
-    )
+    evaluation = evaluate_response(question, answer, context, ground_truth=None)
 
     print("\nEVALUATION:")
     print(evaluation)
@@ -32,6 +27,4 @@ def run(question):
 
 if __name__ == "__main__":
 
-    run(
-        "What is the project code name?"
-    )
+    run("What is the project code name?")

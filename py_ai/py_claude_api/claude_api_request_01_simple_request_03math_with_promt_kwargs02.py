@@ -21,9 +21,11 @@ def chat(messages, system=None):
     message = client.messages.create(**params)
     return message.content[0].text
 
+
 def add_user_message(messages, text):
     user_message = {"role": "user", "content": text}
     messages.append(user_message)
+
 
 messages = []
 add_user_message(messages, task_message)
