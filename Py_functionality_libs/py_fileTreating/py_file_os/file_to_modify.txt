@@ -1,0 +1,5 @@
+file_to_modify - simple text file
+line with commas, to be, replaced, with "()" modified
+line with brackets(,) to be() replaced with "[]" modified
+line with s, to be replaced s with "p" modified s d s
+line not to be changed, to be left as is
