@@ -110,3 +110,21 @@ To fully implement the MCP features:
 ### Linting and Typing Check
 
 There are no lint or type checks implemented.
+
+### Run MCP Server
+To run the MCP server, execute the following command in the terminal:
+
+```bash
+mcp dev mcp_server.py
+```
+Expected output:
+
+```Starting MCP inspector...
+⚙️ Proxy server listening on localhost:6277
+🔑 Session token: 1f05409b0de5b519aa74ad446a74443cfa4f941b1332f3b8e2734dc766c5f22c
+   Use this token to authenticate requests or set DANGEROUSLY_OMIT_AUTH=true to disable auth
+
+🚀 MCP Inspector is up and running at:
+   http://localhost:6274/?MCP_PROXY_AUTH_TOKEN=1f05409b0de5b519aa74ad446a74443cfa4f941b1332f3b8e2734dc766c5f22c
+Opening browser...
+
