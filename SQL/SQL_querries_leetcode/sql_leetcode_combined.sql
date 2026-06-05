@@ -380,11 +380,11 @@ GROUP BY RA1.ID ORDER BY num desc LIMIT 1
 --| y           | int  |
 --| z           | int  |
 --+-------------+------+
-
 SELECT x, y, z, IF(X + Y > Z AND X + Z > Y AND Y + Z > X, "Yes", "No") as triangle from Triangle
 
 
 # 627 https://leetcode.com/problems/swap-sex-of-employees/description/ passed 22-MAY-2026
+
 
 # Write a SQL UPDATE query to swap the sex
 SALARY
@@ -396,6 +396,7 @@ SALARY
 | sex         | ENUM     |
 | salary      | int      |
 +-------------+----------+
+
 
 UPDATE SALARY SET sex = IF(sex = "m", "f", "m")
 
@@ -443,3 +444,4 @@ SELECT T.id, T.student FROM SEAT T
 WHERE T.ID % 2 <> 0
 ORDER BY t.ID DESC
 LIMIT 1;
+
