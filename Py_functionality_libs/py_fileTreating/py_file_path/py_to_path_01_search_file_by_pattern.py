@@ -1,4 +1,9 @@
+# This code demonstrates how to search for files
+# in the current directory that match a specific pattern
+# (in this case, files with a .txt extension)
+# using the pathlib library.
 from pathlib import Path
+
 
 def main():
     print("Hello File")

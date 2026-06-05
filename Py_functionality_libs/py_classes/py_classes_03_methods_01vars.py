@@ -6,24 +6,27 @@ class Counter:
 
     def __init__(self):
         self.count = 7
+        self.name = "value"
 
     @classmethod
     def count_increase(cls, number):
         result = cls.count + number
-        # print(result)
         return result
 
     def get_count(self):
-        # print(self.value)
         return self.count
 
 
 def main():
     s = Counter()
-    print(s.count_increase(19))
-    print(Counter.count_increase(119))
-    z = s.get_count()
-    print(int(z))
+    print(vars(s))  # {'count': 7, 'name': 'value'}
+    s.count_increase(3)
+    print(vars(s))  # {'count': 7, 'name': 'value'}
+    Counter.count_increase(3)
+    print(vars(s))  # {'count': 7, 'name': 'value'}
+    s1 = Counter.count_increase(7)
+    print(s1)
+    assert vars(s) == {"count": 7, "name": "value"}
 
 
 if __name__ == "__main__":
