@@ -370,6 +370,68 @@ UNION All
 SELECT RA.accepter_id AS ID, COUNT(*) AS NUM FROM RequestAccepted RA GROUP BY RA.accepter_id) RA1
 GROUP BY RA1.ID ORDER BY num desc LIMIT 1
 
+6O7 https://leetcode.com/problems/sales-person  passes 26-06-07
+table: SalesPerson
+
++-----------------+---------+
+| Column Name     | Type    |
++-----------------+---------+
+| sales_id        | int     |
+| name            | varchar |
+| salary          | int     |
+| commission_rate | int     |
+| hire_date       | date    |
++-----------------+---------+
+sales_id is the primary key (column with unique values) for this table.
+Each row of this table indicates the name and the ID of a salesperson alongside their salary, commission rate, and hire date.
+
+
+Table: Company
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| com_id      | int     |
+| name        | varchar |
+| city        | varchar |
++-------------+---------+
+com_id is the primary key (column with unique values) for this table.
+Each row of this table indicates the name and the ID of a company and the city in which the company is located.
+
+
+Table: Orders
+
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| order_id    | int  |
+| order_date  | date |
+| com_id      | int  |
+| sales_id    | int  |
+| amount      | int  |
++-------------+------+
+order_id is the primary key (column with unique values) for this table.
+com_id is a foreign key (reference column) to com_id from the Company table.
+sales_id is a foreign key (reference column) to sales_id from the SalesPerson table.
+Each row of this table contains information about one order. This includes the ID of the company, the ID of the salesperson, the date of the order, and the amount paid.
+
+
+Write a solution to find the names of all the salespersons who did not have any orders related to the company with the name "RED".
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+SELECT S.name FROM SalesPerson S
+    WHERE S.SALES_ID NOT IN
+    (
+    SELECT O.SALES_ID FROM ORDERS O
+        WHERE O.COM_ID IN
+        (
+        SELECT C.COM_ID FROM COMPANY C WHERE C.NAME = "RED"
+        )
+    )
+
 610 https://leetcode.com/problems/triangle-judgement/description/ passed 21-MAY-2026
 # Write a SQL query to determine if three given sides can form a triangle.
 # Table: Triangle
