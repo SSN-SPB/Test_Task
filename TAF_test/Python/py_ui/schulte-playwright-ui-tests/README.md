@@ -89,6 +89,7 @@ Test results are automatically saved to the `allure-results/` directory. To view
 
 1. **Install Allure CLI** (if not already installed):
    - **Windows (Scoop):** `scoop install allure`
+   - **Windows (npm):** `npm install -g allure-commandline`
    - **macOS (Homebrew):** `brew install allure`
    - **Linux:** Download from [Allure releases](https://github.com/allure-framework/allure2/releases)
 

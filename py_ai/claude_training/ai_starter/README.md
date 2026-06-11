@@ -5,9 +5,12 @@ A Python package implementing a variety of document-related tools for converting
 ## Setup
 
 ```bash
+# pip install uv
 # Create a virtual env and activate it
 uv venv
 source .venv/bin/activate
+# or
+# .\.venv\Scripts\activate
 
 # Install the package in development mode
 uv pip install -e .
