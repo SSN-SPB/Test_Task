@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+import logging
+
 # The @dataclass decorator in Python is used to
 # automatically generate special methods for classes,
 # such as __init__, __repr__, __eq__,
@@ -6,16 +9,12 @@
 # that are primarily used to store data,
 # as it reduces boilerplate code and enhances readability.
 
-import logging
-from dataclasses import dataclass
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-from dataclasses import dataclass
 
-
-@dataclass
+@dataclass(order=True)  # order=True добавляет методы сравнения
 class Point:
     x: int
     y: int
