@@ -445,6 +445,30 @@ SELECT S.name FROM SalesPerson S
 SELECT x, y, z, IF(X + Y > Z AND X + Z > Y AND Y + Z > X, "Yes", "No") as triangle from Triangle
 
 
+619 https://leetcode.com/problems/biggest-single-number/description/
+
+MyNumbers
+
++-------------+------+
+| Column Name | Type |
++-------------+------+
+| num         | int  |
++-------------+------+
+This table may contain duplicates (In other words, there is no primary key for this table in SQL).
+Each row of this table contains an integer.
+
+
+A single number is a number that appeared only once in the MyNumbers table.
+
+Find the largest single number. If there is no single number, report null.
+
+The result format is in the following example.
+SELECT MAX(RS.NUM) AS num FROM
+(
+SELECT MN.NUM, COUNT(MN.NUM) AS TOTAL FROM MYNUMBERS MN GROUP BY MN.NUM
+) RS WHERE RS.TOTAL = 1
+
+
 # 627 https://leetcode.com/problems/swap-sex-of-employees/description/ passed 22-MAY-2026
 
 
