@@ -445,7 +445,7 @@ SELECT S.name FROM SalesPerson S
 SELECT x, y, z, IF(X + Y > Z AND X + Z > Y AND Y + Z > X, "Yes", "No") as triangle from Triangle
 
 
-619 https://leetcode.com/problems/biggest-single-number/description/
+619 https://leetcode.com/problems/biggest-single-number/description/ passed 14-Jun-2026
 
 MyNumbers
 
