@@ -23,8 +23,8 @@ This is the fourth line.
 """
 
 
-def difflib_ndiff(text_one: str, text_two: str):
-    diff = difflib.ndiff(text_one.splitlines(), text_two.splitlines())
+def difflib_unified_diff(text_one: str, text_two: str):
+    diff = difflib.unified_diff(text_one.splitlines(), text_two.splitlines())
 
     logger.info("\n".join(diff))
 
@@ -33,4 +33,4 @@ if __name__ == "__main__":
     logging.basicConfig(
         level=logging.INFO, format="%(funcName)s:%(lineno)d - %(message)s"
     )
-    difflib_ndiff(text1, text2)
+    difflib_unified_diff(text1, text2)
