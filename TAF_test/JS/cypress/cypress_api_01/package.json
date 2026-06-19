@@ -1,0 +1,11 @@
+{
+  "name": "cypress-api-framework",
+  "version": "1.0.0",
+  "scripts": {
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.0"
+  }
+}

@@ -28,3 +28,18 @@ def test_get_user_success(mock_get):
     mock_get.assert_called_once_with(
         "https://api.example.com/users/1"
     )
+
+
+@patch("api_client.requests.get")
+def test_get_user_not_found(mock_get):
+    mock_response = Mock()
+    mock_response.status_code = 404
+
+    mock_get.return_value = mock_response
+
+    result = get_user(999)
+
+    assert result is None
+    mock_get.assert_called_once_with(
+        "https://api.example.com/users/999"
+    )
