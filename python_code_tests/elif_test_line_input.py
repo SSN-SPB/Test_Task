@@ -19,7 +19,7 @@ def fizzBuzz(n):
             # Write your code here
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     n = int(input("Input integer value: ").strip())
 
     fizzBuzz(n)
