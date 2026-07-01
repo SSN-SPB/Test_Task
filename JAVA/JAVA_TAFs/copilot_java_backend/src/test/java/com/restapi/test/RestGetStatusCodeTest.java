@@ -55,4 +55,14 @@ public class RestGetStatusCodeTest {
         assertEquals(EXPECTED_STATUS_CODE, response.getStatusCode(),
                 url + " should return HTTP 200 status code");
     }
+
+
+    @Test
+    @DisplayName("The https://www.schultetable.com/ website should return 200 status code")
+    public void testNewWebsiteStatusCode() throws Exception {
+        String url = "https://www.schultetable.com";
+        HttpClientUtil.HttpResponse response = HttpClientUtil.sendGetRequest(url);
+        assertEquals(EXPECTED_STATUS_CODE, response.getStatusCode(),
+                "New website should return HTTP 200 status code");
+    }
 }

@@ -30,7 +30,7 @@ def main():
 
 def function_calculate(a=0, b=0):
     x = a + b
-    # print ('a value is {}, type is {}'.format(a,type(a)))
+    print("a value is {}, type is {}".format(a, type(a)))
     print("The final sum is {:.2f}".format(x))
 
 

@@ -1,4 +1,9 @@
 from abc import ABC, abstractmethod
+# abstractmethod decorator is used to declare abstract methods
+# in an abstract base class (ABC). An abstract method is a method
+# that is declared, but contains no implementation.
+# Abstract methods
+# must be implemented by any subclass of the abstract base class.
 
 
 class Animal(ABC):

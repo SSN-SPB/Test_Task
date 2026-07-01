@@ -1,4 +1,14 @@
-#!/usr/bin/env python3
+# classmethods are methods that are bound to
+# the class and not the instance of the class.
+# They can be called on the class itself or on
+# an instance of the class. They take a reference
+# to the class as their first parameter, which is usually named cls.
+# vars() is a built-in function in Python that returns the __dict__
+# attribute of an object, which is a dictionary containing the
+# object's writable attributes. When called without arguments,
+# vars() acts like locals() and
+# returns a dictionary of the current local symbol table.
+
 
 
 class Counter:
