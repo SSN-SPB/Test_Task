@@ -20,6 +20,7 @@ print(add_item(7, items=[10, 20]))  # [10, 20, 7] - This is because
 # a new list is provided as an argument, so the default list is not used.
 print(add_item(9))  # [1, 2, 9]
 print(add_item(9, items=[10, 20]))  # [10, 20, 9]
+print(add_item(9))  # [1, 2, 9, 9]
 c = add_item(33, items=[11, 31])
 print(c)  #
 
