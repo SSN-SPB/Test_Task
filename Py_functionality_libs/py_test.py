@@ -1,13 +1,10 @@
-#!/usr/bin/env python3
-
-def double_value(y):
-    return y + y
+# random.sample example
+import random
 
 
-def main2():
-    x = 0.012
-    print(lambda x: x +)
+def main():
+    print(random.sample(range(11, 99), 15))
 
 
-if __name__ == '__main__':
-    main2()
+if __name__ == "__main__":
+    main()

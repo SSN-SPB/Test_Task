@@ -1,6 +1,4 @@
-import os
 import pytest
-
 from playwright.sync_api import Page, sync_playwright
 
 
@@ -13,7 +11,7 @@ def browser():
         browser.close()
 
 
-# noinspection PyTypeChecker
+# Define a pytest fixture to create a new page and set cookies for the test
 @pytest.fixture
 def page(browser):
     context = browser.new_context()

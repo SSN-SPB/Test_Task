@@ -31,5 +31,7 @@ class AnimalFactory:
 factory = AnimalFactory()
 dog = factory.get_animal("dog")
 cat = factory.get_animal("cat")
+cat2 = AnimalFactory.get_animal("cat")
 print(dog.speak())  # Woof!
 print(cat.speak())  # Meow!
+print(cat2.speak())  # Meow!

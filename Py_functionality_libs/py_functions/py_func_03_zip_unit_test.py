@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# zip() function takes iterables (can be zero or more), aggregates them in a tuple, and returns it.
 
 import unittest as ut
 

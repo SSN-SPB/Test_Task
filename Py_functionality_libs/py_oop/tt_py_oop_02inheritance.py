@@ -1,6 +1,7 @@
 import unittest
 from py_oop_02inheritance import BaseClass, LoginTest, BuyTest
 
+
 class TestBaseClass(unittest.TestCase):
 
     def setup_method_invokes_correct_message(self):
@@ -8,6 +9,7 @@ class TestBaseClass(unittest.TestCase):
         with self.assertLogs() as log:
             base.setup()
         self.assertIn("make setup base", log.output[0])
+
 
 class TestLoginTest(unittest.TestCase):
 
@@ -23,6 +25,7 @@ class TestLoginTest(unittest.TestCase):
             login_test.run()
         self.assertIn("make run login", log.output[0])
 
+
 class TestBuyTest(unittest.TestCase):
 
     def setup_invokes_base_class_message(self):
@@ -36,6 +39,7 @@ class TestBuyTest(unittest.TestCase):
         with self.assertLogs() as log:
             buy_test.run()
         self.assertIn("make run buy", log.output[0])
+
 
 if __name__ == "__main__":
     unittest.main()

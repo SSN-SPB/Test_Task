@@ -1,3 +1,14 @@
+# incapsulation is one of the fundamental concepts in OOP.
+# It refers to the bundling of data and methods that
+# operate on that data within a single unit, typically a class.
+# Encapsulation helps to protect the internal state of an object
+# from unauthorized access and modification,
+# ensuring that the object's data is accessed and
+# modified only through well-defined interfaces (methods).
+# This promotes data integrity and security,
+# as well as making the code more modular and easier to maintain.
+# In Python, encapsulation is achieved through the use of classes and objects.
+
 import logging
 import random
 
