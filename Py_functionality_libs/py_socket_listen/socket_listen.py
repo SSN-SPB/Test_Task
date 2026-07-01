@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+import sys
 
 import socket
 import threading
@@ -15,7 +15,7 @@ class client(threading.Thread):
         while True:
             self.data = self.data + self.conn.recv(1024)
             if self.data.endswith(u"\r\n"):
-                print self.data
+                print(self.data)
                 self.data = ""
 
     def send_msg(self,msg):
@@ -29,8 +29,8 @@ try:
     s.bind((host,port))
     s.listen(5)
 except socket.error:
-    print 'Failed to create socket'
+    print('Failed to create socket')
     sys.exit()
 
-print '[+] Listening for connections on port: {0}'.format(port)
+print('[+] Listening for connections on port: {0}'.format(port))
 

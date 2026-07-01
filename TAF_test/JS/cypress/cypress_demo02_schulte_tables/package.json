@@ -1,0 +1,14 @@
+{
+  "name": "schulte-cypress-ui-tests",
+  "version": "1.0.0",
+  "description": "Cypress UI tests for Schulte Table application",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:run:chrome": "cypress run --browser chrome",
+    "test": "cypress run"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0"
+  }
+}

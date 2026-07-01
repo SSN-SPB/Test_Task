@@ -1,0 +1,8 @@
+2026-05-01T10:15:22 INFO user123 Login successful
+2026-05-01T10:15:23 ERROR user123 Invalid password
+2026-05-01T10:15:25 WARNING user456 Password expires soon
+2026-05-01T10:15:30 ERROR user789 Database unavailable
+2026-05-01T10:15:31 ERROR user589 Database unavailable
+2026-05-01T10:15:33 ERROR user589 Database unavailable
+2026-05-01T10:15:35 ERROR user189 Database unavailable
+2026-05-01T10:15:37 ERROR user589 Database unavailable

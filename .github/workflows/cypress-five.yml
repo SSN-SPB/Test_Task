@@ -1,0 +1,38 @@
+name: Cypress Tests Five
+
+on:
+  push:
+    branches: [main, taf_cypress]
+  pull_request:
+  workflow_run:
+    workflows: ["Run Python Script"]
+    types:
+      - completed
+
+jobs:
+  cypress-run-five-only:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./TAF_test/JS/cypress/cypress_demo02_schulte_tables/
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: check current directory content
+        run: ls
+
+      - name: check current directory
+        run: pwd
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Cypress tests
+        run: npx cypress run --spec "cypress/e2e/five*.js"

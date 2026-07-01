@@ -1,9 +1,9 @@
 import numpy as np
 
 
-def main():
+def main() -> None:
     # Create a 1D array (vector)
-    a1 = np.array([1, 2, 3])
+    a1 = np.array([1, 2, 3],dtype=np.float64)
     print(f"Array a1: {a1}")
     a2 = np.array(3 * np.random.randn(3, 1))
     print(a2)
@@ -14,7 +14,7 @@ def main():
 
     # Create a 2D array (vector)
     a2d = np.array([[1, 2], [3, 4]])
-    print(f"Array a2d: {a2d}")
+    print(f"Array as a2d: {a2d}")
 
 
 if __name__ == "__main__":
