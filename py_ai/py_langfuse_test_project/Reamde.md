@@ -30,10 +30,35 @@ python .\langfuse_copilot_example3_opus4_6real_model.py
 # Then pull the models:
 ollama pull llama3
 ollama pull mistral
+ollama pull llama3.2:3b 
+```
+## Checking
+```
+ollama list
+check the models are installed
+```
+## check the memory usage
+```
+systeminfo | findstr /C:"Total Physical Memory" 
+See results in the Langfuse dashboard: https://app.langfuse.com:
+https://cloud.langfuse.com/project/cmp46rs8h02b1ad07e3sc2pb3
 ```
 
-The typical response for langfuse_copilot_example5_opus4_6compare_misttral_llama3.py should be:
-```[llama3] Q: What is Langfuse used for?
+## The typical response for python .\langfuse_copilot_example3_opus4_6real_model.py should be:
+```
+Answer: Langfuse is a malware and ransomware variant that was discovered in 2017. It's primarily spread through phishing emails, exploits vulnerabilities on systems, and uses various social engineering tactics to gain access to victims' computers.
+
+When infected, Langfuse encodes files using the AES encryption algorithm, making them inaccessible to users without providing a decryption key or password. The attackers might demand payment for the decryption key in cryptocurrency forms like Bitcoin.
+
+Langfuse operates as an Ransomware-as-a-Service (RaaS), where hackers can buy and sell the software. It has evolved over time to improve its spread rate, evasion techniques, and anti-forensic tools.
+
+If you suspect your system is infected with Lang fuse, it's recommended that you seek professional help from a cybersecurity expert or the operating system manufacturer for assistance in detecting and removing the threat.
+```
+
+
+
+```
+[llama3] Q: What is Langfuse used for?
   Answer: Langridge is a type of glassblowing technique that involves gathering molten gla...
   Scores: {'quality': 0.0, 'hallucination': True, 'relevance': 0.0}
 
