@@ -18,7 +18,7 @@ client = OpenAI(
 )
 
 # user_question = "What is Langfuse used for?"
-user_question = "What is Langfuse?"
+user_question = "What is Table?"
 
 trace_id = langfuse.create_trace_id()
 
@@ -29,7 +29,7 @@ with langfuse.start_as_current_observation(
     input={"question": user_question},
 ):
     response = client.chat.completions.create(
-        model="mistral",
+        model="llama3.2:3b",
         messages=[{"role": "user", "content": user_question}],
     )
 

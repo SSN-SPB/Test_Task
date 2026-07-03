@@ -23,7 +23,7 @@ def test_demo_compare_screenshot(page):
     snapshots = "screenshots"
     actual_image = os.path.join(f".\\{snapshots}\\test_snapshots", "actual_demo.png")
     # make actual screenshot
-    page_content.make_screen_shot(actual_image)
+    # page_content.make_screen_shot(actual_image)
 
     # test_image = Image.open(f".\\{snapshots}\\test_snapshots\\actual_demo.png").convert(
     #     "RGB"
