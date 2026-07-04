@@ -25,6 +25,7 @@ This framework provides:
 │   │       └── HttpClientUtil.java           # HTTP client utility class
 │   └── test/java/com/restapi/test/
 │       └── RestGetStatusCodeTest.java        # Test cases
+│       └── RestPostStatusCodeTest.java        # Test cases
 └── README.md
 ```
 
