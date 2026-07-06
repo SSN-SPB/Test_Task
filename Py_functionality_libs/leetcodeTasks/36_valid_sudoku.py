@@ -28,18 +28,12 @@ class Solution(object):
             # print(interim_list)
             board.append(interim_list)
         # append block lists
-        for i in range(0, 9, 3):
-            for j in range(0, 9, 3):
+        for f in range(0, 9, 3):
+            for g in range(0, 9, 3):
                 interim_block = []
-                interim_block.append(board[i][j])
-                interim_block.append(board[i + 1][j])
-                interim_block.append(board[i + 2][j])
-                interim_block.append(board[i][j + 1])
-                interim_block.append(board[i + 1][j + 1])
-                interim_block.append(board[i + 2][j + 1])
-                interim_block.append(board[i][j + 2])
-                interim_block.append(board[i + 1][j + 2])
-                interim_block.append(board[i + 2][j + 2])
+                for i in range(f, f + 3):
+                    for j in range(g, g + 3):
+                        interim_block.append(board[i][j])
                 board.append(interim_block)
         for w in board:
             print(w)
