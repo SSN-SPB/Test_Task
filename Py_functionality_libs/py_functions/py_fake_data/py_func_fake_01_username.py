@@ -9,6 +9,7 @@ def main():
     password = fake.password(length=12, special_chars=True)
     print(username)
     print(password)
+    assert len(username) > 0
     assert len(password) == 12
 
 

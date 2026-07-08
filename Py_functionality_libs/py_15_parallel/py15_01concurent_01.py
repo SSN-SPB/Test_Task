@@ -2,6 +2,9 @@ import concurrent.futures
 import time
 import requests
 
+# concurrent.futures is a high-level interface
+# for asynchronously executing callables.
+
 URLS = [
     "https://www.example.com",
     "https://www.google.com",

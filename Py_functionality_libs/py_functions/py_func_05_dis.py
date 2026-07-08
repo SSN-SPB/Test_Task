@@ -1,5 +1,11 @@
 # https://compscicenter.ru/courses/python/2015-autumn/classes/1542/
 import dis
+# dis is a built-in Python module that allows you to analyze
+# the bytecode of Python functions. It provides a
+# way to inspect the low-level instructions that
+# the Python interpreter executes when running your code.
+# This can be useful for understanding how your code is executed,
+# optimizing performance, and debugging.
 
 tested_list = ["a", "b", "c"]
 
