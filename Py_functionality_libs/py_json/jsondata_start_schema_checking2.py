@@ -1,4 +1,3 @@
-
 import requests
 import json
 from jsonschema import validate, ValidationError
@@ -19,13 +18,10 @@ tr2 = {
                         "QC5GNR_RRCMSG|2025-10-29 14:51:29.006877|5GNR rrcReconfiguration - 5GNR Security protected NAS Message / 5GNR Security protected NAS Message|2025-10-29 14:48:13.186781|16|144|DL DCCH|1|110|654048|478248|00 88 A0 4D 02 50 08 82 F1 D8 4D A0 4A 00 D4 00 0B 3E 03 1C 55 FC 81 20 E4 4E 80 00 40 56 BF 01 43 F0 05 42 61 E4 13 D8 87 7B 5F 2A F0 58 BC 18 71 ED 69 72 41 A9 54 02 B7 C7 D5 46 47 02 1E 37 04 7F 7B FC 5C 83 27 92 AF C0 21 8A 00 13 0A A8 64 41 D0 E2 19 E5 FC 4F 9C CE 76 67 18 90 C8 F8 F4 07 E4 51 71 29 AB 03 1C 12 61 F7 94 10 B0 C1 29 72 02 51 8D FC F4 26 F4 67 61 2C AB BE 75 A2 4A 95 EA EB 85 46 23 E8 14 8A 25 22 54 5C 1B E9 E1 78 9A C4 99 99 81 7C A3 5E 67 A4 2F 76 72 F1 3A EA 47 D1 F9 E3 76 67 31 4E 7C B8 90 E9 B7 F5 12 C3 82 AB 1D B8 56 D6 80 AC A8 93 FD A5 9C 44 70 85 A5 48 52 C7 F5 3D B0 C7 D2 80",
                         "QC5GNR_RRCMSG|2025-10-29 14:51:29.087776|5GNR rrcReconfigurationComplete|2025-10-29 14:48:13.190149|16|144|UL DCCH|1|110|654048|478720|08 00",
                         "QC5GNR_NASMSG|2025-10-29 14:51:29.087798|5GNR DL NAS transport|2025-10-29 14:48:13.190880|15|4|0|DL|7E 00 68 01 00 9E 2E 04 55 C2 13 00 09 08 00 06 31 20 01 01 FF 08 06 0B 00 05 0B 00 05 29 0D 03 60 45 CD C8 18 BD 8F 59 0A A3 45 FB 22 04 01 00 00 07 75 00 0F 80 00 0C 52 01 01 08 04 06 FE FE BE BE 13 13 79 00 09 08 20 42 01 01 08 07 01 80 7B 00 48 80 00 0D 04 0A A1 FA 0A 00 0D 04 0A AB FA 0A 00 03 10 26 00 08 0D 00 02 00 00 00 10 01 61 02 50 00 10 00 03 10 26 00 08 0D 00 02 F2 00 00 10 01 71 02 50 00 10 00 10 02 05 94 FF 00 04 13 01 84 00 FF 03 04 13 01 84 00 25 07 06 76 7A 77 61 70 70 12 04",
-                        "QC5GNR_NASMSG|2025-10-29 14:51:29.087808|5GNR PDU session establishment accept|2025-10-29 14:48:13.190976|15|4|0|DL|2E 04 55 C2 13 00 09 08 00 06 31 20 01 01 FF 08 06 0B 00 05 0B 00 05 29 0D 03 60 45 CD C8 18 BD 8F 59 0A A3 45 FB 22 04 01 00 00 07 75 00 0F 80 00 0C 52 01 01 08 04 06 FE FE BE BE 13 13 79 00 09 08 20 42 01 01 08 07 01 80 7B 00 48 80 00 0D 04 0A A1 FA 0A 00 0D 04 0A AB FA 0A 00 03 10 26 00 08 0D 00 02 00 00 00 10 01 61 02 50 00 10 00 03 10 26 00 08 0D 00 02 F2 00 00 10 01 71 02 50 00 10 00 10 02 05 94 FF 00 04 13 01 84 00 FF 03 04 13 01 84 00 25 07 06 76 7A 77 61 70 70"
-                    ]
+                        "QC5GNR_NASMSG|2025-10-29 14:51:29.087808|5GNR PDU session establishment accept|2025-10-29 14:48:13.190976|15|4|0|DL|2E 04 55 C2 13 00 09 08 00 06 31 20 01 01 FF 08 06 0B 00 05 0B 00 05 29 0D 03 60 45 CD C8 18 BD 8F 59 0A A3 45 FB 22 04 01 00 00 07 75 00 0F 80 00 0C 52 01 01 08 04 06 FE FE BE BE 13 13 79 00 09 08 20 42 01 01 08 07 01 80 7B 00 48 80 00 0D 04 0A A1 FA 0A 00 0D 04 0A AB FA 0A 00 03 10 26 00 08 0D 00 02 00 00 00 10 01 61 02 50 00 10 00 03 10 26 00 08 0D 00 02 F2 00 00 10 01 71 02 50 00 10 00 10 02 05 94 FF 00 04 13 01 84 00 FF 03 04 13 01 84 00 25 07 06 76 7A 77 61 70 70",
+                    ],
                 },
-                {
-                    "index": 2,
-                    "L3MSG": "null"
-                },
+                {"index": 2, "L3MSG": "null"},
                 {
                     "index": 3,
                     "L3MSG": [
@@ -43,8 +39,8 @@ tr2 = {
                         "QC5GNR_NASMSG|2025-10-29 14:51:30.738921|5GNR PDU session release complete|2025-10-29 14:48:14.867371|15|4|0|UL|2E 02 9D D4",
                         "QC5GNR_NASMSG|2025-10-29 14:51:30.738943|5GNR UL NAS transport|2025-10-29 14:48:14.867485|15|4|0|UL|7E 00 67 01 00 04 2E 02 9D D4 12 02",
                         "QC5GNR_RRCMSG|2025-10-29 14:51:30.738961|5GNR rrcReconfigurationComplete|2025-10-29 14:48:14.867771|16|144|UL DCCH|1|110|654048|13147193|08 00",
-                        "QC5GNR_RRCMSG|2025-10-29 14:51:30.738972|5GNR ulInformationTransfer|2025-10-29 14:48:14.868763|16|144|UL DCCH|2|110|654048|13147201|3A 09 BF 01 64 23 30 B6 31 4B 48 4C 49 02 23 3C 0E B0 82 02 98 80"
-                    ]
+                        "QC5GNR_RRCMSG|2025-10-29 14:51:30.738972|5GNR ulInformationTransfer|2025-10-29 14:48:14.868763|16|144|UL DCCH|2|110|654048|13147201|3A 09 BF 01 64 23 30 B6 31 4B 48 4C 49 02 23 3C 0E B0 82 02 98 80",
+                    ],
                 },
                 {
                     "index": 4,
@@ -63,10 +59,10 @@ tr2 = {
                         "QC5GNR_NASMSG|2025-10-29 14:51:30.579040|5GNR PDU session release complete|2025-10-29 14:48:14.761946|15|4|0|UL|2E 03 85 D4",
                         "QC5GNR_NASMSG|2025-10-29 14:51:30.579067|5GNR UL NAS transport|2025-10-29 14:48:14.762066|15|4|0|UL|7E 00 67 01 00 04 2E 03 85 D4 12 03",
                         "QC5GNR_RRCMSG|2025-10-29 14:51:30.620316|5GNR ulInformationTransfer|2025-10-29 14:48:14.762377|16|144|UL DCCH|2|110|654048|4753425|3A 09 BF 01 5B 24 61 C2 2F 32 E4 AA CE 75 5D 7D EE 28 9C CB 19 80",
-                        "QC5GNR_RRCMSG|2025-10-29 14:51:30.620657|5GNR rrcReconfigurationComplete|2025-10-29 14:48:14.763419|16|144|UL DCCH|1|110|654048|15239193|08 00"
-                    ]
-                }
-            ]
+                        "QC5GNR_RRCMSG|2025-10-29 14:51:30.620657|5GNR rrcReconfigurationComplete|2025-10-29 14:48:14.763419|16|144|UL DCCH|1|110|654048|15239193|08 00",
+                    ],
+                },
+            ],
         }
     ]
 }
@@ -81,7 +77,7 @@ xcal_l3_report_schema = {
                 "type": "object",
                 "properties": {
                     "index": {"type": "integer"},  # mismatch: response has int
-                    "name": {"type": "string","const": "XCAL"},
+                    "name": {"type": "string", "const": "XCAL"},
                     "mobile": {
                         "type": "array",
                         "items": {
@@ -150,24 +146,35 @@ xcal_reports_kpi_schema2 = {
                             "type": "object",
                             "properties": {
                                 "index": {"type": "integer"},
-                                "KPIParameter": {"type": "array",
-                                                 "items": {"type": "object",
-                                                 "properties": {
-                                                     "time": {"type": "string"},
-                                                     "KPIParameter": {"type": "object",
-                                                                      "properties": {
-                                                                          "LTE": {"type": "object",
-                                                                              "properties": {
-                                                                                  "ML1 Downlink Info": {"type": "object"},
-                                                                              },
-                                                                              "required": ["ML1 Downlink Info",],},
-                                                                              },
-                                                                      "required": ["LTE",],
-                                                                      },
-                                                 },
-                                                 "required": ["time", "KPIParameter"],
-                                                 }
-                                                 },
+                                "KPIParameter": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "time": {"type": "string"},
+                                            "KPIParameter": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "LTE": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "ML1 Downlink Info": {
+                                                                "type": "object"
+                                                            },
+                                                        },
+                                                        "required": [
+                                                            "ML1 Downlink Info",
+                                                        ],
+                                                    },
+                                                },
+                                                "required": [
+                                                    "LTE",
+                                                ],
+                                            },
+                                        },
+                                        "required": ["time", "KPIParameter"],
+                                    },
+                                },
                             },
                             "required": ["index", "KPIParameter"],
                             "additionalProperties": False,
@@ -199,7 +206,7 @@ xcal_reports_kpi_schema2bu = {
                             "type": "object",
                             "properties": {
                                 "index": {"type": "integer"},
-                                "KPIParameter": {"type": "array"}
+                                "KPIParameter": {"type": "array"},
                             },
                             "required": ["index", "KPIParameter"],
                             "additionalProperties": False,

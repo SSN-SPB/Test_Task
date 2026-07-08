@@ -11,9 +11,9 @@ class Solution(object):
         """
         valid_sting = "()"
         result = 0
-        for x in range(0, len(s)-1):
+        for x in range(0, len(s) - 1):
             interim_result = 0
-            checked_sting = s[x:x+2]
+            checked_sting = s[x : x + 2]
             if checked_sting == valid_sting:
                 interim_result += 2
                 x += 2
@@ -22,8 +22,6 @@ class Solution(object):
             if interim_result > result:
                 result = interim_result
         return result
-
-
 
 
 tested_string32 = "(()"

@@ -12,7 +12,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.by import By
 
-
 weblink = "http://automationpractice.com/index.php"
 # Locators
 XPATH_HEAD_LOGO = '//img[@class="img-responsive"]'

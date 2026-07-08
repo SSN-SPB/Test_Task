@@ -13,7 +13,6 @@ import time
 import ssn
 from ssn import service_packages
 
-
 # The working commman line
 # login_local_jenkins_parsed_args.py -user admin\
 # -password 488dfeefce4a432cb5666338d04db9fc -url http://localhost:8080

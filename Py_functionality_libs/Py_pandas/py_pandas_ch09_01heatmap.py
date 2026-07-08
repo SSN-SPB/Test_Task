@@ -14,7 +14,6 @@ from openpyxl.workbook import Workbook
 # colormap import
 from matplotlib.colors import ListedColormap
 
-
 print(pd.__version__)
 # skiprows - number of rows in csv file that should be skipped for DataFrame
 oo = pd.read_csv("./csv_data/Olympics2.csv", skiprows=4)

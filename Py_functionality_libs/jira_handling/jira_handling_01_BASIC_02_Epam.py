@@ -4,7 +4,6 @@ import jira
 from jira import JIRA
 import os
 
-
 # suppress all warnings
 import warnings
 

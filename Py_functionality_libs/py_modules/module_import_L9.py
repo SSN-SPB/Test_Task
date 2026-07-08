@@ -3,7 +3,6 @@
 import sys
 import useful
 
-
 # https://compscicenter.ru/courses/python/2015-autumn/classes/1556/ 0 - 14
 
 

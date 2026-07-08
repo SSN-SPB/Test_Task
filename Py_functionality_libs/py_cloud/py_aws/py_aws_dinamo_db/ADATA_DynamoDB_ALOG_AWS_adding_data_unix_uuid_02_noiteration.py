@@ -3,7 +3,6 @@ from boto3.dynamodb.conditions import Key
 import uuid
 import time
 
-
 sts_client = boto3.client("sts")
 table_name = "sn2-qa-audit-log-table"
 

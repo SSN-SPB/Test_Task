@@ -6,9 +6,7 @@
 # on a condition.
 
 
-
 tested_list = [12, 35, 9, 56, 25]
-
 
 
 def main():

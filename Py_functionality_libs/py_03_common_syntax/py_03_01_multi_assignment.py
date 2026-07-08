@@ -1,6 +1,10 @@
 def arrange():
     a, b, c = 1, 2, 3
-    return a, b, c,
+    return (
+        a,
+        b,
+        c,
+    )
 
 
 if __name__ == "__main__":

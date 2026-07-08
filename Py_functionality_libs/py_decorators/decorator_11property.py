@@ -3,6 +3,7 @@
 # It's often used to encapsulate data, providing a
 # way to define getter, setter, and delete methods
 # while maintaining a clean interface.
+#
 # with decorator @property
 # print(f"Radius: {circle2.radius}")  # Accessing the radius using the property
 
@@ -78,11 +79,15 @@ print(f"Radius: {circle2.radius}")  # Accessing the radius using the property
 print(f"Area: {circle2.area}")  # Accessing the area using the read-only property
 
 circle2.radius = 10  # Using the setter to update the radius
-print(f"Updated Radius: {circle2.radius}")
-print(f"Updated Area: {circle2.area}")
+print(
+    f"Updated Radius: {circle2.radius}"
+)  # Accessing the updated radius using the property Updated Radius: 10
+print(
+    f"Updated Area: {circle2.area}"
+)  # Accessing the updated area using the read-only property Updated Area: 314.1592653589793
 
 # Trying to set a negative radius will raise an exception
 try:
     circle2.radius = -5
 except ValueError as e:
-    print(e)
+    print(e)  #

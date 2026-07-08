@@ -15,6 +15,5 @@ def main():
     print(back_2_np == a2d)
 
 
-
 if __name__ == "__main__":
     main()

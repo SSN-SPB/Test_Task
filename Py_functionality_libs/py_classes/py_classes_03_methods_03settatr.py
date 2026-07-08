@@ -21,8 +21,8 @@ def main():
     s = Counter()
     print(vars(s))  # {'count': 7, 'name': 'value'}
     s.count_increase(3)
-    print(vars(s))  # {'count': 7, 'name': 'value'}
-    print(s.get_count())  # 10
+    print(vars(s))  #
+    print(s.get_count())  # 10 (7 + 3)
     s2 = Counter()
     setattr(s, "location", "shelf B:1")
     print(vars(s))  # {'count': 10, 'name': 'value', 'location': 'shelf B:1'}

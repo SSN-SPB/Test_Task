@@ -4,6 +4,9 @@
 # all_found_values - an attribute of class
 # _all_reserved_values - an hidden attribute of class
 # __all_active_values - an double hidden attribute of class
+# the difference between _all_reserved_values and __all_active_values is that
+# the first one can be accessed by the instance of class,
+# but the second one can be accessed only by the class itself
 
 
 class Counter:

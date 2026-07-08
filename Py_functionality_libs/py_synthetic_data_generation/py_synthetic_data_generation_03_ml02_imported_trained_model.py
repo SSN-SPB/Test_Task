@@ -15,8 +15,11 @@ def fraud_check(transaction_features, model, threshold=0.07):
     else:
         return {"decision": "auto_approve", "fraud_probability": float(prob_fraud)}
 
+
 def log_decision(tx_id, result):
-    print(f"[LOG] tx_id={tx_id} decision={result['decision']} prob={result['fraud_probability']:.2f}")
+    print(
+        f"[LOG] tx_id={tx_id} decision={result['decision']} prob={result['fraud_probability']:.2f}"
+    )
 
 
 # Example: a new incoming transaction

@@ -5,7 +5,6 @@ it returns elements from the saved copy, repeating indefinitely."""
 
 from itertools import cycle
 
-
 list_of_words = ["cat", "dog", "mouse"]
 
 

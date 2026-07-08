@@ -4,7 +4,6 @@ import uuid
 import time
 import datetime
 
-
 sts_client = boto3.client("sts")
 table_name = "sn2-qa-audit-log-table"
 tenant_name = "default-qatestenv"

@@ -1,9 +1,14 @@
 import numpy as np
 
+# numpy is a library for the Python programming language,
+# adding support for large, multi-dimensional arrays and matrices,
+# along with a large collection of
+# high-level mathematical functions to operate on these arrays.
+
 
 def main() -> None:
     # Create a 1D array (vector)
-    a1 = np.array([1, 2, 3],dtype=np.float64)
+    a1 = np.array([1, 2, 3], dtype=np.float64)
     print(f"Array a1: {a1}")
     a2 = np.array(3 * np.random.randn(3, 1))
     print(a2)

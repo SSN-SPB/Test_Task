@@ -2,12 +2,16 @@ import concurrent.futures
 import time
 import requests
 
+# concurrent.futures is a high-level interface
+# for asynchronously executing callables.
+
 URLS = [
     "https://www.example.com",
     "https://www.google.com",
     "https://www.python.org",
     "https://www.wikipedia.org",
 ]
+
 
 def load_url(url, timeout):
     try:
@@ -29,9 +33,6 @@ end_time = time.time()
 print(f"Sequential execution took: {end_time - start_time} seconds")
 
 
-
-
-
 start_time = time.time()
 
 # Asynchronous execution with ThreadPoolExecutor:
@@ -49,6 +50,3 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
 
 end_time = time.time()
 print(f"Asynchronous execution took: {end_time - start_time} seconds")
-
-
-

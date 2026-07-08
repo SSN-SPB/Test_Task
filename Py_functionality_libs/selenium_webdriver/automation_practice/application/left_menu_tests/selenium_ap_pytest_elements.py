@@ -9,7 +9,6 @@ import pytest
 import time
 from selenium.webdriver.support import expected_conditions as ec
 
-
 ROOT_LINK = "https://demoqa.com/"
 TESTED_PAGE_LINK = "https://demoqa.com/elements"
 SITE_LOGO = "img[src='/images/Toolsqa.jpg']"

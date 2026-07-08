@@ -16,8 +16,7 @@ def main():
     for value in plus_three:
         print(f"The next is found: {value}")
     # Provokes StopIteration exception because the generator is exhausted
-    # print(next(plus_three))
-
+    print(next(plus_three))
 
 
 if __name__ == "__main__":

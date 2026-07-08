@@ -2,7 +2,6 @@
 from mysql_service_resources.mysql_requests import *
 from mysql_service_resources.pytest_service_fixtures import *
 
-
 CREATE_TABLE_SQL = (
     "CREATE TABLE cars ("
     " id INT AUTO_INCREMENT,"

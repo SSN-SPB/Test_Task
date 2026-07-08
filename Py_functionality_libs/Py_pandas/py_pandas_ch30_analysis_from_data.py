@@ -1,6 +1,8 @@
 # Create xlsx file in python
 import pandas as pd
-from Py_functionality_libs.Py_pandas.py_pandas_service_methods01 import convert_data_to_excel
+from Py_functionality_libs.Py_pandas.py_pandas_service_methods01 import (
+    convert_data_to_excel,
+)
 
 # Create a minimal dataset
 data = {

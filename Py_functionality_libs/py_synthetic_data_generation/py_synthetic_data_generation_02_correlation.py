@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 
-
 # Configuration constants
 RANDOM_SEED = 42
 N_SAMPLES = 1000

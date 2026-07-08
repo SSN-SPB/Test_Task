@@ -7,7 +7,6 @@ from selenium.webdriver import ChromeOptions
 from selenium.common.exceptions import *
 import time
 
-
 url = "https://blsspain-russia.com/peters/english/embassy_book_appointment.php"
 
 

@@ -3,6 +3,8 @@ from transformers import pipeline
 import faiss
 import numpy as np
 
+# pip install faiss-cpu
+
 # Sample documents (your "knowledge base")
 documents = [
     "Paris is the capital of France.",

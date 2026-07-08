@@ -2,7 +2,6 @@
 # version 2026-May-20 Passes
 import pytest
 
-
 s1 = "Hello World"
 
 

@@ -1,6 +1,7 @@
 import time
 from functools import wraps
 
+
 # 1️⃣ Retry decorator
 def retry(times=2, delay=1):
     def decorator(func):
@@ -16,7 +17,9 @@ def retry(times=2, delay=1):
                     last_exception = e
                     time.sleep(delay)
             raise last_exception
+
         return wrapper
+
     return decorator
 
 
@@ -31,6 +34,7 @@ def screenshot_on_fail(func):
             page.screenshot(path=filename)
             print(f"Saved screenshot: {filename}")
             raise
+
     return wrapper
 
 
@@ -43,6 +47,7 @@ def measure_time(func):
         duration = time.time() - start
         print(f"{func.__name__} took {duration:.2f}s")
         return result
+
     return wrapper
 
 
@@ -61,4 +66,5 @@ def login_required(func):
         print("Login successful")
 
         return func(page, *args, **kwargs)
+
     return wrapper

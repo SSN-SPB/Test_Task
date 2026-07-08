@@ -10,9 +10,9 @@ async def put_movie(title, year, plot, rating, dynamodb=None):
     print(f"Putting movie into database...{st}")
     # Simulate an asynchronous operation, e.g., a database call
     await asyncio.sleep(11)
-    completion_time = time.time()
-    ct = await get_actual_time(completion_time)
-    print(f"Movie {title} added: during {completion_time - initial_time:.2f}sec.")
+    time_to_stop = time.time()
+    ct = await get_actual_time(time_to_stop)
+    print(f"Movie {title} added: during {time_to_stop - initial_time:.2f}sec.")
     print(f"Completion Time...{ct}")
 
 
