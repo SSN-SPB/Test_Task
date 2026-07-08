@@ -2,7 +2,6 @@
 
 import os
 
-
 # https://compscicenter.ru/courses/python/2015-autumn/classes/1388/ ~36
 # string find('ra', 0, 3) return index of first finding or -1
 

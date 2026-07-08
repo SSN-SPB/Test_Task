@@ -8,7 +8,6 @@
 # user-defined or comes from an external source.
 from string import Template
 
-
 string_template = Template("Hello $name! Welcome to $area!")
 
 

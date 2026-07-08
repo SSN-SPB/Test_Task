@@ -11,7 +11,6 @@ import os
 import sys
 import time
 
-
 # The working command line
 # login_local_jenkins_parsed_args.py -user admin\Sergei_Smirnov6
 # -password 488dfeefce4a432cb5666338d04db9fc/paysLip$3112 -url http://localhost:8080

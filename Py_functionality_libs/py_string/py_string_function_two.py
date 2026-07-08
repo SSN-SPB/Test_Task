@@ -2,7 +2,6 @@
 
 import os
 
-
 # https://compscicenter.ru/courses/python/2015-autumn/classes/1388/
 # string split
 # string partition (always returns 3 arguments tuple)

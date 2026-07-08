@@ -9,11 +9,13 @@ import pandera.pandas as pa
 from pandera import Column, DataFrameSchema
 
 # Define a schema for the DataFrame
-schema = DataFrameSchema({
-    "name": Column(str, nullable=False),
-    "age": Column(int, checks=pa.Check.in_range(0, 120), nullable=False),
-    "salary": Column(float, nullable=True)
-})
+schema = DataFrameSchema(
+    {
+        "name": Column(str, nullable=False),
+        "age": Column(int, checks=pa.Check.in_range(0, 120), nullable=False),
+        "salary": Column(float, nullable=True),
+    }
+)
 
 # Create a minimal dataset
 data = {

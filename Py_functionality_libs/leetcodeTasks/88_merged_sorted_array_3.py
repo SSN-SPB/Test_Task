@@ -25,8 +25,7 @@ class Solution(object):
         for x in range(0, m + n):
             print(x)
             if nums1[x] > new_list[x]:
-                list(nums1).insert(x,new_list)
-
+                list(nums1).insert(x, new_list)
 
         return sorted(nums1)
 

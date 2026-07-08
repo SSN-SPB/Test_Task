@@ -22,9 +22,12 @@ def main():
     df_ge = PandasDataset(df)
 
     result_name = df_ge.expect_column_values_to_not_be_null("name")
-    result_age = df_ge.expect_column_values_to_be_between("age", min_value=-75, max_value=120)
+    result_age = df_ge.expect_column_values_to_be_between(
+        "age", min_value=-75, max_value=120
+    )
     print(f"GE name:\n{result_name}")
     print(f"GE age:\n{result_age}")
+
 
 if __name__ == "__main__":
     main()

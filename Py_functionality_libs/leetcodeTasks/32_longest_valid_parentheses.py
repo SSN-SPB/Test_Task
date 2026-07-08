@@ -2,11 +2,12 @@
 # version 2026-Mar-10
 
 
-tested_strings = [["(()", 2],[")()())", 4], ["", 0]]
+tested_strings = [["(()", 2], [")()())", 4], ["", 0]]
 # tested_string = ["(()", 2]
 # tested_string = [")()())", 4]
 tested_string = ["", 0]
 # tested_string = [")(",0]
+
 
 class Solution(object):
     def longestValidParentheses(self, s):

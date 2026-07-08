@@ -79,11 +79,15 @@ print(f"Radius: {circle2.radius}")  # Accessing the radius using the property
 print(f"Area: {circle2.area}")  # Accessing the area using the read-only property
 
 circle2.radius = 10  # Using the setter to update the radius
-print(f"Updated Radius: {circle2.radius}") # Accessing the updated radius using the property Updated Radius: 10
-print(f"Updated Area: {circle2.area}") # Accessing the updated area using the read-only property Updated Area: 314.1592653589793
+print(
+    f"Updated Radius: {circle2.radius}"
+)  # Accessing the updated radius using the property Updated Radius: 10
+print(
+    f"Updated Area: {circle2.area}"
+)  # Accessing the updated area using the read-only property Updated Area: 314.1592653589793
 
 # Trying to set a negative radius will raise an exception
 try:
     circle2.radius = -5
 except ValueError as e:
-    print(e) #
+    print(e)  #

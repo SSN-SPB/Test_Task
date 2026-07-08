@@ -10,7 +10,6 @@
 # returns a dictionary of the current local symbol table.
 
 
-
 class Counter:
     count = 5
 
@@ -35,7 +34,7 @@ def main():
     Counter.count_increase(3)
     print(Counter.count_increase(3))  # 8 (5 + 3)
     s1 = Counter.count_increase(7)
-    print(s1) # 12 (5 + 7)
+    print(s1)  # 12 (5 + 7)
     assert vars(s) == {"count": 7, "name": "value"}
 
 

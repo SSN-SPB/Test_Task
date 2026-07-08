@@ -1,7 +1,6 @@
 from PIL import Image, ImageChops
 
 
-
 def compare_two_images(image_one, image_two) -> bool:
     base_image = Image.open(image_one)
     base_image = base_image.convert("RGBA")

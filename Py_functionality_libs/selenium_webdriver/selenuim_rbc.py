@@ -8,7 +8,6 @@ from selenium.webdriver import ChromeOptions
 from selenium.common.exceptions import *
 import time
 
-
 weblink = "http://rbc.ru"
 # Locators
 USD_RATE_BLOCK = "a[title^='USD']"

@@ -4,10 +4,7 @@ import pandas as pd
 client = bigquery.Client()
 
 # Example DataFrame
-df = pd.DataFrame({
-    "name": ["Alice", "Bob"],
-    "age": [30, 25]
-})
+df = pd.DataFrame({"name": ["Alice", "Bob"], "age": [30, 25]})
 
 table_id = "your-project.your_dataset.your_table"
 

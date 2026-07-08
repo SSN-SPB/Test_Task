@@ -4,7 +4,6 @@ with the specified length (default is the length of the iterable)."""
 
 from itertools import permutations
 
-
 list_of_words = ["cat", "dog", "mouse"]
 expected_combinations = [
     ("cat", "dog", "mouse"),

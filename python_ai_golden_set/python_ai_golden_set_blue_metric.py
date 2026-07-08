@@ -1,6 +1,5 @@
 # pip install nltk rouge-score sentence-transformers scikit-learn
 
-import numpy as np
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer
@@ -12,7 +11,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 golden_set = [
     {
         "reference": "The cat sat on the mat.",
-        "prediction": "The cat is sitting on the mat.",
+        "prediction": "The dog is sitting on the mat.",
     },
     {
         "reference": "AI is transforming the world.",

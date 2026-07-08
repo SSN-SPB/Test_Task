@@ -5,7 +5,7 @@ import datetime
 
 
 def print_all_variable():
-    a = '12_34'
+    a = "12_34"
     b = float(a)
     print(b)
     assert b == 1234.0
@@ -17,4 +17,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

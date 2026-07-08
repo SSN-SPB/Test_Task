@@ -1,7 +1,6 @@
 import boto3
 from boto3.dynamodb.conditions import Key
 
-
 sts_client = boto3.client("sts")
 table_name = "sn2-qa-audit-log-table"
 # Call the assume_role method of the STSConnection object and pass the role

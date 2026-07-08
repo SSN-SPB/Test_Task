@@ -2,7 +2,6 @@
 # https://compscicenter.ru/courses/python/2015-autumn/classes/1388/
 import os
 
-
 # https://compscicenter.ru/courses/python/2015-autumn/classes/1388/
 
 
@@ -45,12 +44,10 @@ def main():
     print(strng)  # ell me
     print(r" \tell me")  # \tell me
     # multiline demo
-    print(
-        """ foo
+    print(""" foo
     bar
 
-    string"""
-    )
+    string""")
     # foo
     #    bar
     #

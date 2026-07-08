@@ -12,6 +12,7 @@ URLS = [
     "https://www.wikipedia.org",
 ]
 
+
 def load_url(url, timeout):
     try:
         response = requests.get(url, timeout=timeout)
@@ -32,9 +33,6 @@ end_time = time.time()
 print(f"Sequential execution took: {end_time - start_time} seconds")
 
 
-
-
-
 start_time = time.time()
 
 # Asynchronous execution with ThreadPoolExecutor:
@@ -52,6 +50,3 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
 
 end_time = time.time()
 print(f"Asynchronous execution took: {end_time - start_time} seconds")
-
-
-

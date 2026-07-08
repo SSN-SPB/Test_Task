@@ -2,7 +2,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-
 # Read the existing Excel file
 df = pd.read_excel(
     "..\py_panda_columns_treating\py_columns_init.xlsx", engine="openpyxl"

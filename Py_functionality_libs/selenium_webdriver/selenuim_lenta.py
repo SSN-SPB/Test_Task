@@ -8,7 +8,6 @@ from selenium.webdriver import ChromeOptions
 from selenium.common.exceptions import *
 import time
 
-
 weblink = "https://lenta.com"
 # Locators
 XPATH_HEAD_LOGO = '//a[@class="header_logo"]'

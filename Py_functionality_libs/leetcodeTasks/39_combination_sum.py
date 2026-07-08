@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/combination-sum/description/
 # 39. Combination Sum
-candidates = [2,3,6,7]
+candidates = [2, 3, 6, 7]
 target = 6
 
 
@@ -27,9 +27,7 @@ class Solution(object):
             #     multiplier -=1
             #     if (current_value * multiplier + candidates[x])
 
-
         return list_of_lists
-
 
 
 def main():

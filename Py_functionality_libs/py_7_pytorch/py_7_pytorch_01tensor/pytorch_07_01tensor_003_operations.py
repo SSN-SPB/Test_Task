@@ -18,6 +18,5 @@ def main():
     print(f"Tensor mult: {tensor_mult}")
 
 
-
 if __name__ == "__main__":
     main()
