@@ -4,8 +4,8 @@
 # It stands for "Least Recently Used Cache" and is
 # used to optimize performance by storing the results of function calls and returning the cached result when the same inputs occur again. This can significantly speed up functions that are called frequently with the same arguments, such as recursive functions like Fibonacci.
 
-import time
 import logging
+import time
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 import logging
+from dataclasses import dataclass
 
 # The @dataclass decorator in Python is used to
 # automatically generate special methods for classes,

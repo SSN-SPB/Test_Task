@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 import logging
+from dataclasses import dataclass
 
 """The @dataclass decorator, available in the dataclasses module,
 simplifies the creation of classes by automatically generating common methods
