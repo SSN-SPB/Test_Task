@@ -33,3 +33,8 @@
    npx cypress run
    ```
    This will execute all tests in headless mode and provide a summary of the test results in the terminal.
+3. 
+   ```bash
+   npx cypress run --spec "./cypress/e2e/eight_by_eight.cy.js
+   ```
+   This will execute tests in the specific suite.

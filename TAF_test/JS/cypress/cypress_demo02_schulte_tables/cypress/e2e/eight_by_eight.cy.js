@@ -31,6 +31,28 @@ describe("8x8 Schulte Table Page", () => {
     gridPage.hasUniqueNumbers();
   });
 
+  it('should display the Restart button', () => {
+    gridPage.load();
+    cy.contains('Restart').should('be.visible');
+  });
+
+  it('gets the value of cell 9', () => {
+//    cy.visit('https://schultetable.web.app/');
+//
+//    cy.contains('8*8').click();
+    gridPage.load();
+
+    // Get all numbered cells and select the 9th one (index 8)
+    cy.get('button, td, .cell')
+      .filter(':visible')
+      .eq(8)
+      .invoke('text')
+      .then((value) => {
+        cy.log(`Cell 9: ${value}`);
+      });
+  });
+
+
   it("should have cell values in range 1 to 64", () => {
     gridPage.load();
     gridPage.getCellValues().then((values) => {
