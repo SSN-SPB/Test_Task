@@ -1,5 +1,5 @@
-from dataclasses import dataclass, field
 import logging
+from dataclasses import dataclass, field
 
 # the field init=False is used to indicate that
 # the salary_after_tax attribute should not be included
