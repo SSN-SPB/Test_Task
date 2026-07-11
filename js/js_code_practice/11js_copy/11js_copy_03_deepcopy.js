@@ -10,15 +10,14 @@ const user = {
   },
 };
 
-const copied_user = {
-  ...user,
-};
+const copied_user = structuredClone(user)
+
 
 console.log(user);
 console.log(copied_user);
 copied_user.name = "Tom";
 console.log(user);
 console.log(copied_user);
-copied_user.address.city = "Roma"; // shallow copy parent object is updated for nested value
+copied_user.address.city = "Paris"; // shallow copy parent object is not updated for nested value
 console.log(user);
 console.log(copied_user);

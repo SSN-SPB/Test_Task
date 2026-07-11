@@ -22,3 +22,4 @@ console.log(copied_user);
 copied_user.address.city = "Roma"; // shallow copy parent object is updated for nested value
 console.log(user);
 console.log(copied_user);
+
