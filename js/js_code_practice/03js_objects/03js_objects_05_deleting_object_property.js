@@ -13,7 +13,13 @@ function display_names(user) {
   let len = users.length;
 
   for (let i = 0; i < len; i++) {
-    console.log(user[i].name);
+    console.log(user[i]);
+  }
+
+  console.log("After removing age");
+  for (let i = 0; i < len; i++) {
+    delete user[i].age;
+    console.log(user[i]);
   }
 }
 display_names(users);
