@@ -12,20 +12,12 @@ function checkAge(userAge) {
 
 // It works outside and inside of function as well
 checkAge(19)
-  .then((user) => {
-    console.log(user);
-  })
-  .catch((error) => {
-    console.log("not valid age:" + error);
-  });
+  .then((user) => {console.log(user);})
+  .catch((error) => {console.log("not valid age:" + error);});
 
 checkAge(11)
-  .then((user) => {
-    console.log(user);
-  })
-  .catch((error) => {
-    console.log("not valid age: " + error);
-  });
+  .then((user) => {console.log(user);})
+  .catch((error) => {console.log("not valid age: " + error);});
 
 // via function
 // function checkingAge(age) {
