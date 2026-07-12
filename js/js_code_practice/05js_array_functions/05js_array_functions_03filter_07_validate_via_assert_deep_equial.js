@@ -1,4 +1,4 @@
-const assert = require('node:assert/strict');
+const assert = require("node:assert/strict");
 const drivers = [
   { name: "John", experience: 5 },
   { name: "Tom", experience: 15 },
