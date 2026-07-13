@@ -1,0 +1,22 @@
+{
+  "name": "training-cypress",
+  "version": "1.0.0",
+  "description": "Cypress Training Kernel - Learn cy.intercept() and Cypress Test Automation Framework from scratch",
+  "author": "SSN-SPB",
+  "license": "MIT",
+
+  "scripts": {
+    "start": "node app/server.js",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test": "cypress run"
+  },
+
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+
+  "devDependencies": {
+    "cypress": "^15.2.0"
+  }
+}
