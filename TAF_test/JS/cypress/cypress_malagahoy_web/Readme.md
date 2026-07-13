@@ -36,15 +36,17 @@
    ```
    This will launch the Cypress Test Runner where you can select and run your tests.
 
-2. **Run Tests in Headless Mode:**
+2. **Run Tests in different modes:**
    ```bash
-   npx cypress run
-   or 
-   npx cypress run --headed // to see UI
+   npx cypress run								- CI/CD pipelines (Jenkins, GitHub Actions, Azure DevOps)
+   npx cypress run --headed 					- Debugging from the CLI
+   npx cypress run --headed --browser chrome   - Browser-specific debugging
    ```
-   This will execute all tests in headless mode and provide a summary of the test results in the terminal.
-3. 
+Supported --browser chrome/electron/edge/firefox/chromium <br>
+This will execute all tests in headless mode and provide a summary of the test results in the terminal.
+
+3**Run specific suite:**
    ```bash
    npx cypress run --spec "./cypress/e2e/homePage.cy.js
    ```
-   This will execute tests in the specific suite.
+This will execute tests in the specific suite.
