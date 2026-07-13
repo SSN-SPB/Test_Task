@@ -50,3 +50,4 @@ This will execute all tests in headless mode and provide a summary of the test r
    npx cypress run --spec "./cypress/e2e/homePage.cy.js
    ```
 This will execute tests in the specific suite.
+
