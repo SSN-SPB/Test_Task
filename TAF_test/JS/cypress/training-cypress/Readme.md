@@ -87,22 +87,22 @@ npm test
 
 ## Learning Roadmap
 
-| Phase | Status |
-|--------|--------|
-| Foundation | ✅ |
-| Express REST API | ⬜ |
-| Users UI | ⬜ |
-| First Cypress Test | ⬜ |
-| Spy | ⬜ |
-| Fixtures | ⬜ |
-| Mocking | ⬜ |
-| Response Modification | ⬜ |
-| Delays | ⬜ |
-| Errors | ⬜ |
-| Login | ⬜ |
-| Multiple Intercepts | ⬜ |
-| Enterprise Refactoring | ⬜ |
-| GitHub Actions | ⬜ |
+| Phase                  | Status |
+| ---------------------- | ------ |
+| Foundation             | ✅     |
+| Express REST API       | ⬜     |
+| Users UI               | ⬜     |
+| First Cypress Test     | ⬜     |
+| Spy                    | ⬜     |
+| Fixtures               | ⬜     |
+| Mocking                | ⬜     |
+| Response Modification  | ⬜     |
+| Delays                 | ⬜     |
+| Errors                 | ⬜     |
+| Login                  | ⬜     |
+| Multiple Intercepts    | ⬜     |
+| Enterprise Refactoring | ⬜     |
+| GitHub Actions         | ⬜     |
 
 ---
 

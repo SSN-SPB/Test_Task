@@ -1,22 +1,30 @@
 {
-  "name": "training-cypress",
-  "version": "1.0.0",
-  "description": "Cypress Training Kernel - Learn cy.intercept() and Cypress Test Automation Framework from scratch",
-  "author": "SSN-SPB",
-  "license": "MIT",
-
-  "scripts": {
-    "start": "node app/server.js",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "test": "cypress run"
-  },
-
-  "dependencies": {
-    "express": "^5.1.0"
-  },
-
-  "devDependencies": {
-    "cypress": "^15.2.0"
-  }
+    "name": "training-cypress",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Cypress Training Kernel - Learn cy.intercept() and Cypress Test Automation Framework from scratch",
+    "author": "SSN-SPB",
+    "license": "MIT",
+    "scripts": {
+        "start": "node app/server.js",
+        "cy:open": "cypress open",
+        "cy:run": "cypress run",
+        "test": "cypress run",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "format": "prettier . --write",
+        "format:check": "prettier . --check"
+    },
+    "dependencies": {
+        "express": "^5.1.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "cypress": "^15.2.0",
+        "eslint": "^10.7.0",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-cypress": "^6.4.2",
+        "globals": "^17.7.0",
+        "prettier": "^3.9.5"
+    }
 }
