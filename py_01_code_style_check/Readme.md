@@ -4,17 +4,24 @@
 python -m py_compile .\your_test_file.py
 ```
 
-# Correct style automatically
+# Correct style black
 ```
+pip install black
 black . 
 or 
 black .\your_test_file.py
 or check only:
-black --check --difff .
+black --check --diff .
+```
+
+# Library import checking
+```
+pip install isort
+isort .
 ```
 
 
-# Check only
+# Check only (flake8)
 ```
 flake8 .
 ignore errors
