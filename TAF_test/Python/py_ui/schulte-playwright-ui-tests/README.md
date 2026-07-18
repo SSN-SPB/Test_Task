@@ -80,7 +80,7 @@ pytest
 
 You can also run tests for a specific page by navigating to the corresponding test folder and executing:
 ```bash
-pytest test_<page_name>_page.py
+pytest .\tests\<page_name>\test_<page_name>_page.py
 ```
 
 ## Allure Reporting
@@ -119,7 +119,15 @@ The report includes:
 
 ## Contribution
 
-Feel free to contribute to this project by submitting issues or pull requests. Make sure to follow the coding standards and include tests for any new features or bug fixes.
+Feel free to contribute to this project by submitting issues or pull requests. 
+Make sure to follow the coding standards:
+   ```bash
+   black .
+   flake8 .
+   isort .
+   ```
+
+and include tests for any new features or bug fixes.
 
 ## License
 

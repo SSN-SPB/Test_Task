@@ -1,5 +1,6 @@
 import allure
 import pytest
+
 from page_objects.left_menu_pages.seven_by_seven_page import SevenBySevenPage
 from service_functions.menu_navigation_service import MenuNavigationService
 from service_functions.table_validation_service import TableValidationService
@@ -35,7 +36,9 @@ class TestSevenBySevenPage:
         page_obj.load()
         values = set(page_obj.get_cell_values())
         expected = page_obj.get_expected_values()
-        assert values == expected, f"Cell values {values} don't match expected {expected}"
+        assert (
+            values == expected
+        ), f"Cell values {values} don't match expected {expected}"
 
     @allure.title("7x7 grid description text is correct")
     def test_description_text(self, browser):

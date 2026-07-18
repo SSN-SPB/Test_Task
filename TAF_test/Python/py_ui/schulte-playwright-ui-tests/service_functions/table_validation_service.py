@@ -12,7 +12,9 @@ class TableValidationService:
     def validate_table_has_cells(self, expected_count):
         cells = self.page.locator(self.CELL_SELECTOR)
         actual_count = cells.count()
-        self.logger.info(f"Validating cell count: expected={expected_count}, actual={actual_count}")
+        self.logger.info(
+            f"Validating cell count: expected={expected_count}, actual={actual_count}"
+        )
         return actual_count == expected_count
 
     def get_all_cell_values(self):
@@ -25,7 +27,9 @@ class TableValidationService:
     def validate_unique_numbers(self, expected_count):
         values = self.get_all_cell_values()
         unique_count = len(set(values))
-        self.logger.info(f"Validating unique numbers: expected={expected_count}, unique={unique_count}")
+        self.logger.info(
+            f"Validating unique numbers: expected={expected_count}, unique={unique_count}"
+        )
         return unique_count == expected_count
 
     def validate_numbers_in_range(self, max_number):

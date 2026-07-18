@@ -1,5 +1,6 @@
 import allure
 import pytest
+
 from page_objects.left_menu_pages.four_by_four_page import FourByFourPage
 from service_functions.menu_navigation_service import MenuNavigationService
 from service_functions.table_validation_service import TableValidationService
@@ -35,7 +36,9 @@ class TestFourByFourPage:
         page_obj.load()
         values = set(page_obj.get_cell_values())
         expected = page_obj.get_expected_values()
-        assert values == expected, f"Cell values {values} don't match expected {expected}"
+        assert (
+            values == expected
+        ), f"Cell values {values} don't match expected {expected}"
 
     @allure.title("4x4 grid description text is correct")
     def test_description_text(self, browser):
