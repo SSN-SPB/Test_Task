@@ -612,3 +612,25 @@ Write a solution to report the type of each node in the tree.
 SELECT T.id, IF(T.P_ID is Null,"Root",
                 IF(T.id in (SELECT DISTINCT(TR.P_ID) AS P FROM TREE TR), "Inner", "Leaf")
                 ) AS type from Tree T
+
+1050. Actors and Directors Who Cooperated At Least Three Times
+https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/description/
+
+Table: ActorDirector
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| actor_id    | int     |
+| director_id | int     |
+| timestamp   | int     |
++-------------+---------+
+timestamp is the primary key (column with unique values) for this table.
+
+
+Write a solution to find all the pairs (actor_id, director_id) where the actor has cooperated with the director at least three times.
+
+SELECT CN.ACTOR_ID, CN.DIRECTOR_ID
+FROM    (
+        SELECT AD.ACTOR_ID, AD.DIRECTOR_ID, COUNT(*) AS OCCUR FROM ActorDirector AD GROUP BY AD.ACTOR_ID, AD.DIRECTOR_ID
+        ) CN WHERE CN.OCCUR > 2
