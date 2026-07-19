@@ -13,14 +13,29 @@ from connectors.site_connector import SiteConnector
 from logger.logger import Logger
 
 
+def pytest_addoption(parser):
+    parser.addoption(
+        "--run_without_ui",
+        action="store",
+        default="true",
+        help="Yes if need to see the run x`in browser locally",
+    )
+
+
+@pytest.fixture(scope="session")
+def headless_mode(request):
+    value = request.config.getoption("--run_without_ui")
+    return value.lower() == "true" if isinstance(value, str) else bool(value)
+
+
 @pytest.fixture(scope="session")
 def logger():
     return Logger()
 
 
 @pytest.fixture(scope="session")
-def browser_connector(logger):
-    connector = BrowserConnector(logger)
+def browser_connector(logger, headless_mode):
+    connector = BrowserConnector(headless=headless_mode)
     connector.launch_browser()
     yield connector
     connector.close_browser()

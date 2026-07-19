@@ -83,6 +83,12 @@ You can also run tests for a specific page by navigating to the corresponding te
 pytest .\tests\<page_name>\test_<page_name>_page.py
 ```
 
+You can also run tests in headless mode by adding the `--run_without_ui=true` flag:
+```bash
+pytest .\tests\<page_name>\test_<page_name>_page.py --run_without_ui=true
+```
+The headless mode is useful for CI/CD pipelines or when you don't need to see the browser UI. It is default for this project.
+
 ## Allure Reporting
 
 Test results are automatically saved to the `allure-results/` directory. To view the report:

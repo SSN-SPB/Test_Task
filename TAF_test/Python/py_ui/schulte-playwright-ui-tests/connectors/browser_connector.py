@@ -2,8 +2,9 @@ from playwright.sync_api import sync_playwright
 
 
 class BrowserConnector:
-    def __init__(self, logger=None, headless=False):
-        self.logger = logger
+    def __init__(self, headless=False):
+        # def __init__(self, logger=None, headless=False):
+        # self.logger = logger
         self.headless = headless
         self.playwright = None
         self.browser = None
@@ -11,8 +12,8 @@ class BrowserConnector:
         self.page = None
 
     def launch_browser(self):
-        if self.logger:
-            self.logger.info("Launching browser")
+        # if self.logger:
+        #     self.logger.info("Launching browser")
 
         self.playwright = sync_playwright().start()
         self.browser = self.playwright.chromium.launch(headless=self.headless)
@@ -26,8 +27,8 @@ class BrowserConnector:
         return self.page
 
     def close_browser(self):
-        if self.logger:
-            self.logger.info("Closing browser")
+        # if self.logger:
+        #     self.logger.info("Closing browser")
 
         if self.page:
             self.page.close()
