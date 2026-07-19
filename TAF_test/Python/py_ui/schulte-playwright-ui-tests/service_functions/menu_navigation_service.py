@@ -1,6 +1,11 @@
 from logger.logger import Logger
-from page_objects.left_menu_pages.three_by_three_page import ThreeByThreePage
+from page_objects.left_menu_pages.eight_by_eight_page import EightByEightPage
+from page_objects.left_menu_pages.five_by_five_page import FiveByFivePage
 from page_objects.left_menu_pages.four_by_four_page import FourByFourPage
+from page_objects.left_menu_pages.nine_by_nine_page import NineByNinePage
+from page_objects.left_menu_pages.seven_by_seven_page import SevenBySevenPage
+from page_objects.left_menu_pages.six_by_six_page import SixBySixPage
+from page_objects.left_menu_pages.three_by_three_page import ThreeByThreePage
 
 
 class MenuNavigationService:
@@ -42,10 +47,24 @@ class MenuNavigationService:
     def return_selected_grid(browser, page_number):
         if page_number == 3:
             page_obj = ThreeByThreePage(browser)
-        if page_number == 4:
+        elif page_number == 4:
             page_obj = FourByFourPage(browser)
+        elif page_number == 5:
+            page_obj = FiveByFivePage(browser)
+        elif page_number == 6:
+            page_obj = SixBySixPage(browser)
+        elif page_number == 7:
+            page_obj = SevenBySevenPage(browser)
+        elif page_number == 8:
+            page_obj = EightByEightPage(browser)
+        elif page_number == 9:
+            page_obj = NineByNinePage(browser)
+        else:
+            raise ValueError(f"Unsupported page number: {page_number}")
         page_obj.load()
         return page_obj
+
+
 # def load_three_by_three(browser):
 #     page_obj = ThreeByThreePage(browser)
 #     page_obj.load()

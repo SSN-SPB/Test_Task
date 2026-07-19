@@ -20,17 +20,17 @@ class TestThreeByThreePage:
 
     @allure.title("3x3 grid has correct cell count")
     def test_table_has_correct_cell_count(self, browser):
-        page_obj = MenuNavigationService.return_selected_grid(browser,3)
+        page_obj = MenuNavigationService.return_selected_grid(browser, 3)
         assert page_obj.has_correct_number_of_cells(), "Board does not have 9 cells"
 
     @allure.title("3x3 grid cells contain unique numbers")
     def test_cells_contain_unique_numbers(self, browser):
-        page_obj = MenuNavigationService.return_selected_grid(browser,3)
+        page_obj = MenuNavigationService.return_selected_grid(browser, 3)
         assert page_obj.has_unique_numbers(), "Board does not contain 9 unique numbers"
 
     @allure.title("3x3 grid cell values are in range")
     def test_cell_values_in_range(self, browser):
-        page_obj = MenuNavigationService.return_selected_grid(browser,3)
+        page_obj = MenuNavigationService.return_selected_grid(browser, 3)
         values = set(page_obj.get_cell_values())
         expected = page_obj.get_expected_values()
         assert (
@@ -39,25 +39,25 @@ class TestThreeByThreePage:
 
     @allure.title("3x3 grid description text is correct")
     def test_description_text(self, browser):
-        page_obj = MenuNavigationService.return_selected_grid(browser,3)
+        page_obj = MenuNavigationService.return_selected_grid(browser, 3)
         desc = page_obj.get_description_text()
         assert "1 to 9" in desc, f"Description '{desc}' does not mention 1 to 9"
 
     @allure.title("3x3 menu button is active after selection")
     def test_menu_button_active(self, browser):
-        page_obj = MenuNavigationService.return_selected_grid(browser,3)
+        page_obj = MenuNavigationService.return_selected_grid(browser, 3)
         assert page_obj.is_active(), "3x3 button is not active after selection"
 
     @allure.title("Clicking correct number advances game on 3x3")
     def test_click_correct_number_advances(self, browser):
-        MenuNavigationService.return_selected_grid(browser,3)
+        MenuNavigationService.return_selected_grid(browser, 3)
         validation = TableValidationService(browser)
         assert validation.get_next_expected_number() == "1"
         validation.click_number_in_order(1)
         assert validation.get_next_expected_number() == "2"
 
     def test_restart_resets_game(self, browser):
-        page_obj = MenuNavigationService.return_selected_grid(browser,3)
+        page_obj = MenuNavigationService.return_selected_grid(browser, 3)
         validation = TableValidationService(browser)
         validation.click_number_in_order(1)
         page_obj.click_restart()
