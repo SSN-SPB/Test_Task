@@ -1,5 +1,6 @@
 from logger.logger import Logger
 from page_objects.left_menu_pages.three_by_three_page import ThreeByThreePage
+from page_objects.left_menu_pages.four_by_four_page import FourByFourPage
 
 
 class MenuNavigationService:
@@ -37,8 +38,15 @@ class MenuNavigationService:
     def navigate_to_nine_by_nine(self):
         self._navigate_to_size("9x9")
 
-
-def load_three_by_three(browser):
-    page_obj = ThreeByThreePage(browser)
-    page_obj.load()
-    return page_obj
+    @staticmethod
+    def return_selected_grid(browser, page_number):
+        if page_number == 3:
+            page_obj = ThreeByThreePage(browser)
+        if page_number == 4:
+            page_obj = FourByFourPage(browser)
+        page_obj.load()
+        return page_obj
+# def load_three_by_three(browser):
+#     page_obj = ThreeByThreePage(browser)
+#     page_obj.load()
+#     return page_obj
