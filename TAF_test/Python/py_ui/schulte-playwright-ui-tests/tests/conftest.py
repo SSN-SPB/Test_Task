@@ -20,6 +20,13 @@ def pytest_addoption(parser):
         default="true",
         help="Yes if need to see the run x`in browser locally",
     )
+    parser.addoption(
+        "--browser_type",
+        action="store",
+        default="chromium",
+        choices=["chromium", "firefox", "webkit"],
+        help="Browser to run Playwright tests with",
+    )
 
 
 @pytest.fixture(scope="session")
@@ -29,14 +36,19 @@ def headless_mode(request):
 
 
 @pytest.fixture(scope="session")
+def select_browser(request):
+    return request.config.getoption("--browser_type")
+
+
+@pytest.fixture(scope="session")
 def logger():
     return Logger()
 
 
 @pytest.fixture(scope="session")
-def browser_connector(logger, headless_mode):
+def browser_connector(logger, headless_mode, select_browser):
     connector = BrowserConnector(headless=headless_mode)
-    connector.launch_browser()
+    connector.launch_browser(browser_type=select_browser)
     yield connector
     connector.close_browser()
 

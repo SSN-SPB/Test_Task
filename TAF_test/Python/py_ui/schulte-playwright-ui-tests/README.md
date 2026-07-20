@@ -89,6 +89,13 @@ pytest .\tests\<page_name>\test_<page_name>_page.py --run_without_ui=true
 ```
 The headless mode is useful for CI/CD pipelines or when you don't need to see the browser UI. It is default for this project.
 
+You can select browser by adding the `--browser_type` flag:
+```bash
+pytest .\tests\<page_name>\test_<page_name>_page.py --browser_type=firefox
+```
+Allowed values: ["chromium", "firefox", "webkit"] The default browser is Chromium.
+
+
 ## Allure Reporting
 
 Test results are automatically saved to the `allure-results/` directory. To view the report:
