@@ -13,7 +13,8 @@ class TableValidationService:
         cells = self.page.locator(self.CELL_SELECTOR)
         actual_count = cells.count()
         self.logger.info(
-            f"Validating cell count: expected={expected_count}, actual={actual_count}"
+            f"Validating cell count: expected={expected_count}, "
+            f"actual={actual_count}"
         )
         return actual_count == expected_count
 
@@ -28,7 +29,8 @@ class TableValidationService:
         values = self.get_all_cell_values()
         unique_count = len(set(values))
         self.logger.info(
-            f"Validating unique numbers: expected={expected_count}, unique={unique_count}"
+            f"Validating unique numbers: expected={expected_count}, "
+            f"unique={unique_count}"
         )
         return unique_count == expected_count
 

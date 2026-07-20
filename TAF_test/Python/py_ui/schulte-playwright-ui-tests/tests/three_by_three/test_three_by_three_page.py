@@ -21,12 +21,16 @@ class TestThreeByThreePage:
     @allure.title("3x3 grid has correct cell count")
     def test_table_has_correct_cell_count(self, browser):
         page_obj = MenuNavigationService.return_selected_grid(browser, 3)
-        assert page_obj.has_correct_number_of_cells(), "Board does not have 9 cells"
+        assert (
+            page_obj.has_correct_number_of_cells()
+        ), "Board does not have 9 cells"
 
     @allure.title("3x3 grid cells contain unique numbers")
     def test_cells_contain_unique_numbers(self, browser):
         page_obj = MenuNavigationService.return_selected_grid(browser, 3)
-        assert page_obj.has_unique_numbers(), "Board does not contain 9 unique numbers"
+        assert (
+            page_obj.has_unique_numbers()
+        ), "Board does not contain 9 unique numbers"
 
     @allure.title("3x3 grid cell values are in range")
     def test_cell_values_in_range(self, browser):
@@ -41,7 +45,9 @@ class TestThreeByThreePage:
     def test_description_text(self, browser):
         page_obj = MenuNavigationService.return_selected_grid(browser, 3)
         desc = page_obj.get_description_text()
-        assert "1 to 9" in desc, f"Description '{desc}' does not mention 1 to 9"
+        assert (
+            "1 to 9" in desc
+        ), f"Description '{desc}' does not mention 1 to 9"
 
     @allure.title("3x3 menu button is active after selection")
     def test_menu_button_active(self, browser):

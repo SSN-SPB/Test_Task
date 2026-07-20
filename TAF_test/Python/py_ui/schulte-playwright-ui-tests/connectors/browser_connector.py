@@ -29,10 +29,10 @@ class BrowserConnector:
         self.playwright = sync_playwright().start()
         browser_launcher = getattr(self.playwright, browser_type)
         logger.info(
-            f"Launching type: {browser_type} browser with headless={self.headless}"
+            f"Launching type: {browser_type} browser with "
+            f"headless={self.headless}"
         )
         self.browser = browser_launcher.launch(headless=self.headless)
-        # self.browser = self.playwright.chromium.launch(headless=self.headless)
         self.context = self.browser.new_context()
         self.page = self.context.new_page()
 

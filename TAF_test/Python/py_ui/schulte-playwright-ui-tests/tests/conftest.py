@@ -4,13 +4,13 @@ from pathlib import Path
 import allure
 import pytest
 
-ROOT_DIR = Path(__file__).resolve().parents[1]
-if str(ROOT_DIR) not in sys.path:
-    sys.path.insert(0, str(ROOT_DIR))
-
 from connectors.browser_connector import BrowserConnector
 from connectors.site_connector import SiteConnector
 from logger.logger import Logger
+
+ROOT_DIR = Path(__file__).resolve().parents[1]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
 
 
 def pytest_addoption(parser):

@@ -21,12 +21,16 @@ class TestEightByEightPage:
     @allure.title("8x8 grid has correct cell count")
     def test_table_has_correct_cell_count(self, browser):
         page_obj = MenuNavigationService.return_selected_grid(browser, 8)
-        assert page_obj.has_correct_number_of_cells(), "Board does not have 64 cells"
+        assert (
+            page_obj.has_correct_number_of_cells()
+        ), "Board does not have 64 cells"
 
     @allure.title("8x8 grid cells contain unique numbers")
     def test_cells_contain_unique_numbers(self, browser):
         page_obj = MenuNavigationService.return_selected_grid(browser, 8)
-        assert page_obj.has_unique_numbers(), "Board does not contain 64 unique numbers"
+        assert (
+            page_obj.has_unique_numbers()
+        ), "Board does not contain 64 unique numbers"
 
     @allure.title("8x8 grid cell values are in range")
     def test_cell_values_in_range(self, browser):
@@ -41,7 +45,9 @@ class TestEightByEightPage:
     def test_description_text(self, browser):
         page_obj = MenuNavigationService.return_selected_grid(browser, 8)
         desc = page_obj.get_description_text()
-        assert "1 to 64" in desc, f"Description '{desc}' does not mention 1 to 64"
+        assert (
+            "1 to 64" in desc
+        ), f"Description '{desc}' does not mention 1 to 64"
 
     @allure.title("8x8 menu button is active after selection")
     def test_menu_button_active(self, browser):
@@ -50,7 +56,7 @@ class TestEightByEightPage:
 
     @allure.title("Clicking correct number advances game on 8x8")
     def test_click_correct_number_advances(self, browser):
-        page_obj = MenuNavigationService.return_selected_grid(browser, 8)
+        MenuNavigationService.return_selected_grid(browser, 8)
         validation = TableValidationService(browser)
         assert validation.get_next_expected_number() == "1"
         validation.click_number_in_order(1)
