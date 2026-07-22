@@ -1,0 +1,13 @@
+{
+  "name": "cypress-project",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:test": "cypress run --spec \"cypress/e2e/response_codes.cy.js\""
+  },
+  "devDependencies": {
+    "cypress": "^15.19.0"
+  }
+}
