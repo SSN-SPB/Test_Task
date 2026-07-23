@@ -5,9 +5,13 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:test": "cypress run --spec \"cypress/e2e/response_codes.cy.js\""
+    "cy:test": "cypress run --spec \"cypress/e2e/response_codes.cy.js\"",
+    "pw:test": "playwright test",
+    "pw:test:headed": "playwright test --headed",
+    "pw:test:ui": "playwright test --ui"
   },
   "devDependencies": {
+    "@playwright/test": "^1.61.1",
     "cypress": "^15.19.0"
   }
 }
