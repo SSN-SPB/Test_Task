@@ -2,7 +2,7 @@ import re
 
 from service_packages.service_logger.logger_provider import logger
 
-CHECKED_PATTERN = r"\d-\d{2}-\d{2}-\d{2}"
+CHECKED_PATTERN = r"\d-\d{2}-\d{2,4}-\d{2}"
 
 tested_text = "This is a phone 2-12-85-06 I remember ever"
 

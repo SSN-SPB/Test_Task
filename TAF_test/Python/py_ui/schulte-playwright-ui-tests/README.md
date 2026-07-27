@@ -80,8 +80,21 @@ pytest
 
 You can also run tests for a specific page by navigating to the corresponding test folder and executing:
 ```bash
-pytest test_<page_name>_page.py
+pytest .\tests\<page_name>\test_<page_name>_page.py
 ```
+
+You can also run tests in headless mode by adding the `--run_without_ui=true` flag:
+```bash
+pytest .\tests\<page_name>\test_<page_name>_page.py --run_without_ui=true
+```
+The headless mode is useful for CI/CD pipelines or when you don't need to see the browser UI. It is default for this project.
+
+You can select browser by adding the `--browser_type` flag:
+```bash
+pytest .\tests\<page_name>\test_<page_name>_page.py --browser_type=firefox
+```
+Allowed values: ["chromium", "firefox", "webkit"] The default browser is Chromium.
+
 
 ## Allure Reporting
 
@@ -119,7 +132,15 @@ The report includes:
 
 ## Contribution
 
-Feel free to contribute to this project by submitting issues or pull requests. Make sure to follow the coding standards and include tests for any new features or bug fixes.
+Feel free to contribute to this project by submitting issues or pull requests. 
+Make sure to follow the coding standards:
+   ```bash
+   black .
+   flake8 .
+   isort .
+   ```
+
+and include tests for any new features or bug fixes.
 
 ## License
 

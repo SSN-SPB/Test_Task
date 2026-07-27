@@ -2,14 +2,14 @@ import logging
 
 
 class Logger:
-    def __init__(self, name='schulte_playwright_tests'):
+    def __init__(self, name="schulte_playwright_tests"):
         self.logger = logging.getLogger(name)
         if not self.logger.handlers:
             self.logger.setLevel(logging.DEBUG)
             handler = logging.StreamHandler()
             handler.setLevel(logging.DEBUG)
             formatter = logging.Formatter(
-                '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+                "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
             )
             handler.setFormatter(formatter)
             self.logger.addHandler(handler)

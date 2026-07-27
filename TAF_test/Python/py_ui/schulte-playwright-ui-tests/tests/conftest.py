@@ -4,13 +4,40 @@ from pathlib import Path
 import allure
 import pytest
 
+from connectors.browser_connector import BrowserConnector
+from connectors.site_connector import SiteConnector
+from logger.logger import Logger
+
 ROOT_DIR = Path(__file__).resolve().parents[1]
 if str(ROOT_DIR) not in sys.path:
     sys.path.insert(0, str(ROOT_DIR))
 
-from connectors.browser_connector import BrowserConnector
-from connectors.site_connector import SiteConnector
-from logger.logger import Logger
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--run_without_ui",
+        action="store",
+        default="true",
+        help="Yes if need to see the run x`in browser locally",
+    )
+    parser.addoption(
+        "--browser_type",
+        action="store",
+        default="chromium",
+        choices=["chromium", "firefox", "webkit"],
+        help="Browser to run Playwright tests with",
+    )
+
+
+@pytest.fixture(scope="session")
+def headless_mode(request):
+    value = request.config.getoption("--run_without_ui")
+    return value.lower() == "true" if isinstance(value, str) else bool(value)
+
+
+@pytest.fixture(scope="session")
+def select_browser(request):
+    return request.config.getoption("--browser_type")
 
 
 @pytest.fixture(scope="session")
@@ -19,9 +46,9 @@ def logger():
 
 
 @pytest.fixture(scope="session")
-def browser_connector(logger):
-    connector = BrowserConnector(logger)
-    connector.launch_browser()
+def browser_connector(logger, headless_mode, select_browser):
+    connector = BrowserConnector(headless=headless_mode)
+    connector.launch_browser(browser_type=select_browser)
     yield connector
     connector.close_browser()
 
