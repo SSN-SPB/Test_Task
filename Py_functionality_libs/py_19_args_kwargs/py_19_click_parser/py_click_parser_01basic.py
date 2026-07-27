@@ -4,8 +4,8 @@ import click
 
 
 @click.command()
-@click.option("--name", default="not indicated")
-@click.option("--age", default="not indicated")
+@click.option("--name", default="not indicated", prompt='Type Your name')
+@click.option("--age", default="not indicated", prompt='Type Your age')
 def info_about_person(name, age):
     print(f"User: {name}, age: {age}")
 
