@@ -26,5 +26,11 @@
         "eslint-plugin-cypress": "^6.4.2",
         "globals": "^17.7.0",
         "prettier": "^3.9.5"
+    },
+    "scripts": {
+        "start": "node app/server.js",
+        "lint": "eslint .",
+        "format": "prettier . --write",
+        "format:check": "prettier . --check"
     }
 }

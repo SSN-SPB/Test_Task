@@ -106,6 +106,11 @@ npm test
 
 ---
 
+## Code style check
+
+npm run format:check
+npm run lint
+
 ## License
 
 MIT
