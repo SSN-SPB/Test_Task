@@ -1,5 +1,5 @@
 import numpy as np
-from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
+from nltk.translate.bleu_score import SmoothingFunction, sentence_bleu
 from rouge_score import rouge_scorer
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -10,16 +10,16 @@ from sklearn.metrics.pairwise import cosine_similarity
 golden_set = [
     {
         "reference": "The cat sat on the mat.",
-        "prediction": "The cat is sitting on the mat."
+        "prediction": "The cat is sitting on the mat.",
     },
     {
         "reference": "AI is transforming the world.",
-        "prediction": "Artificial intelligence is changing the world."
+        "prediction": "Artificial intelligence is changing the world.",
     },
     {
         "reference": "He quickly ran to the store.",
-        "prediction": "He ran fast to the shop."
-    }
+        "prediction": "He ran fast to the shop.",
+    },
 ]
 
 
@@ -31,13 +31,15 @@ def compute_bleu(reference, prediction, weights=(0.25, 0.25, 0.25, 0.25)):
     pred_tokens = prediction.split()
 
     smoothing = SmoothingFunction().method1
-    return sentence_bleu(ref_tokens, pred_tokens, weights=weights, smoothing_function=smoothing)
+    return sentence_bleu(
+        ref_tokens, pred_tokens, weights=weights, smoothing_function=smoothing
+    )
 
 
 # -------------------------
 # 3. ROUGE Evaluation
 # -------------------------
-rouge = rouge_scorer.RougeScorer(['rouge1', 'rouge2', 'rougeL'], use_stemmer=True)
+rouge = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=True)
 
 
 def compute_rouge(reference, prediction):
@@ -52,7 +54,7 @@ def compute_rouge(reference, prediction):
 # -------------------------
 # 4. Semantic Similarity
 # -------------------------
-model = SentenceTransformer('all-MiniLM-L6-v2')
+model = SentenceTransformer("all-MiniLM-L6-v2")
 
 
 def compute_semantic_similarity(reference, prediction):
@@ -77,16 +79,18 @@ for item in golden_set:
     rouge_scores = compute_rouge(ref, pred)
     semantic_score = compute_semantic_similarity(ref, pred)
 
-    results.append({
-        "reference": ref,
-        "prediction": pred,
-        "bleu_default": bleu_default,
-        "bleu_bigram": bleu_bigram,
-        "rouge1": rouge_scores["rouge1"],
-        "rouge2": rouge_scores["rouge2"],
-        "rougeL": rouge_scores["rougeL"],
-        "semantic_similarity": semantic_score
-    })
+    results.append(
+        {
+            "reference": ref,
+            "prediction": pred,
+            "bleu_default": bleu_default,
+            "bleu_bigram": bleu_bigram,
+            "rouge1": rouge_scores["rouge1"],
+            "rouge2": rouge_scores["rouge2"],
+            "rougeL": rouge_scores["rougeL"],
+            "semantic_similarity": semantic_score,
+        }
+    )
 
 # -------------------------
 # 6. Display Results

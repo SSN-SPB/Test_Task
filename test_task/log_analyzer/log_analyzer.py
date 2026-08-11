@@ -1,6 +1,5 @@
 class LogAnalyzer:
-    def __init__(self):
-        ...
+    def __init__(self): ...
 
     def add_line(self, line: str):
         return True
