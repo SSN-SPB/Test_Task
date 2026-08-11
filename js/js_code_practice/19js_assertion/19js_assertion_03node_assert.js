@@ -12,8 +12,20 @@ console.log(checkStringLength(newString));
 
 try {
   assert(checkStringLength(newString) > 17);
+  console.log("Checking if length > 17 passes");
 } catch (error) {
-  console.log("Checking error");
+  console.log("Checking if length > 17");
+  console.log(`Error name: ${error.name}`);
+  console.log(`Error message: ${error.message}`);
+  console.log(`Error code: ${error.code}`);
+  // console.log(`Error stack: ${error.stack}`);
+}
+
+try {
+  assert(checkStringLength(newString) > 10);
+  console.log("Checking if length > 10 passes");
+} catch (error) {
+  console.log("Checking if length > 10");
   console.log(`Error name: ${error.name}`);
   console.log(`Error message: ${error.message}`);
   console.log(`Error code: ${error.code}`);
