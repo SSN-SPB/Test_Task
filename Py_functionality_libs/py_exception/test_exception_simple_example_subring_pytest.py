@@ -1,4 +1,20 @@
+import pytest
+
 STRING_TEST = "bbbbb"
+
+
+@pytest.mark.parametrize(
+    "string_to_test, expected_length",
+    [
+        ("bbbb", 4),
+        ("bbbb1", 1),
+        ("bbbb2", 5),
+        ("bbbb3", 5),
+        ("bbbbc", 5),
+    ],
+)
+def test_longest_substring(string_to_test, expected_length):
+    assert len(string_to_test) == expected_length
 
 
 def longest_substring(string_to_test):
