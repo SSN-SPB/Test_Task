@@ -1,5 +1,5 @@
-from thermometer import FahrenheitThermometer
 from temperature_factory import TemperatureAdapterFactory
+from thermometer import FahrenheitThermometer
 
 
 def main():
