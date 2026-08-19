@@ -47,12 +47,16 @@ facade.place_order(
     shipping_address="ABC street",
 )
 
-"""In case of the absence of a facade, the client must directly manage interactions with each subsystem:
+"""In case of the absence of a facade, the client must directly
+manage interactions with each subsystem:
 Challenges Without Facade:
 
-Increased Complexity: The client must understand the intricacies of each subsystem and manage the interactions, leading to more complex code.
-Tight Coupling: Changes in any subsystem's interface or behavior require modifications in the client code, reducing flexibility.
-Reduced Maintainability: As the system grows, managing direct interactions with multiple subsystems becomes cumbersome and error-prone.
+Increased Complexity: The client must understand the intricacies
+ of each subsystem and manage the interactions, leading to more complex code.
+Tight Coupling: Changes in any subsystem's interface or behavior
+require modifications in the client code, reducing flexibility.
+Reduced Maintainability: As the system grows, managing direct
+interactions with multiple subsystems becomes cumbersome and error-prone.
 """
 
 
