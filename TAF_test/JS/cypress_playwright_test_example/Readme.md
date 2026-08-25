@@ -132,6 +132,16 @@ Comine two TAF in the same folder (Cypress and Playwright)<br>
     npx cypress run response_codes.cy.js
     npm run cy:test
 
+| Purpose               | Command              |
+| --------------------- | -------------------- |
+| Quick Cypress command | `npx cypress run`    |
+| Standard project test | `npm run cy:test`    |
+| Cypress UI            | `npm run cy:open`    |
+| Chrome                | `npm run cy:chrome`  |
+| Firefox               | `npm run cy:firefox` |
+| Headed execution      | `npm run cy:headed`  |
+
+
 ## Code Style format
     npx prettier --write .\*.js
 

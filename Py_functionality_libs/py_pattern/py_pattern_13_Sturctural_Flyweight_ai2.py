@@ -12,9 +12,8 @@ class CharacterFlyweight:
         return cls._flyweights[key]
 
     def render(self, position):
-        print(
-            f"Rendering '{self.char}' at {position} with font={self.font}, size={self.size}, color={self.color}"
-        )
+        print(f"Rendering '{self.char}' at {position} with font={self.font},")
+        print(f"size={self.size}, color={self.color}")
 
 
 class Character:
@@ -25,9 +24,8 @@ class Character:
         self.color = color
 
     def render(self, position):
-        print(
-            f"Rendering '{self.char}' at {position} with font={self.font}, size={self.size}, color={self.color}"
-        )
+        print(f"Rendering '{self.char}' at {position} with font={self.font},")
+        print(f"size={self.size}, color={self.color}")
 
 
 # Client code
@@ -41,18 +39,18 @@ if __name__ == "__main__":
 
     # Rendering the word "WORLD" with different formatting
     for i, char in enumerate("WORLD"):
-        flyweight_char = CharacterFlyweight(char, "Times New Roman", 14, "blue")
+        flyweight_char = CharacterFlyweight(char, "Arial", 18, "blue")
         flyweight_char.render((i, 1))
         chars.append(flyweight_char)
 
     """Memory Usage:
 
     Without Flyweight: Memory usage increases linearly with the number of
-     characters, as each character, along with its attributes, 
+     characters, as each character, along with its attributes,
      occupies a unique space in memory.
 
     With Flyweight: Memory usage is optimized by sharing common data
-     among characters with identical attributes, leading to 
+     among characters with identical attributes, leading to
      a more efficient use of resources."""
 
     chars = []

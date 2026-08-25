@@ -1,0 +1,11 @@
+{
+  "name": "cypress_demo03_parameterized",
+  "version": "1.0.0",
+  "scripts": {
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^15.20.1"
+  }
+}
