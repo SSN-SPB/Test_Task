@@ -1,8 +1,8 @@
 # This is a basic example demonstrating failure without asyncio
 # library in Python for asynchronous tasks.
-import time
 import random
 import threading
+import time
 
 random_values = [random.randint(1, 100) for _ in range(1000)]
 

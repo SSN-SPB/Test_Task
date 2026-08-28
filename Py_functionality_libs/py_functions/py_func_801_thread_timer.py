@@ -1,6 +1,6 @@
+import datetime
 import threading
 import time
-import datetime
 
 time_string = "%Y_%m_%d_%H_%M_%S_%f"
 

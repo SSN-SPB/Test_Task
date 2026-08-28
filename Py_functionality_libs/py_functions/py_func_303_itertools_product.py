@@ -1,13 +1,13 @@
 """Suit for demo of itertools"""
 
 import itertools
+from itertools import product
 
 # itertools.product() - creates an iterator that returns the
 # cartesian product of input iterables.
 # Equivalent to nested for-loops in a generator expression.
 # For example, product(A, B) returns the same as ((x,y) for x in A for y in B).
 
-from itertools import product
 
 tested_string_one = "ABC"
 tested_string_two = "DEF"

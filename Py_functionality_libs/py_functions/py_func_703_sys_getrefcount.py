@@ -1,5 +1,5 @@
-import uuid
 import sys
+import uuid
 
 namespace1 = uuid.NAMESPACE_DNS
 print(sys.getrefcount(namespace1))
