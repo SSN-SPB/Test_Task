@@ -15,7 +15,9 @@ def main():
     print(repr("I am string"))  # 'I am string'
     print(ascii("I am string"))  # 'I am string'
     r = ascii("I am string ascii")
-    print(r)  # 'I am string ascii' ???? - expected likee "'\\u044f \\u0441... '"
+    print(
+        r
+    )  # 'I am string ascii' ???? - expected likee "'\\u044f \\u0441... '"
     s = "I am new string"
     print(str(s))  # I am new string
     print(repr(s))  # 'I am new string'
