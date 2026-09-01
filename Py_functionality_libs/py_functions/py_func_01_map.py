@@ -5,6 +5,7 @@
 
 numbers1 = [1, 2, 3, 1, 11, 15]
 numbers2 = (4, 5, 6, 99)
+numbers3 = {14, 15, 16}
 
 
 def increase_seven(x):
@@ -15,6 +16,9 @@ def main():
     print(list(map(lambda x: x + 100, range(10))))
     print(list(map(increase_seven, range(10))))
     print(list(map(lambda x, y: x + y, numbers1, numbers2)))  # [5, 7, 9, 100]
+    print(
+        list(map(lambda x, y, z: x + y + z, numbers1, numbers2, numbers3))
+    )  # [5, 7, 9, 100]
     # value 11 and 15 from numbers1 are ignored
     # because numbers2 has only 4 elements
 

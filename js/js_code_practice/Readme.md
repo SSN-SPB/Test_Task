@@ -13,6 +13,6 @@ npm install -g prettier <br>
 Format a single file<br>
 npx prettier --write example.js<br>
 Format all JavaScript files <br>
-npx prettier --write "**/*.js" <br>
+npx prettier --write "**/*.js <br>
 Check formatting without modifying files <br>
 npx prettier --check . <br>

@@ -57,3 +57,4 @@ allure-results/
 
 .DS_Store
 Thumbs.db
+/test2.py

@@ -634,3 +634,47 @@ SELECT CN.ACTOR_ID, CN.DIRECTOR_ID
 FROM    (
         SELECT AD.ACTOR_ID, AD.DIRECTOR_ID, COUNT(*) AS OCCUR FROM ActorDirector AD GROUP BY AD.ACTOR_ID, AD.DIRECTOR_ID
         ) CN WHERE CN.OCCUR > 2
+
+1068. Product Sales Analysis I https://leetcode.com/problems/product-sales-analysis-i/description/
+SQL Schema
+Pandas Schema
+Table: Sales
+
++-------------+-------+
+| Column Name | Type  |
++-------------+-------+
+| sale_id     | int   |
+| product_id  | int   |
+| year        | int   |
+| quantity    | int   |
+| price       | int   |
++-------------+-------+
+(sale_id, year) is the primary key (combination of columns with unique values) of this table.
+product_id is a foreign key (reference column) to Product table.
+Each row of this table shows a sale on the product product_id in a certain year.
+Note that the price is per unit.
+
+
+Table: Product
+
++--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| product_id   | int     |
+| product_name | varchar |
++--------------+---------+
+product_id is the primary key (column with unique values) of this table.
+Each row of this table indicates the product name of each product.
+
+
+Write a solution to report the product_name, year, and price for each sale_id in the Sales table.
+
+Return the resulting table in any order.
+
+The result format is in the following example.
+
+
+SELECT P.product_name, S.year, S.price
+    FROM Sales as S
+    JOIN Product P
+    ON S.product_id = P.product_id;

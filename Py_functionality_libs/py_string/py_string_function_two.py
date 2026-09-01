@@ -31,9 +31,13 @@ def main():
     print("Partion righ".center(80, "/"))
     print("foo foo2 bar ".rpartition("."))  # ('', '', 'foo foo2 bar ')
     print("Partion righ with existing spliter".center(80, "/"))
-    print("foo ; foo2 ; bar ;".rpartition(";"))  # ('foo ; foo2 ; bar ', ';', '')
+    print(
+        "foo ; foo2 ; bar ;".rpartition(";")
+    )  # ('foo ; foo2 ; bar ', ';', '')
     print("Partion left with existing spliter".center(80, "/"))
-    print("foo ; foo2 ; bar ;".partition(";"))  # ('foo ', ';', ' foo2 ; bar ;')
+    print(
+        "foo ; foo2 ; bar ;".partition(";")
+    )  # ('foo ', ';', ' foo2 ; bar ;')
 
 
 if __name__ == "__main__":

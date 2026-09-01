@@ -1,6 +1,6 @@
 # https://docs.python.org/3/library/secrets.html
-import string
 import secrets
+import string
 
 time_string = "%Y_%m_%d_%H_%M_%S_%f"
 
