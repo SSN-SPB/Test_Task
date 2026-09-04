@@ -1,3 +1,7 @@
+// new Map() in JavaScript is a built-in object that allows you to store key-value pairs.
+// It provides methods to add, retrieve, and delete entries,
+// as well as to iterate over the keys and values.
+// Unlike regular objects, Maps can have keys of any type, including objects and functions.
 const testMap = new Map();
 const test_keys = ["a", "b", "c"];
 const test_keys2 = ["a", "c"];
