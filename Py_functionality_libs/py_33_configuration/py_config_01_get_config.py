@@ -10,7 +10,6 @@ from decouple import config
 # out of your source code.
 
 
-
 def get_path_list():
     return str(config("PATH")).split(";")
 

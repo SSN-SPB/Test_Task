@@ -1,3 +1,7 @@
+# ChainMap is a class in the collections module that groups
+# multiple dictionaries together to create a single, updateable view.
+# It allows you to search through multiple dictionaries as if they were one,
+# and it maintains the order of the dictionaries.
 from collections import ChainMap
 
 dict_test1 = {"a": 10, "b": 8}
