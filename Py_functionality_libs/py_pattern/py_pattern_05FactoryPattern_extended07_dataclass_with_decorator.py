@@ -1,5 +1,5 @@
+from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from abc import abstractmethod, ABC
 
 
 @dataclass
@@ -8,8 +8,8 @@ class Games(ABC):
     duration: int
 
     @abstractmethod
-    def get_duration(self):
-        return self.duration
+    def get_duration(self) -> int:
+        pass
 
 
 @dataclass
