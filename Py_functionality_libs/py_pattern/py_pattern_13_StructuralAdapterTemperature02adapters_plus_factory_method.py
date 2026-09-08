@@ -51,7 +51,9 @@ fahrenheit_thermometer = FahrenheitThermometer()
 unit = input("Enter the desired unit (Celsius/Kelvin): ")
 
 try:
-    adapter = TemperatureAdapterFactory.get_adapter(unit, fahrenheit_thermometer)
+    adapter = TemperatureAdapterFactory.get_adapter(
+        unit, fahrenheit_thermometer
+    )
     print(f"Temperature in {unit}: {adapter.get_temperature()}")
 except ValueError as e:
     print(e)

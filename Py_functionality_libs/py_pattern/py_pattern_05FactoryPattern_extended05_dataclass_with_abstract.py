@@ -9,8 +9,8 @@ class Animal(ABC):
     max_size: int
 
     @abstractmethod
-    def get_color(self):
-        return self.default_color
+    def get_color(self) -> str:
+        pass
 
 
 @dataclass()
@@ -50,11 +50,17 @@ class FactoryAnimal:
 
 def select_animal():
     animal_factory = FactoryAnimal()
-    cat_one = animal_factory.define_animal("cat")
-    print(cat_one.type)
-    print(cat_one.default_color)
-    print(cat_one.get_color())
-    assert cat_one.type == "Cat"
+    animal_one = animal_factory.define_animal("cat")
+    print(animal_one.type)
+    print(animal_one.default_color)
+    print(animal_one.get_color())
+    assert animal_one.type == "Cat"
+
+    animal_two = animal_factory.define_animal("dog")
+    print(animal_two.type)
+    print(animal_two.default_color)
+    print(animal_two.get_color())
+    assert animal_two.type == "Dog"
 
 
 if __name__ == "__main__":
