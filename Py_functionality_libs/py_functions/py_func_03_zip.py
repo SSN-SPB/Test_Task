@@ -10,7 +10,7 @@ def main():
         "Apple",
     ]
     roll = [4, 1, 4, 2, 9, 17, 27, 37, 47, 57]
-    roll_string = ["a", "b", "a", "s"]
+    # roll_string = ["a", "b", "a", "s"]
     small_list = list(range(20, 2, -2))
     print(small_list)
 

@@ -2,7 +2,7 @@
 size = 5
 
 
-def main():
+def draw_triangle():
     for i in range(0, size):
         # Create a list of columns
         for j in range(0, size):
@@ -12,4 +12,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    draw_triangle()

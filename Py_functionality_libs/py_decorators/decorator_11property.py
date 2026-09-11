@@ -8,7 +8,8 @@
 # print(f"Radius: {circle2.radius}")  # Accessing the radius using the property
 
 # without decorator @property
-# print(f"Radius: {circle.get_radius()}")  # Accessing the radius using the getter method
+# print(f"Radius:
+# {circle.get_radius()}")  # Accessing the radius with getter method
 
 
 class Circle:
@@ -34,7 +35,9 @@ class Circle:
 
 # Using the Circle class
 circle = Circle(5)
-print(f"Radius: {circle.get_radius()}")  # Accessing the radius using the getter method
+print(
+    f"Radius: {circle.get_radius()}"
+)  # Accessing the radius using the getter method
 print(f"Area: {circle.get_area()}")  # Accessing the area using the method
 
 circle.set_radius(10)  # Using the setter to update the radius
@@ -76,7 +79,9 @@ class Circle2:
 # Using the Circle class
 circle2 = Circle2(5)
 print(f"Radius: {circle2.radius}")  # Accessing the radius using the property
-print(f"Area: {circle2.area}")  # Accessing the area using the read-only property
+print(
+    f"Area: {circle2.area}"
+)  # Accessing the area using the read-only property
 
 circle2.radius = 10  # Using the setter to update the radius
 print(
@@ -84,7 +89,8 @@ print(
 )  # Accessing the updated radius using the property Updated Radius: 10
 print(
     f"Updated Area: {circle2.area}"
-)  # Accessing the updated area using the read-only property Updated Area: 314.1592653589793
+)  # Accessing the updated area by the read-only property
+# Updated Area: 314.1592653589793
 
 # Trying to set a negative radius will raise an exception
 try:

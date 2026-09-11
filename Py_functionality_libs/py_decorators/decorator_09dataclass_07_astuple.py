@@ -11,7 +11,6 @@ from service_packages.service_logger.logger_provider import logger
 # instance to a tuple for serialization or other purposes.
 
 
-
 @dataclass
 class Person:
     name: str

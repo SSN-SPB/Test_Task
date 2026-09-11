@@ -1,8 +1,11 @@
-# decorators are a powerful feature in Python that allow you to modify the behavior of functions or classes.
+# decorators are a powerful feature in Python that allow you to
+# modify the behavior of functions or classes.
 # The `dataclass` decorator is a specific type of decorator
-# that automatically generates special methods for classes, such as `__init__`, `__repr__`, and `__eq__`,
+# that automatically generates special methods for classes,
+# such as `__init__`, `__repr__`, and `__eq__`,
 # based on the class attributes.
-# This can save you a lot of boilerplate code when creating classes that primarily store data.
+# This can save you a lot of boilerplate code when creating
+# classes that primarily store data.
 from dataclasses import dataclass
 
 
@@ -27,7 +30,12 @@ def print_car():
     car.increase_speed(17)
     print(car.speed)
 
-    set_of_values = {"brand": "Hundai", "model": "Gets", "produced": 199, "speed": 112}
+    set_of_values = {
+        "brand": "Hundai",
+        "model": "Gets",
+        "produced": 199,
+        "speed": 112,
+    }
     car2 = Car(**set_of_values)
     print(car2.speed)
 
