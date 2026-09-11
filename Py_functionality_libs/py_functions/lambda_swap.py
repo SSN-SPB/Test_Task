@@ -9,7 +9,7 @@ def main():
     print(f"init: a1 = {a1}, b = {b1}")
 
     # Use a lambda to swap their values
-    swap = (lambda x, y: (y, x))
+    swap = lambda x, y: (y, x)
     a, b = swap(a, b)
     print(f"swapped : a = {a}, b = {b}")
     a1, b1 = swap(a1, b1)

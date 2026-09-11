@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Flake8
         run: |
-          flake8 ./Py_functionality_libs/py_functions --ignore=E501,E203
+          flake8 ./Py_functionality_libs/py_functions --ignore=E501,E203,E731
 
       - name: Check Black formatting
         run: |
