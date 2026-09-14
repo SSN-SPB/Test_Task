@@ -1,7 +1,7 @@
 def sugar_decorator(func):
     def wrapper(n):
         if n < 0:
-            return "Value is not corrrect"
+            return "Value is not correct"
         else:
             print(f"Calculate interim value of factorial for {n}")
             return func(n)
