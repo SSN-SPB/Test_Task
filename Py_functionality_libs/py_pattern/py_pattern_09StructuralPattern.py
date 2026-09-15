@@ -1,3 +1,7 @@
+# Structural patterns are design patterns that deal with the
+# composition of classes and objects to form larger structures.
+# They help in creating relationships between classes and
+# objects, making it easier to manage and maintain complex systems.
 # These patterns help in composing
 # classes and objects to form larger structures.
 
