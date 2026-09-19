@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 import requests
 
-
 SERVER_URL = "http://127.0.0.1:5000"
 
 SERVER_DIR = (

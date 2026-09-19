@@ -13,7 +13,9 @@ class TestClassUsersPage:
 
 
 def test_code_is_200():
-    response_code, tested_response = get_page_data(TestClassUsersPage.ENDPOINT)
+    response_code, tested_response = get_page_data(
+        TestClassUsersPage.ENDPOINT
+    )
     checked_value = response_code == 200
     print("The response code = 200 is: {}".format(checked_value))
     assert checked_value
@@ -25,7 +27,13 @@ def test_users_are_returned():
         {"id": 2, "name": "Jane"},
         {"id": 3, "name": "Robert"},
     ]
-    response_code, tested_response = get_page_data(TestClassUsersPage.ENDPOINT)
+    response_code, tested_response = get_page_data(
+        TestClassUsersPage.ENDPOINT
+    )
     checked_value = tested_response == expected_users
-    print("The users response matches the expected data: {}".format(checked_value))
+    print(
+        "The users response matches the expected data: {}".format(
+            checked_value
+        )
+    )
     assert checked_value
