@@ -3,6 +3,7 @@ import pytest
 from ..resource_dir import resourse_data
 from ..resource_dir.requests import get_page_data
 
+
 @pytest.fixture(scope="class")
 def users_response(request):
     endpoint = request.cls.ENDPOINT
@@ -16,7 +17,7 @@ class TestClassUsersPage:
     ENDPOINT = ENV_URL + TESTED_PAGE
 
     def test_code_is_200(self, users_response):
-        response_code, tested_response = users_response
+        response_code, _ = users_response
         checked_value = response_code == 200
         print("The response code = 200 is: {}".format(checked_value))
         assert checked_value
@@ -27,7 +28,7 @@ class TestClassUsersPage:
             {"id": 2, "name": "Jane"},
             {"id": 3, "name": "Robert"},
         ]
-        response_code, tested_response = users_response
+        _, tested_response = users_response
         checked_value = tested_response == expected_users
         print(
             "The users response matches the expected data: {}".format(
