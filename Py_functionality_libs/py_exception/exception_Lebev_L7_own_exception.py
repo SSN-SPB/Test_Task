@@ -1,7 +1,3 @@
-import traceback
-import sys
-
-
 class CarException(Exception):
     """Raised when the speed value is too large"""
 
