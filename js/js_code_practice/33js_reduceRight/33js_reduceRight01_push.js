@@ -1,3 +1,8 @@
+// this is a simple example of using the reduceRight method to reverse the order of elements
+// in a 2D array (matrix) and push them into a new array.
+// The reduceRight method iterates over the elements of the matrix from right to left,
+// accumulating the elements into a new array.
+
 const assert = require("node:assert");
 
 const matrix = [

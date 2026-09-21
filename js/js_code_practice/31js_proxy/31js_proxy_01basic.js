@@ -1,3 +1,7 @@
+// Proxy is used to define custom behavior for fundamental operations
+// (e.g., property lookup, assignment, enumeration, function invocation, etc).
+
+
 const assert = require("node:assert");
 
 const person = { name: "John", age: 25 };
@@ -10,6 +14,11 @@ const handler = {
       return `property '${prop}' is not found`;
     }
   },
+  // The set trap is used to intercept property assignments.
+  // In this case, it checks if the value being assigned is a string.
+  // If it is, it converts the string to uppercase before assigning it to the property.
+  // If the value is not a string, it assigns the value as is.
+
   set(obj, prop, value) {
     if (typeof value === "string") {
       obj[prop] = value.toUpperCase();
