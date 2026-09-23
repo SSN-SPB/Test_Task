@@ -102,7 +102,6 @@ setuptools~=65.5.0
 pytz~=2026.1.post1
 anthropic~=0.115.0
 sympy~=1.14.0
-transformers~=5.12.1
 ollama~=0.6.2
 langfuse~=4.12.0
 nltk~=3.10.0
