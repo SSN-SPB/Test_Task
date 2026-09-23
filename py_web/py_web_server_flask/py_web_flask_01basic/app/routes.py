@@ -1,12 +1,11 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, render_template
 
 api = Blueprint("api", __name__)
 
 
-@api.route("/", methods=["GET"])
-def home():
-    return "Starting Page"
-
+@api.route("/")
+def index():
+    return render_template("index.html")
 
 @api.route("/api/health", methods=["GET"])
 def health_check():

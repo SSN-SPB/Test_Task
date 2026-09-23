@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Training</title>
+</head>
+
+<body>
+
+<h1>Flask Training Application</h1>
+
+<h2>Health</h2>
+<div id="health"></div>
+
+<h2>Users</h2>
+<ul id="users"></ul>
+
+<script>
+    async function loadData() {
+        const healthResponse = await fetch("/api/health");
+        const health = await healthResponse.json();
+
+        document.getElementById("health").textContent =
+            `${health.status} - ${health.service}`;
+
+        const usersResponse = await fetch("/api/users");
+        const users = await usersResponse.json();
+
+        const usersList = document.getElementById("users");
+
+        users.forEach(user => {
+            const li = document.createElement("li");
+            li.textContent = `${user.id}: ${user.name}`;
+            usersList.appendChild(li);
+        });
+    }
+
+    loadData();
+</script>
+
+</body>
+</html>
