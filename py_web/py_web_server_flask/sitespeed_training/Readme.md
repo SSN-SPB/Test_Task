@@ -1,7 +1,11 @@
 # Run instantly via docker
+## Docker command line
+```
 docker run --rm -v ${PWD}:/sitespeed.io sitespeedio/sitespeed.io:latest http://host.docker.internal:5000/
-
-expected output
+```
+It analyzes page: http://localhost:5000/ <br>
+<br>
+## The example of successful log
 ```
 docker run --rm -v ${PWD}:/sitespeed.io sitespeedio/sitespeed.io:latest http://host.docker.internal:5000/
 Google Chrome 152.0.7977.64
@@ -37,3 +41,5 @@ Architecture: x86_64
 [2026-09-23 09:10:59] INFO: The server responded with a 404 status code for http://host.docker.internal:5000/favicon.ico
 [2026-09-23 09:11:05] INFO: HTML stored in /sitespeed.io/sitespeed-result/host.docker.internal/2026-09-23-09-09-54
 ```
+## How to see the results
+Check subfolder ./sitespeed-result/host.docker.internal/YYYY-MM-DD-hh-mm-sc
