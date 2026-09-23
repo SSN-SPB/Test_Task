@@ -44,5 +44,4 @@ Architecture: x86_64
 ```
 
 ## How to see the results
-Check subfolder ./sitespeed-result/host.docker.internal/YYYY-MM-DD-hh-mm-sc
-
+Check subfolder ./sitespeed-result/host.docker.internal/YYYY-MM-DD-hh-mm-ss
