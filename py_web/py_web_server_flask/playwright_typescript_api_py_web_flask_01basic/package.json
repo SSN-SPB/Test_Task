@@ -1,0 +1,17 @@
+{
+  "name": "playwright-typescript-api-py-web-flask-01basic",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:list": "playwright test --list"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  }
+}

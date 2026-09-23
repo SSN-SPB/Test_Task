@@ -525,6 +525,33 @@ SELECT MN.NUM, COUNT(MN.NUM) AS TOTAL FROM MYNUMBERS MN GROUP BY MN.NUM
 ) RS WHERE RS.TOTAL = 1
 
 
+# 626. Exchange Seats
+
+SQL Schema
+Pandas Schema
+Table: Seat
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| student     | varchar |
++-------------+---------+
+id is the primary key (unique value) column for this table.
+Each row of this table indicates the name and the ID of a student.
+The ID sequence always starts from 1 and increments continuously.
+
+
+Write a solution to swap the seat id of every two consecutive students. If the number of students is odd, the id of the last student is not swapped.
+
+Return the result table ordered by id in ascending order.
+
+SELECT * FROM (
+SELECT S1.ID, IFNULL(S2.STUDENT, S1.STUDENT)  AS STUDENT FROM SEAT S1 LEFT JOIN SEAT S2 ON S2.ID = S1.ID + 1 WHERE S1.ID %2 != 0
+UNION
+SELECT S1.ID, S2.STUDENT AS STUDENT  FROM SEAT S1 LEFT JOIN SEAT S2 ON S2.ID = S1.ID - 1 WHERE S1.ID %2 = 0
+) AS S3 ORDER BY ID
+
 # 627 https://leetcode.com/problems/swap-sex-of-employees/description/ passed 22-MAY-2026
 
 
