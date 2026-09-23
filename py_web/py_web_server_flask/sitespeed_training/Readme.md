@@ -42,4 +42,4 @@ Architecture: x86_64
 [2026-09-23 09:11:05] INFO: HTML stored in /sitespeed.io/sitespeed-result/host.docker.internal/2026-09-23-09-09-54
 ```
 ## How to see the results
-Check subfolder ./sitespeed-result/host.docker.internal/YYYY-MM-DD-hh-mm-sc
+Check subfolder ./sitespeed-result/host.docker.internal/YYYY-MM-DD-hh-mm-ss
