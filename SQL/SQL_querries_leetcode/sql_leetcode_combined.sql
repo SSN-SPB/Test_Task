@@ -715,6 +715,17 @@ SELECT C2.C1C AS customer_id FROM
     ) AS C2
 WHERE C2.TOTAL = (SELECT COUNT(*) AS TOTAL_PRODUCT FROM Product)
 
+TWO VERSIONS
+SELECT C2.C1C AS customer_id FROM
+    (
+    SELECT C1.CC AS C1C, COUNT(C1.CC) AS TOTAL FROM
+        (
+        SELECT C.customer_id AS CC, C.product_key AS CP FROM Customer C GROUP BY CC, CP
+        ) AS C1
+    GROUP BY C1C
+                    HAVING TOTAL = (SELECT COUNT(*) FROM Product) -- PREFERRED
+    ) AS C2
+                    -- WHERE C2.TOTAL = (SELECT COUNT(*) FROM Product) -- BOTH WORK WELL
 
 
 1050. Actors and Directors Who Cooperated At Least Three Times
