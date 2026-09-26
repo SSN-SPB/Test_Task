@@ -640,6 +640,83 @@ SELECT T.id, IF(T.P_ID is Null,"Root",
                 IF(T.id in (SELECT DISTINCT(TR.P_ID) AS P FROM TREE TR), "Inner", "Leaf")
                 ) AS type from Tree T
 
+
+1045. Customers Who Bought All Products
+https://leetcode.com/problems/customers-who-bought-all-products/description/
+
+Table: Customer
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| customer_id | int     |
+| product_key | int     |
++-------------+---------+
+This table may contain duplicates rows.
+customer_id is not NULL.
+product_key is a foreign key (reference column) to Product table.
+
+
+Table: Product
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| product_key | int     |
++-------------+---------+
+product_key is the primary key (column with unique values) for this table.
+
+
+Write a solution to report the customer ids from the Customer table that bought all the products in the Product table.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+
+
+Example 1:
+
+Input:
+Customer table:
++-------------+-------------+
+| customer_id | product_key |
++-------------+-------------+
+| 1           | 5           |
+| 2           | 6           |
+| 3           | 5           |
+| 3           | 6           |
+| 1           | 6           |
++-------------+-------------+
+Product table:
++-------------+
+| product_key |
++-------------+
+| 5           |
+| 6           |
++-------------+
+Output:
++-------------+
+| customer_id |
++-------------+
+| 1           |
+| 3           |
++-------------+
+Explanation:
+The customers who bought all the products (5 and 6) are customers with IDs 1 and 3.
+
+SELECT C2.C1C AS customer_id FROM
+    (
+    SELECT C1.CC AS C1C, COUNT(C1.CC) AS TOTAL FROM
+        (
+        SELECT C.customer_id AS CC, C.product_key AS CP FROM Customer C GROUP BY CC, CP
+        ) AS C1
+    GROUP BY C1C
+    ) AS C2
+WHERE C2.TOTAL = (SELECT COUNT(*) AS TOTAL_PRODUCT FROM Product)
+
+
+
 1050. Actors and Directors Who Cooperated At Least Three Times
 https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/description/
 
