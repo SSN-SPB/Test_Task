@@ -8,10 +8,10 @@ class Calculator {
     this.currentValue = 0;
     Calculator.instance = this;
 
-    //addingValue (increasing) => {
-    //this.currentValue = this.currentValue + increasing
-    //}
   }
+    addingValue (increasing) {
+    this.currentValue = this.currentValue + increasing
+    }
   increasing() {
     this.currentValue++;
   }
@@ -29,3 +29,5 @@ console.log(calculatorTwo);
 console.log(calculatorThree);
 console.log(calculatorThree.currentValue);
 console.log(calculatorThree.getCurrentValue());
+calculatorTwo.addingValue(7);
+console.log(calculatorThree);
