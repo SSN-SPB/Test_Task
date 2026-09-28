@@ -19,15 +19,29 @@ python run.py
 # Check correctness
 
 ## WebUI
-1 http://127.0.0.1:5000/api/health
+1 Root http://localhost:5000/ <br>
+It renders ./templates/index.html
 ```commandline
+Flask Training Application
+Health
+ok - flask-training
+Users
+1: John
+2: Jane
+3: Robert
+```
+
+
+
+2 http://127.0.0.1:5000/api/health
+```
 {
   "service": "flask-training",
   "status": "ok"
 }
 ```
 
-2 http://127.0.0.1:5000/api/users
+3 http://127.0.0.1:5000/api/users
 
 ```commandline
 [
