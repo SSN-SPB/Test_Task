@@ -11,7 +11,7 @@ def index():
     return render_template("index.html")
 
 
-@api.route("/login", methods=["POST"])
+@api.route("/login", methods=["GET", "POST"])
 def login():
     username = request.form.get("username")
     password = request.form.get("password")

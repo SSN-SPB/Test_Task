@@ -1,0 +1,14 @@
+{
+  "name": "cucumber-playwright-taf",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "cucumber-js",
+    "test:smoke": "cucumber-js --tags @smoke"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.9.0",
+    "@playwright/test": "^1.63.0",
+    "playwright": "^1.63.0"
+  }
+}
