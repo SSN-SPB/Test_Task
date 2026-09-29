@@ -12,9 +12,16 @@ flask_training/
 ```
 
 # Run
-from root CLI run:<br>
-
+## from root CLI:
+```
 python run.py
+```
+
+## from docker
+```
+docker build -t py-web-flask .
+docker run --rm -p 5000:5000 py-web-flask
+```
 
 # Check correctness
 
@@ -58,4 +65,28 @@ Users
     "name": "Robert"
   }
 ]
+```
+
+## API
+```
+curl http://localhost:5000/api/health -UseBasicParsing
+expect output:
+StatusCode        : 200
+StatusDescription : OK
+Content           : {"service":"flask-training","status":"ok"}
+
+RawContent        : HTTP/1.1 200 OK
+                    Connection: close
+```
+or
+```
+curl http://localhost:5000/api/users
+expect output:
+StatusCode        : 200
+StatusDescription : OK
+Content           : [{"id":1,"name":"John"},{"id":2,"name":"Jane"},{"id":3,"name":"Robert"}]
+
+RawContent        : HTTP/1.1 200 OK
+                    Connection: close
+
 ```
