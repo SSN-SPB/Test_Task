@@ -3,7 +3,9 @@ name: Docker Flask
 on:
   push:
     branches:
-      - main
+#      - main
+#      - master
+      - '**'   # run on all branches (optional)
   pull_request:
 
 jobs:
