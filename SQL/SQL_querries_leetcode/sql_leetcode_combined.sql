@@ -727,6 +727,32 @@ SELECT C2.C1C AS customer_id FROM
     ) AS C2
                     -- WHERE C2.TOTAL = (SELECT COUNT(*) FROM Product) -- BOTH WORK WELL
 
+1148. Article Views I
+https://leetcode.com/problems/article-views-i/description/
+
+Table: Views
+
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| article_id    | int     |
+| author_id     | int     |
+| viewer_id     | int     |
+| view_date     | date    |
++---------------+---------+
+There is no primary key (column with unique values) for this table, the table may have duplicate rows.
+Each row of this table indicates that some viewer viewed an article (written by some author) on some date.
+Note that equal author_id and viewer_id indicate the same person.
+
+
+Write a solution to find all the authors that viewed at least one of their own articles.
+
+Return the result table sorted by id in ascending order.
+
+
+SELECT DISTINCT(V.author_id) AS ID FROM VIEWS V WHERE V.author_id = V.viewer_id ORDER BY V.author_id
+
+
 
 1050. Actors and Directors Who Cooperated At Least Three Times
 https://leetcode.com/problems/actors-and-directors-who-cooperated-at-least-three-times/description/
