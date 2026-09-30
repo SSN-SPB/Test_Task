@@ -49,3 +49,14 @@ def get_users():
     ]
 
     return jsonify(users)
+
+
+@api.route("/api/books", methods=["GET"])
+def get_books():
+    users = [
+        {"id": 1, "name": "ABC", "edition": "NYT"},
+        {"id": 11, "name": "ABC11", "edition": "NYT11"},
+        {"id": 13, "name": "ABC13", "edition": "NYT13"},
+    ]
+
+    return jsonify(users)
