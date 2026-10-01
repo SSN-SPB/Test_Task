@@ -1,7 +1,7 @@
 from PIL import Image, ImageChops
 
-original = Image.open("actual_demo.png").convert("RGBA")
-masked = Image.open("actual_with_applied_mask_demo.png").convert("RGBA")
+original = Image.open("actual_screenshot.png").convert("RGBA")
+masked = Image.open("actual_screenshot_with_added_mask.png").convert("RGBA")
 
 orig_pixels = original.load()
 mask_pixels = masked.load()
@@ -18,13 +18,6 @@ for y in range(height):
         if (r1, g1, b1) != (r2, g2, b2):
             result_pixels[x, y] = (r2, g2, b2, 255)  # opaque mask color
             masked_count += 1
-        # else: stays (0, 0, 0, 0) — transparent
 
-result.save("mask_image.png")
-print(f"mask_image.png saved — masked pixels: {masked_count}, total pixels: {width * height}")
-
-# Verify: apply mask back to original and compare with the pre-masked file
-initial_image = Image.open("actual_demo.png").convert("RGBA")
-composed = Image.alpha_composite(initial_image, result)
-composed.save("initial_image_with_applied_mask_demo.png")
-print("Verification image saved: initial_image_with_applied_mask_demo.png")
+result.save("found_difference_mask_image.png")
+print(f"found_difference_mask_image.png saved — masked pixels: {masked_count}, total pixels: {width * height}")

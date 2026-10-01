@@ -21,19 +21,19 @@ def test_demo_compare_screenshot(page):
     page_content = StartingPage(page)
     page_content.goto()
     snapshots = "screenshots"
-    actual_image = os.path.join(f".\\{snapshots}\\test_snapshots", "actual_demo.png")
+    actual_image = os.path.join(f".\\{snapshots}\\test_snapshots", "actual_screenshot.png")
     # make actual screenshot
     # page_content.make_screen_shot(actual_image)
 
-    # test_image = Image.open(f".\\{snapshots}\\test_snapshots\\actual_demo.png").convert(
+    # test_image = Image.open(f".\\{snapshots}\\test_snapshots\\actual_screenshot.png").convert(
     #     "RGB"
     # )
     # reference_image = Image.open(
-    #     f".\\{snapshots}\\test_snapshots\\actual_demo.png"
+    #     f".\\{snapshots}\\test_snapshots\\actual_screenshot.png"
     # ).convert("RGB")
 
     # apply mask above actual screenshot
-    base = Image.open(f".\\{snapshots}\\test_snapshots\\actual_demo.png").convert("RGBA")
+    base = Image.open(f".\\{snapshots}\\test_snapshots\\actual_screenshot.png").convert("RGBA")
     mask = Image.open(f".\\{snapshots}\\mask_snapshots\\mask_image.png").convert("RGBA")
 
     # save actual image with applied mask
