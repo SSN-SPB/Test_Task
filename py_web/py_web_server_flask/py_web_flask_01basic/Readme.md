@@ -20,7 +20,7 @@ python run.py
 ## from docker
 ```
 docker build -t py-web-flask .
-docker run --rm -p 5000:5000 py-web-flask
+docker run --rm --name flask-web-server -p 5000:5000 py-web-flask
 ```
 
 # Check correctness
