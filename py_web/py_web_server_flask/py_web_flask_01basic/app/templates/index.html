@@ -2,41 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flask Training</title>
+    <title>Flask Training - Login</title>
 </head>
 
 <body>
 
 <h1>Flask Training Application</h1>
 
-<h2>Health</h2>
-<div id="health"></div>
+<h2>Login</h2>
 
-<h2>Users</h2>
-<ul id="users"></ul>
+<form action="/login" method="POST">
 
-<script>
-    async function loadData() {
-        const healthResponse = await fetch("/api/health");
-        const health = await healthResponse.json();
+    <div>
+        <label for="username">Name:</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Enter your name"
+        >
+    </div>
 
-        document.getElementById("health").textContent =
-            `${health.status} - ${health.service}`;
+    <br>
 
-        const usersResponse = await fetch("/api/users");
-        const users = await usersResponse.json();
+    <div>
+        <label for="password">Password:</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+        >
+    </div>
 
-        const usersList = document.getElementById("users");
+    <br>
 
-        users.forEach(user => {
-            const li = document.createElement("li");
-            li.textContent = `${user.id}: ${user.name}`;
-            usersList.appendChild(li);
-        });
-    }
+    <button type="submit">Login</button>
 
-    loadData();
-</script>
+</form>
+
+{% if error %}
+    <p id="login-error">{{ error }}</p>
+{% endif %}
+
+<hr>
+
+<h3>Test credentials</h3>
+
+<p>
+    <strong>Name:</strong> Admin
+</p>
+
+<p>
+    <strong>Password:</strong> Pass123!
+</p>
 
 </body>
 </html>

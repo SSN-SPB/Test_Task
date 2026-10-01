@@ -8,6 +8,9 @@ def main():
     for y in count_plus(7):
         print(y)
     print(count_plus(17))
+    print(count_plus(17))
+    print(count_plus(117).__next__())
+    print(count_plus(117).__next__())
 
 
 if __name__ == "__main__":

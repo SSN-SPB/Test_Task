@@ -1,0 +1,44 @@
+name: Docker Flask
+
+on:
+  push:
+    branches:
+#      - main
+#      - master
+      - '**'   # run on all branches (optional)
+  pull_request:
+
+jobs:
+  docker-flask:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Build Docker image
+        working-directory: py_web/py_web_server_flask/py_web_flask_01basic
+        run: docker build -t py-web-flask .
+
+      - name: Start Flask container
+        run: docker run -d --name flask-app -p 5000:5000 py-web-flask
+
+      - name: Wait for Flask
+        run: sleep 3
+
+      - name: Check Flask health
+        run: curl --fail http://localhost:5000/api/health
+
+      - name: Check Flask users API
+        run: curl --fail http://localhost:5000/api/users
+
+      - name: Show container status
+        run: docker ps
+
+      - name: Show container logs
+        if: always()
+        run: docker logs flask-app
+
+      - name: Stop Flask container
+        if: always()
+        run: docker stop flask-app
