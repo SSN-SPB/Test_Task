@@ -1,4 +1,4 @@
-from PIL import Image, ImageChops
+from PIL import Image
 
 original = Image.open("actual_screenshot.png").convert("RGBA")
 masked = Image.open("actual_screenshot_with_added_mask.png").convert("RGBA")
@@ -16,7 +16,7 @@ for y in range(height):
         r1, g1, b1, _ = orig_pixels[x, y]
         r2, g2, b2, _ = mask_pixels[x, y]
         if (r1, g1, b1) != (r2, g2, b2):
-            result_pixels[x, y] = (r2, g2, b2, 255)  # opaque mask color
+            result_pixels[x, y] = (r2, g2, b2, 255)
             masked_count += 1
 
 result.save("found_difference_mask_image.png")
