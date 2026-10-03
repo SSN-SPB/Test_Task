@@ -20,20 +20,20 @@ It should be placed in the same directory as the script as well <br>
 ## Running the script
 To run the script, execute the following command in your terminal:
 ```
-python mask_generating_script.py
+python generate_mask.py
 ```
 Or by clicking the "Run" button in your IDE if you are using one. <br>
 
 # The expected result
-The script will generate a mask image named "found_difference_mask_image.png" in the same directory as the script. <br>
+The script will generate a mask image named "created_mask_image.png" in the same directory as the script. <br>
 
-# Using resulting mask image
+# Using resulting image
 ## A. As mask for further processing
 The resulting mask image can be used for further processing, <br>
 e.g. as 'mask image' in automation tests to apply it to initial and tested screenshots to mask areas
-that should be ignored in the comparison. <br>
-## B. As a final result 
+that should be ignored in the comparison - e.g. daily/user data. <br>
+## B. As a checking the difference between two screenshots received during automation tests
 The result is a visualization of differences between initial and tested screenshots that are received
-during automation tests or during manual testing.<br>
+during automation tests<br>
 
 
