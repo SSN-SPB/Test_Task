@@ -1,5 +1,6 @@
 // Target of this snippet is to filter the
-//numbers in the array that are less than the next element
+// numbers in the array that are less than the next element
+// array.filter((element, index, array) => ...)
 const assert = require("node:assert");
 
 const numbers_array = [3, 2, 4, 3, 4, 2, 4];
