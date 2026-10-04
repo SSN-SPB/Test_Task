@@ -1064,3 +1064,60 @@ SELECT S1.day, COUNT(S1.day) as active_users FROM
     HAVING A.activity_date <= '2019-07-27' AND A.activity_date > '2019-07-27' - INTERVAL 30 DAY
     ) S1
 GROUP BY S1.day
+
+1158. Market Analysis I
+https://leetcode.com/problems/market-analysis-i/description/
+Table: Users
+
++----------------+---------+
+| Column Name    | Type    |
++----------------+---------+
+| user_id        | int     |
+| join_date      | date    |
+| favorite_brand | varchar |
++----------------+---------+
+user_id is the primary key (column with unique values) of this table.
+This table has the info of the users of an online shopping website where users can sell and buy items.
+
+
+Table: Orders
+
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| order_id      | int     |
+| order_date    | date    |
+| item_id       | int     |
+| buyer_id      | int     |
+| seller_id     | int     |
++---------------+---------+
+order_id is the primary key (column with unique values) of this table.
+item_id is a foreign key (reference column) to the Items table.
+buyer_id and seller_id are foreign keys to the Users table.
+
+
+Table: Items
+
++---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| item_id       | int     |
+| item_brand    | varchar |
++---------------+---------+
+item_id is the primary key (column with unique values) of this table.
+
+
+Write a solution to find for each user, the join date and the number of orders they made as a buyer in 2019.
+
+Return the result table in any order.
+
+SELECT U1.user_id AS buyer_id, U1.join_date, IFNULL(S1.in_2019, 0) AS orders_in_2019
+FROM USERS U1
+LEFT JOIN
+    (
+    SELECT U.user_id, O.order_id, COUNT(O.order_id) AS in_2019 FROM USERS U
+    LEFT JOIN ORDERS O ON U.user_id = O.buyer_id
+    WHERE O.order_date < '2020-01-01' AND O.order_date >= '2019-01-01'
+    GROUP BY U.user_id
+    ) S1
+ON U1.user_id = S1.user_id
