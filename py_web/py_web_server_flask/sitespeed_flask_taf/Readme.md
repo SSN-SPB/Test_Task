@@ -17,15 +17,23 @@
 - To verify that sitespeed.io is installed correctly, run the following command in your terminal:
 ```bash
 node .\node_modules\sitespeed.io\bin\sitespeed.js --version
-node .\node_modules\sitespeed.io\bin\sitespeed.js http://127.0.0.1:5000/ -b chrome -n 1
 ```
 - ## Run tests
+- ### Running via node.js CLI
+
+```bash
+node .\node_modules\sitespeed.io\bin\sitespeed.js http://127.0.0.1:5000/ -b chrome -n 1
+```
+#### Expected output for node.js CLI
+See file like `sitespeed-result\127.0.0.1\2026-10-05-22-20-32\index.html` for the generated reports. <br>
+
+- ### Running via pytest
 - To run the tests, execute the following command in your terminal:
 ```bash
 pytest -v
 ```
 
-- ## The test results
+- #### Expected output for pytest
 - The test results will be generated in the `reports/sitespeed` directory. <br>
 - You can open the `index.html` file in a web browser to view detailed performance metrics and reports.<br>
 - ## Contributing
@@ -36,4 +44,4 @@ pytest -v
 3. Push your changes to your forked repository.
 4. Create a pull request to the main repository.
 ## License
-6. This project is licensed under the MIT License.
+This project is licensed under the MIT License.
