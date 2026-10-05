@@ -1,5 +1,5 @@
 # Purpose of script
-This script is designed to generate masks for images using a specified algorithm. <br>
+This script is designed to generate masks screenshot for image. <br>
 It can be used in various applications such as image processing, computer vision, <br>
 and machine learning tasks where masking is required. <br>
 
@@ -30,9 +30,9 @@ The script will generate a mask image named "created_mask_image.png" in the same
 # Using resulting image
 ## A. As mask for further processing
 The resulting mask image can be used for further processing, <br>
-e.g. as 'mask image' in automation tests to apply it to initial and tested screenshots to mask areas
+e.g. as 'mask image' in automation tests to apply it to referenced and actual screenshots to mask areas
 that should be ignored in the comparison - e.g. daily/user data. <br>
-## B. As a checking the difference between two screenshots received during automation tests
+## B. For manual checking the difference between two screenshots
 The result is a visualization of differences between initial and tested screenshots that are received
 during automation tests<br>
 
