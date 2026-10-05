@@ -12,16 +12,21 @@ SITESPEED_SCRIPT = (
     / "sitespeed.js"
 )
 
+CONFIG_FILE = PROJECT_ROOT / "config" / "sitespeed.json"
+REPORT_DIR = PROJECT_ROOT / "reports" / "sitespeed"
+
 
 def run_sitespeed(url: str) -> subprocess.CompletedProcess:
+    REPORT_DIR.mkdir(parents=True, exist_ok=True)
+
     command = [
         "node",
         str(SITESPEED_SCRIPT),
+        "--config",
+        str(CONFIG_FILE),
+        "--outputFolder",
+        str(REPORT_DIR),
         url,
-        "-b",
-        "chrome",
-        "-n",
-        "1",
     ]
 
     return subprocess.run(

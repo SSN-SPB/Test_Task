@@ -19,4 +19,21 @@
 node .\node_modules\sitespeed.io\bin\sitespeed.js --version
 node .\node_modules\sitespeed.io\bin\sitespeed.js http://127.0.0.1:5000/ -b chrome -n 1
 ```
+- ## Run tests
+- To run the tests, execute the following command in your terminal:
+```bash
+pytest -v
+```
 
+- ## The test results
+- The test results will be generated in the `reports/sitespeed` directory. <br>
+- You can open the `index.html` file in a web browser to view detailed performance metrics and reports.<br>
+- ## Contributing
+- We welcome contributions to this Test Automation Framework. If you would like to contribute, please follow these steps:
+- Fork the repository.
+1. Create a new branch for your feature or bug fix.
+2. Make your changes and commit them with descriptive messages.
+3. Push your changes to your forked repository.
+4. Create a pull request to the main repository.
+## License
+6. This project is licensed under the MIT License.
