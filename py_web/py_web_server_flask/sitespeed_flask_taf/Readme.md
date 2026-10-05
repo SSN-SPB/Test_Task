@@ -34,7 +34,7 @@ pytest -v
 ```
 
 - #### Expected output for pytest
-- The test results will be generated in the `reports/sitespeed` directory. <br>
+- The test results will be generated in the `reports/sitespeed/<report_name>/` directory. <br>
 - You can open the `index.html` file in a web browser to view detailed performance metrics and reports.<br>
 - ## Contributing
 - We welcome contributions to this Test Automation Framework. If you would like to contribute, please follow these steps:

@@ -3,8 +3,7 @@ from utils.sitespeed_runner import run_sitespeed
 
 def test_flask_homepage_performance():
     result = run_sitespeed(
-        "http://127.0.0.1:5000/",
-        report_name="homepage",
+        "http://127.0.0.1:5000/api/health", report_name="api_health_check"
     )
 
     print(result.stdout)
