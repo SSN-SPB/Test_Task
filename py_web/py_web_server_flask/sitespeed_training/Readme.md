@@ -2,6 +2,8 @@
 ## Docker command line
 ```
 docker run --rm -v ${PWD}:/sitespeed.io sitespeedio/sitespeed.io:latest http://host.docker.internal:5000/
+or e.g. for external site
+docker run --rm -v ${PWD}:/sitespeed.io sitespeedio/sitespeed.io:latest https://schultetable.ru/training/
 ```
 It analyzes page: http://localhost:5000/ <br>
 <br>

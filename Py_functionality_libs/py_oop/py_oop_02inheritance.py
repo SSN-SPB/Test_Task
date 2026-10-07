@@ -61,7 +61,7 @@ class LoginTest(BaseClass):
 
     def teardown(self) -> None:
         """Clean up login test resources."""
-        print(f"from LoginTest teardown")
+        print("from LoginTest teardown")
         self.login_user = None
         super().teardown()  # Call parent class teardown
 
@@ -86,7 +86,9 @@ class BuyTest(BaseClass):
         """Set up purchase test environment."""
         super().setup()  # Call parent class setup
         self.purchase_amount = 99.99
-        print(f"Purchase test setup: amount initialized to {self.purchase_amount}")
+        print(
+            f"Purchase test setup: amount initialized to {self.purchase_amount}"
+        )
 
 
 def main() -> None:

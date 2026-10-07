@@ -17,7 +17,9 @@ class TestLoginTest(unittest.TestCase):
         login_test = LoginTest()
         with self.assertLogs() as log:
             login_test.setup()
-        self.assertIn("make setup login and override the base class", log.output[0])
+        self.assertIn(
+            "make setup login and override the base class", log.output[0]
+        )
 
     def run_invokes_correct_message(self):
         login_test = LoginTest()

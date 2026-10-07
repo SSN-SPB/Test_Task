@@ -59,12 +59,18 @@ def main():
     tr_test = Triangle()
     fg_test.setup()
     sq_test.setup()
-    print(f" The area of Figure{fg_test.__class__.__name__} is {fg_test.count_area()}")
-    print(f" The area of Square {sq_test.__class__.__name__} is {sq_test.count_area()}")
+    print(
+        f" The area of Figure{fg_test.__class__.__name__} is {fg_test.count_area()}"
+    )
+    print(
+        f" The area of Square {sq_test.__class__.__name__} is {sq_test.count_area()}"
+    )
     print(
         f" The area of Triangle {tr_test.__class__.__name__} is {tr_test.count_area()}"
     )
-    print(f" The area of {sq_test.__class__.__name__} is {sq_test.count_area(5, 6)}")
+    print(
+        f" The area of {sq_test.__class__.__name__} is {sq_test.count_area(5, 6)}"
+    )
 
 
 if __name__ == "__main__":

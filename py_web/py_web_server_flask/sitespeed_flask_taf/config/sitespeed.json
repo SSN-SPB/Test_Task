@@ -1,0 +1,17 @@
+{
+  "browsertime": {
+    "browser": "chrome",
+    "iterations": 3
+  },
+  "html": {
+    "pageSummaryMetrics": [
+      "timings.pageLoadTime",
+      "timings.serverResponseTime",
+      "googleWebVitals.firstContentfulPaint",
+      "googleWebVitals.largestContentfulPaint",
+      "transferSize.total",
+      "requests.total",
+      "score.performance"
+    ]
+  }
+}
