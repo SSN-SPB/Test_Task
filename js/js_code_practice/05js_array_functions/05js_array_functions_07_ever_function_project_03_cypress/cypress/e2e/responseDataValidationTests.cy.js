@@ -1,11 +1,15 @@
 import { responses } from "../../testArrayData.js";
-import { isCode200, isCode201 } from "../../checkingFunction.js";
+import {
+  isCode200,
+  isCode201,
+  allResponsesLess300,
+} from "../../checkingFunction.js";
 
 describe("Response code validation", () => {
   it("Ensure response codes are less then 300", () => {
     console.log("Check response codes:");
 
-    const result = responses.every((response) => response.status < 300);
+    const result = responses.every(allResponsesLess300);
 
     console.log("All responses have status < 300:", result);
 
@@ -15,7 +19,7 @@ describe("Response code validation", () => {
   it("The first user has status 200", () => {
     console.log("Check response codes:");
 
-    const result = responses[0].status === 200;
+    const result = isCode200(responses[0]);
 
     console.log("The first user have status 200:", result);
 
@@ -25,7 +29,7 @@ describe("Response code validation", () => {
   it("The last user has status 201", () => {
     console.log("Check response codes:");
 
-    const result = responses[3].status === 201;
+    const result = isCode201(responses[3]);
 
     console.log("The last user have status 201:", result);
 
