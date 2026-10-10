@@ -3,6 +3,7 @@ import {
   isCode200,
   isCode201,
   allResponsesLess300,
+  endpointContactHasStatus200,
 } from "../../checkingFunction.js";
 
 describe("Response code validation", () => {
@@ -35,4 +36,17 @@ describe("Response code validation", () => {
 
     expect(result).to.be.true;
   });
+
+  it("Test that endpoing Contacts has response code 200", () => {
+
+  expect (endpointContactHasStatus200(responses)).to.be.true;
+
+  });
+
+
+
+
+
+
+
 });
