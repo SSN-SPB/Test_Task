@@ -2,6 +2,7 @@
 # it is similar to switch case statement in other programming languages
 # It is available in python 3.10 and above
 
+
 def exact_state_checking(status_code_200x):
     match status_code_200x:
         case 200:
