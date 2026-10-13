@@ -83,9 +83,9 @@ You can also run tests for a specific page by navigating to the corresponding te
 pytest .\tests\<page_name>\test_<page_name>_page.py
 ```
 
-You can also run tests in headless mode by adding the `--run_without_ui=true` flag:
+The default headless mode - true. To run with UI by adding the `--run_without_ui=false` flag:
 ```bash
-pytest .\tests\<page_name>\test_<page_name>_page.py --run_without_ui=true
+pytest .\tests\<page_name>\test_<page_name>_page.py --run_without_ui=false
 ```
 The headless mode is useful for CI/CD pipelines or when you don't need to see the browser UI. It is default for this project.
 
@@ -94,6 +94,29 @@ You can select browser by adding the `--browser_type` flag:
 pytest .\tests\<page_name>\test_<page_name>_page.py --browser_type=firefox
 ```
 Allowed values: ["chromium", "firefox", "webkit"] The default browser is Chromium.
+
+### Run in parallel
+
+#### Install library
+```bash
+python -m pip install pytest-xdist
+```
+
+#### Run in parallel
+```bash
+pytest -n 2	Run using 2 worker processes
+pytest -n 4	Run using 4 worker processes
+pytest -n auto	Choose worker count automatically
+pytest -n 0	Explicitly disable xdist
+```
+
+####Measure Powershell
+```bash
+Measure-Command { pytest }
+Measure-Command { pytest -n 2 }
+Measure-Command { pytest -n 4 }
+Measure-Command { pytest -n 4 --dist loadscope }
+```
 
 
 ## Allure Reporting
