@@ -39,7 +39,9 @@ def compute_bleu(reference, prediction, weights=(0.25, 0.25, 0.25, 0.25)):
 # -------------------------
 # 3. ROUGE Evaluation
 # -------------------------
-rouge = rouge_scorer.RougeScorer(["rouge1", "rouge2", "rougeL"], use_stemmer=True)
+rouge = rouge_scorer.RougeScorer(
+    ["rouge1", "rouge2", "rougeL"], use_stemmer=True
+)
 
 
 def compute_rouge(reference, prediction):

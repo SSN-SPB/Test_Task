@@ -10,15 +10,15 @@ within project's root directory
 # Images explanation
 <br>
 <b>Permanent files in project: </b><br>
-<li>\mask_snapshots\mask_image.png - Screen the mask on areas of screenshot that should be applied for images</li><br>
-<li>\reference_snapshots\reference.png -  expected view of actual screenshot with applied mask image</li><br>
-<li>\test_snapshots\actual_demo1.png - Preserved for the test scenarios </li><br>
+<li>\screenshots\mask_snapshots\mask_image.png - Screen the mask on areas of screenshot that should be applied for images</li><br>
+<li>\screenshots\reference_snapshots\reference.png -  expected view of actual screenshot with applied mask image</li><br>
+<li>\screenshots\test_snapshots\actual_demo1.png - Preserved for the test scenarios </li><br>
 <i>Remark: the other files are used to update mask_image.png and reference.png for specific scenarios </i><br>
 <br>
 <b>Images created during the test:</b> <br>
-<li>\test_snapshots\actual.png - Actual screenshot </li><br>
-<li>\test_snapshots\actual_with_applied_mask.png -  actual image with applied mask image</li><br>
-<li>\differences_snapshots\found_differences.png - test creates it <b>if the difference is found </b></li><br> 
+<li>\screenshots\test_snapshots\actual.png - Actual screenshot </li><br>
+<li>\screenshots\test_snapshots\actual_with_applied_mask.png -  actual image with applied mask image</li><br>
+<li>\screenshots\differences_snapshots\found_differences.png - test creates it <b>if the difference is found </b></li><br> 
 <br>
 <b>Compared files:</b><br>
 \test_snapshots\actual_with_applied_mask.png vs reference.png\reference_snapshots\reference.png <br>

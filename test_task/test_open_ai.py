@@ -15,7 +15,9 @@ completion = client.completions.create(
 completion = client.chat.completions.create(
     model=model,
     # messages
-    messages=[{"role": "user", "content": "Please provide explanation for asteroids"}],
+    messages=[
+        {"role": "user", "content": "Please provide explanation for asteroids"}
+    ],
     # model parameters
     max_tokens=None,
 )

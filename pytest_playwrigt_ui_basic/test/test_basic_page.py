@@ -22,8 +22,11 @@ def test_demo_compare_screenshot(page):
     page_content.goto()
     snapshots = "screenshots"
     actual_image = os.path.join(f".\\{snapshots}\\test_snapshots", "actual_screenshot.png")
-    # make actual screenshot
-    # page_content.make_screen_shot(actual_image)
+    # make actual screenshot - can should be commented to use
+    # demo actual screenshots
+    page_content.make_screen_shot(actual_image)
+    # actual_modified_for_the_test.png - should be copied to actual_screenshot.png
+    # actual_corrupted_for_the_test.png - should be copied to actual_screenshot.png
 
     # test_image = Image.open(f".\\{snapshots}\\test_snapshots\\actual_screenshot.png").convert(
     #     "RGB"
@@ -38,14 +41,18 @@ def test_demo_compare_screenshot(page):
 
     # save actual image with applied mask
     result = Image.alpha_composite(base, mask)
-    result.save(f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask_demo.png")
+    result.save(f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask.png")
 
-    # define the reference and tested images
+    # select reference screenshot
+    # reference_corrupted_for_test.png
+    # or
+    # reference_modified_for_test.png
+    # should be copied to reference.png
     reference_image = Image.open(
-        f".\\{snapshots}\\reference_snapshots\\reference_demo.png"
+        f".\\{snapshots}\\reference_snapshots\\reference.png"
     ).convert("RGB")
     test_image = Image.open(
-        f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask_demo.png"
+        f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask.png"
     ).convert("RGB")
 
     # Getting the differences between reference and tested images
@@ -54,7 +61,8 @@ def test_demo_compare_screenshot(page):
 
     # Creating the image with difference (if any)
     if diff.getbbox():
-        logger.info("Detected demo difference between test and reference snapshots.")
+        logger.info("Detected demo difference")
+        logger.info("between test and reference snapshots.")
         diff = diff.convert("L")  # grayscale
         diff = diff.point(lambda x: 255 if x > 0 else 0)
         # diff with decreased threshold
