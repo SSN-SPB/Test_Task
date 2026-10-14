@@ -8,7 +8,6 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-
 def test_google_page(page):
     page_content = StartingPage(page)
     page_content.goto()
@@ -21,12 +20,16 @@ def test_demo_compare_screenshot(page):
     page_content = StartingPage(page)
     page_content.goto()
     snapshots = "screenshots"
-    actual_image = os.path.join(f".\\{snapshots}\\test_snapshots", "actual_screenshot.png")
-    # make actual screenshot - can should be commented to use
-    # demo actual screenshots
+    # define the name of actual screenshot
+    actual_image = os.path.join(
+        f".\\{snapshots}\\test_snapshots", "actual_screenshot.png"
+    )
+    # make actual screenshot - can should be commented to use demo screenshots
     page_content.make_screen_shot(actual_image)
-    # actual_modified_for_the_test.png - should be copied to actual_screenshot.png
-    # actual_corrupted_for_the_test.png - should be copied to actual_screenshot.png
+    # for the demo
+    # one of these two images should be saved as the actual_screenshot.png
+    # actual_modified_for_the_test.png
+    # actual_corrupted_for_the_test.png
 
     # test_image = Image.open(f".\\{snapshots}\\test_snapshots\\actual_screenshot.png").convert(
     #     "RGB"
@@ -36,18 +39,25 @@ def test_demo_compare_screenshot(page):
     # ).convert("RGB")
 
     # apply mask above actual screenshot
-    base = Image.open(f".\\{snapshots}\\test_snapshots\\actual_screenshot.png").convert("RGBA")
-    mask = Image.open(f".\\{snapshots}\\mask_snapshots\\mask_image.png").convert("RGBA")
+    base = Image.open(
+        f".\\{snapshots}\\test_snapshots\\actual_screenshot.png"
+    ).convert("RGBA")
+    mask = Image.open(
+        f".\\{snapshots}\\mask_snapshots\\mask_image.png"
+    ).convert("RGBA")
 
     # save actual image with applied mask
     result = Image.alpha_composite(base, mask)
-    result.save(f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask.png")
+    result.save(
+        f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask.png"
+    )
 
     # select reference screenshot
+    # for memo
     # reference_corrupted_for_test.png
     # or
     # reference_modified_for_test.png
-    # should be copied to reference.png
+    # should be saved as reference.png
     reference_image = Image.open(
         f".\\{snapshots}\\reference_snapshots\\reference.png"
     ).convert("RGB")
@@ -65,13 +75,16 @@ def test_demo_compare_screenshot(page):
         logger.info("between test and reference snapshots.")
         diff = diff.convert("L")  # grayscale
         diff = diff.point(lambda x: 255 if x > 0 else 0)
-        # diff with decreased threshold
-        # logger.info("Detected difference is considered as a noise and ignored")
+        # Comment line above and uncomment line below
+        # to get the decreased threshold
         # diff = diff.point(lambda x: 255 if x > 240 else 0)
+        # logger.info("Found difference is considered as a noise and ignored")
 
-        diff.save(f".\\{snapshots}\\differences_snapshots\\found_differences_demo.png")
+        diff.save(
+            f".\\{snapshots}\\differences_snapshots\\found_differences_demo.png"
+        )
 
-    # assert True
+    # expected that no difference and => diff.getbbox() doesn't exist
     assert not diff.getbbox()
 
 
@@ -80,17 +93,25 @@ def _test_compare_screenshot(page):
     page_content.goto()
     snapshots = "screenshots"
     # define the path for actual screenshot
-    actual_image = os.path.join(f".\\{snapshots}\\test_snapshots", "actual.png")
+    actual_image = os.path.join(
+        f".\\{snapshots}\\test_snapshots", "actual.png"
+    )
     # make actual screenshot
     page_content.make_screen_shot(actual_image)
 
     # apply mask above actual screenshot
-    base = Image.open(f".\\{snapshots}\\test_snapshots\\actual.png").convert("RGBA")
-    mask = Image.open(f".\\{snapshots}\\mask_snapshots\\mask_image.png").convert("RGBA")
+    base = Image.open(f".\\{snapshots}\\test_snapshots\\actual.png").convert(
+        "RGBA"
+    )
+    mask = Image.open(
+        f".\\{snapshots}\\mask_snapshots\\mask_image.png"
+    ).convert("RGBA")
 
     # save actual image with applied mask
     result = Image.alpha_composite(base, mask)
-    result.save(f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask.png")
+    result.save(
+        f".\\{snapshots}\\test_snapshots\\actual_with_applied_mask.png"
+    )
 
     # define the reference and tested images
     reference_image = Image.open(
@@ -102,15 +123,21 @@ def _test_compare_screenshot(page):
 
     # Getting the differences between reference and tested images
     diff = ImageChops.difference(test_image, reference_image)
-    logger.info(f"The found difference between two images is: {diff.getbbox()}")
+    logger.info(
+        f"The found difference between two images is: {diff.getbbox()}"
+    )
 
     # Creating the image with difference (if any)
     if diff.getbbox():
-        logger.info("Detected difference between test and reference snapshots.")
+        logger.info(
+            "Detected difference between test and reference snapshots."
+        )
         diff = diff.convert("L")  # grayscale
         # diff with maximal sensitivity
         diff = diff.point(lambda x: 255 if x > 0 else 0)
 
-        diff.save(f".\\{snapshots}\\differences_snapshots\\found_differences.png")
+        diff.save(
+            f".\\{snapshots}\\differences_snapshots\\found_differences.png"
+        )
 
     assert not diff.getbbox()
