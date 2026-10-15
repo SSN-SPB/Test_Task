@@ -1,5 +1,5 @@
 import pytest
-from playwright.sync_api import Page, sync_playwright
+from playwright.sync_api import sync_playwright
 
 
 # Define a pytest fixture to set up Playwright and browser instance

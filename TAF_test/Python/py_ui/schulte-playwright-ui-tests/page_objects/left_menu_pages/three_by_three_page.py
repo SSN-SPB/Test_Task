@@ -33,7 +33,5 @@ class ThreeByThreePage(BasePage):
         return {str(i) for i in range(1, self.TABLE_SIZE + 1)}
 
     def is_active(self):
-        class_attr = self.page.locator(self.MENU_BUTTON).get_attribute(
-            "class"
-        )
+        class_attr = self.page.locator(self.MENU_BUTTON).get_attribute("class")
         return class_attr and "active" in class_attr

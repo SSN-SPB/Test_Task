@@ -1,9 +1,16 @@
 # Purpose of script
-This script is designed to generate masks screenshot for image. <br>
-It can be used in various applications such as image processing, computer vision, <br>
-and machine learning tasks where masking is required. <br>
+This script is designed to generate mask screenshot for image. <br>
+## Case
+There is initial image that contains areas that should be ignored during UI screenshot comparison test
+## Flow
+- Create copy of this image and paint(hide) areas that should be ignored during UI screenshot comparison test
+- Run the script to save the difference between these two files to separate mask image
+## Result
+The mask image is generated
 
-# Runnin the script
+
+
+# Using the script
 ## Prerequisites
 The script requires Python 3.x and the following libraries:
 ```commandline
@@ -12,11 +19,12 @@ from PIL import Image
 ## Data Preparation
 ### 1. Prepare Initial Image 
 The image should be in a format supported by the PIL library, such as JPEG or PNG.<br>
-In the script it is named as "actual_screenshot.png" and should be placed in the same directory as the script. <br>
+In the script it is named as "actual_screenshot.png" <br>
 ### 2. Prepare copy of the initial image with applied mask
 The image should be in a format supported by the PIL library, such as JPEG or PNG.<br>
 In the script it is named as "actual_screenshot_with_added_mask.png"
-It should be placed in the same directory as the script as well <br>
+### 3. Copy these images to the same directory
+Images should be placed in the same directory with the script<br>
 ## Running the script
 To run the script, execute the following command in your terminal:
 ```
