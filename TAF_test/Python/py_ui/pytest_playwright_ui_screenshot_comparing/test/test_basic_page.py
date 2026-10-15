@@ -14,7 +14,6 @@ def test_google_page(page):
     Playwright test without screenshot comparing
     by checking the presence of the "Restart" button
     and the visibility of the search box.
-
     """
     page_content = StartingPage(page)
     page_content.goto()
@@ -40,7 +39,7 @@ def test_demo_compare_screenshot(page):
     mask_path = snapshots / "mask_snapshots" / "mask_image.png"
     actual_masked_path = snapshots / "test_snapshots" / "actual_with_mask.png"
     difference_path = (
-        snapshots / "differences_snapshots" / "found_differences_demo.png"
+        snapshots / "differences_snapshots" / "found_differences.png"
     )
     # make actual screenshot - should be commented to use demo screenshots
     page_content.make_screen_shot(actual_path)
@@ -76,8 +75,7 @@ def test_demo_compare_screenshot(page):
         diff = diff.convert("L")  # grayscale
         diff = diff.point(lambda x: 255 if x > 0 else 0)
         # to get the decreased threshold
-        # comment line above and uncomment line below
-        # diff = diff.point(lambda x: 255 if x > 240 else 0)
+        # increase the value in the lambda function above e.g. 240 instead of 0
 
         diff.save(difference_path)
 
