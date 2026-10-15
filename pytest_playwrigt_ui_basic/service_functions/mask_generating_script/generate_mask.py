@@ -34,4 +34,3 @@ if masked_count != 0:
 
 # save the result with the difference between images to a file
 result.save("created_mask_image.png")
-
