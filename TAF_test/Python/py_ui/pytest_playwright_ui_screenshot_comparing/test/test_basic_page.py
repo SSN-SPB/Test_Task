@@ -1,6 +1,6 @@
-import os
 import logging
 from pathlib import Path
+
 from PIL import Image, ImageChops
 from pytest_playwrigt_ui_basic.page_objects.base_page import StartingPage
 

@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from PIL import Image
 
 
@@ -29,8 +30,8 @@ def generate_mask(
     orig_pixels = original.load()
     mask_pixels = masked.load()
     # check if the dimensions of the original and masked images are the same
-    # it is mandatory that the original
-    # and masked images have the same dimensions
+    # it is mandatory that the original and masked images
+    # have the same dimensions
     if original.size != masked.size:
         raise ValueError(
             f"The difference of sizes is found: "
@@ -51,7 +52,7 @@ def generate_mask(
             r1, g1, b1, _ = orig_pixels[x, y]
             r2, g2, b2, _ = mask_pixels[x, y]
             # if the pixels are is different,
-            # set the pixel from mask image into the result image
+            # set the pixel into the result image
             if (r1, g1, b1) != (r2, g2, b2):
                 result_pixels[x, y] = (r2, g2, b2, 255)
                 masked_count += 1
