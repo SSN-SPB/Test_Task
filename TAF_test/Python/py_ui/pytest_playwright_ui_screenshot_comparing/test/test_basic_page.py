@@ -1,9 +1,7 @@
 import os
 import logging
 from PIL import Image, ImageChops
-from TAF_test.Python.py_ui.pytest_playwright_ui_screenshot_comparing.service_functions.ui import page, browser
-from TAF_test.Python.py_ui.pytest_playwright_ui_screenshot_comparing.page_objects.base_page import StartingPage
-
+from pytest_playwrigt_ui_basic.page_objects.base_page import StartingPage
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -86,7 +84,10 @@ def test_demo_compare_screenshot(page):
         # logger.info("Found difference is considered as a noise and ignored")
 
         diff.save(
-            f".\\{snapshots}\\differences_snapshots\\found_differences_demo.png"
+            os.path.join(
+                f".\\{snapshots}\\differences_snapshots",
+                "found_differences_demo.png",
+            )
         )
 
     # expected that there is no difference between images
