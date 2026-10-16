@@ -48,11 +48,11 @@ def test_demo_compare_screenshot(page):
     # - actual_modified_for_the_test.png
     # - actual_corrupted_for_the_test.png
 
-    # apply mask above actual screenshot
+    # convert the image and mask into the required RGBA format
     base = Image.open(actual_path).convert("RGBA")
     mask = Image.open(mask_path).convert("RGBA")
 
-    # make an actual image with applied mask and save it to the file
+    # apply a mask to the above image and save it to the file
     result = Image.alpha_composite(base, mask)
     result.save(actual_masked_path)
 
@@ -70,14 +70,16 @@ def test_demo_compare_screenshot(page):
 
     # Creating the image with difference (if any)
     if diff.getbbox():
-        logger.info("Detected demo difference")
-        logger.info("between test and reference snapshots.")
         diff = diff.convert("L")  # grayscale
         diff = diff.point(lambda x: 255 if x > 0 else 0)
         # to get the decreased threshold
         # increase the value in the lambda function above e.g. 240 instead of 0
 
+        logger.info(
+            "The difference found between test and reference snapshots."
+        )
         diff.save(difference_path)
+        logger.info(f"See the saved file: {difference_path}")
 
     # expected that there is no difference between images
     # and therefore => diff.getbbox() doesn't exist
