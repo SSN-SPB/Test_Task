@@ -75,7 +75,7 @@ def test_demo_compare_screenshot(page):
         # modify the value in the lambda function above e.g. 240 instead of 0
 
         logger.info("The difference is found")
-        logger.info(f" The affected points: {diff.getbbox()}.")
+        logger.info(f"The affected points: {diff.getbbox()}.")
         diff.save(difference_path)
         logger.info(f"See the saved file: {difference_path}")
 
