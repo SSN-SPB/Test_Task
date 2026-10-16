@@ -66,18 +66,16 @@ def test_demo_compare_screenshot(page):
 
     # Getting the differences between reference and actual images
     diff = ImageChops.difference(test_image, reference_image)
-    logger.info(f"The difference found for demo is: {diff.getbbox()}")
 
     # Creating the image with difference (if any)
     if diff.getbbox():
-        diff = diff.convert("L")  # grayscale
+        diff = diff.convert("L")
         diff = diff.point(lambda x: 255 if x > 0 else 0)
-        # to get the decreased threshold
-        # increase the value in the lambda function above e.g. 240 instead of 0
+        # to decrease threshold
+        # modify the value in the lambda function above e.g. 240 instead of 0
 
-        logger.info(
-            "The difference found between test and reference snapshots."
-        )
+        logger.info("The difference is found")
+        logger.info(f" The affected points: {diff.getbbox()}.")
         diff.save(difference_path)
         logger.info(f"See the saved file: {difference_path}")
 
