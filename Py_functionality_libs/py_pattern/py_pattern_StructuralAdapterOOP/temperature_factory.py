@@ -1,7 +1,9 @@
-from temperature_adapters import (FahrenheitToCelsiusAdapter,
-                                  FahrenheitToKelvinAdapter,
-                                  FahrenheitToRankineAdapter,
-                                  FahrenheitToReaumurAdapter)
+from temperature_adapters import (
+    FahrenheitToCelsiusAdapter,
+    FahrenheitToKelvinAdapter,
+    FahrenheitToRankineAdapter,
+    FahrenheitToReaumurAdapter,
+)
 
 
 class TemperatureAdapterFactory:
