@@ -14,7 +14,9 @@ def main():
     greet(name="Alice", age=30, city="New York")
 
     print(" Practical Example: Formatting User Profiles")
-    order_summary("Laptop", 2, color="Silver", warranty="2 years", delivery="Express")
+    order_summary(
+        "Laptop", 2, color="Silver", warranty="2 years", delivery="Express"
+    )
 
     # Passing **kwargs to Another Function
     print("Passing **kwargs to Another Function")

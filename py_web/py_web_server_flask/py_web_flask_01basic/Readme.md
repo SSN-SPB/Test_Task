@@ -4,8 +4,13 @@ flask_training/
 │
 ├── app/
 │   ├── __init__.py
+│   ├── templates/
+│   │   └── data.html
+│   │   └── data.html
 │   └── routes.py
 │
+├── database/
+│   └── init_db.py
 │
 ├── requirements.txt
 └── run.py
@@ -89,4 +94,21 @@ Content           : [{"id":1,"name":"John"},{"id":2,"name":"Jane"},{"id":3,"name
 RawContent        : HTTP/1.1 200 OK
                     Connection: close
 
+```
+
+## DB
+### Driver preparation
+#### Install and check Drivers
+```commandline
+python -m pip install pyodbc
+python -c "import pyodbc; print(pyodbc.drivers())"
+expected output
+['SQL Server', 'ODBC Driver 18 for SQL Server', 'Microsoft Access Driver (*.mdb, *.accdb)', 'Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)', 'Microsoft Access Text Driver (*.txt, *.csv)', 'Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx)']
+```
+#### Add Flask and pyodbc into requirements.txt
+### Check DB
+```commandline
+$env:DB_PASSWORD = "RequiredPassword"
+docker compose up -d
+python .\database\init_db.py
 ```

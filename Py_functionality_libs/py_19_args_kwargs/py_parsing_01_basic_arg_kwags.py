@@ -4,7 +4,9 @@ def display_arguments(a, *args, **kwargs):
 
 
 def main():
-    a1, arg1, kwarg1 = display_arguments(7, "a", "b", "c", key="k1", value="v1")
+    a1, arg1, kwarg1 = display_arguments(
+        7, "a", "b", "c", key="k1", value="v1"
+    )
     assert a1 == 7
     assert arg1 == ("a", "b", "c")
     assert kwarg1 == {"key": "k1", "value": "v1"}
