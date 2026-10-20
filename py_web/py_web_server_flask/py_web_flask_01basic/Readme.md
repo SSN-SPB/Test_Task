@@ -6,7 +6,7 @@ flask_training/
 │   ├── __init__.py
 │   ├── templates/
 │   │   └── data.html
-│   │   └── data.html
+│   │   └── index.html
 │   └── routes.py
 │
 ├── database/

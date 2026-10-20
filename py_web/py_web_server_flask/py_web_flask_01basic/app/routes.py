@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, redirect, render_template, request
+from .database import get_all_users
 
 api = Blueprint("api", __name__)
 
@@ -40,15 +41,19 @@ def health_check():
     )
 
 
+# @api.route("/api/users", methods=["GET"])
+# def get_users():
+#     users = [
+#         {"id": 1, "name": "John"},
+#         {"id": 2, "name": "Jane"},
+#         {"id": 3, "name": "Robert"},
+#     ]
+#
+#     return jsonify(users)
 @api.route("/api/users", methods=["GET"])
 def get_users():
-    users = [
-        {"id": 1, "name": "John"},
-        {"id": 2, "name": "Jane"},
-        {"id": 3, "name": "Robert"},
-    ]
-
-    return jsonify(users)
+    users = get_all_users()
+    return jsonify(users), 200
 
 
 @api.route("/api/books", methods=["GET"])
