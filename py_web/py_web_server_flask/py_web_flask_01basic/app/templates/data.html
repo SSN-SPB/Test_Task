@@ -1,42 +1,102 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Flask Training</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #status {
+            margin-top: 15px;
+        }
+    </style>
 </head>
-
 <body>
+    <h1>Users</h1>
 
-<h1>Flask Training Application</h1>
+    <p id="status">Loading users...</p>
 
-<h2>Health</h2>
-<div id="health"></div>
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody id="users-table-body"></tbody>
+    </table>
 
-<h2>Users</h2>
-<ul id="users"></ul>
+    <script>
+        async function loadUsers() {
+            const status = document.getElementById("status");
+            const tableBody = document.getElementById("users-table-body");
 
-<script>
-    async function loadData() {
-        const healthResponse = await fetch("/api/health");
-        const health = await healthResponse.json();
+            try {
+                const response = await fetch("/api/users");
 
-        document.getElementById("health").textContent =
-            `${health.status} - ${health.service}`;
+                if (!response.ok) {
+                    throw new Error(
+                        `Request failed with status ${response.status}`
+                    );
+                }
 
-        const usersResponse = await fetch("/api/users");
-        const users = await usersResponse.json();
+                const users = await response.json();
 
-        const usersList = document.getElementById("users");
+                tableBody.replaceChildren();
 
-        users.forEach(user => {
-            const li = document.createElement("li");
-            li.textContent = `${user.id}: ${user.name}`;
-            usersList.appendChild(li);
-        });
-    }
+                for (const user of users) {
+                    const row = document.createElement("tr");
 
-    loadData();
-</script>
+                    const values = [
+                        user.UserID,
+                        user.FirstName,
+                        user.LastName,
+                        user.Email,
+                        user.City ?? ""
+                    ];
 
+                    for (const value of values) {
+                        const cell = document.createElement("td");
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    }
+
+                    tableBody.appendChild(row);
+                }
+
+                status.textContent = `Loaded ${users.length} users.`;
+            } catch (error) {
+                console.error("Failed to load users:", error);
+                status.textContent = "Failed to load users. Please try again.";
+            }
+        }
+
+        loadUsers();
+    </script>
 </body>
 </html>

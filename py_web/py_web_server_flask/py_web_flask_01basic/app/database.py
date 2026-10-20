@@ -1,8 +1,6 @@
-
 import os
 
 import pyodbc
-
 
 DB_SERVER = os.getenv("DB_SERVER", "localhost,1433")
 DB_NAME = os.getenv("DB_NAME", "TestFlaskServer")
@@ -14,9 +12,7 @@ DB_DRIVER = os.getenv("DB_DRIVER", "ODBC Driver 18 for SQL Server")
 def get_connection():
     """Create and return a SQL Server database connection."""
     if not DB_PASSWORD:
-        raise RuntimeError(
-            "The DB_PASSWORD environment variable is not set."
-        )
+        raise RuntimeError("The DB_PASSWORD environment variable is not set.")
 
     connection_string = (
         f"DRIVER={{{DB_DRIVER}}};"
@@ -46,7 +42,4 @@ def get_all_users():
         column_names = [column[0] for column in cursor.description]
         rows = cursor.fetchall()
 
-        return [
-            dict(zip(column_names, row))
-            for row in rows
-        ]
+        return [dict(zip(column_names, row)) for row in rows]
