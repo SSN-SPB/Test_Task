@@ -26,6 +26,9 @@ class Lorry(Car):
     def __repr__(self):
         return f"{self.__class__} with {self.__dict__}"
 
+    def __format__(self, format_spec):
+        return f"{self.__class__} with {self.__dict__}"
+
 
 def main():
     car_one = Lorry(55, 11)
