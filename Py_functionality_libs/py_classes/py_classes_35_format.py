@@ -40,13 +40,15 @@ class Lorry(Car):
                 f"{self.__class__} with {self.__dict__}"
                 f" and speed: {self.speed}. The size is {self.__sizeof__()}"
             )
-        return f"{self.__doc__} with {self.__dict__}"
+        return f"{self.__getstate__()} or {self.__dict__}"
 
 
 def main():
     car_one = Lorry(55, 11)
     print(car_one.get_max_speed())
+    print(f"{car_one.get_max_speed()} basic format")
     print(format(car_one, "short"))
+    print(format(car_one, "Not short"))
 
 
 if __name__ == "__main__":
