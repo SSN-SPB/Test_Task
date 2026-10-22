@@ -43,3 +43,41 @@ def get_all_users():
         rows = cursor.fetchall()
 
         return [dict(zip(column_names, row)) for row in rows]
+
+
+def add_user(first_name, last_name, email, city):
+    """Insert a user and return the new user's ID."""
+    query = """
+        INSERT INTO testUsers.Users
+            (FirstName, LastName, Email, City)
+        OUTPUT INSERTED.UserID
+        VALUES (?, ?, ?, ?);
+    """
+
+    connection = get_connection()
+
+    try:
+        cursor = connection.cursor()
+        cursor.execute(
+            query,
+            first_name,
+            last_name,
+            email,
+            city,
+        )
+
+        user_id = cursor.fetchone()[0]
+        connection.commit()
+
+        return user_id
+
+    except pyodbc.IntegrityError as error:
+        connection.rollback()
+        raise ValueError("A user with this email already exists.") from error
+
+    except Exception:
+        connection.rollback()
+        raise
+
+    finally:
+        connection.close()

@@ -12,6 +12,29 @@
             margin: 30px;
         }
 
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: end;
+            margin: 20px 0;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        input {
+            padding: 8px;
+        }
+
+        button {
+            padding: 9px 16px;
+            cursor: pointer;
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -36,7 +59,60 @@
 <body>
     <h1>Users</h1>
 
-    <p id="status">Loading users...</p>
+    <h2>Add a new user</h2>
+
+    <form id="add-user-form">
+        <div class="form-field">
+            <label for="first-name">First Name *</label>
+            <input
+                type="text"
+                id="first-name"
+                name="first_name"
+                maxlength="50"
+                required
+            >
+        </div>
+
+        <div class="form-field">
+            <label for="last-name">Last Name *</label>
+            <input
+                type="text"
+                id="last-name"
+                name="last_name"
+                maxlength="50"
+                required
+            >
+        </div>
+
+        <div class="form-field">
+            <label for="email">Email *</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                maxlength="100"
+                required
+            >
+        </div>
+
+        <div class="form-field">
+            <label for="city">City</label>
+            <input
+                type="text"
+                id="city"
+                name="city"
+                maxlength="50"
+            >
+        </div>
+
+        <button type="submit" id="add-user-button">
+            Add User
+        </button>
+    </form>
+
+    <p id="status" role="status" aria-live="polite">
+        Loading users...
+    </p>
 
     <table>
         <thead>
@@ -52,10 +128,12 @@
     </table>
 
     <script>
-        async function loadUsers() {
-            const status = document.getElementById("status");
-            const tableBody = document.getElementById("users-table-body");
+        const status = document.getElementById("status");
+        const tableBody = document.getElementById("users-table-body");
+        const addUserForm = document.getElementById("add-user-form");
+        const addUserButton = document.getElementById("add-user-button");
 
+        async function loadUsers(successMessage = "") {
             try {
                 const response = await fetch("/api/users");
 
@@ -66,7 +144,6 @@
                 }
 
                 const users = await response.json();
-
                 tableBody.replaceChildren();
 
                 for (const user of users) {
@@ -89,12 +166,50 @@
                     tableBody.appendChild(row);
                 }
 
-                status.textContent = `Loaded ${users.length} users.`;
+                status.textContent =
+                    `${successMessage}Loaded ${users.length} users.`.trim();
             } catch (error) {
                 console.error("Failed to load users:", error);
                 status.textContent = "Failed to load users. Please try again.";
             }
         }
+
+        addUserForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(addUserForm);
+            const user = Object.fromEntries(formData.entries());
+
+            addUserButton.disabled = true;
+            status.textContent = "Adding user...";
+
+            try {
+                const response = await fetch("/api/users", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(user)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        result.error || "Failed to add user."
+                    );
+                }
+
+                addUserForm.reset();
+
+                await loadUsers("User added successfully. ");
+            } catch (error) {
+                console.error("Failed to add user:", error);
+                status.textContent = error.message;
+            } finally {
+                addUserButton.disabled = false;
+            }
+        });
 
         loadUsers();
     </script>
