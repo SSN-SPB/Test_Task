@@ -1,44 +1,98 @@
+
 name: Docker Flask
 
 on:
   push:
     branches:
-#      - main
-#      - master
-      - '**'   # run on all branches (optional)
+      - '**'
   pull_request:
 
 jobs:
   docker-flask:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: py_web/py_web_server_flask/py_web_flask_01basic
+        shell: bash
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Build Docker image
-        working-directory: py_web/py_web_server_flask/py_web_flask_01basic
-        run: docker build -t py-web-flask .
+      - name: Start SQL Server
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: docker compose up -d
 
-      - name: Start Flask container
-        run: docker run -d --name flask-app -p 5000:5000 py-web-flask
+      - name: Wait for SQL Server
+        run: |
+          for i in {1..60}; do
+            if docker compose exec -T sqlserver \
+              /opt/mssql-tools18/bin/sqlcmd \
+              -S localhost -U sa -P "$DB_PASSWORD" \
+              -C -Q "SELECT 1" >/dev/null 2>&1; then
+              echo "SQL Server is ready"
+              break
+            fi
+            if [ "$i" -eq 60 ]; then
+              echo "SQL Server did not become ready"
+              docker compose logs
+              exit 1
+            fi
+            sleep 2
+          done
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
-      - name: Wait for Flask
-        run: sleep 3
+      - name: Reset database
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: python database/reset_db.py --confirm
 
-      - name: Check Flask health
-        run: curl --fail http://localhost:5000/api/health
+      - name: Start Flask server
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: |
+          nohup python -u run.py > flask.log 2>&1 &
+          echo $! > flask.pid
+
+      - name: Wait for Flask health
+        run: |
+          for i in {1..30}; do
+            if curl --fail --silent http://localhost:5000/api/health; then
+              echo
+              echo "Flask server is ready"
+              exit 0
+            fi
+            sleep 2
+          done
+          cat flask.log
+          exit 1
 
       - name: Check Flask users API
         run: curl --fail http://localhost:5000/api/users
 
       - name: Show container status
-        run: docker ps
+        if: always()
+        run: docker ps -a
 
       - name: Show container logs
         if: always()
-        run: docker logs flask-app
+        run: docker compose logs --no-color
 
-      - name: Stop Flask container
+      - name: Show Flask logs
         if: always()
-        run: docker stop flask-app
+        run: |
+          if [ -f flask.log ]; then cat flask.log; fi
+
+      - name: Stop Flask server
+        if: always()
+        run: |
+          if [ -f flask.pid ]; then
+            kill "$(cat flask.pid)" || true
+          fi
+
+      - name: Stop Docker containers
+        if: always()
+        run: docker compose down
