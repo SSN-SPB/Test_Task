@@ -107,9 +107,14 @@ expected output
 ['SQL Server', 'ODBC Driver 18 for SQL Server', 'Microsoft Access Driver (*.mdb, *.accdb)', 'Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)', 'Microsoft Access Text Driver (*.txt, *.csv)', 'Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx)']
 ```
 #### Add Flask and pyodbc into requirements.txt
-### Check DB
+### Start application with DB
 ```commandline
 $env:DB_PASSWORD = "RequiredPassword"
 docker compose up -d
+# after that either (preserve data from the previous session)
 python .\database\init_db.py
+python .\run.py
+# or create DB from scratch (losing data from the previous session)
+python .\database\reset_db.py --confirm
+python .\run.py
 ```
