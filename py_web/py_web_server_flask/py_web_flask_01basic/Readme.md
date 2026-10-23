@@ -118,3 +118,8 @@ python .\run.py
 python .\database\reset_db.py --confirm
 python .\run.py
 ```
+
+### Completion DB
+```commandline
+docker compose down
+```
