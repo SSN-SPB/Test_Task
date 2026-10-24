@@ -2,6 +2,7 @@ import pytest
 
 from ..resource_dir import resourse_data
 from ..resource_dir.requests import get_page_data
+from ..service_data.pages_content import initial_users
 
 
 @pytest.fixture(scope="class")
@@ -23,59 +24,18 @@ class TestClassUsersPage:
         assert checked_value
 
     def test_users_are_returned(self, users_response):
-        expected_users = [
-            {
-                "City": "New York",
-                "Email": "john.smith@email.com",
-                "FirstName": "John",
-                "LastName": "Smith",
-                "UserID": 1,
-            },
-            {
-                "City": "Chicago",
-                "Email": "emma.johnson@email.com",
-                "FirstName": "Emma",
-                "LastName": "Johnson",
-                "UserID": 2,
-            },
-            {
-                "City": "Dallas",
-                "Email": "michael.brown@email.com",
-                "FirstName": "Michael",
-                "LastName": "Brown",
-                "UserID": 3,
-            },
-            {
-                "City": "Seattle",
-                "Email": "sophia.davis@email.com",
-                "FirstName": "Sophia",
-                "LastName": "Davis",
-                "UserID": 4,
-            },
-            {
-                "City": "Boston",
-                "Email": "james.wilson@email.com",
-                "FirstName": "James",
-                "LastName": "Wilson",
-                "UserID": 5,
-            },
-            {
-                "City": "Austin",
-                "Email": "olivia.taylor@email.com",
-                "FirstName": "Olivia",
-                "LastName": "Taylor",
-                "UserID": 6,
-            },
-            {
-                "City": "Denver",
-                "Email": "daniel.anderson@email.com",
-                "FirstName": "Daniel",
-                "LastName": "Anderson",
-                "UserID": 7,
-            },
-        ]
         _, tested_response = users_response
-        checked_value = tested_response == expected_users
+        checked_value = tested_response == initial_users
+        print(
+            "The users response matches the expected data: {}".format(
+                checked_value
+            )
+        )
+        assert checked_value
+
+    def test_number_of_initial_users(self, users_response):
+        _, tested_response = users_response
+        checked_value = len(initial_users) == 7
         print(
             "The users response matches the expected data: {}".format(
                 checked_value
