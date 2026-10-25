@@ -12,12 +12,6 @@ NEW_USER_NAME = f"user_name_{NEW_USER_UUID}"
 NEW_USER_LAST_NAME = f"user_last_name_{NEW_USER_UUID}"
 
 
-@pytest.fixture(scope="function")
-def users_response(request):
-    endpoint = request.cls.ENDPOINT
-    return get_page_data(endpoint)
-
-
 class TestClassAddingUsersPage:
 
     TESTED_PAGE = "/api/users"
@@ -25,6 +19,9 @@ class TestClassAddingUsersPage:
     ENDPOINT = ENV_URL + TESTED_PAGE
 
     def test_adding_user_code_is_201(self, request):
+        """Test checks the response code of adding new user"""
+        _, initial_list = get_page_data(request.cls.ENDPOINT)
+        initial_list_length = len(initial_list)
         response_code, _ = adding_user(
             endpoint=request.cls.ENDPOINT,
             user_city=NEW_USER_CITY,
@@ -34,14 +31,7 @@ class TestClassAddingUsersPage:
         )
         checked_value = response_code == 201
         print("The response code = 201 is: {}".format(checked_value))
+        _, modified_list = get_page_data(request.cls.ENDPOINT)
+        modified_list_length = len(modified_list)
         assert checked_value
-
-    # def test_number_of_initial_users(self, users_response):
-    #     _, tested_response = users_response
-    #     checked_value = len(initial_users) == 9
-    #     print(
-    #         "The number of users expected: {}".format(
-    #             len(initial_users)
-    #         )
-    #     )
-    #     assert checked_value
+        assert initial_list_length + 1 == modified_list_length
