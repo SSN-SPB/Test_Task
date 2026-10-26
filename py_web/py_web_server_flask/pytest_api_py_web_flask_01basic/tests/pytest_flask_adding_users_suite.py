@@ -1,13 +1,6 @@
-from uuid import uuid4
-
 from ..resource_dir import resourse_data
 from ..resource_dir.requests import adding_user, get_page_data
-
-NEW_USER_UUID = str(uuid4())[0:8]
-NEW_USER_CITY = f"CITY_{NEW_USER_UUID}"
-NEW_USER_EMAIL = f"user.{NEW_USER_UUID}@email.com"
-NEW_USER_NAME = f"user_name_{NEW_USER_UUID}"
-NEW_USER_LAST_NAME = f"user_last_name_{NEW_USER_UUID}"
+from ..resource_dir.users_data import NEW_USER
 
 
 class TestClassAddingUsersPage:
@@ -20,10 +13,10 @@ class TestClassAddingUsersPage:
         """Test checks the response code of adding new user"""
         response_code, _ = adding_user(
             endpoint=request.cls.ENDPOINT,
-            user_city=NEW_USER_CITY,
-            user_email="test_201_" + NEW_USER_EMAIL,
-            first_name=NEW_USER_NAME,
-            last_name="test_201_" + NEW_USER_LAST_NAME,
+            user_city=NEW_USER["city"],
+            user_email="test_201_" + NEW_USER["email"],
+            first_name=NEW_USER["name"],
+            last_name="test_201_" + NEW_USER["last_name"],
         )
         checked_value = response_code == 201
         print("The response code = 201 is: {}".format(checked_value))
@@ -33,12 +26,12 @@ class TestClassAddingUsersPage:
         """Test checks the number of users after adding new user"""
         _, initial_list = get_page_data(request.cls.ENDPOINT)
         initial_list_length = len(initial_list)
-        response_code, _ = adding_user(
+        _, adding_response = adding_user(
             endpoint=request.cls.ENDPOINT,
-            user_city=NEW_USER_CITY,
-            user_email="test_list_of_users_" + NEW_USER_EMAIL,
-            first_name=NEW_USER_NAME,
-            last_name="test_list_of_users_" + NEW_USER_LAST_NAME,
+            user_city=NEW_USER["city"],
+            user_email="test_users_list_" + NEW_USER["email"],
+            first_name=NEW_USER["name"],
+            last_name="test_users_list_" + NEW_USER["last_name"],
         )
         _, modified_list = get_page_data(request.cls.ENDPOINT)
         modified_list_length = len(modified_list)
