@@ -23,7 +23,7 @@ jobs:
 
       - name: Start SQL Server
         env:
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: docker compose up -d
 
       - name: Wait for SQL Server

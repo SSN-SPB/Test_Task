@@ -18,7 +18,7 @@ jobs:
 
       - name: Check database password configuration
         env:
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: |
           if [ -z "$DB_PASSWORD" ]; then
             echo "DB_PASSWORD is empty or unavailable."
