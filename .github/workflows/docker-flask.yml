@@ -21,6 +21,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Check DB Password
+        env:
+          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
+        run: echo $DB_PASSWORD
+
       - name: Start SQL Server
         env:
           DB_PASSWORD: ${{ vars.DB_PASSWORD }}
