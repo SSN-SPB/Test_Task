@@ -75,6 +75,11 @@ jobs:
           sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18 unixodbc-dev
           odbcinst -q -d
 
+      - name: Create database
+        env:
+          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
+        run: python database/init_db.py
+
       - name: Reset database
         env:
           DB_PASSWORD: ${{ vars.DB_PASSWORD }}
@@ -126,5 +131,7 @@ jobs:
           fi
 
       - name: Stop Docker containers
+        env:
+          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         if: always()
         run: docker compose down
