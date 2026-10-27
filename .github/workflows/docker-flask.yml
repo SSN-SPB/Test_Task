@@ -24,7 +24,13 @@ jobs:
       - name: Check DB Password
         env:
           DB_PASSWORD: ${{ vars.DB_PASSWORD }}
-        run: echo $DB_PASSWORD
+        run:
+          if [ -n "$DB_PASSWORD" ]; then
+          echo "DB_PASSWORD is configured"
+          else
+          echo "DB_PASSWORD is missing"
+          exit 1
+          fi
 
       - name: Start SQL Server
         env:
@@ -49,16 +55,16 @@ jobs:
             sleep 2
           done
         env:
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
 
       - name: Reset database
         env:
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: python database/reset_db.py --confirm
 
       - name: Start Flask server
         env:
-          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: |
           nohup python -u run.py > flask.log 2>&1 &
           echo $! > flask.pid
