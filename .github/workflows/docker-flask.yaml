@@ -10,6 +10,7 @@ on:
 jobs:
   docker-flask:
     runs-on: ubuntu-latest
+    environment: testing
 
     defaults:
       run:
