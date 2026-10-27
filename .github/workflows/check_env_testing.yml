@@ -9,4 +9,19 @@ on:
 
 jobs:
   docker-flask:
+    runs-on: ubuntu-latest
     environment: testing
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Check database password configuration
+        env:
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: |
+          if [ -z "$DB_PASSWORD" ]; then
+            echo "DB_PASSWORD is empty or unavailable."
+            exit 1
+          fi
+          echo "DB_PASSWORD is available."
