@@ -24,13 +24,12 @@ jobs:
       - name: Check DB Password
         env:
           DB_PASSWORD: ${{ vars.DB_PASSWORD }}
-        run:
-          if [ -n "$DB_PASSWORD" ]; then
-          echo "DB_PASSWORD is configured"
-          else
-          echo "DB_PASSWORD is missing"
-          exit 1
+        run: |
+          if [ -z "$DB_PASSWORD" ]; then
+            echo "DB_PASSWORD is empty or unavailable."
+            exit 1
           fi
+          echo "DB_PASSWORD is available."
 
       - name: Start SQL Server
         env:
