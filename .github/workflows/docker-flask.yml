@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: testing
 
+    env:
+      DB_PASSWORD: ${{ vars.DB_PASSWORD }}
+
     defaults:
       run:
         working-directory: py_web/py_web_server_flask/py_web_flask_01basic
@@ -32,8 +35,6 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Check DB Password
-        env:
-          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: |
           if [ -z "$DB_PASSWORD" ]; then
             echo "DB_PASSWORD is empty or unavailable."
@@ -42,8 +43,6 @@ jobs:
           echo "DB_PASSWORD is available."
 
       - name: Start SQL Server
-        env:
-          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: docker compose up -d
 
       - name: Wait for SQL Server
@@ -63,8 +62,6 @@ jobs:
             fi
             sleep 2
           done
-        env:
-          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
 
       - name: Install Microsoft ODBC Driver 18
         run: |
@@ -76,18 +73,12 @@ jobs:
           odbcinst -q -d
 
       - name: Create database
-        env:
-          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: python database/init_db.py
 
       - name: Reset database
-        env:
-          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: python database/reset_db.py --confirm
 
       - name: Start Flask server
-        env:
-          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         run: |
           nohup python -u run.py > flask.log 2>&1 &
           echo $! > flask.pid
@@ -113,8 +104,6 @@ jobs:
         run: docker ps -a
 
       - name: Show container logs
-        env:
-          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         if: always()
         run: docker compose logs --no-color
 
@@ -131,7 +120,5 @@ jobs:
           fi
 
       - name: Stop Docker containers
-        env:
-          DB_PASSWORD: ${{ vars.DB_PASSWORD }}
         if: always()
         run: docker compose down
