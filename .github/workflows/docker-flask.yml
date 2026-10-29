@@ -13,7 +13,7 @@ jobs:
     environment: testing
 
     env:
-      DB_PASSWORD: ${{ vars.DB_PASSWORD }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
     defaults:
       run:
