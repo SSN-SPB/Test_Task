@@ -6,6 +6,12 @@
 #   indent
 #   sort_keys,
 # which can be used to format the output JSON data.
+# the current script creates a JSON file with a unique name using the uuid4() function from the uuid module.
+# upon execution, the script creates a JSON file with the specified data,
+# lists all JSON files in the current directory,
+# and optionally deletes the created
+# JSON files based on the delete_created parameter.
+
 
 import json
 from uuid import uuid4
