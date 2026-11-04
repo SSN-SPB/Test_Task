@@ -17,7 +17,7 @@ response_data = {"status_code": 201, "time": "21 june", "status": "success"}
 def main(delete_created=False):
     with open(f"response_{str(uuid4())[:8]}.json", "w") as response_file:
         json.dump(response_data, response_file, indent=4, sort_keys=True)
-    current_list =[file.name for file in Path(".").glob("*.json")]
+    current_list = [file.name for file in Path(".").glob("*.json")]
     print(current_list)
     for x in current_list:
         print(x)
@@ -25,7 +25,7 @@ def main(delete_created=False):
         for x in Path(".").glob("*.json"):
             x.unlink()
             print(f"Deleted file {x}")
-    current_list =[file.name for file in Path(".").glob("*.json")]
+    current_list = [file.name for file in Path(".").glob("*.json")]
     assert len(current_list) == 0
 
 
