@@ -24,12 +24,14 @@ def main():
         print(f"Directory {directory_path} does not exist")
 
     if directory_path.is_dir():
-        print(f"This is a directory")
+        print("This is a directory")
 
     # Create directory
+    # parents=True creates parent directories if needed,
+    # exist_ok=True prevents error if directory already exists
     directory_path.mkdir(
         parents=True, exist_ok=True
-    )  # parents=True creates parent directories if needed, exist_ok=True prevents error if directory already exists
+    )
 
     if directory_path.exists():
         print(f"Directory {directory_path} exists")
@@ -37,7 +39,7 @@ def main():
         print(f"Directory {directory_path} does not exist")
 
     if directory_path.is_dir():
-        print(f"This is a directory")
+        print("This is a directory")
 
     # Read from file
     file_content = file_path.read_text()

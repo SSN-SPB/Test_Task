@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, redirect, render_template, request
+from .database import get_all_users, add_user
 
 api = Blueprint("api", __name__)
 
@@ -40,15 +41,19 @@ def health_check():
     )
 
 
+# @api.route("/api/users", methods=["GET"])
+# def get_users():
+#     users = [
+#         {"id": 1, "name": "John"},
+#         {"id": 2, "name": "Jane"},
+#         {"id": 3, "name": "Robert"},
+#     ]
+#
+#     return jsonify(users)
 @api.route("/api/users", methods=["GET"])
 def get_users():
-    users = [
-        {"id": 1, "name": "John"},
-        {"id": 2, "name": "Jane"},
-        {"id": 3, "name": "Robert"},
-    ]
-
-    return jsonify(users)
+    users = get_all_users()
+    return jsonify(users), 200
 
 
 @api.route("/api/books", methods=["GET"])
@@ -60,3 +65,57 @@ def get_books():
     ]
 
     return jsonify(users)
+
+
+@api.route("/api/users", methods=["POST"])
+def create_user():
+    data = request.get_json(silent=True)
+
+    if not isinstance(data, dict):
+        return jsonify({"error": "A JSON object is required."}), 400
+
+    first_name = str(data.get("first_name") or "").strip()
+    last_name = str(data.get("last_name") or "").strip()
+    email = str(data.get("email") or "").strip()
+    city = str(data.get("city") or "").strip() or None
+
+    if not first_name or not last_name or not email:
+        return (
+            jsonify(
+                {"error": "First name, last name, and email are required."}
+            ),
+            400,
+        )
+
+    if (
+        len(first_name) > 50
+        or len(last_name) > 50
+        or len(email) > 100
+        or (city is not None and len(city) > 50)
+    ):
+        return (
+            jsonify(
+                {"error": "One or more fields exceed the allowed length."}
+            ),
+            400,
+        )
+
+    try:
+        user_id = add_user(
+            first_name,
+            last_name,
+            email,
+            city,
+        )
+    except ValueError as error:
+        return jsonify({"error": str(error)}), 409
+
+    return (
+        jsonify(
+            {
+                "message": "User created successfully.",
+                "UserID": user_id,
+            }
+        ),
+        201,
+    )

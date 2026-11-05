@@ -1,8 +1,6 @@
-
 import os
 
 import pyodbc
-
 
 SERVER = os.getenv("DB_SERVER", "localhost,1433")
 DATABASE = "TestFlaskServer"
@@ -121,9 +119,7 @@ def verify_users(cursor):
 def main():
     create_database()
 
-    connection = pyodbc.connect(
-        get_connection_string(DATABASE)
-    )
+    connection = pyodbc.connect(get_connection_string(DATABASE))
 
     try:
         cursor = connection.cursor()

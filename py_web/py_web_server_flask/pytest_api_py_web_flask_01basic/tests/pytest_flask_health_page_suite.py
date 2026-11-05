@@ -26,9 +26,7 @@ class TestClassHealthPage:
         _, tested_response = health_response
         checked_value = tested_response["status"] == "ok"
         print(
-            "The key {} has value ok - is: {}".format(
-                "status", checked_value
-            )
+            "The key {} has value ok - is: {}".format("status", checked_value)
         )
         assert checked_value
 

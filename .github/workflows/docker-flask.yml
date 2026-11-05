@@ -1,0 +1,124 @@
+
+name: Docker Flask
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+
+jobs:
+  docker-flask:
+    runs-on: ubuntu-latest
+    environment: testing
+
+    env:
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+    defaults:
+      run:
+        working-directory: py_web/py_web_server_flask/py_web_flask_01basic
+        shell: bash
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+      - name: Check DB Password
+        run: |
+          if [ -z "$DB_PASSWORD" ]; then
+            echo "DB_PASSWORD is empty or unavailable."
+            exit 1
+          fi
+          echo "DB_PASSWORD is available."
+
+      - name: Start SQL Server
+        run: docker compose up -d
+
+      - name: Wait for SQL Server
+        run: |
+          for i in {1..60}; do
+            if docker compose exec -T sqlserver \
+              /opt/mssql-tools18/bin/sqlcmd \
+              -S localhost -U sa -P "$DB_PASSWORD" \
+              -C -Q "SELECT 1" >/dev/null 2>&1; then
+              echo "SQL Server is ready"
+              break
+            fi
+            if [ "$i" -eq 60 ]; then
+              echo "SQL Server did not become ready"
+              docker compose logs
+              exit 1
+            fi
+            sleep 2
+          done
+
+      - name: Install Microsoft ODBC Driver 18
+        run: |
+          curl -sSL -O https://packages.microsoft.com/config/ubuntu/$(grep VERSION_ID /etc/os-release | cut -d '"' -f 2)/packages-microsoft-prod.deb
+          sudo dpkg -i packages-microsoft-prod.deb
+          rm packages-microsoft-prod.deb
+          sudo apt-get update
+          sudo ACCEPT_EULA=Y apt-get install -y msodbcsql18 unixodbc-dev
+          odbcinst -q -d
+
+      - name: Create database
+        run: python database/init_db.py
+
+      - name: Reset database
+        run: python database/reset_db.py --confirm
+
+      - name: Start Flask server
+        run: |
+          nohup python -u run.py > flask.log 2>&1 &
+          echo $! > flask.pid
+
+      - name: Wait for Flask health
+        run: |
+          for i in {1..30}; do
+            if curl --fail --silent http://localhost:5000/api/health; then
+              echo
+              echo "Flask server is ready"
+              exit 0
+            fi
+            sleep 2
+          done
+          cat flask.log
+          exit 1
+
+      - name: Check Flask users API
+        run: curl --fail http://localhost:5000/api/users
+
+      - name: Show container status
+        if: always()
+        run: docker ps -a
+
+      - name: Show container logs
+        if: always()
+        run: docker compose logs --no-color
+
+      - name: Show Flask logs
+        if: always()
+        run: |
+          if [ -f flask.log ]; then cat flask.log; fi
+
+      - name: Stop Flask server
+        if: always()
+        run: |
+          if [ -f flask.pid ]; then
+            kill "$(cat flask.pid)" || true
+          fi
+
+      - name: Stop Docker containers
+        if: always()
+        run: docker compose down

@@ -8,9 +8,7 @@ import requests
 
 SERVER_URL = "http://127.0.0.1:5000"
 
-SERVER_DIR = (
-    Path(__file__).resolve().parent.parent / "py_web_flask_01basic"
-)
+SERVER_DIR = Path(__file__).resolve().parent.parent / "py_web_flask_01basic"
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -45,9 +43,7 @@ def flask_server():
         else:
             process.terminate()
 
-            raise RuntimeError(
-                "Flask server did not start within 10 seconds"
-            )
+            raise RuntimeError("Flask server did not start within 10 seconds")
 
         yield
 

@@ -4,7 +4,7 @@
 
 
 def main():
-    print("string join funtion".center(79, "/"))
+    print("string join function".center(79, "/"))
     s = ", "
     print(s.join(["x1", "x2", "x3"]))  # x1, x2, x3
 
