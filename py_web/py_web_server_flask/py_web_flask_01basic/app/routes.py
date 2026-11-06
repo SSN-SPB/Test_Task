@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, redirect, render_template, request
-from .database import get_all_users, add_user
+
+from .database import add_user, delete_user_by_id, get_all_users
 
 api = Blueprint("api", __name__)
 
@@ -119,3 +120,26 @@ def create_user():
         ),
         201,
     )
+
+
+@api.route("/api/users/<int:user_id>", methods=["DELETE"])
+def delete_user(user_id):
+
+    try:
+        deleted = delete_user_by_id(user_id)
+
+        if not deleted:
+            return (
+                jsonify({"error": f"User with ID {user_id} not found."}),
+                404,
+            )
+
+        return (
+            jsonify(
+                {"message": f"User with ID {user_id} deleted successfully."}
+            ),
+            200,
+        )
+
+    except Exception:
+        return jsonify({"error": "Failed to delete user."}), 500

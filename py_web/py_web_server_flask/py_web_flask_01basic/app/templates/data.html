@@ -122,6 +122,7 @@
                 <th>Last Name</th>
                 <th>Email</th>
                 <th>City</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody id="users-table-body"></tbody>
@@ -132,6 +133,7 @@
         const tableBody = document.getElementById("users-table-body");
         const addUserForm = document.getElementById("add-user-form");
         const addUserButton = document.getElementById("add-user-button");
+
 
         async function loadUsers(successMessage = "") {
             try {
@@ -163,16 +165,32 @@
                         row.appendChild(cell);
                     }
 
+                    // Create Actions cell
+                    const actionsCell = document.createElement("td");
+
+                    // Create Delete button
+                    const deleteButton = document.createElement("button");
+                    deleteButton.textContent = "Delete";
+
+                    deleteButton.addEventListener("click", () => {
+                        deleteUser(user.UserID);
+                    });
+
+                    actionsCell.appendChild(deleteButton);
+                    row.appendChild(actionsCell);
+
                     tableBody.appendChild(row);
                 }
 
                 status.textContent =
                     `${successMessage}Loaded ${users.length} users.`.trim();
+
             } catch (error) {
                 console.error("Failed to load users:", error);
                 status.textContent = "Failed to load users. Please try again.";
             }
         }
+
 
         addUserForm.addEventListener("submit", async (event) => {
             event.preventDefault();
@@ -210,6 +228,38 @@
                 addUserButton.disabled = false;
             }
         });
+
+        async function deleteUser(userId) {
+
+            const confirmed = confirm(
+                `Are you sure you want to delete user ${userId}?`
+            );
+
+            if (!confirmed) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/users/${userId}`, {
+                    method: "DELETE"
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    alert(result.error || "Failed to delete user.");
+                    return;
+                }
+
+                alert(result.message);
+
+                await loadUsers();
+
+            } catch (error) {
+                console.error("Delete user error:", error);
+                alert("Could not connect to the server.");
+            }
+        }
 
         loadUsers();
     </script>

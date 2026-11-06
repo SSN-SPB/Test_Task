@@ -81,3 +81,32 @@ def add_user(first_name, last_name, email, city):
 
     finally:
         connection.close()
+
+
+def delete_user_by_id(user_id):
+    connection = get_connection()
+
+    try:
+        cursor = connection.cursor()
+
+        cursor.execute(
+            """
+            DELETE FROM testUsers.Users
+            OUTPUT DELETED.UserID
+            WHERE UserID = ?
+        """,
+            user_id,
+        )
+
+        deleted_row = cursor.fetchone()
+
+        connection.commit()
+
+        return deleted_row is not None
+
+    except Exception:
+        connection.rollback()
+        raise
+
+    finally:
+        connection.close()
