@@ -31,8 +31,8 @@ def main(delete_created=False):
         for x in Path(".").glob("*.json"):
             x.unlink()
             print(f"Deleted file {x}")
-    current_list = [file.name for file in Path(".").glob("*.json")]
-    assert len(current_list) == 0
+        current_list = [file.name for file in Path(".").glob("*.json")]
+        assert len(current_list) == 0
 
 
 if __name__ == "__main__":
