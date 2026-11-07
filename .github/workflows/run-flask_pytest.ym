@@ -28,6 +28,11 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
+      - name: Check current directory
+        run: |
+          ls
+          pwd
+
       - name: Run API tests
         run: |
           cd py_web/py_web_server_flask/pytest_api_py_web_flask_01basic

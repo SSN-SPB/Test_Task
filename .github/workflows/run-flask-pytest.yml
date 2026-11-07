@@ -8,7 +8,7 @@ on:
   pull_request:
 
 jobs:
-  docker-flask:
+  run_flask_pytest:
     runs-on: ubuntu-latest
     environment: testing
 
