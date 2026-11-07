@@ -3,8 +3,8 @@ def disemvowel(string_):
     result_string = ""
     for x in string_:
         # if x not in ("a", "e", "i", "o", "u", "A", "E", "I", "O", "U"):
-        if x not in "aeiouAEIOU":
-            result_string = result_string + str(x)
+        if x.lower() not in "aeiou":
+            result_string += str(x)
     return result_string
 
 
