@@ -1,5 +1,5 @@
 
-name: Docker Flask
+name: Run API Pytest For Flask Server
 
 on:
   push:
@@ -101,12 +101,11 @@ jobs:
 
       - name: Check current directory
         run: |
-          ls
           pwd
 
       - name: Run API tests
         run: |
-          cd py_web/py_web_server_flask/pytest_api_py_web_flask_01basic
+          cd ../pytest_api_py_web_flask_01basic
           pytest
 
       - name: Show Flask logs
