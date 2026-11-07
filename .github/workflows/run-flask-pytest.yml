@@ -99,6 +99,11 @@ jobs:
       - name: Check Flask users API
         run: curl --fail http://localhost:5000/api/users
 
+      - name: Check current directory
+        run: |
+          ls
+          pwd
+
       - name: Run API tests
         run: |
           cd py_web/py_web_server_flask/pytest_api_py_web_flask_01basic
