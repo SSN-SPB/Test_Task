@@ -2,6 +2,17 @@
 # into a Python object.
 # It takes a JSON-formatted string as input and returns
 # the corresponding Python object representation of that string.
+# This example demonstrates the use of the
+# object_pairs_hook parameter in json.loads()
+# to convert a JSON string into a list of key-value pairs,
+# while also converting the keys to uppercase using a custom function.
+
+# Remark: The object_hook and object_pairs_hook are
+# mutually exclusive in terms of execution.
+#
+# When both are provided, object_pairs_hook
+# takes precedence, and object_hook is ignored.
+
 
 
 import json
