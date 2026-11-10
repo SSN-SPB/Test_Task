@@ -20,13 +20,13 @@ import json
 tested_json_string = (
     '{"id": 10, "active": true, "age": 91, "city": "Malaga", "activity": 15}'
 )
-EXPECTED_LIST = [
+EXPECTED_LIST = (
     ("id", 10),
     ("active", True),
     ("age", 91),
     ("city", "Malaga"),
     ("activity", 15),
-]
+)
 
 
 def convert_keys_to_upper_case(data):
@@ -37,14 +37,14 @@ def check_json_loads_object_pairs_hook(json_string: str):
     return json.loads(
         json_string,
         object_hook=convert_keys_to_upper_case,
-        object_pairs_hook=list,
+        object_pairs_hook=tuple,
     )
 
 
 def main():
     result = check_json_loads_object_pairs_hook(tested_json_string)
     print(f"returned {result}")
-    assert type(result) is list
+    assert type(result) is tuple
     assert result == EXPECTED_LIST
 
 
