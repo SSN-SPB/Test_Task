@@ -1,6 +1,4 @@
 import pytest
-from py_web.py_web_server_flask.pytest_api_py_web_flask_01basic.resource_dir.common_fixtures.api_fixtures.page_fixtures import \
-    health_response
 
 
 @pytest.mark.health_page
