@@ -29,7 +29,7 @@ def adding_user(endpoint, user_city, user_email, first_name, last_name):
 
 def deleting_user_by_id(endpoint, user_id):
     delete_user = requests.delete(
-        endpoint/user_id,
+        endpoint / user_id,
         headers={"Content-Type": "application/json"},
     )
 
