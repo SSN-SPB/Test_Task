@@ -1,21 +1,23 @@
 import pytest
 
+from py_web.py_web_server_flask.pytest_api_py_web_flask_01basic.resource_dir.common_fixtures.api_fixtures.page_fixtures import health_response
 from ..resource_dir import resourse_data
 from ..resource_dir.requests import get_page_data
 
 
-@pytest.fixture(scope="class")
-def health_response(request):
-    endpoint = request.cls.ENDPOINT
-    return get_page_data(endpoint)
+# @pytest.fixture(scope="class")
+# def health_response(request):
+#     endpoint = request.cls.ENDPOINT
+#     return get_page_data(endpoint)
 
 
 class TestClassHealthPage:
 
-    TESTED_PAGE = "/api/health"
-    ENV_URL = resourse_data.BASE_URL
-    ENDPOINT = ENV_URL + TESTED_PAGE
+    # TESTED_PAGE = "/api/health"
+    # ENV_URL = resourse_data.BASE_URL
+    # ENDPOINT = ENV_URL + TESTED_PAGE
 
+    # @pytest.fixture.mark.health_page
     def test_code_is_200(self, health_response):
         response_code, _ = health_response
         checked_value = response_code == 200
