@@ -1,5 +1,5 @@
 
-name: Docker Flask
+name: Run API Pytest For Flask Server
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
   pull_request:
 
 jobs:
-  docker-flask:
+  run_flask_pytest:
     runs-on: ubuntu-latest
     environment: testing
 
@@ -99,9 +99,13 @@ jobs:
       - name: Check Flask users API
         run: curl --fail http://localhost:5000/api/users
 
+      - name: Check current directory
+        run: |
+          pwd
+
       - name: Run API tests
         run: |
-          cd py_web/py_web_server_flask/pytest_api_py_web_flask_01basic
+          cd ../pytest_api_py_web_flask_01basic
           pytest
 
       - name: Show Flask logs

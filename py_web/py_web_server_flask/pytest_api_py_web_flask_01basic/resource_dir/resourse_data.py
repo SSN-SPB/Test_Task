@@ -1,1 +1,9 @@
-BASE_URL = "http://127.0.0.1:5000/"
+BASE_URL = "http://127.0.0.1:5000"
+HEALTH_PAGE = "/api/health"
+USER_PAGE = "/api/users"
+HEALTH_PAGE_ENDPOINT = BASE_URL + HEALTH_PAGE
+USER_PAGE_ENDPOINT = BASE_URL + USER_PAGE
+
+RESPONSE_MESSAGES = {
+    "SUCCESSFUL_DELETION_MESSAGE": "User with ID {} deleted successfully."
+}

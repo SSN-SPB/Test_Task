@@ -1180,7 +1180,7 @@ SELECT DISTINCT P1.product_id, IFNULL(P3.price, 10) AS price FROM Products AS P1
     ON P1.product_id = P3.product_id
 
 
-1174. Immediate Food Delivery II
+1174. Immediate Food Delivery II ----- IN PROGRESS
 https://leetcode.com/problems/immediate-food-delivery-ii/description/
 
 Table: Delivery
@@ -1248,3 +1248,69 @@ SELECT COUNT(*) TOTAL FROM
 SELECT DISTINCT(CUSTOMER_ID) FROM DELIVERY GROUP BY CUSTOMER_ID
 ) T1
 ) T
+
+
+1179. Reformat Department Table PASSED
+https://leetcode.com/problems/reformat-department-table/description/
+
+able: Department
+
++-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| revenue     | int     |
+| month       | varchar |
++-------------+---------+
+In SQL,(id, month) is the primary key of this table.
+The table has information about the revenue of each department per month.
+The month has values in ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].
+
+
+Reformat the table such that there is a department id column and a revenue column for each month.
+
+Return the result table in any order.
+
+The result format is in the following example.
+
+
+
+Example 1:
+
+Input:
+Department table:
++------+---------+-------+
+| id   | revenue | month |
++------+---------+-------+
+| 1    | 8000    | Jan   |
+| 2    | 9000    | Jan   |
+| 3    | 10000   | Feb   |
+| 1    | 7000    | Feb   |
+| 1    | 6000    | Mar   |
++------+---------+-------+
+Output:
++------+-------------+-------------+-------------+-----+-------------+
+| id   | Jan_Revenue | Feb_Revenue | Mar_Revenue | ... | Dec_Revenue |
++------+-------------+-------------+-------------+-----+-------------+
+| 1    | 8000        | 7000        | 6000        | ... | null        |
+| 2    | 9000        | null        | null        | ... | null        |
+| 3    | null        | 10000       | null        | ... | null        |
++------+-------------+-------------+-------------+-----+-------------+
+Explanation: The revenue from Apr to Dec is null.
+Note that the result table has 13 columns (1 for the department id + 12 for the months).
+
+Solution:
+SELECT ID AS id,
+MAX(CASE WHEN MONTH='JAN' THEN REVENUE ELSE null END) AS Jan_Revenue,
+MAX(CASE WHEN MONTH='Feb' THEN REVENUE ELSE null END) AS Feb_Revenue,
+MAX(CASE WHEN MONTH='Mar' THEN REVENUE ELSE null END) AS Mar_Revenue,
+MAX(CASE WHEN MONTH='Apr' THEN REVENUE ELSE null END) AS Apr_Revenue,
+MAX(CASE WHEN MONTH='May' THEN REVENUE ELSE null END) AS May_Revenue,
+MAX(CASE WHEN MONTH='Jun' THEN REVENUE ELSE null END) AS Jun_Revenue,
+MAX(CASE WHEN MONTH='Jul' THEN REVENUE ELSE null END) AS Jul_Revenue,
+MAX(CASE WHEN MONTH='Aug' THEN REVENUE ELSE null END) AS Aug_Revenue,
+MAX(CASE WHEN MONTH='Sep' THEN REVENUE ELSE null END) AS Sep_Revenue,
+MAX(CASE WHEN MONTH='Oct' THEN REVENUE ELSE null END) AS Oct_Revenue,
+MAX(CASE WHEN MONTH='Nov' THEN REVENUE ELSE null END) AS Nov_Revenue,
+MAX(CASE WHEN MONTH='Dec' THEN REVENUE ELSE null END) AS Dec_Revenue
+FROM DEPARTMENT GROUP BY ID
