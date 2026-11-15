@@ -26,7 +26,7 @@ def dump_file(delete_created=False):
         assert len(current_list) == 0
 
 
-def ramp_down(file_name):
+def deleting_file_by_name(file_name):
     Path(file_name.name).unlink()
     logger.info(f"Deleted file {Path(file_name.name)}")
 
@@ -37,7 +37,7 @@ def main():
         t = json.load(checked_file)
         logger.info(t)
         assert type(t) is dict
-    ramp_down(checked_file)
+    deleting_file_by_name(checked_file)
 
 
 if __name__ == "__main__":

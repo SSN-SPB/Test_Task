@@ -29,9 +29,7 @@ def main():
     # Create directory
     # parents=True creates parent directories if needed,
     # exist_ok=True prevents error if directory already exists
-    directory_path.mkdir(
-        parents=True, exist_ok=True
-    )
+    directory_path.mkdir(parents=True, exist_ok=True)
 
     if directory_path.exists():
         print(f"Directory {directory_path} exists")
