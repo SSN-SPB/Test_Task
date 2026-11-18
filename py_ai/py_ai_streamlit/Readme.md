@@ -3,7 +3,8 @@
 1. Download and install Ollama from https://ollama.com/download
 2. Pull the LLaMA model using the command:
 ```
-ollama pull llama3.2-vision
+ollama pull llava
+ollama pull moondream
 ``` 
 3. Check by command
 ```commandline
@@ -11,7 +12,8 @@ ollama list
 ```
 or by command:
 ```commandline
-ollama show llama3.2-vision
+ollama show llava
+ollama show moondream
 ```
 
 # Run application
