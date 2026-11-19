@@ -38,15 +38,6 @@ describe("Response code validation", () => {
   });
 
   it("Test that endpoing Contacts has response code 200", () => {
-
-  expect (endpointContactHasStatus200(responses)).to.be.true;
-
+    expect(endpointContactHasStatus200(responses)).to.be.true;
   });
-
-
-
-
-
-
-
 });
