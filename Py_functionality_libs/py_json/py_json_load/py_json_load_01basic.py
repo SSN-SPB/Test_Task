@@ -1,9 +1,15 @@
+# json.load() method is used to parse a JSON file and convert it into a Python object.
+
 import json
 import logging
 from pathlib import Path
 from uuid import uuid4
 
-response_data = {"status_code": 201, "time": "21 june", "status": "success"}
+response_data = {
+    "status_code": 201,
+    "time": f"21 june {uuid4()}",
+    "status": "success",
+}
 current_mark = str(uuid4())[:8]
 
 logging.basicConfig(level=logging.INFO)
