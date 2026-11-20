@@ -1,4 +1,5 @@
-# json.load() method is used to parse a JSON file and convert it into a Python object.
+# json.load() method is used to parse a JSON file
+# and convert it into a Python object.
 
 import json
 import logging
